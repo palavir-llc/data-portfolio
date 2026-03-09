@@ -162,5 +162,5 @@ export function RidgePlot({
     }
   }, [data, width, height, overlap, title, xLabel]);
 
-  return <svg ref={svgRef} className="w-full" />;
+  return <svg ref={svgRef} className="w-full" role="img" aria-label={title ?? "Ridge plot visualization"} />;
 }

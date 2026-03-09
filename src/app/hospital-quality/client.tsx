@@ -125,6 +125,7 @@ export function HospitalQualityClient() {
   const [ridgeData, setRidgeData] = useState<RidgeRow[]>([]);
   const [pcaData, setPcaData] = useState<PcaRow[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const [activeCluster, setActiveCluster] = useState<number | null>(null);
   const [ridgeMeasure, setRidgeMeasure] = useState("comp_MORT_30_PN");
@@ -144,6 +145,9 @@ export function HospitalQualityClient() {
       setShapImportance(shap);
       setRidgeData(ridge);
       setPcaData(pca);
+      setLoading(false);
+    }).catch(() => {
+      setError("Failed to load data. Please refresh.");
       setLoading(false);
     });
   }, []);
@@ -211,10 +215,21 @@ export function HospitalQualityClient() {
     return result;
   }, [pcaData]);
 
+  if (error) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-zinc-950">
+        <div className="text-center">
+          <p className="text-red-400">{error}</p>
+          <button onClick={() => window.location.reload()} className="mt-4 rounded bg-zinc-800 px-4 py-2 text-sm text-zinc-300 hover:bg-zinc-700">Retry</button>
+        </div>
+      </div>
+    );
+  }
+
   if (loading) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-zinc-950">
-        <div className="text-zinc-400">
+        <div className="text-zinc-400" aria-live="polite">
           Loading hospital quality data (4,445 hospitals)...
         </div>
       </div>

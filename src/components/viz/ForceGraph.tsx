@@ -170,7 +170,7 @@ export function ForceGraph({
 
   return (
     <div className="relative">
-      <svg ref={svgRef} className="w-full" />
+      <svg ref={svgRef} className="w-full" role="img" aria-label={title ?? "Force-directed network graph"} />
       {tooltip && (
         <div
           className="pointer-events-none absolute whitespace-pre-line rounded bg-zinc-800 px-3 py-2 text-xs text-zinc-200 shadow-lg"

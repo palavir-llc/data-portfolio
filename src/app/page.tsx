@@ -5,6 +5,17 @@ export const metadata: Metadata = {
   title: "Data Stories | Josh Elberg",
   description:
     "Interactive explorations at the intersection of machine learning and data visualization. Real public datasets, real ML, creative ways to see the world.",
+  openGraph: {
+    title: "Data Stories | Josh Elberg",
+    description: "Interactive explorations at the intersection of machine learning and data visualization.",
+    type: "website",
+    url: "https://portfolio.palavir.co",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Data Stories | Josh Elberg",
+    description: "Interactive explorations at the intersection of machine learning and data visualization.",
+  },
 };
 
 const projects = [

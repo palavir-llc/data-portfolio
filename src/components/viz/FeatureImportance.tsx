@@ -102,5 +102,5 @@ export function FeatureImportance({
     }
   }, [data, width, height, title, maxBars, color]);
 
-  return <svg ref={svgRef} className="w-full" />;
+  return <svg ref={svgRef} className="w-full" role="img" aria-label={title ?? "Feature importance chart"} />;
 }

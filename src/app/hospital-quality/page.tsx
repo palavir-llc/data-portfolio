@@ -5,6 +5,17 @@ export const metadata: Metadata = {
   title: "Hospital Quality Survival Landscape | Data Stories",
   description:
     "4,445 US hospitals mapped by quality measures using UMAP dimensionality reduction, K-Means clustering, and feature importance analysis.",
+  openGraph: {
+    title: "Hospital Quality Survival Landscape",
+    description: "4,445 US hospitals mapped by quality measures using UMAP, K-Means, Random Forest + SHAP.",
+    type: "article",
+    url: "https://portfolio.palavir.co/hospital-quality",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hospital Quality Survival Landscape",
+    description: "4,445 US hospitals clustered by 38 quality measures. Random Forest R²=0.90 with SHAP interpretation.",
+  },
 };
 
 export default function HospitalQualityPage() {

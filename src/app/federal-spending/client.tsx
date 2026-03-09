@@ -68,6 +68,7 @@ export function FederalSpendingClient() {
   const [anomalies, setAnomalies] = useState<Anomaly[]>([]);
   const [states, setStates] = useState<StateSpending[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     Promise.all([
@@ -81,13 +82,27 @@ export function FederalSpendingClient() {
       setAnomalies(anom);
       setStates(st);
       setLoading(false);
+    }).catch(() => {
+      setError("Failed to load data. Please refresh.");
+      setLoading(false);
     });
   }, []);
+
+  if (error) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-zinc-950">
+        <div className="text-center">
+          <p className="text-red-400">{error}</p>
+          <button onClick={() => window.location.reload()} className="mt-4 rounded bg-zinc-800 px-4 py-2 text-sm text-zinc-300 hover:bg-zinc-700">Retry</button>
+        </div>
+      </div>
+    );
+  }
 
   if (loading) {
     return (
       <div className="flex min-h-screen items-center justify-center bg-zinc-950">
-        <div className="text-zinc-400">Loading federal spending network (433 nodes, 500 links)...</div>
+        <div className="text-zinc-400" aria-live="polite">Loading federal spending network (433 nodes, 500 links)...</div>
       </div>
     );
   }

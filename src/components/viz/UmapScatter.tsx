@@ -112,7 +112,7 @@ export function UmapScatter({
 
   return (
     <div className="relative">
-      <svg ref={svgRef} className="w-full" />
+      <svg ref={svgRef} className="w-full" role="img" aria-label={title ?? "UMAP scatter plot visualization"} />
       {tooltip && (
         <div
           className="pointer-events-none absolute rounded bg-zinc-800 px-3 py-2 text-xs text-zinc-200 shadow-lg"
