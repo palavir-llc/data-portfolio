@@ -101,6 +101,12 @@ export function ForceGraph({
       .attr("fill-opacity", 0.8)
       .attr("stroke", "#18181b")
       .attr("stroke-width", 1)
+      .attr("tabindex", 0)
+      .attr("role", "listitem")
+      .attr("aria-label", (d) => {
+        const amt = d.total_amount ? `$${(d.total_amount / 1e9).toFixed(1)}B` : "";
+        return `${d.label}, ${d.type}, Community ${d.community}${amt ? `, ${amt}` : ""}`;
+      })
       .style("cursor", "pointer")
       .on("mouseenter", function (event, d) {
         d3.select(this).attr("fill-opacity", 1).attr("stroke-width", 2);
@@ -112,6 +118,22 @@ export function ForceGraph({
         });
       })
       .on("mouseleave", function () {
+        d3.select(this).attr("fill-opacity", 0.8).attr("stroke-width", 1);
+        setTooltip(null);
+      })
+      .on("focus", function (_, d) {
+        d3.select(this).attr("fill-opacity", 1).attr("stroke-width", 3);
+        const amt = d.total_amount ? `$${(d.total_amount / 1e9).toFixed(1)}B` : "";
+        const node = this as SVGCircleElement;
+        const rect = node.getBoundingClientRect();
+        const parentRect = svgRef.current!.getBoundingClientRect();
+        setTooltip({
+          x: rect.x - parentRect.x + rect.width / 2,
+          y: rect.y - parentRect.y,
+          content: `${d.label}\n${d.type} | Community ${d.community}${amt ? ` | ${amt}` : ""}`,
+        });
+      })
+      .on("blur", function () {
         d3.select(this).attr("fill-opacity", 0.8).attr("stroke-width", 1);
         setTooltip(null);
       })
@@ -170,7 +192,7 @@ export function ForceGraph({
 
   return (
     <div className="relative">
-      <svg ref={svgRef} className="w-full" role="img" aria-label={title ?? "Force-directed network graph"} />
+      <svg ref={svgRef} className="w-full" role="list" aria-label={title ?? "Force-directed network graph"} />
       {tooltip && (
         <div
           className="pointer-events-none absolute whitespace-pre-line rounded bg-zinc-800 px-3 py-2 text-xs text-zinc-200 shadow-lg"

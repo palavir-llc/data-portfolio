@@ -80,6 +80,9 @@ export function UmapScatter({
       .attr("stroke", (d) => colorScale(d.cluster))
       .attr("stroke-opacity", 0.9)
       .attr("stroke-width", 0.5)
+      .attr("tabindex", 0)
+      .attr("role", "listitem")
+      .attr("aria-label", (d) => d.tooltip ?? d.label ?? `Cluster ${d.cluster}`)
       .style("cursor", "pointer")
       .on("mouseenter", function (event, d) {
         d3.select(this).attr("r", (d.size ?? 4) * 2).attr("fill-opacity", 1);
@@ -91,6 +94,21 @@ export function UmapScatter({
       })
       .on("mouseleave", function (_, d) {
         d3.select(this).attr("r", d.size ?? 4).attr("fill-opacity", 0.7);
+        setTooltip(null);
+      })
+      .on("focus", function (_, d) {
+        d3.select(this).attr("r", (d.size ?? 4) * 2).attr("fill-opacity", 1).attr("stroke-width", 2);
+        const node = this as SVGCircleElement;
+        const rect = node.getBoundingClientRect();
+        const parentRect = svgRef.current!.getBoundingClientRect();
+        setTooltip({
+          x: rect.x - parentRect.x + rect.width / 2,
+          y: rect.y - parentRect.y,
+          content: d.tooltip ?? d.label ?? `Cluster ${d.cluster}`,
+        });
+      })
+      .on("blur", function (_, d) {
+        d3.select(this).attr("r", d.size ?? 4).attr("fill-opacity", 0.7).attr("stroke-width", 0.5);
         setTooltip(null);
       });
 
@@ -112,7 +130,7 @@ export function UmapScatter({
 
   return (
     <div className="relative">
-      <svg ref={svgRef} className="w-full" role="img" aria-label={title ?? "UMAP scatter plot visualization"} />
+      <svg ref={svgRef} className="w-full" role="list" aria-label={title ?? "UMAP scatter plot visualization"} />
       {tooltip && (
         <div
           className="pointer-events-none absolute rounded bg-zinc-800 px-3 py-2 text-xs text-zinc-200 shadow-lg"
