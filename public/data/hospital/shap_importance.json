@@ -1,0 +1,122 @@
+[
+  {
+    "feature": "comp_MORT_30_PN",
+    "importance": 0.2832
+  },
+  {
+    "feature": "comp_Hybrid_HWM",
+    "importance": 0.0846
+  },
+  {
+    "feature": "comp_PSI_90",
+    "importance": 0.0829
+  },
+  {
+    "feature": "heal_HAI_5_NUMERATOR",
+    "importance": 0.0566
+  },
+  {
+    "feature": "comp_PSI_12",
+    "importance": 0.056
+  },
+  {
+    "feature": "heal_HAI_5_ELIGCASES",
+    "importance": 0.0493
+  },
+  {
+    "feature": "heal_HAI_3_DOPC",
+    "importance": 0.0475
+  },
+  {
+    "feature": "comp_PSI_11",
+    "importance": 0.0465
+  },
+  {
+    "feature": "comp_PSI_13",
+    "importance": 0.0449
+  },
+  {
+    "feature": "heal_HAI_3_ELIGCASES",
+    "importance": 0.0343
+  },
+  {
+    "feature": "heal_HAI_2_ELIGCASES",
+    "importance": 0.0325
+  },
+  {
+    "feature": "heal_HAI_1_NUMERATOR",
+    "importance": 0.029
+  },
+  {
+    "feature": "comp_MORT_30_HF",
+    "importance": 0.0274
+  },
+  {
+    "feature": "heal_HAI_2_DOPC",
+    "importance": 0.0265
+  },
+  {
+    "feature": "heal_HAI_6_ELIGCASES",
+    "importance": 0.0265
+  },
+  {
+    "feature": "comp_PSI_10",
+    "importance": 0.0231
+  },
+  {
+    "feature": "comp_MORT_30_COPD",
+    "importance": 0.0228
+  },
+  {
+    "feature": "comp_PSI_03",
+    "importance": 0.0189
+  },
+  {
+    "feature": "comp_PSI_14",
+    "importance": 0.0162
+  },
+  {
+    "feature": "heal_HAI_1_ELIGCASES",
+    "importance": 0.0146
+  },
+  {
+    "feature": "heal_HAI_4_DOPC",
+    "importance": 0.0141
+  },
+  {
+    "feature": "heal_HAI_1_DOPC",
+    "importance": 0.014
+  },
+  {
+    "feature": "heal_HAI_2_CIUPPER",
+    "importance": 0.0138
+  },
+  {
+    "feature": "heal_HAI_6_CILOWER",
+    "importance": 0.0135
+  },
+  {
+    "feature": "heal_HAI_4_ELIGCASES",
+    "importance": 0.0132
+  },
+  {
+    "feature": "comp_PSI_09",
+    "importance": 0.0131
+  },
+  {
+    "feature": "heal_HAI_6_SIR",
+    "importance": 0.0128
+  },
+  {
+    "feature": "heal_HAI_6_CIUPPER",
+    "importance": 0.0125
+  },
+  {
+    "feature": "heal_HAI_6_DOPC",
+    "importance": 0.0123
+  },
+  {
+    "feature": "heal_HAI_3_NUMERATOR",
+    "importance": 0.0119
+  }
+]

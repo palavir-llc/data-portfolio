@@ -1,0 +1,106 @@
+[
+  {
+    "cluster": 0,
+    "count": 105,
+    "top_skills": [
+      "abi_Trunk Strength",
+      "abi_Stamina",
+      "abi_Extent Flexibility",
+      "abi_Dynamic Strength",
+      "abi_Static Strength"
+    ],
+    "median_wage": 36710.0,
+    "mean_wage": 38938.0
+  },
+  {
+    "cluster": 1,
+    "count": 121,
+    "top_skills": [
+      "ski_Programming",
+      "ski_Technology Design",
+      "kno_Engineering and Technology",
+      "abi_Mathematical Reasoning",
+      "ski_Mathematics"
+    ],
+    "median_wage": 100270.0,
+    "mean_wage": 101274.0
+  },
+  {
+    "cluster": 2,
+    "count": 113,
+    "top_skills": [
+      "abi_Spatial Orientation",
+      "abi_Night Vision",
+      "abi_Glare Sensitivity",
+      "abi_Sound Localization",
+      "abi_Peripheral Vision"
+    ],
+    "median_wage": 68540.0,
+    "mean_wage": 71585.0
+  },
+  {
+    "cluster": 3,
+    "count": 183,
+    "top_skills": [
+      "abi_Rate Control",
+      "abi_Reaction Time",
+      "ski_Repairing",
+      "ski_Equipment Maintenance",
+      "abi_Speed of Limb Movement"
+    ],
+    "median_wage": 47540.0,
+    "mean_wage": 50379.0
+  },
+  {
+    "cluster": 4,
+    "count": 57,
+    "top_skills": [
+      "kno_Medicine and Dentistry",
+      "kno_Therapy and Counseling",
+      "abi_Problem Sensitivity",
+      "kno_Biology",
+      "kno_Psychology"
+    ],
+    "median_wage": 86905.0,
+    "mean_wage": 101291.0
+  },
+  {
+    "cluster": 5,
+    "count": 105,
+    "top_skills": [
+      "kno_Clerical",
+      "kno_Economics and Accounting",
+      "kno_Customer and Personal Service",
+      "abi_Speech Recognition",
+      "kno_Computers and Electronics"
+    ],
+    "median_wage": 48000.0,
+    "mean_wage": 53035.0
+  },
+  {
+    "cluster": 6,
+    "count": 164,
+    "top_skills": [
+      "kno_Sociology and Anthropology",
+      "abi_Speech Clarity",
+      "kno_Philosophy and Theology",
+      "kno_English Language",
+      "ski_Speaking"
+    ],
+    "median_wage": 81205.0,
+    "mean_wage": 89142.0
+  },
+  {
+    "cluster": 7,
+    "count": 119,
+    "top_skills": [
+      "abi_Arm-Hand Steadiness",
+      "abi_Finger Dexterity",
+      "kno_Medicine and Dentistry",
+      "abi_Manual Dexterity",
+      "kno_Customer and Personal Service"
+    ],
+    "median_wage": 47850.0,
+    "mean_wage": 55818.0
+  }
+]

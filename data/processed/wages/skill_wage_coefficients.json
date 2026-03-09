@@ -1,0 +1,122 @@
+[
+  {
+    "skill": "ski_Repairing",
+    "coefficient": -7937.29
+  },
+  {
+    "skill": "kno_Clerical",
+    "coefficient": -7595.82
+  },
+  {
+    "skill": "kno_Physics",
+    "coefficient": 6930.94
+  },
+  {
+    "skill": "abi_Written Comprehension",
+    "coefficient": 6870.81
+  },
+  {
+    "skill": "abi_Arm-Hand Steadiness",
+    "coefficient": -6554.08
+  },
+  {
+    "skill": "abi_Gross Body Coordination",
+    "coefficient": -6027.31
+  },
+  {
+    "skill": "ski_Equipment Maintenance",
+    "coefficient": 5905.65
+  },
+  {
+    "skill": "kno_Medicine and Dentistry",
+    "coefficient": 5781.93
+  },
+  {
+    "skill": "ski_Reading Comprehension",
+    "coefficient": -5641.14
+  },
+  {
+    "skill": "abi_Extent Flexibility",
+    "coefficient": 5579.47
+  },
+  {
+    "skill": "ski_Mathematics",
+    "coefficient": -5298.75
+  },
+  {
+    "skill": "ski_Management of Financial Resources",
+    "coefficient": 4891.16
+  },
+  {
+    "skill": "abi_Gross Body Equilibrium",
+    "coefficient": 4567.06
+  },
+  {
+    "skill": "abi_Inductive Reasoning",
+    "coefficient": 4511.71
+  },
+  {
+    "skill": "ski_Complex Problem Solving",
+    "coefficient": 4481.71
+  },
+  {
+    "skill": "abi_Problem Sensitivity",
+    "coefficient": 4458.04
+  },
+  {
+    "skill": "abi_Category Flexibility",
+    "coefficient": -4282.97
+  },
+  {
+    "skill": "abi_Reaction Time",
+    "coefficient": -4121.76
+  },
+  {
+    "skill": "kno_Therapy and Counseling",
+    "coefficient": -4098.59
+  },
+  {
+    "skill": "abi_Oral Expression",
+    "coefficient": -4029.92
+  },
+  {
+    "skill": "kno_Food Production",
+    "coefficient": -3781.52
+  },
+  {
+    "skill": "ski_Monitoring",
+    "coefficient": 3658.71
+  },
+  {
+    "skill": "abi_Rate Control",
+    "coefficient": 3642.28
+  },
+  {
+    "skill": "abi_Manual Dexterity",
+    "coefficient": 3529.81
+  },
+  {
+    "skill": "kno_Personnel and Human Resources",
+    "coefficient": 3485.16
+  },
+  {
+    "skill": "abi_Deductive Reasoning",
+    "coefficient": 3407.48
+  },
+  {
+    "skill": "abi_Dynamic Strength",
+    "coefficient": -3338.8
+  },
+  {
+    "skill": "abi_Control Precision",
+    "coefficient": 3306.11
+  },
+  {
+    "skill": "abi_Trunk Strength",
+    "coefficient": -3278.84
+  },
+  {
+    "skill": "abi_Depth Perception",
+    "coefficient": -3241.88
+  }
+]

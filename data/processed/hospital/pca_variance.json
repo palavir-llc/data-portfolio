@@ -1,0 +1,82 @@
+[
+  {
+    "component": 1,
+    "variance_explained": 0.39
+  },
+  {
+    "component": 2,
+    "variance_explained": 0.0757
+  },
+  {
+    "component": 3,
+    "variance_explained": 0.0595
+  },
+  {
+    "component": 4,
+    "variance_explained": 0.0512
+  },
+  {
+    "component": 5,
+    "variance_explained": 0.0444
+  },
+  {
+    "component": 6,
+    "variance_explained": 0.0362
+  },
+  {
+    "component": 7,
+    "variance_explained": 0.0343
+  },
+  {
+    "component": 8,
+    "variance_explained": 0.0325
+  },
+  {
+    "component": 9,
+    "variance_explained": 0.0263
+  },
+  {
+    "component": 10,
+    "variance_explained": 0.0242
+  },
+  {
+    "component": 11,
+    "variance_explained": 0.0235
+  },
+  {
+    "component": 12,
+    "variance_explained": 0.0216
+  },
+  {
+    "component": 13,
+    "variance_explained": 0.0207
+  },
+  {
+    "component": 14,
+    "variance_explained": 0.0197
+  },
+  {
+    "component": 15,
+    "variance_explained": 0.0178
+  },
+  {
+    "component": 16,
+    "variance_explained": 0.0166
+  },
+  {
+    "component": 17,
+    "variance_explained": 0.0149
+  },
+  {
+    "component": 18,
+    "variance_explained": 0.0138
+  },
+  {
+    "component": 19,
+    "variance_explained": 0.012
+  },
+  {
+    "component": 20,
+    "variance_explained": 0.0111
+  }
+]
