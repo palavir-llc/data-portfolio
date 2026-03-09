@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useMemo } from "react";
+import Link from "next/link";
 import { UmapScatter } from "@/components/viz/UmapScatter";
 import { RidgePlot } from "@/components/viz/RidgePlot";
 import { FeatureImportance } from "@/components/viz/FeatureImportance";
@@ -201,11 +202,13 @@ export function HospitalQualityClient() {
 
   /* PCA cumulative variance */
   const pcaCumulative = useMemo(() => {
-    let cum = 0;
-    return pcaData.map((p) => {
-      cum += p.variance_explained;
-      return { component: p.component, individual: p.variance_explained, cumulative: cum };
-    });
+    const result: { component: number; individual: number; cumulative: number }[] = [];
+    pcaData.reduce((cum, p) => {
+      const next = cum + p.variance_explained;
+      result.push({ component: p.component, individual: p.variance_explained, cumulative: next });
+      return next;
+    }, 0);
+    return result;
   }, [pcaData]);
 
   if (loading) {
@@ -223,12 +226,12 @@ export function HospitalQualityClient() {
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-zinc-800 px-6 py-20">
         <div className="mx-auto max-w-5xl">
-          <a
+          <Link
             href="/"
             className="mb-6 inline-block text-sm text-zinc-500 hover:text-zinc-300"
           >
             &larr; All Stories
-          </a>
+          </Link>
           <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl">
             Hospital Quality Survival Landscape
           </h1>
@@ -586,12 +589,12 @@ export function HospitalQualityClient() {
             </div>
           </div>
           <div className="mt-10 border-t border-zinc-800 pt-6">
-            <a
+            <Link
               href="/"
               className="text-sm text-zinc-500 hover:text-zinc-300"
             >
               &larr; Back to all stories
-            </a>
+            </Link>
           </div>
         </div>
       </section>

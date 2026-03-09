@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { UmapScatter } from "@/components/viz/UmapScatter";
 import { RidgePlot } from "@/components/viz/RidgePlot";
 import { FeatureImportance } from "@/components/viz/FeatureImportance";
@@ -133,9 +134,9 @@ export function WageTopologyClient() {
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-zinc-800 px-6 py-20">
         <div className="mx-auto max-w-5xl">
-          <a href="/" className="mb-6 inline-block text-sm text-zinc-500 hover:text-zinc-300">
+          <Link href="/" className="mb-6 inline-block text-sm text-zinc-500 hover:text-zinc-300">
             &larr; All Stories
-          </a>
+          </Link>
           <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl">
             The Wage Topology
           </h1>
@@ -373,9 +374,9 @@ export function WageTopologyClient() {
             </div>
           </div>
           <div className="mt-10 border-t border-zinc-800 pt-6">
-            <a href="/" className="text-sm text-zinc-500 hover:text-zinc-300">
+            <Link href="/" className="text-sm text-zinc-500 hover:text-zinc-300">
               &larr; Back to all stories
-            </a>
+            </Link>
           </div>
         </div>
       </section>

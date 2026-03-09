@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Data Stories | Josh Elberg",
+  description:
+    "Interactive explorations at the intersection of machine learning and data visualization. Real public datasets, real ML, creative ways to see the world.",
+};
 
 const projects = [
   {
