@@ -688,6 +688,12 @@ export function FraudInAmericaClient() {
   const [political, setPolitical] = useState<any>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [sectorDeep, setSectorDeep] = useState<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [stateRisk, setStateRisk] = useState<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [industryRisk, setIndustryRisk] = useState<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [entityNets, setEntityNets] = useState<any>(null);
   const [timelapseFrame, setTimelapseFrame] = useState(0);
   const [timelapsePlay, setTimelapsePlay] = useState(false);
   const [corpFlagged, setCorpFlagged] = useState<CorporateFlagged[]>([]);
@@ -723,11 +729,15 @@ export function FraudInAmericaClient() {
       fetch("/data/fraud/ppp_timelapse.json").then((r) => r.json()).catch(() => []),
       fetch("/data/fraud/political_analysis.json").then((r) => r.json()).catch(() => null),
       fetch("/data/fraud/ppp_sector_deep.json").then((r) => r.json()).catch(() => null),
-    ]).then(([states, scatter, summary, naics, deepDive, pppAnal, npData, flagged, dist, cSummary, db, hSpec, cfpbData, dojData, tl, netData, stockData, tlData, polData, secData]) => {
+      fetch("/data/fraud/state_risk_model.json").then((r) => r.json()).catch(() => null),
+      fetch("/data/fraud/industry_risk_rankings.json").then((r) => r.json()).catch(() => null),
+      fetch("/data/fraud/entity_networks_evidence.json").then((r) => r.json()).catch(() => null),
+    ]).then(([states, scatter, summary, naics, deepDive, pppAnal, npData, flagged, dist, cSummary, db, hSpec, cfpbData, dojData, tl, netData, stockData, tlData, polData, secData, srData, irData, enData]) => {
       setPPPStates(states); setPPPScatter(scatter); setPPPSummary(summary); setPPPNaics(naics);
       setPPPDeep(deepDive); setPPPAnalysis(pppAnal); setNonprofits(npData); setCorpDB(db);
       setPPPNetwork(netData); setStockPrices(stockData || []); setTimelapse(tlData || []);
       setPolitical(polData); setSectorDeep(secData);
+      setStateRisk(srData); setIndustryRisk(irData); setEntityNets(enData);
       setCorpFlagged(flagged); setCorpDist(dist); setCorpSummary(cSummary);
       setHealthSpecialty(hSpec); setCFPB(cfpbData); setDOJ(dojData); setTimeline(tl);
       setLoading(false);
@@ -2010,6 +2020,152 @@ export function FraudInAmericaClient() {
           </div>
 
           <Source text="FBI IC3 + FTC Sentinel + DOJ FCA + FDIC BankFind + OpenSanctions + SBA EIDL + IRS BMF" />
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════════
+          PREDICTIVE MODEL + ENTITY NETWORKS
+         ═══════════════════════════════════════════════════════════════ */}
+      <section className="px-6 py-20">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-3xl font-extrabold tracking-tight">Where to Look Next: Predictive Model</h2>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-zinc-400">
+            We built a composite risk score for every state using 6 features: PPP anomaly rate,
+            LEIE healthcare exclusions per capita, home health exclusions per capita, CFPB
+            complaint density, and business structure mix. Known fraud hotspots (CA, FL, TX, MN, NY)
+            all validate in the top 15. Here are the predictions.
+          </p>
+
+          {/* State Risk Choropleth */}
+          {stateRisk?.rankings && (
+            <div className="mt-8">
+              <Choropleth
+                data={stateRisk.rankings.map((s: any) => ({
+                  state: s.state,
+                  state_fips: s.state_fips,
+                  value: s.risk_score,
+                  label: `${s.state_name}: Risk ${s.risk_score}/100 | PPP ${(s.ppp_anomaly_rate*100).toFixed(1)}% | LEIE ${s.leie_per_100k}/100K`,
+                }))}
+                valueFormat={(v) => `Risk score: ${v.toFixed(0)}/100`}
+                colorScheme="oranges"
+              />
+              <p className="mt-2 text-[10px] text-zinc-600">
+                Sources: SBA PPP FOIA + OIG LEIE + CFPB + Census population data. Methodology in JSON download.
+              </p>
+            </div>
+          )}
+
+          {/* Predictions table */}
+          {stateRisk?.predictions && stateRisk.predictions.length > 0 && (
+            <div className="mt-8">
+              <h3 className="text-lg font-bold text-zinc-200">Predicted Fraud Hotspots (Not Yet Investigated)</h3>
+              <p className="mt-2 mb-4 text-sm text-zinc-500">
+                These states have risk profiles similar to known fraud hotspots but have not had
+                major federal fraud investigations. Each prediction is verifiable from the source data.
+              </p>
+              <div className="overflow-x-auto rounded-xl border border-zinc-800">
+                <table className="w-full text-sm">
+                  <thead>
+                    <tr className="bg-zinc-900/80 text-left text-xs text-zinc-500">
+                      <th className="px-4 py-2.5">State</th>
+                      <th className="px-4 py-2.5 text-right">Risk Score</th>
+                      <th className="px-4 py-2.5">Key Indicators</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {stateRisk.predictions.map((p: any, i: number) => (
+                      <tr key={i} className="border-t border-zinc-800/40 hover:bg-zinc-900/40">
+                        <td className="px-4 py-2.5 font-medium text-zinc-200">{p.state_name}</td>
+                        <td className="px-4 py-2.5 text-right">
+                          <span className={`font-bold ${p.risk_score > 70 ? "text-red-400" : p.risk_score > 50 ? "text-amber-400" : "text-zinc-300"}`}>
+                            {p.risk_score}
+                          </span>
+                        </td>
+                        <td className="px-4 py-2.5 text-xs text-zinc-500">{p.why}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
+
+          {/* Industry Risk Rankings */}
+          {industryRisk?.industries && (
+            <div className="mt-16">
+              <h3 className="text-2xl font-extrabold text-zinc-100">Industry Risk Map: 35 Sectors Ranked</h3>
+              <p className="mt-3 mb-6 max-w-2xl text-sm text-zinc-500">
+                Cash-heavy, hard-to-verify businesses dominate the top. Every bar links to
+                verifiable SBA data by searching borrower names matching the industry keyword.
+              </p>
+              <div className="space-y-1.5">
+                {industryRisk.industries.slice(0, 20).map((ind: any, i: number) => (
+                  <AnimatedBar key={i}
+                    label={ind.industry}
+                    value={ind.rate * 100}
+                    maxValue={Math.min(industryRisk.industries[0].rate * 100, 6)}
+                    color={ind.multiplier > 1.5 ? "#ef4444" : ind.multiplier > 1.2 ? "#f59e0b" : ind.multiplier > 0.8 ? "#3b82f6" : "#6b7280"}
+                    fmt={(v: number) => `${v.toFixed(1)}% (${ind.multiplier}x avg, ${ind.loans.toLocaleString()} loans)`} />
+                ))}
+              </div>
+              <p className="mt-3 text-[10px] text-zinc-600">
+                Source: SBA PPP FOIA. Industry identified by keyword matching in BorrowerName field.
+                Overall anomaly rate: {((industryRisk.overall_rate || 0.02) * 100).toFixed(2)}%.
+              </p>
+            </div>
+          )}
+
+          {/* Entity Networks */}
+          {entityNets?.entity_networks && (
+            <div className="mt-16">
+              <h3 className="text-2xl font-extrabold text-zinc-100">Entity Networks: Follow the Addresses</h3>
+              <p className="mt-3 mb-6 max-w-2xl text-sm text-zinc-500">
+                97 addresses had 10+ PPP loans with 5+ flagged as anomalous. Each is verifiable
+                by searching the SBA PPP data for the exact address. The entity names, loan amounts,
+                and forgiveness data are all from the government&apos;s own FOIA release.
+              </p>
+              <div className="space-y-4">
+                {entityNets.entity_networks.slice(0, 6).map((n: any, i: number) => (
+                  <div key={i} className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <h4 className="font-bold text-zinc-200">{n.address}</h4>
+                        <p className="text-xs text-zinc-500">{n.city}, {n.state} {n.county ? `(${n.county} County)` : ""}</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-lg font-extrabold text-red-400">{n.anomalies}/{n.total_loans}</p>
+                        <p className="text-[10px] text-zinc-500">anomalous</p>
+                      </div>
+                    </div>
+                    <div className="mt-3 grid grid-cols-3 gap-3 text-center">
+                      <div><p className="text-sm font-bold text-zinc-300">{n.unique_names}</p><p className="text-[10px] text-zinc-600">entities</p></div>
+                      <div><p className="text-sm font-bold text-zinc-300">{$(n.total_amount)}</p><p className="text-[10px] text-zinc-600">total PPP</p></div>
+                      <div><p className="text-sm font-bold text-zinc-300">{$(n.total_forgiven)}</p><p className="text-[10px] text-zinc-600">forgiven</p></div>
+                    </div>
+                    {n.unique_naics > 5 && (
+                      <p className="mt-2 text-[10px] text-amber-400">{n.unique_naics} different industries at one address</p>
+                    )}
+                    <details className="mt-3">
+                      <summary className="cursor-pointer text-xs text-blue-400 hover:text-blue-300">Show all {n.entities.length} entities</summary>
+                      <div className="mt-2 max-h-48 overflow-y-auto rounded bg-zinc-800/50 p-2 text-[10px]">
+                        {n.entities.map((e: any, j: number) => (
+                          <div key={j} className="flex justify-between py-0.5 border-b border-zinc-800/30">
+                            <span className="text-zinc-300">{e.name}</span>
+                            <span className={e.anomaly ? "text-red-400" : "text-zinc-500"}>{$(e.amount)}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </details>
+                    <p className="mt-2 text-[9px] text-zinc-700">Verify: search SBA PPP data for BorrowerAddress = &quot;{n.address}&quot;</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <Source text="All findings verifiable from SBA PPP FOIA (data.sba.gov), OIG LEIE (oig.hhs.gov), CFPB (consumerfinance.gov), FDIC (banks.data.fdic.gov)" />
         </div>
       </section>
 

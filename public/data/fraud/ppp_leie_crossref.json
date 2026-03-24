@@ -1,0 +1,44 @@
+{
+  "total_matches": 18,
+  "same_state_matches": 3,
+  "all_hits": 21,
+  "top_same_state": [
+    {
+      "name": "TAILOR MADE COMPOUNDING, LLC",
+      "ppp_state": "KY",
+      "ppp_city": "NICHOLASVILLE",
+      "ppp_amount": 582500,
+      "ppp_anomaly": false,
+      "leie_state": "KY",
+      "leie_specialty": "PHARMACY",
+      "leie_excltype": "1128a3",
+      "same_state": true
+    },
+    {
+      "name": "COMPASSIONATE HOME CARE",
+      "ppp_state": "MN",
+      "ppp_city": "ZIMMERMAN",
+      "ppp_amount": 300200,
+      "ppp_anomaly": false,
+      "leie_state": "MN",
+      "leie_specialty": "nan",
+      "leie_excltype": "1128b8",
+      "same_state": true
+    },
+    {
+      "name": "LABTOX, LLC",
+      "ppp_state": "KY",
+      "ppp_city": "LEXINGTON",
+      "ppp_amount": 217690,
+      "ppp_anomaly": false,
+      "leie_state": "KY",
+      "leie_specialty": "LABORATORY",
+      "leie_excltype": "1128b7",
+      "same_state": true
+    }
+  ],
+  "source_ppp": "SBA PPP FOIA (data.sba.gov/dataset/ppp-foia)",
+  "source_leie": "OIG LEIE Exclusion List (oig.hhs.gov/exclusions/)",
+  "match_method": "Exact business name match, filtered to same state",
+  "caveat": "Business names may be coincidentally identical across different entities. Same-state matching reduces but does not eliminate false positives."
+}
