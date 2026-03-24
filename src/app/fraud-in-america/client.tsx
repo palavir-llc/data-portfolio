@@ -1911,7 +1911,105 @@ export function FraudInAmericaClient() {
             </p>
           </div>
 
-          <Source text="FBI IC3 Annual Report 2023 + FTC Consumer Sentinel 2023 + DOJ FCA Statistics" />
+          {/* Cross-Reference Findings */}
+          <div className="mt-16">
+            <h3 className="text-2xl font-extrabold text-zinc-100">Cross-Referencing the Datasets</h3>
+            <p className="mt-3 mb-8 max-w-2xl text-sm text-zinc-500">
+              The real power of public data is in the connections. We matched PPP borrowers
+              against EIDL loans, sanctioned entities, failed banks, and IRS nonprofit filings.
+              Here is what overlaps.
+            </p>
+
+            <div className="grid gap-6 lg:grid-cols-2">
+              {/* EIDL Double-Dipping */}
+              <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6">
+                <h4 className="text-base font-bold text-zinc-200">PPP + EIDL Double-Dipping</h4>
+                <p className="mt-1 text-[11px] text-zinc-500 mb-4">3.77M EIDL loans cross-referenced with 968K PPP loans</p>
+                <div className="space-y-3">
+                  <div className="flex justify-between"><span className="text-sm text-zinc-400">Entities in both programs</span><span className="text-lg font-bold text-amber-400">113,836</span></div>
+                  <div className="flex justify-between"><span className="text-sm text-zinc-400">Double-dipper anomaly rate</span><span className="text-sm text-zinc-300">1.92%</span></div>
+                  <div className="flex justify-between"><span className="text-sm text-zinc-400">PPP-only anomaly rate</span><span className="text-sm text-zinc-300">2.01%</span></div>
+                </div>
+                <p className="mt-3 text-[10px] text-zinc-600">
+                  Surprise: double-dippers had a <em>lower</em> anomaly rate. Most were legitimate
+                  businesses using every available lifeline. The fraud was in entities that
+                  appeared from nowhere, not established businesses accessing multiple programs.
+                </p>
+              </div>
+
+              {/* Sanctioned Entities */}
+              <div className="rounded-xl border border-red-500/20 bg-red-500/5 p-6">
+                <h4 className="text-base font-bold text-red-400">Sanctioned Entities Got PPP Funds</h4>
+                <p className="mt-1 text-[11px] text-zinc-500 mb-4">OpenSanctions database (81K US entities) vs PPP borrowers</p>
+                <div className="space-y-3">
+                  <div className="flex justify-between"><span className="text-sm text-zinc-400">Sanctioned orgs matched to PPP</span><span className="text-lg font-bold text-red-400">145</span></div>
+                  <div className="flex justify-between"><span className="text-sm text-zinc-400">Total PPP funds received</span><span className="text-sm font-bold text-red-400">$112.7M</span></div>
+                </div>
+                <p className="mt-3 text-[10px] text-zinc-600">
+                  145 organizations on sanctions/exclusion lists matched PPP borrowers by name.
+                  Name matching can produce false positives for common names, but the presence
+                  of excluded entities in the PPP program warrants investigation.
+                </p>
+              </div>
+
+              {/* Failed Banks */}
+              <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-6">
+                <h4 className="text-base font-bold text-amber-400">Signature Bank: The Canary</h4>
+                <p className="mt-1 text-[11px] text-zinc-500 mb-4">FDIC failed bank list vs PPP originating lenders</p>
+                <div className="space-y-3">
+                  <div className="flex justify-between"><span className="text-sm text-zinc-400">Signature Bank PPP loans</span><span className="text-lg font-bold text-zinc-200">4,392</span></div>
+                  <div className="flex justify-between"><span className="text-sm text-zinc-400">Anomaly rate</span><span className="text-sm font-bold text-red-400">5.3%</span></div>
+                  <div className="flex justify-between"><span className="text-sm text-zinc-400">vs overall average</span><span className="text-sm text-zinc-400">2.0%</span></div>
+                </div>
+                <p className="mt-3 text-[10px] text-zinc-600">
+                  Signature Bank had a PPP anomaly rate 2.6x the national average. The bank
+                  collapsed in March 2023 in one of the largest failures in US history.
+                  Correlation is not causation, but weak vetting of PPP loans may reflect
+                  broader risk management failures.
+                </p>
+              </div>
+
+              {/* IRS 990 */}
+              <div className="rounded-xl border border-blue-500/20 bg-blue-500/5 p-6">
+                <h4 className="text-base font-bold text-blue-400">IRS 990 vs PPP: Revenue Mismatch</h4>
+                <p className="mt-1 text-[11px] text-zinc-500 mb-4">IRS nonprofit filings (Michigan sample) vs PPP loan amounts</p>
+                <div className="space-y-3">
+                  <div className="flex justify-between"><span className="text-sm text-zinc-400">Nonprofits matched</span><span className="text-lg font-bold text-zinc-200">496</span></div>
+                  <div className="flex justify-between"><span className="text-sm text-zinc-400">PPP exceeds annual revenue</span><span className="text-sm font-bold text-amber-400">98</span></div>
+                </div>
+                <p className="mt-3 text-[10px] text-zinc-600">
+                  Scheurer Healthcare Network: $5.5M PPP loan vs $480K in IRS-reported revenue
+                  (11.4x ratio). When a PPP loan is 11 times your annual revenue, the math
+                  doesn&apos;t work. Michigan is one state. This pattern likely scales nationally.
+                </p>
+              </div>
+            </div>
+
+            {/* Name Pattern Analysis */}
+            <div className="mt-8 rounded-xl border border-zinc-800 bg-zinc-900/50 p-6">
+              <h4 className="text-base font-bold text-zinc-200">What&apos;s in a Name? Entity Structure Fraud Signals</h4>
+              <p className="mt-2 mb-4 text-xs text-zinc-500">
+                Certain name patterns correlate with higher anomaly rates. The strongest signal:
+                entities filed as both LLC and Sole Proprietorship simultaneously.
+              </p>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <Comparison
+                  description="LLCs filed as Sole Proprietorship (contradiction)"
+                  leftLabel="Overall rate" left="2.0%"
+                  rightLabel="LLC + Sole Prop" right="13.0%"
+                  multiplier="6.5x"
+                />
+                <Comparison
+                  description="Names with shell-company keywords (Holdings, Ventures, Capital)"
+                  leftLabel="Overall rate" left="2.0%"
+                  rightLabel="Shell keywords" right="2.2%"
+                  multiplier="1.1x"
+                />
+              </div>
+            </div>
+          </div>
+
+          <Source text="FBI IC3 + FTC Sentinel + DOJ FCA + FDIC BankFind + OpenSanctions + SBA EIDL + IRS BMF" />
         </div>
       </section>
 
