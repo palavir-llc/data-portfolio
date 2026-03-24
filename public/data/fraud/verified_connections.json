@@ -1,0 +1,4124 @@
+{
+  "signature_bank": {
+    "verified": true,
+    "bank_name": "Signature Bank",
+    "bank_city": "New York City",
+    "bank_state": "NY",
+    "total_loans": 3858,
+    "anomalous_loans": 221,
+    "anomaly_rate": 0.0573,
+    "total_amount": 2759262153,
+    "anomaly_amount": 355870674,
+    "collapse_date": "2023-03-12",
+    "note": "Verified: filtered to OriginatingLenderCity=NEW YORK CITY, State=NY. Other Signature Banks in IL/OH/GA are different institutions.",
+    "context": "Signature Bank collapsed March 12, 2023 with $110B in assets, the third-largest bank failure in US history. FDIC took control after a run on deposits following SVB collapse."
+  },
+  "congressional_districts": [
+    {
+      "district": "NM-02",
+      "state": "NM",
+      "anomalous_loans": 19,
+      "forgiven_pct": 1.0,
+      "total_amount": 18208537,
+      "forgiven_amount": 18394972,
+      "avg_loan": 958344
+    },
+    {
+      "district": "NY-19",
+      "state": "NY",
+      "anomalous_loans": 38,
+      "forgiven_pct": 1.0,
+      "total_amount": 70293672,
+      "forgiven_amount": 71124032,
+      "avg_loan": 1849833
+    },
+    {
+      "district": "OH-03",
+      "state": "OH",
+      "anomalous_loans": 29,
+      "forgiven_pct": 1.0,
+      "total_amount": 69127530,
+      "forgiven_amount": 69813056,
+      "avg_loan": 2383708
+    },
+    {
+      "district": "OK-04",
+      "state": "OK",
+      "anomalous_loans": 16,
+      "forgiven_pct": 1.0,
+      "total_amount": 16518904,
+      "forgiven_amount": 16672715,
+      "avg_loan": 1032431
+    },
+    {
+      "district": "PA-15",
+      "state": "PA",
+      "anomalous_loans": 21,
+      "forgiven_pct": 1.0,
+      "total_amount": 34593214,
+      "forgiven_amount": 34935149,
+      "avg_loan": 1647296
+    },
+    {
+      "district": "SC-02",
+      "state": "SC",
+      "anomalous_loans": 14,
+      "forgiven_pct": 1.0,
+      "total_amount": 26587308,
+      "forgiven_amount": 26895203,
+      "avg_loan": 1899093
+    },
+    {
+      "district": "SC-05",
+      "state": "SC",
+      "anomalous_loans": 12,
+      "forgiven_pct": 1.0,
+      "total_amount": 14793162,
+      "forgiven_amount": 14945575,
+      "avg_loan": 1232764
+    },
+    {
+      "district": "SC-07",
+      "state": "SC",
+      "anomalous_loans": 22,
+      "forgiven_pct": 1.0,
+      "total_amount": 16221108,
+      "forgiven_amount": 16355839,
+      "avg_loan": 737323
+    },
+    {
+      "district": "SD-",
+      "state": "SD",
+      "anomalous_loans": 31,
+      "forgiven_pct": 1.0,
+      "total_amount": 41075696,
+      "forgiven_amount": 41510182,
+      "avg_loan": 1325022
+    },
+    {
+      "district": "TN-06",
+      "state": "TN",
+      "anomalous_loans": 20,
+      "forgiven_pct": 1.0,
+      "total_amount": 19887247,
+      "forgiven_amount": 20084573,
+      "avg_loan": 994362
+    },
+    {
+      "district": "VA-01",
+      "state": "VA",
+      "anomalous_loans": 24,
+      "forgiven_pct": 1.0,
+      "total_amount": 45402422,
+      "forgiven_amount": 45850526,
+      "avg_loan": 1891768
+    },
+    {
+      "district": "VT-",
+      "state": "VT",
+      "anomalous_loans": 28,
+      "forgiven_pct": 1.0,
+      "total_amount": 30095610,
+      "forgiven_amount": 30405006,
+      "avg_loan": 1074843
+    },
+    {
+      "district": "WA-04",
+      "state": "WA",
+      "anomalous_loans": 26,
+      "forgiven_pct": 1.0,
+      "total_amount": 42866066,
+      "forgiven_amount": 43278618,
+      "avg_loan": 1648695
+    },
+    {
+      "district": "WI-01",
+      "state": "WI",
+      "anomalous_loans": 16,
+      "forgiven_pct": 1.0,
+      "total_amount": 32936792,
+      "forgiven_amount": 33235833,
+      "avg_loan": 2058550
+    },
+    {
+      "district": "WI-05",
+      "state": "WI",
+      "anomalous_loans": 31,
+      "forgiven_pct": 1.0,
+      "total_amount": 67252219,
+      "forgiven_amount": 67924065,
+      "avg_loan": 2169426
+    },
+    {
+      "district": "WI-07",
+      "state": "WI",
+      "anomalous_loans": 15,
+      "forgiven_pct": 1.0,
+      "total_amount": 38881636,
+      "forgiven_amount": 39354123,
+      "avg_loan": 2592109
+    },
+    {
+      "district": "WV-02",
+      "state": "WV",
+      "anomalous_loans": 40,
+      "forgiven_pct": 1.0,
+      "total_amount": 47877948,
+      "forgiven_amount": 48381500,
+      "avg_loan": 1196949
+    },
+    {
+      "district": "WA-02",
+      "state": "WA",
+      "anomalous_loans": 54,
+      "forgiven_pct": 0.9815,
+      "total_amount": 83805285,
+      "forgiven_amount": 84695398,
+      "avg_loan": 1551950
+    },
+    {
+      "district": "RI-02",
+      "state": "RI",
+      "anomalous_loans": 49,
+      "forgiven_pct": 0.9796,
+      "total_amount": 62598194,
+      "forgiven_amount": 63175092,
+      "avg_loan": 1277514
+    },
+    {
+      "district": "TN-07",
+      "state": "TN",
+      "anomalous_loans": 49,
+      "forgiven_pct": 0.9796,
+      "total_amount": 93811228,
+      "forgiven_amount": 84873690,
+      "avg_loan": 1914515
+    },
+    {
+      "district": "NY-23",
+      "state": "NY",
+      "anomalous_loans": 44,
+      "forgiven_pct": 0.9773,
+      "total_amount": 60946494,
+      "forgiven_amount": 61455990,
+      "avg_loan": 1385148
+    },
+    {
+      "district": "TN-02",
+      "state": "TN",
+      "anomalous_loans": 44,
+      "forgiven_pct": 0.9773,
+      "total_amount": 56468082,
+      "forgiven_amount": 56951080,
+      "avg_loan": 1283366
+    },
+    {
+      "district": "RI-01",
+      "state": "RI",
+      "anomalous_loans": 43,
+      "forgiven_pct": 0.9767,
+      "total_amount": 44842570,
+      "forgiven_amount": 44444063,
+      "avg_loan": 1042850
+    },
+    {
+      "district": "OR-03",
+      "state": "OR",
+      "anomalous_loans": 40,
+      "forgiven_pct": 0.975,
+      "total_amount": 62460214,
+      "forgiven_amount": 62826273,
+      "avg_loan": 1561505
+    },
+    {
+      "district": "PA-14",
+      "state": "PA",
+      "anomalous_loans": 40,
+      "forgiven_pct": 0.975,
+      "total_amount": 85449468,
+      "forgiven_amount": 85417923,
+      "avg_loan": 2136237
+    },
+    {
+      "district": "UT-01",
+      "state": "UT",
+      "anomalous_loans": 39,
+      "forgiven_pct": 0.9744,
+      "total_amount": 38739278,
+      "forgiven_amount": 39112738,
+      "avg_loan": 993315
+    },
+    {
+      "district": "TX-01",
+      "state": "TX",
+      "anomalous_loans": 37,
+      "forgiven_pct": 0.973,
+      "total_amount": 50424576,
+      "forgiven_amount": 50288229,
+      "avg_loan": 1362826
+    },
+    {
+      "district": "VA-05",
+      "state": "VA",
+      "anomalous_loans": 36,
+      "forgiven_pct": 0.9722,
+      "total_amount": 36866875,
+      "forgiven_amount": 35155946,
+      "avg_loan": 1024080
+    },
+    {
+      "district": "WA-06",
+      "state": "WA",
+      "anomalous_loans": 36,
+      "forgiven_pct": 0.9722,
+      "total_amount": 47101377,
+      "forgiven_amount": 47048610,
+      "avg_loan": 1308372
+    },
+    {
+      "district": "WA-07",
+      "state": "WA",
+      "anomalous_loans": 108,
+      "forgiven_pct": 0.9722,
+      "total_amount": 193839802,
+      "forgiven_amount": 185204326,
+      "avg_loan": 1794813
+    },
+    {
+      "district": "PA-16",
+      "state": "PA",
+      "anomalous_loans": 35,
+      "forgiven_pct": 0.9714,
+      "total_amount": 52801857,
+      "forgiven_amount": 53314682,
+      "avg_loan": 1508624
+    },
+    {
+      "district": "OK-03",
+      "state": "OK",
+      "anomalous_loans": 33,
+      "forgiven_pct": 0.9697,
+      "total_amount": 50484210,
+      "forgiven_amount": 50720701,
+      "avg_loan": 1529825
+    },
+    {
+      "district": "PA-07",
+      "state": "PA",
+      "anomalous_loans": 33,
+      "forgiven_pct": 0.9697,
+      "total_amount": 55230327,
+      "forgiven_amount": 55729618,
+      "avg_loan": 1673646
+    },
+    {
+      "district": "OR-04",
+      "state": "OR",
+      "anomalous_loans": 31,
+      "forgiven_pct": 0.9677,
+      "total_amount": 49095852,
+      "forgiven_amount": 49651065,
+      "avg_loan": 1583737
+    },
+    {
+      "district": "OH-04",
+      "state": "OH",
+      "anomalous_loans": 30,
+      "forgiven_pct": 0.9667,
+      "total_amount": 50534194,
+      "forgiven_amount": 51018425,
+      "avg_loan": 1684473
+    },
+    {
+      "district": "OR-05",
+      "state": "OR",
+      "anomalous_loans": 30,
+      "forgiven_pct": 0.9667,
+      "total_amount": 43004252,
+      "forgiven_amount": 43257734,
+      "avg_loan": 1433475
+    },
+    {
+      "district": "PA-04",
+      "state": "PA",
+      "anomalous_loans": 58,
+      "forgiven_pct": 0.9655,
+      "total_amount": 91687258,
+      "forgiven_amount": 88951123,
+      "avg_loan": 1580815
+    },
+    {
+      "district": "OH-14",
+      "state": "OH",
+      "anomalous_loans": 27,
+      "forgiven_pct": 0.963,
+      "total_amount": 50940756,
+      "forgiven_amount": 51082015,
+      "avg_loan": 1886695
+    },
+    {
+      "district": "TX-23",
+      "state": "TX",
+      "anomalous_loans": 27,
+      "forgiven_pct": 0.963,
+      "total_amount": 11691272,
+      "forgiven_amount": 11565644,
+      "avg_loan": 433010
+    },
+    {
+      "district": "WI-02",
+      "state": "WI",
+      "anomalous_loans": 27,
+      "forgiven_pct": 0.963,
+      "total_amount": 84439460,
+      "forgiven_amount": 80316059,
+      "avg_loan": 3127387
+    },
+    {
+      "district": "SC-01",
+      "state": "SC",
+      "anomalous_loans": 26,
+      "forgiven_pct": 0.9615,
+      "total_amount": 24327335,
+      "forgiven_amount": 23951476,
+      "avg_loan": 935667
+    },
+    {
+      "district": "SC-04",
+      "state": "SC",
+      "anomalous_loans": 26,
+      "forgiven_pct": 0.9615,
+      "total_amount": 26832843,
+      "forgiven_amount": 27083775,
+      "avg_loan": 1032032
+    },
+    {
+      "district": "TX-06",
+      "state": "TX",
+      "anomalous_loans": 52,
+      "forgiven_pct": 0.9615,
+      "total_amount": 83979859,
+      "forgiven_amount": 84319863,
+      "avg_loan": 1614997
+    },
+    {
+      "district": "WI-08",
+      "state": "WI",
+      "anomalous_loans": 26,
+      "forgiven_pct": 0.9615,
+      "total_amount": 53096938,
+      "forgiven_amount": 51211877,
+      "avg_loan": 2042190
+    },
+    {
+      "district": "NY-24",
+      "state": "NY",
+      "anomalous_loans": 51,
+      "forgiven_pct": 0.9608,
+      "total_amount": 71263180,
+      "forgiven_amount": 63317104,
+      "avg_loan": 1397317
+    },
+    {
+      "district": "WA-03",
+      "state": "WA",
+      "anomalous_loans": 51,
+      "forgiven_pct": 0.9608,
+      "total_amount": 55134139,
+      "forgiven_amount": 55153329,
+      "avg_loan": 1081062
+    },
+    {
+      "district": "OH-07",
+      "state": "OH",
+      "anomalous_loans": 49,
+      "forgiven_pct": 0.9592,
+      "total_amount": 117772178,
+      "forgiven_amount": 118865093,
+      "avg_loan": 2403514
+    },
+    {
+      "district": "OH-15",
+      "state": "OH",
+      "anomalous_loans": 49,
+      "forgiven_pct": 0.9592,
+      "total_amount": 137720067,
+      "forgiven_amount": 128529105,
+      "avg_loan": 2810614
+    },
+    {
+      "district": "TX-21",
+      "state": "TX",
+      "anomalous_loans": 49,
+      "forgiven_pct": 0.9592,
+      "total_amount": 120733302,
+      "forgiven_amount": 120356801,
+      "avg_loan": 2463945
+    },
+    {
+      "district": "TX-16",
+      "state": "TX",
+      "anomalous_loans": 24,
+      "forgiven_pct": 0.9583,
+      "total_amount": 19820886,
+      "forgiven_amount": 19800431,
+      "avg_loan": 825870
+    },
+    {
+      "district": "TX-12",
+      "state": "TX",
+      "anomalous_loans": 47,
+      "forgiven_pct": 0.9574,
+      "total_amount": 83711675,
+      "forgiven_amount": 84530847,
+      "avg_loan": 1781099
+    },
+    {
+      "district": "NY-02",
+      "state": "NY",
+      "anomalous_loans": 93,
+      "forgiven_pct": 0.957,
+      "total_amount": 156660790,
+      "forgiven_amount": 155841085,
+      "avg_loan": 1684525
+    },
+    {
+      "district": "PA-11",
+      "state": "PA",
+      "anomalous_loans": 46,
+      "forgiven_pct": 0.9565,
+      "total_amount": 77827993,
+      "forgiven_amount": 74106125,
+      "avg_loan": 1691913
+    },
+    {
+      "district": "IA-04",
+      "state": "IA",
+      "anomalous_loans": 22,
+      "forgiven_pct": 0.9545,
+      "total_amount": 45621505,
+      "forgiven_amount": 45599354,
+      "avg_loan": 2073705
+    },
+    {
+      "district": "TN-01",
+      "state": "TN",
+      "anomalous_loans": 22,
+      "forgiven_pct": 0.9545,
+      "total_amount": 14495506,
+      "forgiven_amount": 12609846,
+      "avg_loan": 658887
+    },
+    {
+      "district": "TN-04",
+      "state": "TN",
+      "anomalous_loans": 22,
+      "forgiven_pct": 0.9545,
+      "total_amount": 34106318,
+      "forgiven_amount": 29869023,
+      "avg_loan": 1550287
+    },
+    {
+      "district": "OH-09",
+      "state": "OH",
+      "anomalous_loans": 43,
+      "forgiven_pct": 0.9535,
+      "total_amount": 95261786,
+      "forgiven_amount": 94024943,
+      "avg_loan": 2215390
+    },
+    {
+      "district": "PA-10",
+      "state": "PA",
+      "anomalous_loans": 43,
+      "forgiven_pct": 0.9535,
+      "total_amount": 100232004,
+      "forgiven_amount": 97934197,
+      "avg_loan": 2330977
+    },
+    {
+      "district": "OH-05",
+      "state": "OH",
+      "anomalous_loans": 21,
+      "forgiven_pct": 0.9524,
+      "total_amount": 40105327,
+      "forgiven_amount": 40378791,
+      "avg_loan": 1909777
+    },
+    {
+      "district": "MN-07",
+      "state": "MN",
+      "anomalous_loans": 40,
+      "forgiven_pct": 0.95,
+      "total_amount": 52569974,
+      "forgiven_amount": 52547985,
+      "avg_loan": 1314249
+    },
+    {
+      "district": "TX-03",
+      "state": "TX",
+      "anomalous_loans": 20,
+      "forgiven_pct": 0.95,
+      "total_amount": 31029379,
+      "forgiven_amount": 30733958,
+      "avg_loan": 1551469
+    },
+    {
+      "district": "WA-05",
+      "state": "WA",
+      "anomalous_loans": 40,
+      "forgiven_pct": 0.95,
+      "total_amount": 28606892,
+      "forgiven_amount": 28682981,
+      "avg_loan": 715172
+    },
+    {
+      "district": "TX-36",
+      "state": "TX",
+      "anomalous_loans": 58,
+      "forgiven_pct": 0.9483,
+      "total_amount": 82742652,
+      "forgiven_amount": 72831631,
+      "avg_loan": 1426597
+    },
+    {
+      "district": "TX-28",
+      "state": "TX",
+      "anomalous_loans": 19,
+      "forgiven_pct": 0.9474,
+      "total_amount": 18041867,
+      "forgiven_amount": 17945287,
+      "avg_loan": 949572
+    },
+    {
+      "district": "VA-09",
+      "state": "VA",
+      "anomalous_loans": 19,
+      "forgiven_pct": 0.9474,
+      "total_amount": 20051985,
+      "forgiven_amount": 14270447,
+      "avg_loan": 1055368
+    },
+    {
+      "district": "TX-11",
+      "state": "TX",
+      "anomalous_loans": 56,
+      "forgiven_pct": 0.9464,
+      "total_amount": 76529548,
+      "forgiven_amount": 76745533,
+      "avg_loan": 1366599
+    },
+    {
+      "district": "NY-03",
+      "state": "NY",
+      "anomalous_loans": 111,
+      "forgiven_pct": 0.9459,
+      "total_amount": 207144075,
+      "forgiven_amount": 204851827,
+      "avg_loan": 1866163
+    },
+    {
+      "district": "OK-05",
+      "state": "OK",
+      "anomalous_loans": 37,
+      "forgiven_pct": 0.9459,
+      "total_amount": 66985721,
+      "forgiven_amount": 65395942,
+      "avg_loan": 1810425
+    },
+    {
+      "district": "VA-04",
+      "state": "VA",
+      "anomalous_loans": 37,
+      "forgiven_pct": 0.9459,
+      "total_amount": 81096789,
+      "forgiven_amount": 79853788,
+      "avg_loan": 2191805
+    },
+    {
+      "district": "ME-02",
+      "state": "ME",
+      "anomalous_loans": 55,
+      "forgiven_pct": 0.9455,
+      "total_amount": 39600643,
+      "forgiven_amount": 39325601,
+      "avg_loan": 720012
+    },
+    {
+      "district": "OH-06",
+      "state": "OH",
+      "anomalous_loans": 36,
+      "forgiven_pct": 0.9444,
+      "total_amount": 65515357,
+      "forgiven_amount": 65488572,
+      "avg_loan": 1819871
+    },
+    {
+      "district": "VA-10",
+      "state": "VA",
+      "anomalous_loans": 54,
+      "forgiven_pct": 0.9444,
+      "total_amount": 74291995,
+      "forgiven_amount": 68190185,
+      "avg_loan": 1375778
+    },
+    {
+      "district": "PA-17",
+      "state": "PA",
+      "anomalous_loans": 53,
+      "forgiven_pct": 0.9434,
+      "total_amount": 71427938,
+      "forgiven_amount": 70688373,
+      "avg_loan": 1347697
+    },
+    {
+      "district": "NY-25",
+      "state": "NY",
+      "anomalous_loans": 70,
+      "forgiven_pct": 0.9429,
+      "total_amount": 125403172,
+      "forgiven_amount": 126065411,
+      "avg_loan": 1791474
+    },
+    {
+      "district": "TX-14",
+      "state": "TX",
+      "anomalous_loans": 35,
+      "forgiven_pct": 0.9429,
+      "total_amount": 71698562,
+      "forgiven_amount": 71010674,
+      "avg_loan": 2048530
+    },
+    {
+      "district": "MN-01",
+      "state": "MN",
+      "anomalous_loans": 17,
+      "forgiven_pct": 0.9412,
+      "total_amount": 56756636,
+      "forgiven_amount": 49387028,
+      "avg_loan": 3338626
+    },
+    {
+      "district": "NY-26",
+      "state": "NY",
+      "anomalous_loans": 68,
+      "forgiven_pct": 0.9412,
+      "total_amount": 122879585,
+      "forgiven_amount": 118543521,
+      "avg_loan": 1807053
+    },
+    {
+      "district": "WV-01",
+      "state": "WV",
+      "anomalous_loans": 51,
+      "forgiven_pct": 0.9412,
+      "total_amount": 62438974,
+      "forgiven_amount": 62409357,
+      "avg_loan": 1224294
+    },
+    {
+      "district": "PA-05",
+      "state": "PA",
+      "anomalous_loans": 50,
+      "forgiven_pct": 0.94,
+      "total_amount": 88721009,
+      "forgiven_amount": 88347382,
+      "avg_loan": 1774420
+    },
+    {
+      "district": "OH-11",
+      "state": "OH",
+      "anomalous_loans": 66,
+      "forgiven_pct": 0.9394,
+      "total_amount": 158326517,
+      "forgiven_amount": 153625949,
+      "avg_loan": 2398887
+    },
+    {
+      "district": "TN-05",
+      "state": "TN",
+      "anomalous_loans": 65,
+      "forgiven_pct": 0.9385,
+      "total_amount": 108973819,
+      "forgiven_amount": 108426205,
+      "avg_loan": 1676520
+    },
+    {
+      "district": "SC-03",
+      "state": "SC",
+      "anomalous_loans": 16,
+      "forgiven_pct": 0.9375,
+      "total_amount": 16930346,
+      "forgiven_amount": 16784195,
+      "avg_loan": 1058147
+    },
+    {
+      "district": "TX-04",
+      "state": "TX",
+      "anomalous_loans": 48,
+      "forgiven_pct": 0.9375,
+      "total_amount": 98600769,
+      "forgiven_amount": 96724291,
+      "avg_loan": 2054183
+    },
+    {
+      "district": "NE-03",
+      "state": "NE",
+      "anomalous_loans": 31,
+      "forgiven_pct": 0.9355,
+      "total_amount": 55190473,
+      "forgiven_amount": 55146135,
+      "avg_loan": 1780338
+    },
+    {
+      "district": "PA-09",
+      "state": "PA",
+      "anomalous_loans": 31,
+      "forgiven_pct": 0.9355,
+      "total_amount": 50761818,
+      "forgiven_amount": 48108027,
+      "avg_loan": 1637478
+    },
+    {
+      "district": "WA-10",
+      "state": "WA",
+      "anomalous_loans": 31,
+      "forgiven_pct": 0.9355,
+      "total_amount": 36164403,
+      "forgiven_amount": 36140019,
+      "avg_loan": 1166594
+    },
+    {
+      "district": "WI-06",
+      "state": "WI",
+      "anomalous_loans": 15,
+      "forgiven_pct": 0.9333,
+      "total_amount": 22603104,
+      "forgiven_amount": 22568144,
+      "avg_loan": 1506874
+    },
+    {
+      "district": "NY-20",
+      "state": "NY",
+      "anomalous_loans": 58,
+      "forgiven_pct": 0.931,
+      "total_amount": 112121122,
+      "forgiven_amount": 110964282,
+      "avg_loan": 1933123
+    },
+    {
+      "district": "TX-08",
+      "state": "TX",
+      "anomalous_loans": 29,
+      "forgiven_pct": 0.931,
+      "total_amount": 31495253,
+      "forgiven_amount": 30566487,
+      "avg_loan": 1086043
+    },
+    {
+      "district": "TX-24",
+      "state": "TX",
+      "anomalous_loans": 87,
+      "forgiven_pct": 0.931,
+      "total_amount": 143619099,
+      "forgiven_amount": 143751357,
+      "avg_loan": 1650794
+    },
+    {
+      "district": "UT-02",
+      "state": "UT",
+      "anomalous_loans": 58,
+      "forgiven_pct": 0.931,
+      "total_amount": 78139764,
+      "forgiven_amount": 66548573,
+      "avg_loan": 1347237
+    },
+    {
+      "district": "NM-01",
+      "state": "NM",
+      "anomalous_loans": 28,
+      "forgiven_pct": 0.9286,
+      "total_amount": 46101382,
+      "forgiven_amount": 44475899,
+      "avg_loan": 1646478
+    },
+    {
+      "district": "OH-08",
+      "state": "OH",
+      "anomalous_loans": 28,
+      "forgiven_pct": 0.9286,
+      "total_amount": 72688082,
+      "forgiven_amount": 67959532,
+      "avg_loan": 2596003
+    },
+    {
+      "district": "OK-02",
+      "state": "OK",
+      "anomalous_loans": 14,
+      "forgiven_pct": 0.9286,
+      "total_amount": 21216954,
+      "forgiven_amount": 21194881,
+      "avg_loan": 1515497
+    },
+    {
+      "district": "VA-06",
+      "state": "VA",
+      "anomalous_loans": 28,
+      "forgiven_pct": 0.9286,
+      "total_amount": 26339227,
+      "forgiven_amount": 24206327,
+      "avg_loan": 940687
+    },
+    {
+      "district": "WI-04",
+      "state": "WI",
+      "anomalous_loans": 28,
+      "forgiven_pct": 0.9286,
+      "total_amount": 84407351,
+      "forgiven_amount": 80554962,
+      "avg_loan": 3014548
+    },
+    {
+      "district": "TX-32",
+      "state": "TX",
+      "anomalous_loans": 97,
+      "forgiven_pct": 0.9278,
+      "total_amount": 172654167,
+      "forgiven_amount": 166907108,
+      "avg_loan": 1779940
+    },
+    {
+      "district": "PA-12",
+      "state": "PA",
+      "anomalous_loans": 55,
+      "forgiven_pct": 0.9273,
+      "total_amount": 138234876,
+      "forgiven_amount": 128869396,
+      "avg_loan": 2513361
+    },
+    {
+      "district": "WA-09",
+      "state": "WA",
+      "anomalous_loans": 82,
+      "forgiven_pct": 0.9268,
+      "total_amount": 142818468,
+      "forgiven_amount": 144050786,
+      "avg_loan": 1741689
+    },
+    {
+      "district": "NE-01",
+      "state": "NE",
+      "anomalous_loans": 13,
+      "forgiven_pct": 0.9231,
+      "total_amount": 21256390,
+      "forgiven_amount": 12223867,
+      "avg_loan": 1635107
+    },
+    {
+      "district": "SC-06",
+      "state": "SC",
+      "anomalous_loans": 39,
+      "forgiven_pct": 0.9231,
+      "total_amount": 60974153,
+      "forgiven_amount": 56742731,
+      "avg_loan": 1563440
+    },
+    {
+      "district": "TX-05",
+      "state": "TX",
+      "anomalous_loans": 13,
+      "forgiven_pct": 0.9231,
+      "total_amount": 14343782,
+      "forgiven_amount": 14385849,
+      "avg_loan": 1103368
+    },
+    {
+      "district": "TX-33",
+      "state": "TX",
+      "anomalous_loans": 52,
+      "forgiven_pct": 0.9231,
+      "total_amount": 100879156,
+      "forgiven_amount": 92809005,
+      "avg_loan": 1939984
+    },
+    {
+      "district": "UT-04",
+      "state": "UT",
+      "anomalous_loans": 25,
+      "forgiven_pct": 0.92,
+      "total_amount": 20222161,
+      "forgiven_amount": 19984554,
+      "avg_loan": 808886
+    },
+    {
+      "district": "PA-06",
+      "state": "PA",
+      "anomalous_loans": 49,
+      "forgiven_pct": 0.9184,
+      "total_amount": 97726388,
+      "forgiven_amount": 98089152,
+      "avg_loan": 1994416
+    },
+    {
+      "district": "AL-03",
+      "state": "AL",
+      "anomalous_loans": 12,
+      "forgiven_pct": 0.9167,
+      "total_amount": 15619275,
+      "forgiven_amount": 15447529,
+      "avg_loan": 1301606
+    },
+    {
+      "district": "NY-05",
+      "state": "NY",
+      "anomalous_loans": 36,
+      "forgiven_pct": 0.9167,
+      "total_amount": 74238539,
+      "forgiven_amount": 70708790,
+      "avg_loan": 2062182
+    },
+    {
+      "district": "PR-",
+      "state": "PR",
+      "anomalous_loans": 24,
+      "forgiven_pct": 0.9167,
+      "total_amount": 68411272,
+      "forgiven_amount": 66915457,
+      "avg_loan": 2850470
+    },
+    {
+      "district": "NY-21",
+      "state": "NY",
+      "anomalous_loans": 35,
+      "forgiven_pct": 0.9143,
+      "total_amount": 65182558,
+      "forgiven_amount": 55276038,
+      "avg_loan": 1862359
+    },
+    {
+      "district": "TX-27",
+      "state": "TX",
+      "anomalous_loans": 35,
+      "forgiven_pct": 0.9143,
+      "total_amount": 30708606,
+      "forgiven_amount": 29801252,
+      "avg_loan": 877389
+    },
+    {
+      "district": "NV-02",
+      "state": "NV",
+      "anomalous_loans": 58,
+      "forgiven_pct": 0.9138,
+      "total_amount": 60167204,
+      "forgiven_amount": 57801262,
+      "avg_loan": 1037366
+    },
+    {
+      "district": "VA-07",
+      "state": "VA",
+      "anomalous_loans": 23,
+      "forgiven_pct": 0.913,
+      "total_amount": 15394892,
+      "forgiven_amount": 15005572,
+      "avg_loan": 669343
+    },
+    {
+      "district": "PA-01",
+      "state": "PA",
+      "anomalous_loans": 57,
+      "forgiven_pct": 0.9123,
+      "total_amount": 76001954,
+      "forgiven_amount": 74784378,
+      "avg_loan": 1333368
+    },
+    {
+      "district": "OH-10",
+      "state": "OH",
+      "anomalous_loans": 34,
+      "forgiven_pct": 0.9118,
+      "total_amount": 79879744,
+      "forgiven_amount": 70575468,
+      "avg_loan": 2349404
+    },
+    {
+      "district": "TN-09",
+      "state": "TN",
+      "anomalous_loans": 45,
+      "forgiven_pct": 0.9111,
+      "total_amount": 58098081,
+      "forgiven_amount": 52571532,
+      "avg_loan": 1291068
+    },
+    {
+      "district": "NY-17",
+      "state": "NY",
+      "anomalous_loans": 78,
+      "forgiven_pct": 0.9103,
+      "total_amount": 111226782,
+      "forgiven_amount": 98668275,
+      "avg_loan": 1425984
+    },
+    {
+      "district": "OR-02",
+      "state": "OR",
+      "anomalous_loans": 22,
+      "forgiven_pct": 0.9091,
+      "total_amount": 19394115,
+      "forgiven_amount": 19356928,
+      "avg_loan": 881551
+    },
+    {
+      "district": "TX-15",
+      "state": "TX",
+      "anomalous_loans": 22,
+      "forgiven_pct": 0.9091,
+      "total_amount": 20193324,
+      "forgiven_amount": 20116029,
+      "avg_loan": 917878
+    },
+    {
+      "district": "PA-02",
+      "state": "PA",
+      "anomalous_loans": 32,
+      "forgiven_pct": 0.9062,
+      "total_amount": 72209026,
+      "forgiven_amount": 72129076,
+      "avg_loan": 2256532
+    },
+    {
+      "district": "NC-06",
+      "state": "NC",
+      "anomalous_loans": 42,
+      "forgiven_pct": 0.9048,
+      "total_amount": 38661114,
+      "forgiven_amount": 32587977,
+      "avg_loan": 920503
+    },
+    {
+      "district": "NY-11",
+      "state": "NY",
+      "anomalous_loans": 42,
+      "forgiven_pct": 0.9048,
+      "total_amount": 85317332,
+      "forgiven_amount": 85880230,
+      "avg_loan": 2031365
+    },
+    {
+      "district": "PA-13",
+      "state": "PA",
+      "anomalous_loans": 21,
+      "forgiven_pct": 0.9048,
+      "total_amount": 50013045,
+      "forgiven_amount": 40152288,
+      "avg_loan": 2381574
+    },
+    {
+      "district": "TX-02",
+      "state": "TX",
+      "anomalous_loans": 42,
+      "forgiven_pct": 0.9048,
+      "total_amount": 66016454,
+      "forgiven_amount": 65307764,
+      "avg_loan": 1571820
+    },
+    {
+      "district": "TX-20",
+      "state": "TX",
+      "anomalous_loans": 21,
+      "forgiven_pct": 0.9048,
+      "total_amount": 22442708,
+      "forgiven_amount": 19153760,
+      "avg_loan": 1068700
+    },
+    {
+      "district": "OR-01",
+      "state": "OR",
+      "anomalous_loans": 62,
+      "forgiven_pct": 0.9032,
+      "total_amount": 121569053,
+      "forgiven_amount": 119734301,
+      "avg_loan": 1960791
+    },
+    {
+      "district": "NJ-02",
+      "state": "NJ",
+      "anomalous_loans": 41,
+      "forgiven_pct": 0.9024,
+      "total_amount": 45368011,
+      "forgiven_amount": 44433353,
+      "avg_loan": 1106537
+    },
+    {
+      "district": "TN-08",
+      "state": "TN",
+      "anomalous_loans": 41,
+      "forgiven_pct": 0.9024,
+      "total_amount": 66292276,
+      "forgiven_amount": 62565228,
+      "avg_loan": 1616885
+    },
+    {
+      "district": "NY-14",
+      "state": "NY",
+      "anomalous_loans": 51,
+      "forgiven_pct": 0.902,
+      "total_amount": 112061096,
+      "forgiven_amount": 109937904,
+      "avg_loan": 2197276
+    },
+    {
+      "district": "IN-08",
+      "state": "IN",
+      "anomalous_loans": 10,
+      "forgiven_pct": 0.9,
+      "total_amount": 40320869,
+      "forgiven_amount": 40022425,
+      "avg_loan": 4032087
+    },
+    {
+      "district": "NY-01",
+      "state": "NY",
+      "anomalous_loans": 90,
+      "forgiven_pct": 0.9,
+      "total_amount": 149705667,
+      "forgiven_amount": 143028405,
+      "avg_loan": 1663396
+    },
+    {
+      "district": "OH-13",
+      "state": "OH",
+      "anomalous_loans": 40,
+      "forgiven_pct": 0.9,
+      "total_amount": 60079087,
+      "forgiven_amount": 59282404,
+      "avg_loan": 1501977
+    },
+    {
+      "district": "TX-18",
+      "state": "TX",
+      "anomalous_loans": 70,
+      "forgiven_pct": 0.9,
+      "total_amount": 120056099,
+      "forgiven_amount": 116355578,
+      "avg_loan": 1715087
+    },
+    {
+      "district": "TX-29",
+      "state": "TX",
+      "anomalous_loans": 50,
+      "forgiven_pct": 0.9,
+      "total_amount": 50889994,
+      "forgiven_amount": 49008997,
+      "avg_loan": 1017800
+    },
+    {
+      "district": "IL-16",
+      "state": "IL",
+      "anomalous_loans": 58,
+      "forgiven_pct": 0.8966,
+      "total_amount": 65993555,
+      "forgiven_amount": 51032927,
+      "avg_loan": 1137820
+    },
+    {
+      "district": "IN-02",
+      "state": "IN",
+      "anomalous_loans": 29,
+      "forgiven_pct": 0.8966,
+      "total_amount": 65536800,
+      "forgiven_amount": 64767337,
+      "avg_loan": 2259890
+    },
+    {
+      "district": "TX-35",
+      "state": "TX",
+      "anomalous_loans": 29,
+      "forgiven_pct": 0.8966,
+      "total_amount": 33759256,
+      "forgiven_amount": 33814006,
+      "avg_loan": 1164112
+    },
+    {
+      "district": "OK-01",
+      "state": "OK",
+      "anomalous_loans": 38,
+      "forgiven_pct": 0.8947,
+      "total_amount": 83080084,
+      "forgiven_amount": 75314748,
+      "avg_loan": 2186318
+    },
+    {
+      "district": "OR-06",
+      "state": "OR",
+      "anomalous_loans": 19,
+      "forgiven_pct": 0.8947,
+      "total_amount": 17720045,
+      "forgiven_amount": 15673123,
+      "avg_loan": 932634
+    },
+    {
+      "district": "TN-03",
+      "state": "TN",
+      "anomalous_loans": 38,
+      "forgiven_pct": 0.8947,
+      "total_amount": 46210826,
+      "forgiven_amount": 35597670,
+      "avg_loan": 1216074
+    },
+    {
+      "district": "NJ-04",
+      "state": "NJ",
+      "anomalous_loans": 65,
+      "forgiven_pct": 0.8923,
+      "total_amount": 73501361,
+      "forgiven_amount": 61444419,
+      "avg_loan": 1130790
+    },
+    {
+      "district": "TX-30",
+      "state": "TX",
+      "anomalous_loans": 46,
+      "forgiven_pct": 0.8913,
+      "total_amount": 74992665,
+      "forgiven_amount": 73697112,
+      "avg_loan": 1630275
+    },
+    {
+      "district": "TX-19",
+      "state": "TX",
+      "anomalous_loans": 27,
+      "forgiven_pct": 0.8889,
+      "total_amount": 59675541,
+      "forgiven_amount": 59606646,
+      "avg_loan": 2210205
+    },
+    {
+      "district": "WA-01",
+      "state": "WA",
+      "anomalous_loans": 63,
+      "forgiven_pct": 0.8889,
+      "total_amount": 111623949,
+      "forgiven_amount": 110721128,
+      "avg_loan": 1771809
+    },
+    {
+      "district": "TX-37",
+      "state": "TX",
+      "anomalous_loans": 52,
+      "forgiven_pct": 0.8846,
+      "total_amount": 77396172,
+      "forgiven_amount": 75188628,
+      "avg_loan": 1488388
+    },
+    {
+      "district": "TX-22",
+      "state": "TX",
+      "anomalous_loans": 43,
+      "forgiven_pct": 0.8837,
+      "total_amount": 56041611,
+      "forgiven_amount": 52864186,
+      "avg_loan": 1303293
+    },
+    {
+      "district": "PA-08",
+      "state": "PA",
+      "anomalous_loans": 34,
+      "forgiven_pct": 0.8824,
+      "total_amount": 38672078,
+      "forgiven_amount": 38059189,
+      "avg_loan": 1137414
+    },
+    {
+      "district": "PA-03",
+      "state": "PA",
+      "anomalous_loans": 42,
+      "forgiven_pct": 0.881,
+      "total_amount": 67118932,
+      "forgiven_amount": 66825356,
+      "avg_loan": 1598070
+    },
+    {
+      "district": "MO-06",
+      "state": "MO",
+      "anomalous_loans": 33,
+      "forgiven_pct": 0.8788,
+      "total_amount": 40418760,
+      "forgiven_amount": 37434238,
+      "avg_loan": 1224811
+    },
+    {
+      "district": "NY-18",
+      "state": "NY",
+      "anomalous_loans": 41,
+      "forgiven_pct": 0.878,
+      "total_amount": 69072098,
+      "forgiven_amount": 64263815,
+      "avg_loan": 1684685
+    },
+    {
+      "district": "IL-15",
+      "state": "IL",
+      "anomalous_loans": 16,
+      "forgiven_pct": 0.875,
+      "total_amount": 36974972,
+      "forgiven_amount": 32131168,
+      "avg_loan": 2310936
+    },
+    {
+      "district": "NY-09",
+      "state": "NY",
+      "anomalous_loans": 32,
+      "forgiven_pct": 0.875,
+      "total_amount": 106866860,
+      "forgiven_amount": 100310900,
+      "avg_loan": 3339589
+    },
+    {
+      "district": "OH-01",
+      "state": "OH",
+      "anomalous_loans": 48,
+      "forgiven_pct": 0.875,
+      "total_amount": 120075000,
+      "forgiven_amount": 107477379,
+      "avg_loan": 2501563
+    },
+    {
+      "district": "WY-",
+      "state": "WY",
+      "anomalous_loans": 40,
+      "forgiven_pct": 0.875,
+      "total_amount": 42433428,
+      "forgiven_amount": 40155071,
+      "avg_loan": 1060836
+    },
+    {
+      "district": "TX-07",
+      "state": "TX",
+      "anomalous_loans": 79,
+      "forgiven_pct": 0.8734,
+      "total_amount": 116734089,
+      "forgiven_amount": 109952493,
+      "avg_loan": 1477647
+    },
+    {
+      "district": "NY-07",
+      "state": "NY",
+      "anomalous_loans": 78,
+      "forgiven_pct": 0.8718,
+      "total_amount": 149547460,
+      "forgiven_amount": 140428613,
+      "avg_loan": 1917275
+    },
+    {
+      "district": "TX-13",
+      "state": "TX",
+      "anomalous_loans": 39,
+      "forgiven_pct": 0.8718,
+      "total_amount": 50370046,
+      "forgiven_amount": 36633352,
+      "avg_loan": 1291540
+    },
+    {
+      "district": "WA-08",
+      "state": "WA",
+      "anomalous_loans": 39,
+      "forgiven_pct": 0.8718,
+      "total_amount": 58270396,
+      "forgiven_amount": 51077706,
+      "avg_loan": 1494113
+    },
+    {
+      "district": "IN-05",
+      "state": "IN",
+      "anomalous_loans": 31,
+      "forgiven_pct": 0.871,
+      "total_amount": 43027455,
+      "forgiven_amount": 42702008,
+      "avg_loan": 1387982
+    },
+    {
+      "district": "NY-08",
+      "state": "NY",
+      "anomalous_loans": 31,
+      "forgiven_pct": 0.871,
+      "total_amount": 66902988,
+      "forgiven_amount": 63894051,
+      "avg_loan": 2158161
+    },
+    {
+      "district": "TX-10",
+      "state": "TX",
+      "anomalous_loans": 54,
+      "forgiven_pct": 0.8704,
+      "total_amount": 63281622,
+      "forgiven_amount": 59192680,
+      "avg_loan": 1171882
+    },
+    {
+      "district": "VA-11",
+      "state": "VA",
+      "anomalous_loans": 107,
+      "forgiven_pct": 0.8692,
+      "total_amount": 215372088,
+      "forgiven_amount": 199159793,
+      "avg_loan": 2012823
+    },
+    {
+      "district": "NY-12",
+      "state": "NY",
+      "anomalous_loans": 420,
+      "forgiven_pct": 0.8667,
+      "total_amount": 896093173,
+      "forgiven_amount": 840699052,
+      "avg_loan": 2133555
+    },
+    {
+      "district": "UT-03",
+      "state": "UT",
+      "anomalous_loans": 45,
+      "forgiven_pct": 0.8667,
+      "total_amount": 67130423,
+      "forgiven_amount": 65495385,
+      "avg_loan": 1491787
+    },
+    {
+      "district": "TX-38",
+      "state": "TX",
+      "anomalous_loans": 74,
+      "forgiven_pct": 0.8649,
+      "total_amount": 237505053,
+      "forgiven_amount": 222614152,
+      "avg_loan": 3209528
+    },
+    {
+      "district": "OH-12",
+      "state": "OH",
+      "anomalous_loans": 22,
+      "forgiven_pct": 0.8636,
+      "total_amount": 37414548,
+      "forgiven_amount": 37148490,
+      "avg_loan": 1700661
+    },
+    {
+      "district": "TX-31",
+      "state": "TX",
+      "anomalous_loans": 22,
+      "forgiven_pct": 0.8636,
+      "total_amount": 27509835,
+      "forgiven_amount": 18545655,
+      "avg_loan": 1250447
+    },
+    {
+      "district": "VA-03",
+      "state": "VA",
+      "anomalous_loans": 29,
+      "forgiven_pct": 0.8621,
+      "total_amount": 58355263,
+      "forgiven_amount": 55944817,
+      "avg_loan": 2012250
+    },
+    {
+      "district": "NY-16",
+      "state": "NY",
+      "anomalous_loans": 79,
+      "forgiven_pct": 0.8608,
+      "total_amount": 112021881,
+      "forgiven_amount": 101227431,
+      "avg_loan": 1417998
+    },
+    {
+      "district": "MI-04",
+      "state": "MI",
+      "anomalous_loans": 14,
+      "forgiven_pct": 0.8571,
+      "total_amount": 20396051,
+      "forgiven_amount": 19897464,
+      "avg_loan": 1456861
+    },
+    {
+      "district": "MN-03",
+      "state": "MN",
+      "anomalous_loans": 56,
+      "forgiven_pct": 0.8571,
+      "total_amount": 163679407,
+      "forgiven_amount": 152934244,
+      "avg_loan": 2922847
+    },
+    {
+      "district": "NC-10",
+      "state": "NC",
+      "anomalous_loans": 14,
+      "forgiven_pct": 0.8571,
+      "total_amount": 18498256,
+      "forgiven_amount": 13856218,
+      "avg_loan": 1321304
+    },
+    {
+      "district": "NV-01",
+      "state": "NV",
+      "anomalous_loans": 28,
+      "forgiven_pct": 0.8571,
+      "total_amount": 30180662,
+      "forgiven_amount": 22789185,
+      "avg_loan": 1077881
+    },
+    {
+      "district": "TX-26",
+      "state": "TX",
+      "anomalous_loans": 34,
+      "forgiven_pct": 0.8529,
+      "total_amount": 39960674,
+      "forgiven_amount": 37506711,
+      "avg_loan": 1175314
+    },
+    {
+      "district": "KY-04",
+      "state": "KY",
+      "anomalous_loans": 40,
+      "forgiven_pct": 0.85,
+      "total_amount": 71237887,
+      "forgiven_amount": 60092368,
+      "avg_loan": 1780947
+    },
+    {
+      "district": "MT-02",
+      "state": "MT",
+      "anomalous_loans": 40,
+      "forgiven_pct": 0.85,
+      "total_amount": 45804359,
+      "forgiven_amount": 40649889,
+      "avg_loan": 1145109
+    },
+    {
+      "district": "TX-25",
+      "state": "TX",
+      "anomalous_loans": 40,
+      "forgiven_pct": 0.85,
+      "total_amount": 89867339,
+      "forgiven_amount": 78553411,
+      "avg_loan": 2246683
+    },
+    {
+      "district": "TX-34",
+      "state": "TX",
+      "anomalous_loans": 20,
+      "forgiven_pct": 0.85,
+      "total_amount": 33492300,
+      "forgiven_amount": 33196310,
+      "avg_loan": 1674615
+    },
+    {
+      "district": "IL-09",
+      "state": "IL",
+      "anomalous_loans": 113,
+      "forgiven_pct": 0.8496,
+      "total_amount": 156516910,
+      "forgiven_amount": 147881184,
+      "avg_loan": 1385105
+    },
+    {
+      "district": "VA-08",
+      "state": "VA",
+      "anomalous_loans": 52,
+      "forgiven_pct": 0.8462,
+      "total_amount": 81613622,
+      "forgiven_amount": 76386210,
+      "avg_loan": 1569493
+    },
+    {
+      "district": "IL-06",
+      "state": "IL",
+      "anomalous_loans": 45,
+      "forgiven_pct": 0.8444,
+      "total_amount": 106463652,
+      "forgiven_amount": 106078405,
+      "avg_loan": 2365859
+    },
+    {
+      "district": "MO-08",
+      "state": "MO",
+      "anomalous_loans": 51,
+      "forgiven_pct": 0.8431,
+      "total_amount": 27265987,
+      "forgiven_amount": 25477464,
+      "avg_loan": 534627
+    },
+    {
+      "district": "IA-02",
+      "state": "IA",
+      "anomalous_loans": 19,
+      "forgiven_pct": 0.8421,
+      "total_amount": 32010646,
+      "forgiven_amount": 30684459,
+      "avg_loan": 1684771
+    },
+    {
+      "district": "NV-04",
+      "state": "NV",
+      "anomalous_loans": 38,
+      "forgiven_pct": 0.8421,
+      "total_amount": 44059595,
+      "forgiven_amount": 41581296,
+      "avg_loan": 1159463
+    },
+    {
+      "district": "NM-03",
+      "state": "NM",
+      "anomalous_loans": 25,
+      "forgiven_pct": 0.84,
+      "total_amount": 37960406,
+      "forgiven_amount": 35206381,
+      "avg_loan": 1518416
+    },
+    {
+      "district": "NY-04",
+      "state": "NY",
+      "anomalous_loans": 56,
+      "forgiven_pct": 0.8393,
+      "total_amount": 90313258,
+      "forgiven_amount": 86440994,
+      "avg_loan": 1612737
+    },
+    {
+      "district": "TX-17",
+      "state": "TX",
+      "anomalous_loans": 31,
+      "forgiven_pct": 0.8387,
+      "total_amount": 53139698,
+      "forgiven_amount": 48070982,
+      "avg_loan": 1714184
+    },
+    {
+      "district": "MO-05",
+      "state": "MO",
+      "anomalous_loans": 49,
+      "forgiven_pct": 0.8367,
+      "total_amount": 70354829,
+      "forgiven_amount": 56715749,
+      "avg_loan": 1435813
+    },
+    {
+      "district": "NJ-06",
+      "state": "NJ",
+      "anomalous_loans": 67,
+      "forgiven_pct": 0.8358,
+      "total_amount": 115025795,
+      "forgiven_amount": 112036385,
+      "avg_loan": 1716803
+    },
+    {
+      "district": "MS-04",
+      "state": "MS",
+      "anomalous_loans": 18,
+      "forgiven_pct": 0.8333,
+      "total_amount": 34864330,
+      "forgiven_amount": 33557328,
+      "avg_loan": 1936907
+    },
+    {
+      "district": "NY-15",
+      "state": "NY",
+      "anomalous_loans": 30,
+      "forgiven_pct": 0.8333,
+      "total_amount": 46409044,
+      "forgiven_amount": 45651223,
+      "avg_loan": 1546968
+    },
+    {
+      "district": "NY-22",
+      "state": "NY",
+      "anomalous_loans": 48,
+      "forgiven_pct": 0.8333,
+      "total_amount": 95935724,
+      "forgiven_amount": 63060540,
+      "avg_loan": 1998661
+    },
+    {
+      "district": "NH-02",
+      "state": "NH",
+      "anomalous_loans": 29,
+      "forgiven_pct": 0.8276,
+      "total_amount": 54012798,
+      "forgiven_amount": 51492463,
+      "avg_loan": 1862510
+    },
+    {
+      "district": "CA-18",
+      "state": "CA",
+      "anomalous_loans": 40,
+      "forgiven_pct": 0.825,
+      "total_amount": 75051507,
+      "forgiven_amount": 67278221,
+      "avg_loan": 1876288
+    },
+    {
+      "district": "TX-09",
+      "state": "TX",
+      "anomalous_loans": 28,
+      "forgiven_pct": 0.8214,
+      "total_amount": 53568691,
+      "forgiven_amount": 52566971,
+      "avg_loan": 1913168
+    },
+    {
+      "district": "LA-05",
+      "state": "LA",
+      "anomalous_loans": 67,
+      "forgiven_pct": 0.8209,
+      "total_amount": 38756056,
+      "forgiven_amount": 23029281,
+      "avg_loan": 578449
+    },
+    {
+      "district": "NY-10",
+      "state": "NY",
+      "anomalous_loans": 234,
+      "forgiven_pct": 0.8205,
+      "total_amount": 450062341,
+      "forgiven_amount": 411583369,
+      "avg_loan": 1923343
+    },
+    {
+      "district": "NJ-11",
+      "state": "NJ",
+      "anomalous_loans": 105,
+      "forgiven_pct": 0.819,
+      "total_amount": 129493208,
+      "forgiven_amount": 108190928,
+      "avg_loan": 1233269
+    },
+    {
+      "district": "CT-02",
+      "state": "CT",
+      "anomalous_loans": 66,
+      "forgiven_pct": 0.8182,
+      "total_amount": 51193252,
+      "forgiven_amount": 47270559,
+      "avg_loan": 775655
+    },
+    {
+      "district": "GA-12",
+      "state": "GA",
+      "anomalous_loans": 11,
+      "forgiven_pct": 0.8182,
+      "total_amount": 10140647,
+      "forgiven_amount": 8196406,
+      "avg_loan": 921877
+    },
+    {
+      "district": "IA-03",
+      "state": "IA",
+      "anomalous_loans": 22,
+      "forgiven_pct": 0.8182,
+      "total_amount": 52768660,
+      "forgiven_amount": 49017861,
+      "avg_loan": 2398575
+    },
+    {
+      "district": "OH-02",
+      "state": "OH",
+      "anomalous_loans": 11,
+      "forgiven_pct": 0.8182,
+      "total_amount": 13242673,
+      "forgiven_amount": 13290778,
+      "avg_loan": 1203879
+    },
+    {
+      "district": "MA-09",
+      "state": "MA",
+      "anomalous_loans": 49,
+      "forgiven_pct": 0.8163,
+      "total_amount": 47646610,
+      "forgiven_amount": 39904714,
+      "avg_loan": 972380
+    },
+    {
+      "district": "NY-13",
+      "state": "NY",
+      "anomalous_loans": 16,
+      "forgiven_pct": 0.8125,
+      "total_amount": 33708884,
+      "forgiven_amount": 32441827,
+      "avg_loan": 2106805
+    },
+    {
+      "district": "NC-02",
+      "state": "NC",
+      "anomalous_loans": 88,
+      "forgiven_pct": 0.8068,
+      "total_amount": 92167228,
+      "forgiven_amount": 83307878,
+      "avg_loan": 1047355
+    },
+    {
+      "district": "CT-01",
+      "state": "CT",
+      "anomalous_loans": 77,
+      "forgiven_pct": 0.8052,
+      "total_amount": 101141007,
+      "forgiven_amount": 98449118,
+      "avg_loan": 1313520
+    },
+    {
+      "district": "NJ-03",
+      "state": "NJ",
+      "anomalous_loans": 51,
+      "forgiven_pct": 0.8039,
+      "total_amount": 70914582,
+      "forgiven_amount": 48548155,
+      "avg_loan": 1390482
+    },
+    {
+      "district": "KY-03",
+      "state": "KY",
+      "anomalous_loans": 50,
+      "forgiven_pct": 0.8,
+      "total_amount": 119289894,
+      "forgiven_amount": 101459858,
+      "avg_loan": 2385798
+    },
+    {
+      "district": "ME-01",
+      "state": "ME",
+      "anomalous_loans": 35,
+      "forgiven_pct": 0.8,
+      "total_amount": 52980093,
+      "forgiven_amount": 44197793,
+      "avg_loan": 1513717
+    },
+    {
+      "district": "MO-03",
+      "state": "MO",
+      "anomalous_loans": 20,
+      "forgiven_pct": 0.8,
+      "total_amount": 25407000,
+      "forgiven_amount": 22121075,
+      "avg_loan": 1270350
+    },
+    {
+      "district": "NY-06",
+      "state": "NY",
+      "anomalous_loans": 20,
+      "forgiven_pct": 0.8,
+      "total_amount": 31293881,
+      "forgiven_amount": 30963537,
+      "avg_loan": 1564694
+    },
+    {
+      "district": "NV-03",
+      "state": "NV",
+      "anomalous_loans": 68,
+      "forgiven_pct": 0.7941,
+      "total_amount": 81409076,
+      "forgiven_amount": 70828379,
+      "avg_loan": 1197192
+    },
+    {
+      "district": "AL-06",
+      "state": "AL",
+      "anomalous_loans": 29,
+      "forgiven_pct": 0.7931,
+      "total_amount": 77420282,
+      "forgiven_amount": 74402677,
+      "avg_loan": 2669665
+    },
+    {
+      "district": "MA-01",
+      "state": "MA",
+      "anomalous_loans": 29,
+      "forgiven_pct": 0.7931,
+      "total_amount": 63495934,
+      "forgiven_amount": 53086338,
+      "avg_loan": 2189515
+    },
+    {
+      "district": "MA-02",
+      "state": "MA",
+      "anomalous_loans": 38,
+      "forgiven_pct": 0.7895,
+      "total_amount": 75710585,
+      "forgiven_amount": 70098941,
+      "avg_loan": 1992384
+    },
+    {
+      "district": "VA-02",
+      "state": "VA",
+      "anomalous_loans": 23,
+      "forgiven_pct": 0.7826,
+      "total_amount": 31846187,
+      "forgiven_amount": 27309032,
+      "avg_loan": 1384617
+    },
+    {
+      "district": "MD-02",
+      "state": "MD",
+      "anomalous_loans": 53,
+      "forgiven_pct": 0.7736,
+      "total_amount": 89437360,
+      "forgiven_amount": 82465798,
+      "avg_loan": 1687497
+    },
+    {
+      "district": "NJ-10",
+      "state": "NJ",
+      "anomalous_loans": 35,
+      "forgiven_pct": 0.7714,
+      "total_amount": 72765671,
+      "forgiven_amount": 65016775,
+      "avg_loan": 2079019
+    },
+    {
+      "district": "GA-09",
+      "state": "GA",
+      "anomalous_loans": 65,
+      "forgiven_pct": 0.7692,
+      "total_amount": 78006752,
+      "forgiven_amount": 71932499,
+      "avg_loan": 1200104
+    },
+    {
+      "district": "CO-04",
+      "state": "CO",
+      "anomalous_loans": 30,
+      "forgiven_pct": 0.7667,
+      "total_amount": 44890680,
+      "forgiven_amount": 42564838,
+      "avg_loan": 1496356
+    },
+    {
+      "district": "AR-02",
+      "state": "AR",
+      "anomalous_loans": 17,
+      "forgiven_pct": 0.7647,
+      "total_amount": 15841482,
+      "forgiven_amount": 13612399,
+      "avg_loan": 931852
+    },
+    {
+      "district": "NC-05",
+      "state": "NC",
+      "anomalous_loans": 17,
+      "forgiven_pct": 0.7647,
+      "total_amount": 37061771,
+      "forgiven_amount": 35545259,
+      "avg_loan": 2180104
+    },
+    {
+      "district": "CA-10",
+      "state": "CA",
+      "anomalous_loans": 70,
+      "forgiven_pct": 0.7571,
+      "total_amount": 94408631,
+      "forgiven_amount": 80949540,
+      "avg_loan": 1348695
+    },
+    {
+      "district": "ND-",
+      "state": "ND",
+      "anomalous_loans": 49,
+      "forgiven_pct": 0.7551,
+      "total_amount": 96391249,
+      "forgiven_amount": 79081973,
+      "avg_loan": 1967168
+    },
+    {
+      "district": "CA-04",
+      "state": "CA",
+      "anomalous_loans": 53,
+      "forgiven_pct": 0.7547,
+      "total_amount": 62637976,
+      "forgiven_amount": 55490798,
+      "avg_loan": 1181849
+    },
+    {
+      "district": "CO-02",
+      "state": "CO",
+      "anomalous_loans": 61,
+      "forgiven_pct": 0.7541,
+      "total_amount": 76722804,
+      "forgiven_amount": 67754906,
+      "avg_loan": 1257751
+    },
+    {
+      "district": "FL-06",
+      "state": "FL",
+      "anomalous_loans": 12,
+      "forgiven_pct": 0.75,
+      "total_amount": 8743661,
+      "forgiven_amount": 8037958,
+      "avg_loan": 728638
+    },
+    {
+      "district": "IL-05",
+      "state": "IL",
+      "anomalous_loans": 60,
+      "forgiven_pct": 0.75,
+      "total_amount": 89223112,
+      "forgiven_amount": 78190448,
+      "avg_loan": 1487052
+    },
+    {
+      "district": "IN-01",
+      "state": "IN",
+      "anomalous_loans": 52,
+      "forgiven_pct": 0.75,
+      "total_amount": 87492256,
+      "forgiven_amount": 66905928,
+      "avg_loan": 1682543
+    },
+    {
+      "district": "MT-01",
+      "state": "MT",
+      "anomalous_loans": 16,
+      "forgiven_pct": 0.75,
+      "total_amount": 28134932,
+      "forgiven_amount": 23016307,
+      "avg_loan": 1758433
+    },
+    {
+      "district": "AL-07",
+      "state": "AL",
+      "anomalous_loans": 23,
+      "forgiven_pct": 0.7391,
+      "total_amount": 59726475,
+      "forgiven_amount": 49213039,
+      "avg_loan": 2596803
+    },
+    {
+      "district": "NJ-07",
+      "state": "NJ",
+      "anomalous_loans": 61,
+      "forgiven_pct": 0.7377,
+      "total_amount": 77949248,
+      "forgiven_amount": 62379339,
+      "avg_loan": 1277857
+    },
+    {
+      "district": "MI-01",
+      "state": "MI",
+      "anomalous_loans": 19,
+      "forgiven_pct": 0.7368,
+      "total_amount": 17484046,
+      "forgiven_amount": 15334379,
+      "avg_loan": 920213
+    },
+    {
+      "district": "CA-44",
+      "state": "CA",
+      "anomalous_loans": 56,
+      "forgiven_pct": 0.7321,
+      "total_amount": 114951546,
+      "forgiven_amount": 105996924,
+      "avg_loan": 2052706
+    },
+    {
+      "district": "NE-02",
+      "state": "NE",
+      "anomalous_loans": 26,
+      "forgiven_pct": 0.7308,
+      "total_amount": 72942595,
+      "forgiven_amount": 57224652,
+      "avg_loan": 2805484
+    },
+    {
+      "district": "MA-08",
+      "state": "MA",
+      "anomalous_loans": 126,
+      "forgiven_pct": 0.7302,
+      "total_amount": 288548963,
+      "forgiven_amount": 245982360,
+      "avg_loan": 2290071
+    },
+    {
+      "district": "KS-01",
+      "state": "KS",
+      "anomalous_loans": 22,
+      "forgiven_pct": 0.7273,
+      "total_amount": 51798136,
+      "forgiven_amount": 47902489,
+      "avg_loan": 2354461
+    },
+    {
+      "district": "MI-02",
+      "state": "MI",
+      "anomalous_loans": 11,
+      "forgiven_pct": 0.7273,
+      "total_amount": 9350737,
+      "forgiven_amount": 9335210,
+      "avg_loan": 850067
+    },
+    {
+      "district": "MO-02",
+      "state": "MO",
+      "anomalous_loans": 40,
+      "forgiven_pct": 0.725,
+      "total_amount": 58736886,
+      "forgiven_amount": 46009976,
+      "avg_loan": 1468422
+    },
+    {
+      "district": "CA-23",
+      "state": "CA",
+      "anomalous_loans": 14,
+      "forgiven_pct": 0.7143,
+      "total_amount": 9631776,
+      "forgiven_amount": 8554038,
+      "avg_loan": 687984
+    },
+    {
+      "district": "KS-04",
+      "state": "KS",
+      "anomalous_loans": 45,
+      "forgiven_pct": 0.7111,
+      "total_amount": 90249726,
+      "forgiven_amount": 84889797,
+      "avg_loan": 2005549
+    },
+    {
+      "district": "CT-04",
+      "state": "CT",
+      "anomalous_loans": 100,
+      "forgiven_pct": 0.71,
+      "total_amount": 109010465,
+      "forgiven_amount": 84503798,
+      "avg_loan": 1090105
+    },
+    {
+      "district": "MN-04",
+      "state": "MN",
+      "anomalous_loans": 34,
+      "forgiven_pct": 0.7059,
+      "total_amount": 94688468,
+      "forgiven_amount": 82521177,
+      "avg_loan": 2784955
+    },
+    {
+      "district": "MA-04",
+      "state": "MA",
+      "anomalous_loans": 37,
+      "forgiven_pct": 0.7027,
+      "total_amount": 44308432,
+      "forgiven_amount": 40951063,
+      "avg_loan": 1197525
+    },
+    {
+      "district": "GA-01",
+      "state": "GA",
+      "anomalous_loans": 10,
+      "forgiven_pct": 0.7,
+      "total_amount": 4526622,
+      "forgiven_amount": 4146309,
+      "avg_loan": 452662
+    },
+    {
+      "district": "HI-01",
+      "state": "HI",
+      "anomalous_loans": 60,
+      "forgiven_pct": 0.7,
+      "total_amount": 120267086,
+      "forgiven_amount": 90172795,
+      "avg_loan": 2004451
+    },
+    {
+      "district": "IL-02",
+      "state": "IL",
+      "anomalous_loans": 20,
+      "forgiven_pct": 0.7,
+      "total_amount": 35027214,
+      "forgiven_amount": 32957166,
+      "avg_loan": 1751361
+    },
+    {
+      "district": "NC-13",
+      "state": "NC",
+      "anomalous_loans": 20,
+      "forgiven_pct": 0.7,
+      "total_amount": 44673443,
+      "forgiven_amount": 29947476,
+      "avg_loan": 2233672
+    },
+    {
+      "district": "NH-01",
+      "state": "NH",
+      "anomalous_loans": 40,
+      "forgiven_pct": 0.7,
+      "total_amount": 46791095,
+      "forgiven_amount": 39660426,
+      "avg_loan": 1169777
+    },
+    {
+      "district": "MA-06",
+      "state": "MA",
+      "anomalous_loans": 46,
+      "forgiven_pct": 0.6957,
+      "total_amount": 78466819,
+      "forgiven_amount": 60977682,
+      "avg_loan": 1705800
+    },
+    {
+      "district": "NC-04",
+      "state": "NC",
+      "anomalous_loans": 23,
+      "forgiven_pct": 0.6957,
+      "total_amount": 38982328,
+      "forgiven_amount": 25777760,
+      "avg_loan": 1694884
+    },
+    {
+      "district": "LA-06",
+      "state": "LA",
+      "anomalous_loans": 36,
+      "forgiven_pct": 0.6944,
+      "total_amount": 70901122,
+      "forgiven_amount": 52109256,
+      "avg_loan": 1969476
+    },
+    {
+      "district": "NJ-12",
+      "state": "NJ",
+      "anomalous_loans": 49,
+      "forgiven_pct": 0.6939,
+      "total_amount": 111110028,
+      "forgiven_amount": 88545601,
+      "avg_loan": 2267552
+    },
+    {
+      "district": "MI-05",
+      "state": "MI",
+      "anomalous_loans": 13,
+      "forgiven_pct": 0.6923,
+      "total_amount": 34340707,
+      "forgiven_amount": 30525276,
+      "avg_loan": 2641593
+    },
+    {
+      "district": "MO-04",
+      "state": "MO",
+      "anomalous_loans": 13,
+      "forgiven_pct": 0.6923,
+      "total_amount": 48098591,
+      "forgiven_amount": 24216275,
+      "avg_loan": 3699892
+    },
+    {
+      "district": "CA-40",
+      "state": "CA",
+      "anomalous_loans": 94,
+      "forgiven_pct": 0.6915,
+      "total_amount": 123551253,
+      "forgiven_amount": 116721151,
+      "avg_loan": 1314375
+    },
+    {
+      "district": "CA-14",
+      "state": "CA",
+      "anomalous_loans": 97,
+      "forgiven_pct": 0.6907,
+      "total_amount": 181191178,
+      "forgiven_amount": 128019190,
+      "avg_loan": 1867950
+    },
+    {
+      "district": "MA-03",
+      "state": "MA",
+      "anomalous_loans": 42,
+      "forgiven_pct": 0.6905,
+      "total_amount": 86497643,
+      "forgiven_amount": 74234083,
+      "avg_loan": 2059468
+    },
+    {
+      "district": "IL-17",
+      "state": "IL",
+      "anomalous_loans": 16,
+      "forgiven_pct": 0.6875,
+      "total_amount": 30392705,
+      "forgiven_amount": 21938254,
+      "avg_loan": 1899544
+    },
+    {
+      "district": "MS-03",
+      "state": "MS",
+      "anomalous_loans": 16,
+      "forgiven_pct": 0.6875,
+      "total_amount": 23570441,
+      "forgiven_amount": 16416450,
+      "avg_loan": 1473153
+    },
+    {
+      "district": "LA-02",
+      "state": "LA",
+      "anomalous_loans": 67,
+      "forgiven_pct": 0.6866,
+      "total_amount": 103512713,
+      "forgiven_amount": 89308968,
+      "avg_loan": 1544966
+    },
+    {
+      "district": "LA-01",
+      "state": "LA",
+      "anomalous_loans": 35,
+      "forgiven_pct": 0.6857,
+      "total_amount": 61027150,
+      "forgiven_amount": 52479935,
+      "avg_loan": 1743633
+    },
+    {
+      "district": "MN-08",
+      "state": "MN",
+      "anomalous_loans": 19,
+      "forgiven_pct": 0.6842,
+      "total_amount": 25046310,
+      "forgiven_amount": 20044449,
+      "avg_loan": 1318227
+    },
+    {
+      "district": "MI-08",
+      "state": "MI",
+      "anomalous_loans": 25,
+      "forgiven_pct": 0.68,
+      "total_amount": 45776999,
+      "forgiven_amount": 40676371,
+      "avg_loan": 1831080
+    },
+    {
+      "district": "NJ-01",
+      "state": "NJ",
+      "anomalous_loans": 43,
+      "forgiven_pct": 0.6744,
+      "total_amount": 76400140,
+      "forgiven_amount": 46663153,
+      "avg_loan": 1776747
+    },
+    {
+      "district": "IL-04",
+      "state": "IL",
+      "anomalous_loans": 30,
+      "forgiven_pct": 0.6667,
+      "total_amount": 71498055,
+      "forgiven_amount": 61283772,
+      "avg_loan": 2383268
+    },
+    {
+      "district": "IL-11",
+      "state": "IL",
+      "anomalous_loans": 36,
+      "forgiven_pct": 0.6667,
+      "total_amount": 91123247,
+      "forgiven_amount": 75103032,
+      "avg_loan": 2531201
+    },
+    {
+      "district": "KY-01",
+      "state": "KY",
+      "anomalous_loans": 12,
+      "forgiven_pct": 0.6667,
+      "total_amount": 23444110,
+      "forgiven_amount": 22112296,
+      "avg_loan": 1953676
+    },
+    {
+      "district": "MO-07",
+      "state": "MO",
+      "anomalous_loans": 12,
+      "forgiven_pct": 0.6667,
+      "total_amount": 32343234,
+      "forgiven_amount": 31602395,
+      "avg_loan": 2695270
+    },
+    {
+      "district": "NC-09",
+      "state": "NC",
+      "anomalous_loans": 12,
+      "forgiven_pct": 0.6667,
+      "total_amount": 19533787,
+      "forgiven_amount": 17917680,
+      "avg_loan": 1627816
+    },
+    {
+      "district": "NC-11",
+      "state": "NC",
+      "anomalous_loans": 12,
+      "forgiven_pct": 0.6667,
+      "total_amount": 23909893,
+      "forgiven_amount": 20193367,
+      "avg_loan": 1992491
+    },
+    {
+      "district": "NJ-05",
+      "state": "NJ",
+      "anomalous_loans": 146,
+      "forgiven_pct": 0.6644,
+      "total_amount": 168443241,
+      "forgiven_amount": 131981293,
+      "avg_loan": 1153721
+    },
+    {
+      "district": "MN-05",
+      "state": "MN",
+      "anomalous_loans": 62,
+      "forgiven_pct": 0.6613,
+      "total_amount": 178925775,
+      "forgiven_amount": 155259660,
+      "avg_loan": 2885900
+    },
+    {
+      "district": "NJ-09",
+      "state": "NJ",
+      "anomalous_loans": 91,
+      "forgiven_pct": 0.6593,
+      "total_amount": 145178104,
+      "forgiven_amount": 110748442,
+      "avg_loan": 1595364
+    },
+    {
+      "district": "MN-02",
+      "state": "MN",
+      "anomalous_loans": 23,
+      "forgiven_pct": 0.6522,
+      "total_amount": 58085550,
+      "forgiven_amount": 51124163,
+      "avg_loan": 2525459
+    },
+    {
+      "district": "CA-05",
+      "state": "CA",
+      "anomalous_loans": 43,
+      "forgiven_pct": 0.6512,
+      "total_amount": 54842409,
+      "forgiven_amount": 40179308,
+      "avg_loan": 1275405
+    },
+    {
+      "district": "CO-03",
+      "state": "CO",
+      "anomalous_loans": 20,
+      "forgiven_pct": 0.65,
+      "total_amount": 35790950,
+      "forgiven_amount": 24297315,
+      "avg_loan": 1789547
+    },
+    {
+      "district": "DE-",
+      "state": "DE",
+      "anomalous_loans": 57,
+      "forgiven_pct": 0.6491,
+      "total_amount": 47664132,
+      "forgiven_amount": 30739280,
+      "avg_loan": 836213
+    },
+    {
+      "district": "LA-04",
+      "state": "LA",
+      "anomalous_loans": 17,
+      "forgiven_pct": 0.6471,
+      "total_amount": 27254822,
+      "forgiven_amount": 20949319,
+      "avg_loan": 1603225
+    },
+    {
+      "district": "MD-06",
+      "state": "MD",
+      "anomalous_loans": 17,
+      "forgiven_pct": 0.6471,
+      "total_amount": 52164305,
+      "forgiven_amount": 36621422,
+      "avg_loan": 3068489
+    },
+    {
+      "district": "CA-26",
+      "state": "CA",
+      "anomalous_loans": 82,
+      "forgiven_pct": 0.6463,
+      "total_amount": 76251077,
+      "forgiven_amount": 61862252,
+      "avg_loan": 929891
+    },
+    {
+      "district": "IL-10",
+      "state": "IL",
+      "anomalous_loans": 48,
+      "forgiven_pct": 0.6458,
+      "total_amount": 121564545,
+      "forgiven_amount": 103604730,
+      "avg_loan": 2532595
+    },
+    {
+      "district": "HI-02",
+      "state": "HI",
+      "anomalous_loans": 31,
+      "forgiven_pct": 0.6452,
+      "total_amount": 57769972,
+      "forgiven_amount": 44196231,
+      "avg_loan": 1863547
+    },
+    {
+      "district": "MI-06",
+      "state": "MI",
+      "anomalous_loans": 45,
+      "forgiven_pct": 0.6444,
+      "total_amount": 81660501,
+      "forgiven_amount": 68494031,
+      "avg_loan": 1814678
+    },
+    {
+      "district": "CA-46",
+      "state": "CA",
+      "anomalous_loans": 126,
+      "forgiven_pct": 0.6429,
+      "total_amount": 166702549,
+      "forgiven_amount": 101188391,
+      "avg_loan": 1323036
+    },
+    {
+      "district": "CA-52",
+      "state": "CA",
+      "anomalous_loans": 14,
+      "forgiven_pct": 0.6429,
+      "total_amount": 12586239,
+      "forgiven_amount": 10893232,
+      "avg_loan": 899017
+    },
+    {
+      "district": "CO-01",
+      "state": "CO",
+      "anomalous_loans": 92,
+      "forgiven_pct": 0.6413,
+      "total_amount": 211089997,
+      "forgiven_amount": 166611067,
+      "avg_loan": 2294456
+    },
+    {
+      "district": "CA-09",
+      "state": "CA",
+      "anomalous_loans": 39,
+      "forgiven_pct": 0.641,
+      "total_amount": 37471866,
+      "forgiven_amount": 34432530,
+      "avg_loan": 960817
+    },
+    {
+      "district": "AZ-01",
+      "state": "AZ",
+      "anomalous_loans": 63,
+      "forgiven_pct": 0.6349,
+      "total_amount": 158676395,
+      "forgiven_amount": 128124356,
+      "avg_loan": 2518673
+    },
+    {
+      "district": "KY-06",
+      "state": "KY",
+      "anomalous_loans": 19,
+      "forgiven_pct": 0.6316,
+      "total_amount": 31845184,
+      "forgiven_amount": 24977222,
+      "avg_loan": 1676062
+    },
+    {
+      "district": "MA-07",
+      "state": "MA",
+      "anomalous_loans": 65,
+      "forgiven_pct": 0.6308,
+      "total_amount": 118752370,
+      "forgiven_amount": 90718055,
+      "avg_loan": 1826960
+    },
+    {
+      "district": "MI-12",
+      "state": "MI",
+      "anomalous_loans": 43,
+      "forgiven_pct": 0.6279,
+      "total_amount": 93979069,
+      "forgiven_amount": 76387972,
+      "avg_loan": 2185560
+    },
+    {
+      "district": "CA-11",
+      "state": "CA",
+      "anomalous_loans": 228,
+      "forgiven_pct": 0.6272,
+      "total_amount": 356252604,
+      "forgiven_amount": 260521355,
+      "avg_loan": 1562511
+    },
+    {
+      "district": "IL-07",
+      "state": "IL",
+      "anomalous_loans": 177,
+      "forgiven_pct": 0.6271,
+      "total_amount": 365415932,
+      "forgiven_amount": 265676035,
+      "avg_loan": 2064497
+    },
+    {
+      "district": "CA-21",
+      "state": "CA",
+      "anomalous_loans": 56,
+      "forgiven_pct": 0.625,
+      "total_amount": 62039580,
+      "forgiven_amount": 49679014,
+      "avg_loan": 1107850
+    },
+    {
+      "district": "IL-13",
+      "state": "IL",
+      "anomalous_loans": 16,
+      "forgiven_pct": 0.625,
+      "total_amount": 30882902,
+      "forgiven_amount": 24175287,
+      "avg_loan": 1930181
+    },
+    {
+      "district": "CT-03",
+      "state": "CT",
+      "anomalous_loans": 37,
+      "forgiven_pct": 0.6216,
+      "total_amount": 75751054,
+      "forgiven_amount": 64800235,
+      "avg_loan": 2047326
+    },
+    {
+      "district": "MI-03",
+      "state": "MI",
+      "anomalous_loans": 37,
+      "forgiven_pct": 0.6216,
+      "total_amount": 93427028,
+      "forgiven_amount": 77629045,
+      "avg_loan": 2525055
+    },
+    {
+      "district": "MO-01",
+      "state": "MO",
+      "anomalous_loans": 66,
+      "forgiven_pct": 0.6212,
+      "total_amount": 129637378,
+      "forgiven_amount": 98300146,
+      "avg_loan": 1964203
+    },
+    {
+      "district": "AZ-09",
+      "state": "AZ",
+      "anomalous_loans": 13,
+      "forgiven_pct": 0.6154,
+      "total_amount": 26456020,
+      "forgiven_amount": 23315492,
+      "avg_loan": 2035078
+    },
+    {
+      "district": "CA-03",
+      "state": "CA",
+      "anomalous_loans": 39,
+      "forgiven_pct": 0.6154,
+      "total_amount": 52297255,
+      "forgiven_amount": 38483081,
+      "avg_loan": 1340955
+    },
+    {
+      "district": "IN-06",
+      "state": "IN",
+      "anomalous_loans": 13,
+      "forgiven_pct": 0.6154,
+      "total_amount": 32810986,
+      "forgiven_amount": 29906029,
+      "avg_loan": 2523922
+    },
+    {
+      "district": "MN-06",
+      "state": "MN",
+      "anomalous_loans": 13,
+      "forgiven_pct": 0.6154,
+      "total_amount": 25847648,
+      "forgiven_amount": 17243431,
+      "avg_loan": 1988281
+    },
+    {
+      "district": "CA-49",
+      "state": "CA",
+      "anomalous_loans": 44,
+      "forgiven_pct": 0.6136,
+      "total_amount": 71599146,
+      "forgiven_amount": 62463447,
+      "avg_loan": 1627253
+    },
+    {
+      "district": "LA-03",
+      "state": "LA",
+      "anomalous_loans": 36,
+      "forgiven_pct": 0.6111,
+      "total_amount": 85666276,
+      "forgiven_amount": 69023507,
+      "avg_loan": 2379619
+    },
+    {
+      "district": "CA-01",
+      "state": "CA",
+      "anomalous_loans": 33,
+      "forgiven_pct": 0.6061,
+      "total_amount": 65593382,
+      "forgiven_amount": 48179820,
+      "avg_loan": 1987678
+    },
+    {
+      "district": "IL-03",
+      "state": "IL",
+      "anomalous_loans": 38,
+      "forgiven_pct": 0.6053,
+      "total_amount": 86067830,
+      "forgiven_amount": 73898771,
+      "avg_loan": 2264943
+    },
+    {
+      "district": "NJ-08",
+      "state": "NJ",
+      "anomalous_loans": 48,
+      "forgiven_pct": 0.6042,
+      "total_amount": 49570187,
+      "forgiven_amount": 23204106,
+      "avg_loan": 1032712
+    },
+    {
+      "district": "AL-01",
+      "state": "AL",
+      "anomalous_loans": 20,
+      "forgiven_pct": 0.6,
+      "total_amount": 22516034,
+      "forgiven_amount": 14506008,
+      "avg_loan": 1125802
+    },
+    {
+      "district": "AL-02",
+      "state": "AL",
+      "anomalous_loans": 10,
+      "forgiven_pct": 0.6,
+      "total_amount": 13526842,
+      "forgiven_amount": 12936759,
+      "avg_loan": 1352684
+    },
+    {
+      "district": "CA-19",
+      "state": "CA",
+      "anomalous_loans": 35,
+      "forgiven_pct": 0.6,
+      "total_amount": 62355615,
+      "forgiven_amount": 49160086,
+      "avg_loan": 1781589
+    },
+    {
+      "district": "CA-24",
+      "state": "CA",
+      "anomalous_loans": 40,
+      "forgiven_pct": 0.6,
+      "total_amount": 55017410,
+      "forgiven_amount": 31430164,
+      "avg_loan": 1375435
+    },
+    {
+      "district": "FL-14",
+      "state": "FL",
+      "anomalous_loans": 60,
+      "forgiven_pct": 0.6,
+      "total_amount": 124059581,
+      "forgiven_amount": 97136939,
+      "avg_loan": 2067660
+    },
+    {
+      "district": "MA-05",
+      "state": "MA",
+      "anomalous_loans": 71,
+      "forgiven_pct": 0.5915,
+      "total_amount": 133063816,
+      "forgiven_amount": 103179428,
+      "avg_loan": 1874138
+    },
+    {
+      "district": "CA-25",
+      "state": "CA",
+      "anomalous_loans": 22,
+      "forgiven_pct": 0.5909,
+      "total_amount": 15848880,
+      "forgiven_amount": 10748737,
+      "avg_loan": 720404
+    },
+    {
+      "district": "CA-33",
+      "state": "CA",
+      "anomalous_loans": 51,
+      "forgiven_pct": 0.5882,
+      "total_amount": 38563038,
+      "forgiven_amount": 22337749,
+      "avg_loan": 756138
+    },
+    {
+      "district": "IA-01",
+      "state": "IA",
+      "anomalous_loans": 17,
+      "forgiven_pct": 0.5882,
+      "total_amount": 42823224,
+      "forgiven_amount": 39402975,
+      "avg_loan": 2519013
+    },
+    {
+      "district": "MI-09",
+      "state": "MI",
+      "anomalous_loans": 17,
+      "forgiven_pct": 0.5882,
+      "total_amount": 24280076,
+      "forgiven_amount": 11619438,
+      "avg_loan": 1428240
+    },
+    {
+      "district": "IL-08",
+      "state": "IL",
+      "anomalous_loans": 109,
+      "forgiven_pct": 0.5872,
+      "total_amount": 169543507,
+      "forgiven_amount": 138598847,
+      "avg_loan": 1555445
+    },
+    {
+      "district": "CO-05",
+      "state": "CO",
+      "anomalous_loans": 12,
+      "forgiven_pct": 0.5833,
+      "total_amount": 22723636,
+      "forgiven_amount": 14124053,
+      "avg_loan": 1893636
+    },
+    {
+      "district": "CA-12",
+      "state": "CA",
+      "anomalous_loans": 110,
+      "forgiven_pct": 0.5818,
+      "total_amount": 177692499,
+      "forgiven_amount": 124244717,
+      "avg_loan": 1615386
+    },
+    {
+      "district": "CA-08",
+      "state": "CA",
+      "anomalous_loans": 31,
+      "forgiven_pct": 0.5806,
+      "total_amount": 65285602,
+      "forgiven_amount": 54331548,
+      "avg_loan": 2105987
+    },
+    {
+      "district": "FL-11",
+      "state": "FL",
+      "anomalous_loans": 19,
+      "forgiven_pct": 0.5789,
+      "total_amount": 18049920,
+      "forgiven_amount": 15167565,
+      "avg_loan": 949996
+    },
+    {
+      "district": "CA-15",
+      "state": "CA",
+      "anomalous_loans": 90,
+      "forgiven_pct": 0.5778,
+      "total_amount": 168464137,
+      "forgiven_amount": 122052801,
+      "avg_loan": 1871824
+    },
+    {
+      "district": "CA-27",
+      "state": "CA",
+      "anomalous_loans": 33,
+      "forgiven_pct": 0.5758,
+      "total_amount": 29718314,
+      "forgiven_amount": 24740739,
+      "avg_loan": 900555
+    },
+    {
+      "district": "AK-",
+      "state": "AK",
+      "anomalous_loans": 42,
+      "forgiven_pct": 0.5714,
+      "total_amount": 88860380,
+      "forgiven_amount": 56643079,
+      "avg_loan": 2115723
+    },
+    {
+      "district": "CA-45",
+      "state": "CA",
+      "anomalous_loans": 49,
+      "forgiven_pct": 0.5714,
+      "total_amount": 70433360,
+      "forgiven_amount": 59690312,
+      "avg_loan": 1437416
+    },
+    {
+      "district": "GA-02",
+      "state": "GA",
+      "anomalous_loans": 21,
+      "forgiven_pct": 0.5714,
+      "total_amount": 37102155,
+      "forgiven_amount": 23749668,
+      "avg_loan": 1766769
+    },
+    {
+      "district": "ID-01",
+      "state": "ID",
+      "anomalous_loans": 14,
+      "forgiven_pct": 0.5714,
+      "total_amount": 31017300,
+      "forgiven_amount": 24717291,
+      "avg_loan": 2215521
+    },
+    {
+      "district": "MI-11",
+      "state": "MI",
+      "anomalous_loans": 65,
+      "forgiven_pct": 0.5692,
+      "total_amount": 144703818,
+      "forgiven_amount": 124532881,
+      "avg_loan": 2226213
+    },
+    {
+      "district": "IN-07",
+      "state": "IN",
+      "anomalous_loans": 51,
+      "forgiven_pct": 0.5686,
+      "total_amount": 116096488,
+      "forgiven_amount": 68945315,
+      "avg_loan": 2276402
+    },
+    {
+      "district": "CA-47",
+      "state": "CA",
+      "anomalous_loans": 139,
+      "forgiven_pct": 0.5683,
+      "total_amount": 233613345,
+      "forgiven_amount": 193967795,
+      "avg_loan": 1680672
+    },
+    {
+      "district": "CA-02",
+      "state": "CA",
+      "anomalous_loans": 88,
+      "forgiven_pct": 0.5682,
+      "total_amount": 113825850,
+      "forgiven_amount": 82294482,
+      "avg_loan": 1293476
+    },
+    {
+      "district": "CA-16",
+      "state": "CA",
+      "anomalous_loans": 74,
+      "forgiven_pct": 0.5676,
+      "total_amount": 96341387,
+      "forgiven_amount": 57241773,
+      "avg_loan": 1301911
+    },
+    {
+      "district": "KS-03",
+      "state": "KS",
+      "anomalous_loans": 37,
+      "forgiven_pct": 0.5676,
+      "total_amount": 60462165,
+      "forgiven_amount": 45609992,
+      "avg_loan": 1634113
+    },
+    {
+      "district": "FL-13",
+      "state": "FL",
+      "anomalous_loans": 32,
+      "forgiven_pct": 0.5625,
+      "total_amount": 48690448,
+      "forgiven_amount": 30522415,
+      "avg_loan": 1521577
+    },
+    {
+      "district": "NC-14",
+      "state": "NC",
+      "anomalous_loans": 48,
+      "forgiven_pct": 0.5625,
+      "total_amount": 75570775,
+      "forgiven_amount": 61370611,
+      "avg_loan": 1574391
+    },
+    {
+      "district": "CO-08",
+      "state": "CO",
+      "anomalous_loans": 25,
+      "forgiven_pct": 0.56,
+      "total_amount": 42595077,
+      "forgiven_amount": 32440092,
+      "avg_loan": 1703803
+    },
+    {
+      "district": "FL-15",
+      "state": "FL",
+      "anomalous_loans": 25,
+      "forgiven_pct": 0.56,
+      "total_amount": 47065033,
+      "forgiven_amount": 35909391,
+      "avg_loan": 1882601
+    },
+    {
+      "district": "ID-02",
+      "state": "ID",
+      "anomalous_loans": 25,
+      "forgiven_pct": 0.56,
+      "total_amount": 40302709,
+      "forgiven_amount": 20726247,
+      "avg_loan": 1612108
+    },
+    {
+      "district": "CA-36",
+      "state": "CA",
+      "anomalous_loans": 170,
+      "forgiven_pct": 0.5588,
+      "total_amount": 223376404,
+      "forgiven_amount": 139337659,
+      "avg_loan": 1313979
+    },
+    {
+      "district": "CA-22",
+      "state": "CA",
+      "anomalous_loans": 27,
+      "forgiven_pct": 0.5556,
+      "total_amount": 18424673,
+      "forgiven_amount": 15169114,
+      "avg_loan": 682395
+    },
+    {
+      "district": "IL-01",
+      "state": "IL",
+      "anomalous_loans": 36,
+      "forgiven_pct": 0.5556,
+      "total_amount": 63720040,
+      "forgiven_amount": 49151470,
+      "avg_loan": 1770001
+    },
+    {
+      "district": "AZ-03",
+      "state": "AZ",
+      "anomalous_loans": 49,
+      "forgiven_pct": 0.551,
+      "total_amount": 83874261,
+      "forgiven_amount": 69529673,
+      "avg_loan": 1711720
+    },
+    {
+      "district": "CA-20",
+      "state": "CA",
+      "anomalous_loans": 40,
+      "forgiven_pct": 0.55,
+      "total_amount": 46247973,
+      "forgiven_amount": 41467771,
+      "avg_loan": 1156199
+    },
+    {
+      "district": "CA-35",
+      "state": "CA",
+      "anomalous_loans": 55,
+      "forgiven_pct": 0.5455,
+      "total_amount": 88224442,
+      "forgiven_amount": 58807794,
+      "avg_loan": 1604081
+    },
+    {
+      "district": "FL-03",
+      "state": "FL",
+      "anomalous_loans": 11,
+      "forgiven_pct": 0.5455,
+      "total_amount": 9483901,
+      "forgiven_amount": 4871665,
+      "avg_loan": 862173
+    },
+    {
+      "district": "KY-05",
+      "state": "KY",
+      "anomalous_loans": 11,
+      "forgiven_pct": 0.5455,
+      "total_amount": 25179117,
+      "forgiven_amount": 22558764,
+      "avg_loan": 2289011
+    },
+    {
+      "district": "FL-12",
+      "state": "FL",
+      "anomalous_loans": 13,
+      "forgiven_pct": 0.5385,
+      "total_amount": 11451164,
+      "forgiven_amount": 4199399,
+      "avg_loan": 880859
+    },
+    {
+      "district": "CA-42",
+      "state": "CA",
+      "anomalous_loans": 67,
+      "forgiven_pct": 0.5373,
+      "total_amount": 101935792,
+      "forgiven_amount": 72089180,
+      "avg_loan": 1521430
+    },
+    {
+      "district": "IL-14",
+      "state": "IL",
+      "anomalous_loans": 17,
+      "forgiven_pct": 0.5294,
+      "total_amount": 9743015,
+      "forgiven_amount": 5406030,
+      "avg_loan": 573119
+    },
+    {
+      "district": "FL-01",
+      "state": "FL",
+      "anomalous_loans": 19,
+      "forgiven_pct": 0.5263,
+      "total_amount": 22093551,
+      "forgiven_amount": 11170357,
+      "avg_loan": 1162818
+    },
+    {
+      "district": "NC-12",
+      "state": "NC",
+      "anomalous_loans": 19,
+      "forgiven_pct": 0.5263,
+      "total_amount": 20794129,
+      "forgiven_amount": 14953759,
+      "avg_loan": 1094428
+    },
+    {
+      "district": "GA-05",
+      "state": "GA",
+      "anomalous_loans": 143,
+      "forgiven_pct": 0.5245,
+      "total_amount": 288380254,
+      "forgiven_amount": 222080247,
+      "avg_loan": 2016645
+    },
+    {
+      "district": "MI-10",
+      "state": "MI",
+      "anomalous_loans": 42,
+      "forgiven_pct": 0.5238,
+      "total_amount": 50574811,
+      "forgiven_amount": 41257339,
+      "avg_loan": 1204162
+    },
+    {
+      "district": "CT-05",
+      "state": "CT",
+      "anomalous_loans": 25,
+      "forgiven_pct": 0.52,
+      "total_amount": 37137647,
+      "forgiven_amount": 23852532,
+      "avg_loan": 1485506
+    },
+    {
+      "district": "CA-48",
+      "state": "CA",
+      "anomalous_loans": 27,
+      "forgiven_pct": 0.5185,
+      "total_amount": 54556629,
+      "forgiven_amount": 27117793,
+      "avg_loan": 2020616
+    },
+    {
+      "district": "MI-13",
+      "state": "MI",
+      "anomalous_loans": 56,
+      "forgiven_pct": 0.5179,
+      "total_amount": 80258723,
+      "forgiven_amount": 62862183,
+      "avg_loan": 1433191
+    },
+    {
+      "district": "CA-50",
+      "state": "CA",
+      "anomalous_loans": 132,
+      "forgiven_pct": 0.5152,
+      "total_amount": 206961892,
+      "forgiven_amount": 151333589,
+      "avg_loan": 1567893
+    },
+    {
+      "district": "GA-06",
+      "state": "GA",
+      "anomalous_loans": 61,
+      "forgiven_pct": 0.5082,
+      "total_amount": 83254253,
+      "forgiven_amount": 62194468,
+      "avg_loan": 1364824
+    },
+    {
+      "district": "CA-17",
+      "state": "CA",
+      "anomalous_loans": 101,
+      "forgiven_pct": 0.505,
+      "total_amount": 201552652,
+      "forgiven_amount": 126632141,
+      "avg_loan": 1995571
+    },
+    {
+      "district": "AZ-06",
+      "state": "AZ",
+      "anomalous_loans": 14,
+      "forgiven_pct": 0.5,
+      "total_amount": 31568297,
+      "forgiven_amount": 25074033,
+      "avg_loan": 2254878
+    },
+    {
+      "district": "AZ-08",
+      "state": "AZ",
+      "anomalous_loans": 22,
+      "forgiven_pct": 0.5,
+      "total_amount": 33698544,
+      "forgiven_amount": 22392822,
+      "avg_loan": 1531752
+    },
+    {
+      "district": "CA-51",
+      "state": "CA",
+      "anomalous_loans": 60,
+      "forgiven_pct": 0.5,
+      "total_amount": 132974091,
+      "forgiven_amount": 102360697,
+      "avg_loan": 2216235
+    },
+    {
+      "district": "FL-05",
+      "state": "FL",
+      "anomalous_loans": 44,
+      "forgiven_pct": 0.5,
+      "total_amount": 71139685,
+      "forgiven_amount": 55030603,
+      "avg_loan": 1616811
+    },
+    {
+      "district": "MD-05",
+      "state": "MD",
+      "anomalous_loans": 26,
+      "forgiven_pct": 0.5,
+      "total_amount": 38252113,
+      "forgiven_amount": 16464876,
+      "avg_loan": 1471235
+    },
+    {
+      "district": "MS-01",
+      "state": "MS",
+      "anomalous_loans": 14,
+      "forgiven_pct": 0.5,
+      "total_amount": 20367690,
+      "forgiven_amount": 13789968,
+      "avg_loan": 1454835
+    },
+    {
+      "district": "DC-",
+      "state": "DC",
+      "anomalous_loans": 82,
+      "forgiven_pct": 0.4878,
+      "total_amount": 143231741,
+      "forgiven_amount": 93703271,
+      "avg_loan": 1746729
+    },
+    {
+      "district": "CA-07",
+      "state": "CA",
+      "anomalous_loans": 35,
+      "forgiven_pct": 0.4857,
+      "total_amount": 53403562,
+      "forgiven_amount": 48122443,
+      "avg_loan": 1525816
+    },
+    {
+      "district": "CA-38",
+      "state": "CA",
+      "anomalous_loans": 58,
+      "forgiven_pct": 0.4828,
+      "total_amount": 105882535,
+      "forgiven_amount": 74964082,
+      "avg_loan": 1825561
+    },
+    {
+      "district": "MI-07",
+      "state": "MI",
+      "anomalous_loans": 25,
+      "forgiven_pct": 0.48,
+      "total_amount": 48292709,
+      "forgiven_amount": 26327500,
+      "avg_loan": 1931708
+    },
+    {
+      "district": "MD-08",
+      "state": "MD",
+      "anomalous_loans": 46,
+      "forgiven_pct": 0.4783,
+      "total_amount": 74822920,
+      "forgiven_amount": 40344262,
+      "avg_loan": 1626585
+    },
+    {
+      "district": "FL-19",
+      "state": "FL",
+      "anomalous_loans": 44,
+      "forgiven_pct": 0.4773,
+      "total_amount": 61020942,
+      "forgiven_amount": 52971164,
+      "avg_loan": 1386840
+    },
+    {
+      "district": "GA-03",
+      "state": "GA",
+      "anomalous_loans": 21,
+      "forgiven_pct": 0.4762,
+      "total_amount": 10912984,
+      "forgiven_amount": 7704944,
+      "avg_loan": 519666
+    },
+    {
+      "district": "FL-10",
+      "state": "FL",
+      "anomalous_loans": 106,
+      "forgiven_pct": 0.4717,
+      "total_amount": 173285843,
+      "forgiven_amount": 139014824,
+      "avg_loan": 1634772
+    },
+    {
+      "district": "GA-14",
+      "state": "GA",
+      "anomalous_loans": 17,
+      "forgiven_pct": 0.4706,
+      "total_amount": 24140175,
+      "forgiven_amount": 20609830,
+      "avg_loan": 1420010
+    },
+    {
+      "district": "CA-13",
+      "state": "CA",
+      "anomalous_loans": 28,
+      "forgiven_pct": 0.4643,
+      "total_amount": 46539572,
+      "forgiven_amount": 31726619,
+      "avg_loan": 1662128
+    },
+    {
+      "district": "FL-21",
+      "state": "FL",
+      "anomalous_loans": 56,
+      "forgiven_pct": 0.4643,
+      "total_amount": 37954524,
+      "forgiven_amount": 27737546,
+      "avg_loan": 677759
+    },
+    {
+      "district": "CO-07",
+      "state": "CO",
+      "anomalous_loans": 26,
+      "forgiven_pct": 0.4615,
+      "total_amount": 68680016,
+      "forgiven_amount": 41932527,
+      "avg_loan": 2641539
+    },
+    {
+      "district": "FL-18",
+      "state": "FL",
+      "anomalous_loans": 13,
+      "forgiven_pct": 0.4615,
+      "total_amount": 25613045,
+      "forgiven_amount": 22215698,
+      "avg_loan": 1970234
+    },
+    {
+      "district": "MD-01",
+      "state": "MD",
+      "anomalous_loans": 35,
+      "forgiven_pct": 0.4571,
+      "total_amount": 29750052,
+      "forgiven_amount": 16967723,
+      "avg_loan": 850002
+    },
+    {
+      "district": "GA-11",
+      "state": "GA",
+      "anomalous_loans": 44,
+      "forgiven_pct": 0.4545,
+      "total_amount": 57196810,
+      "forgiven_amount": 47778358,
+      "avg_loan": 1299928
+    },
+    {
+      "district": "NC-08",
+      "state": "NC",
+      "anomalous_loans": 11,
+      "forgiven_pct": 0.4545,
+      "total_amount": 23140916,
+      "forgiven_amount": 16234866,
+      "avg_loan": 2103720
+    },
+    {
+      "district": "FL-04",
+      "state": "FL",
+      "anomalous_loans": 47,
+      "forgiven_pct": 0.4468,
+      "total_amount": 48672149,
+      "forgiven_amount": 37762207,
+      "avg_loan": 1035578
+    },
+    {
+      "district": "CA-43",
+      "state": "CA",
+      "anomalous_loans": 56,
+      "forgiven_pct": 0.4464,
+      "total_amount": 117224497,
+      "forgiven_amount": 93149504,
+      "avg_loan": 2093295
+    },
+    {
+      "district": "FL-23",
+      "state": "FL",
+      "anomalous_loans": 126,
+      "forgiven_pct": 0.4444,
+      "total_amount": 108682972,
+      "forgiven_amount": 61156327,
+      "avg_loan": 862563
+    },
+    {
+      "district": "NC-03",
+      "state": "NC",
+      "anomalous_loans": 18,
+      "forgiven_pct": 0.4444,
+      "total_amount": 17351689,
+      "forgiven_amount": 11372296,
+      "avg_loan": 963983
+    },
+    {
+      "district": "IN-03",
+      "state": "IN",
+      "anomalous_loans": 16,
+      "forgiven_pct": 0.4375,
+      "total_amount": 14648714,
+      "forgiven_amount": 7355379,
+      "avg_loan": 915545
+    },
+    {
+      "district": "FL-07",
+      "state": "FL",
+      "anomalous_loans": 21,
+      "forgiven_pct": 0.4286,
+      "total_amount": 30756487,
+      "forgiven_amount": 19196779,
+      "avg_loan": 1464595
+    },
+    {
+      "district": "CA-39",
+      "state": "CA",
+      "anomalous_loans": 26,
+      "forgiven_pct": 0.4231,
+      "total_amount": 24211183,
+      "forgiven_amount": 15655587,
+      "avg_loan": 931199
+    },
+    {
+      "district": "CA-34",
+      "state": "CA",
+      "anomalous_loans": 66,
+      "forgiven_pct": 0.4091,
+      "total_amount": 83916949,
+      "forgiven_amount": 58612121,
+      "avg_loan": 1271469
+    },
+    {
+      "district": "CA-31",
+      "state": "CA",
+      "anomalous_loans": 42,
+      "forgiven_pct": 0.4048,
+      "total_amount": 38769490,
+      "forgiven_amount": 26644698,
+      "avg_loan": 923083
+    },
+    {
+      "district": "CA-41",
+      "state": "CA",
+      "anomalous_loans": 42,
+      "forgiven_pct": 0.4048,
+      "total_amount": 42113113,
+      "forgiven_amount": 30499233,
+      "avg_loan": 1002693
+    },
+    {
+      "district": "MD-07",
+      "state": "MD",
+      "anomalous_loans": 35,
+      "forgiven_pct": 0.4,
+      "total_amount": 29447544,
+      "forgiven_amount": 15951065,
+      "avg_loan": 841358
+    },
+    {
+      "district": "MS-02",
+      "state": "MS",
+      "anomalous_loans": 20,
+      "forgiven_pct": 0.4,
+      "total_amount": 26335861,
+      "forgiven_amount": 22840127,
+      "avg_loan": 1316793
+    },
+    {
+      "district": "CA-32",
+      "state": "CA",
+      "anomalous_loans": 156,
+      "forgiven_pct": 0.3974,
+      "total_amount": 166169303,
+      "forgiven_amount": 117130265,
+      "avg_loan": 1065188
+    },
+    {
+      "district": "CA-06",
+      "state": "CA",
+      "anomalous_loans": 31,
+      "forgiven_pct": 0.3871,
+      "total_amount": 40016164,
+      "forgiven_amount": 34145538,
+      "avg_loan": 1290844
+    },
+    {
+      "district": "AZ-07",
+      "state": "AZ",
+      "anomalous_loans": 13,
+      "forgiven_pct": 0.3846,
+      "total_amount": 14174340,
+      "forgiven_amount": 4008761,
+      "avg_loan": 1090334
+    },
+    {
+      "district": "FL-27",
+      "state": "FL",
+      "anomalous_loans": 128,
+      "forgiven_pct": 0.3828,
+      "total_amount": 112632346,
+      "forgiven_amount": 71619354,
+      "avg_loan": 879940
+    },
+    {
+      "district": "MD-04",
+      "state": "MD",
+      "anomalous_loans": 34,
+      "forgiven_pct": 0.3824,
+      "total_amount": 39990516,
+      "forgiven_amount": 22427586,
+      "avg_loan": 1176192
+    },
+    {
+      "district": "MD-03",
+      "state": "MD",
+      "anomalous_loans": 42,
+      "forgiven_pct": 0.381,
+      "total_amount": 91686596,
+      "forgiven_amount": 58458126,
+      "avg_loan": 2183014
+    },
+    {
+      "district": "AZ-04",
+      "state": "AZ",
+      "anomalous_loans": 29,
+      "forgiven_pct": 0.3793,
+      "total_amount": 46090072,
+      "forgiven_amount": 23890226,
+      "avg_loan": 1589313
+    },
+    {
+      "district": "FL-26",
+      "state": "FL",
+      "anomalous_loans": 99,
+      "forgiven_pct": 0.3737,
+      "total_amount": 79718930,
+      "forgiven_amount": 51962835,
+      "avg_loan": 805242
+    },
+    {
+      "district": "FL-22",
+      "state": "FL",
+      "anomalous_loans": 110,
+      "forgiven_pct": 0.3727,
+      "total_amount": 88754808,
+      "forgiven_amount": 53960523,
+      "avg_loan": 806862
+    },
+    {
+      "district": "FL-17",
+      "state": "FL",
+      "anomalous_loans": 19,
+      "forgiven_pct": 0.3684,
+      "total_amount": 13463743,
+      "forgiven_amount": 6730209,
+      "avg_loan": 708618
+    },
+    {
+      "district": "FL-02",
+      "state": "FL",
+      "anomalous_loans": 11,
+      "forgiven_pct": 0.3636,
+      "total_amount": 5434482,
+      "forgiven_amount": 3336496,
+      "avg_loan": 494044
+    },
+    {
+      "district": "AZ-05",
+      "state": "AZ",
+      "anomalous_loans": 17,
+      "forgiven_pct": 0.3529,
+      "total_amount": 16374275,
+      "forgiven_amount": 5519400,
+      "avg_loan": 963193
+    },
+    {
+      "district": "CA-30",
+      "state": "CA",
+      "anomalous_loans": 188,
+      "forgiven_pct": 0.3511,
+      "total_amount": 179276844,
+      "forgiven_amount": 107367662,
+      "avg_loan": 953600
+    },
+    {
+      "district": "CA-37",
+      "state": "CA",
+      "anomalous_loans": 98,
+      "forgiven_pct": 0.3469,
+      "total_amount": 126492585,
+      "forgiven_amount": 81877812,
+      "avg_loan": 1290741
+    },
+    {
+      "district": "CA-29",
+      "state": "CA",
+      "anomalous_loans": 94,
+      "forgiven_pct": 0.3404,
+      "total_amount": 108586672,
+      "forgiven_amount": 60649995,
+      "avg_loan": 1155177
+    },
+    {
+      "district": "CA-28",
+      "state": "CA",
+      "anomalous_loans": 59,
+      "forgiven_pct": 0.339,
+      "total_amount": 71352386,
+      "forgiven_amount": 42004494,
+      "avg_loan": 1209362
+    },
+    {
+      "district": "FL-16",
+      "state": "FL",
+      "anomalous_loans": 15,
+      "forgiven_pct": 0.3333,
+      "total_amount": 23654399,
+      "forgiven_amount": 16114163,
+      "avg_loan": 1576960
+    },
+    {
+      "district": "CO-06",
+      "state": "CO",
+      "anomalous_loans": 46,
+      "forgiven_pct": 0.3261,
+      "total_amount": 58871376,
+      "forgiven_amount": 34943683,
+      "avg_loan": 1279813
+    },
+    {
+      "district": "GA-04",
+      "state": "GA",
+      "anomalous_loans": 52,
+      "forgiven_pct": 0.2885,
+      "total_amount": 29780051,
+      "forgiven_amount": 17510178,
+      "avg_loan": 572693
+    },
+    {
+      "district": "FL-25",
+      "state": "FL",
+      "anomalous_loans": 76,
+      "forgiven_pct": 0.2632,
+      "total_amount": 79618568,
+      "forgiven_amount": 37468025,
+      "avg_loan": 1047613
+    },
+    {
+      "district": "AL-05",
+      "state": "AL",
+      "anomalous_loans": 31,
+      "forgiven_pct": 0.2581,
+      "total_amount": 71892795,
+      "forgiven_amount": 41041985,
+      "avg_loan": 2319122
+    },
+    {
+      "district": "FL-09",
+      "state": "FL",
+      "anomalous_loans": 28,
+      "forgiven_pct": 0.25,
+      "total_amount": 27508481,
+      "forgiven_amount": 17094894,
+      "avg_loan": 982446
+    },
+    {
+      "district": "GA-07",
+      "state": "GA",
+      "anomalous_loans": 56,
+      "forgiven_pct": 0.25,
+      "total_amount": 78132476,
+      "forgiven_amount": 53909659,
+      "avg_loan": 1395223
+    },
+    {
+      "district": "FL-08",
+      "state": "FL",
+      "anomalous_loans": 46,
+      "forgiven_pct": 0.2391,
+      "total_amount": 26860226,
+      "forgiven_amount": 9369168,
+      "avg_loan": 583918
+    },
+    {
+      "district": "FL-24",
+      "state": "FL",
+      "anomalous_loans": 164,
+      "forgiven_pct": 0.2256,
+      "total_amount": 124362226,
+      "forgiven_amount": 54560616,
+      "avg_loan": 758306
+    },
+    {
+      "district": "FL-20",
+      "state": "FL",
+      "anomalous_loans": 103,
+      "forgiven_pct": 0.1845,
+      "total_amount": 74337992,
+      "forgiven_amount": 29966396,
+      "avg_loan": 721728
+    },
+    {
+      "district": "GA-10",
+      "state": "GA",
+      "anomalous_loans": 11,
+      "forgiven_pct": 0.1818,
+      "total_amount": 11727634,
+      "forgiven_amount": 4398030,
+      "avg_loan": 1066149
+    },
+    {
+      "district": "GA-13",
+      "state": "GA",
+      "anomalous_loans": 35,
+      "forgiven_pct": 0.1714,
+      "total_amount": 31244209,
+      "forgiven_amount": 14837947,
+      "avg_loan": 892692
+    },
+    {
+      "district": "FL-28",
+      "state": "FL",
+      "anomalous_loans": 43,
+      "forgiven_pct": 0.1628,
+      "total_amount": 20997242,
+      "forgiven_amount": 7214643,
+      "avg_loan": 488308
+    }
+  ],
+  "processing_method": {
+    "PPP": {
+      "loans": 676853,
+      "anomalies": 12615,
+      "rate": 0.0186
+    },
+    "PPS": {
+      "loans": 291671,
+      "anomalies": 6756,
+      "rate": 0.0232
+    }
+  },
+  "forgiveness_by_party": {
+    "R_states": {
+      "anomalous_loans": 7340,
+      "fully_forgiven_pct": 0.705,
+      "zero_forgiveness_pct": 0.22
+    },
+    "D_states": {
+      "anomalous_loans": 11920,
+      "fully_forgiven_pct": 0.733,
+      "zero_forgiveness_pct": 0.167
+    },
+    "note": "D-state anomalous loans forgiven at slightly higher rate (73.3% vs 70.5%). Florida and Georgia (R governors) had the lowest forgiveness rates for anomalous loans."
+  },
+  "top_100pct_forgiveness_districts": [
+    {
+      "district": "NM-02",
+      "state": "NM",
+      "anomalous_loans": 19,
+      "forgiven_pct": 1.0,
+      "total_amount": 18208537,
+      "forgiven_amount": 18394972,
+      "avg_loan": 958344
+    },
+    {
+      "district": "NY-19",
+      "state": "NY",
+      "anomalous_loans": 38,
+      "forgiven_pct": 1.0,
+      "total_amount": 70293672,
+      "forgiven_amount": 71124032,
+      "avg_loan": 1849833
+    },
+    {
+      "district": "OH-03",
+      "state": "OH",
+      "anomalous_loans": 29,
+      "forgiven_pct": 1.0,
+      "total_amount": 69127530,
+      "forgiven_amount": 69813056,
+      "avg_loan": 2383708
+    },
+    {
+      "district": "OK-04",
+      "state": "OK",
+      "anomalous_loans": 16,
+      "forgiven_pct": 1.0,
+      "total_amount": 16518904,
+      "forgiven_amount": 16672715,
+      "avg_loan": 1032431
+    },
+    {
+      "district": "PA-15",
+      "state": "PA",
+      "anomalous_loans": 21,
+      "forgiven_pct": 1.0,
+      "total_amount": 34593214,
+      "forgiven_amount": 34935149,
+      "avg_loan": 1647296
+    },
+    {
+      "district": "SC-02",
+      "state": "SC",
+      "anomalous_loans": 14,
+      "forgiven_pct": 1.0,
+      "total_amount": 26587308,
+      "forgiven_amount": 26895203,
+      "avg_loan": 1899093
+    },
+    {
+      "district": "SC-05",
+      "state": "SC",
+      "anomalous_loans": 12,
+      "forgiven_pct": 1.0,
+      "total_amount": 14793162,
+      "forgiven_amount": 14945575,
+      "avg_loan": 1232764
+    },
+    {
+      "district": "SC-07",
+      "state": "SC",
+      "anomalous_loans": 22,
+      "forgiven_pct": 1.0,
+      "total_amount": 16221108,
+      "forgiven_amount": 16355839,
+      "avg_loan": 737323
+    },
+    {
+      "district": "SD-",
+      "state": "SD",
+      "anomalous_loans": 31,
+      "forgiven_pct": 1.0,
+      "total_amount": 41075696,
+      "forgiven_amount": 41510182,
+      "avg_loan": 1325022
+    },
+    {
+      "district": "TN-06",
+      "state": "TN",
+      "anomalous_loans": 20,
+      "forgiven_pct": 1.0,
+      "total_amount": 19887247,
+      "forgiven_amount": 20084573,
+      "avg_loan": 994362
+    },
+    {
+      "district": "VA-01",
+      "state": "VA",
+      "anomalous_loans": 24,
+      "forgiven_pct": 1.0,
+      "total_amount": 45402422,
+      "forgiven_amount": 45850526,
+      "avg_loan": 1891768
+    },
+    {
+      "district": "VT-",
+      "state": "VT",
+      "anomalous_loans": 28,
+      "forgiven_pct": 1.0,
+      "total_amount": 30095610,
+      "forgiven_amount": 30405006,
+      "avg_loan": 1074843
+    },
+    {
+      "district": "WA-04",
+      "state": "WA",
+      "anomalous_loans": 26,
+      "forgiven_pct": 1.0,
+      "total_amount": 42866066,
+      "forgiven_amount": 43278618,
+      "avg_loan": 1648695
+    },
+    {
+      "district": "WI-01",
+      "state": "WI",
+      "anomalous_loans": 16,
+      "forgiven_pct": 1.0,
+      "total_amount": 32936792,
+      "forgiven_amount": 33235833,
+      "avg_loan": 2058550
+    },
+    {
+      "district": "WI-05",
+      "state": "WI",
+      "anomalous_loans": 31,
+      "forgiven_pct": 1.0,
+      "total_amount": 67252219,
+      "forgiven_amount": 67924065,
+      "avg_loan": 2169426
+    }
+  ],
+  "lowest_forgiveness_districts": [
+    {
+      "district": "CA-29",
+      "state": "CA",
+      "anomalous_loans": 94,
+      "forgiven_pct": 0.3404,
+      "total_amount": 108586672,
+      "forgiven_amount": 60649995,
+      "avg_loan": 1155177
+    },
+    {
+      "district": "CA-28",
+      "state": "CA",
+      "anomalous_loans": 59,
+      "forgiven_pct": 0.339,
+      "total_amount": 71352386,
+      "forgiven_amount": 42004494,
+      "avg_loan": 1209362
+    },
+    {
+      "district": "FL-16",
+      "state": "FL",
+      "anomalous_loans": 15,
+      "forgiven_pct": 0.3333,
+      "total_amount": 23654399,
+      "forgiven_amount": 16114163,
+      "avg_loan": 1576960
+    },
+    {
+      "district": "CO-06",
+      "state": "CO",
+      "anomalous_loans": 46,
+      "forgiven_pct": 0.3261,
+      "total_amount": 58871376,
+      "forgiven_amount": 34943683,
+      "avg_loan": 1279813
+    },
+    {
+      "district": "GA-04",
+      "state": "GA",
+      "anomalous_loans": 52,
+      "forgiven_pct": 0.2885,
+      "total_amount": 29780051,
+      "forgiven_amount": 17510178,
+      "avg_loan": 572693
+    },
+    {
+      "district": "FL-25",
+      "state": "FL",
+      "anomalous_loans": 76,
+      "forgiven_pct": 0.2632,
+      "total_amount": 79618568,
+      "forgiven_amount": 37468025,
+      "avg_loan": 1047613
+    },
+    {
+      "district": "AL-05",
+      "state": "AL",
+      "anomalous_loans": 31,
+      "forgiven_pct": 0.2581,
+      "total_amount": 71892795,
+      "forgiven_amount": 41041985,
+      "avg_loan": 2319122
+    },
+    {
+      "district": "FL-09",
+      "state": "FL",
+      "anomalous_loans": 28,
+      "forgiven_pct": 0.25,
+      "total_amount": 27508481,
+      "forgiven_amount": 17094894,
+      "avg_loan": 982446
+    },
+    {
+      "district": "GA-07",
+      "state": "GA",
+      "anomalous_loans": 56,
+      "forgiven_pct": 0.25,
+      "total_amount": 78132476,
+      "forgiven_amount": 53909659,
+      "avg_loan": 1395223
+    },
+    {
+      "district": "FL-08",
+      "state": "FL",
+      "anomalous_loans": 46,
+      "forgiven_pct": 0.2391,
+      "total_amount": 26860226,
+      "forgiven_amount": 9369168,
+      "avg_loan": 583918
+    },
+    {
+      "district": "FL-24",
+      "state": "FL",
+      "anomalous_loans": 164,
+      "forgiven_pct": 0.2256,
+      "total_amount": 124362226,
+      "forgiven_amount": 54560616,
+      "avg_loan": 758306
+    },
+    {
+      "district": "FL-20",
+      "state": "FL",
+      "anomalous_loans": 103,
+      "forgiven_pct": 0.1845,
+      "total_amount": 74337992,
+      "forgiven_amount": 29966396,
+      "avg_loan": 721728
+    },
+    {
+      "district": "GA-10",
+      "state": "GA",
+      "anomalous_loans": 11,
+      "forgiven_pct": 0.1818,
+      "total_amount": 11727634,
+      "forgiven_amount": 4398030,
+      "avg_loan": 1066149
+    },
+    {
+      "district": "GA-13",
+      "state": "GA",
+      "anomalous_loans": 35,
+      "forgiven_pct": 0.1714,
+      "total_amount": 31244209,
+      "forgiven_amount": 14837947,
+      "avg_loan": 892692
+    },
+    {
+      "district": "FL-28",
+      "state": "FL",
+      "anomalous_loans": 43,
+      "forgiven_pct": 0.1628,
+      "total_amount": 20997242,
+      "forgiven_amount": 7214643,
+      "avg_loan": 488308
+    }
+  ]
+}
