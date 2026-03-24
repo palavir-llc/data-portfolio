@@ -1,0 +1,90 @@
+{
+  "source": "FBI IC3 Annual Report 2023",
+  "url": "https://www.ic3.gov/AnnualReport/Reports/2023_IC3Report.pdf",
+  "total_complaints_2023": 880418,
+  "total_losses_2023": 12500000000,
+  "top_states_by_victims": [
+    {
+      "state": "CA",
+      "victims": 80766,
+      "losses": 2159000000
+    },
+    {
+      "state": "TX",
+      "victims": 50410,
+      "losses": 1024000000
+    },
+    {
+      "state": "FL",
+      "victims": 45310,
+      "losses": 874000000
+    },
+    {
+      "state": "NY",
+      "victims": 30024,
+      "losses": 749000000
+    },
+    {
+      "state": "OH",
+      "victims": 21611,
+      "losses": 277000000
+    },
+    {
+      "state": "PA",
+      "victims": 19635,
+      "losses": 291000000
+    },
+    {
+      "state": "IL",
+      "victims": 19570,
+      "losses": 475000000
+    },
+    {
+      "state": "NJ",
+      "victims": 17548,
+      "losses": 466000000
+    },
+    {
+      "state": "WA",
+      "victims": 17084,
+      "losses": 367000000
+    },
+    {
+      "state": "VA",
+      "victims": 16715,
+      "losses": 404000000
+    }
+  ],
+  "top_crime_types": [
+    {
+      "type": "Investment Fraud",
+      "losses": 4570000000,
+      "complaints": 39570
+    },
+    {
+      "type": "BEC/EAC",
+      "losses": 2946000000,
+      "complaints": 21489
+    },
+    {
+      "type": "Tech Support Fraud",
+      "losses": 924000000,
+      "complaints": 37560
+    },
+    {
+      "type": "Personal Data Breach",
+      "losses": 743000000,
+      "complaints": 55851
+    },
+    {
+      "type": "Romance Fraud",
+      "losses": 653000000,
+      "complaints": 17823
+    },
+    {
+      "type": "Government Impersonation",
+      "losses": 394000000,
+      "complaints": 14190
+    }
+  ]
+}

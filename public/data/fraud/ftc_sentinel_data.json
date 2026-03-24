@@ -1,0 +1,53 @@
+{
+  "source": "FTC Consumer Sentinel Network Data Book 2023",
+  "url": "https://www.ftc.gov/reports/consumer-sentinel-network-data-book-2023",
+  "total_reports_2023": 5394919,
+  "total_fraud_losses": 10000000000,
+  "median_fraud_loss": 500,
+  "top_categories": [
+    {
+      "type": "Identity Theft",
+      "reports": 1036903
+    },
+    {
+      "type": "Imposter Scams",
+      "reports": 853935,
+      "losses": 2695000000
+    },
+    {
+      "type": "Online Shopping",
+      "reports": 404887
+    },
+    {
+      "type": "Investment Fraud",
+      "reports": 107054,
+      "losses": 4610000000
+    },
+    {
+      "type": "Business/Job Opportunities",
+      "reports": 95667
+    },
+    {
+      "type": "Internet Services",
+      "reports": 89397
+    }
+  ],
+  "payment_methods": [
+    {
+      "method": "Bank Transfer/Wire",
+      "losses": 1866000000
+    },
+    {
+      "method": "Cryptocurrency",
+      "losses": 1410000000
+    },
+    {
+      "method": "Credit Card",
+      "losses": 428000000
+    },
+    {
+      "method": "Gift Card/Reload Card",
+      "losses": 217000000
+    }
+  ]
+}

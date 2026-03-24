@@ -1850,6 +1850,74 @@ export function FraudInAmericaClient() {
       <SectionDivider />
 
       {/* ═══════════════════════════════════════════════════════════════
+          BROADER FRAUD LANDSCAPE
+         ═══════════════════════════════════════════════════════════════ */}
+      <section className="px-6 py-20">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-3xl font-extrabold tracking-tight">Beyond PPP: The Broader Fraud Landscape</h2>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-zinc-400">
+            PPP fraud is one piece of a much larger picture. The FBI, FTC, and other agencies
+            track fraud across every sector of the economy. Here is how the PPP findings fit
+            into the national fraud landscape.
+          </p>
+
+          {/* FBI IC3 */}
+          <div className="mt-10">
+            <h3 className="text-lg font-bold text-zinc-200">FBI Internet Crime: $12.5 Billion in Losses (2023)</h3>
+            <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
+              The FBI&apos;s Internet Crime Complaint Center received 880,418 complaints in 2023
+              with $12.5 billion in reported losses. Investment fraud alone accounted for $4.6B.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-3">
+              {[
+                { label: "Investment Fraud", value: "$4.6B", sub: "39,570 complaints" },
+                { label: "Business Email Compromise", value: "$2.9B", sub: "21,489 complaints" },
+                { label: "Tech Support Fraud", value: "$924M", sub: "37,560 complaints" },
+              ].map((item, i) => (
+                <Stat key={i} label={item.label} value={item.value} sub={item.sub} accent={i === 0 ? "text-red-400" : undefined} />
+              ))}
+            </div>
+          </div>
+
+          {/* FTC */}
+          <div className="mt-10">
+            <h3 className="text-lg font-bold text-zinc-200">FTC Consumer Sentinel: 5.4 Million Reports, $10B Lost</h3>
+            <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
+              The FTC&apos;s Consumer Sentinel Network logged 5.4 million consumer reports in 2023.
+              Cryptocurrency is now the #2 payment method for fraud losses at $1.4B.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                { label: "Bank Transfer/Wire", value: "$1.9B", color: "text-red-400" },
+                { label: "Cryptocurrency", value: "$1.4B", color: "text-amber-400" },
+                { label: "Credit Card", value: "$428M", color: "text-zinc-300" },
+                { label: "Gift Card/Reload", value: "$217M", color: "text-zinc-400" },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center justify-between rounded-lg border border-zinc-800 bg-zinc-900/50 px-4 py-3">
+                  <span className="text-sm text-zinc-400">{item.label}</span>
+                  <span className={`text-lg font-bold ${item.color}`}>{item.value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* The bigger number */}
+          <div className="mt-10 rounded-xl border border-red-500/20 bg-red-500/5 p-6 text-center">
+            <p className="text-4xl font-extrabold text-red-400">$75B+</p>
+            <p className="mt-2 text-sm text-zinc-400">
+              Total DOJ False Claims Act recoveries since 1986. FY2025 set a record at $6.8B.
+              Add FBI IC3 ($12.5B/year), FTC ($10B/year), and state AG actions, and fraud costs
+              Americans tens of billions annually. PPP added $32B+ in anomalous loans on top of that.
+            </p>
+          </div>
+
+          <Source text="FBI IC3 Annual Report 2023 + FTC Consumer Sentinel 2023 + DOJ FCA Statistics" />
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════════
           CONCLUSIONS
          ═══════════════════════════════════════════════════════════════ */}
       <section data-section="conclusions" id="conclusions" className="px-6 py-20 bg-zinc-900/30">
