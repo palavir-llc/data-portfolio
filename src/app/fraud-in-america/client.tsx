@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { Choropleth } from "@/components/viz/Choropleth";
-import { ForceGraph } from "@/components/viz/ForceGraph";
+// ForceGraph removed - network viz was not adding clarity
 
 // ─── Types ───────────────────────────────────────────────────────────
 
@@ -536,25 +536,60 @@ function ScatterPlot({ data }: { data: PPPScatterPoint[] }) {
 
 function MScoreHist({ data, threshold = -1.78 }: { data: MScoreDistribution[]; threshold?: number }) {
   const maxC = Math.max(...data.map((d) => d.count), 1);
+  const totalBelow = data.filter(d => d.bin_start < threshold).reduce((s, d) => s + d.count, 0);
+  const totalAbove = data.filter(d => d.bin_start >= threshold).reduce((s, d) => s + d.count, 0);
+  const total = totalBelow + totalAbove;
+
   return (
-    <div className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-5">
-      <div className="flex items-end gap-[2px]" style={{ height: 180 }}>
+    <div className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-6">
+      {/* Simple summary first */}
+      <div className="mb-6 flex items-center gap-6">
+        <div className="flex-1">
+          <div className="h-4 rounded-full bg-zinc-800 overflow-hidden flex">
+            <div className="h-4 bg-green-500/70 transition-all duration-1000" style={{ width: `${(totalBelow / total) * 100}%` }} />
+            <div className="h-4 bg-red-500/70 transition-all duration-1000" style={{ width: `${(totalAbove / total) * 100}%` }} />
+          </div>
+          <div className="mt-1 flex justify-between text-[10px]">
+            <span className="text-green-400">{totalBelow.toLocaleString()} likely clean ({((totalBelow/total)*100).toFixed(1)}%)</span>
+            <span className="text-red-400">{totalAbove.toLocaleString()} flagged ({((totalAbove/total)*100).toFixed(1)}%)</span>
+          </div>
+        </div>
+      </div>
+      {/* Visual scale explanation */}
+      <div className="mb-4 rounded-lg bg-zinc-800/50 p-4">
+        <p className="text-xs text-zinc-400 mb-3">Think of the M-Score like a thermometer for financial health:</p>
+        <div className="flex items-center gap-1">
+          <div className="flex-1 h-8 rounded-l-lg bg-gradient-to-r from-green-600 to-green-500 flex items-center justify-center">
+            <span className="text-[10px] font-bold text-white">Safe Zone</span>
+          </div>
+          <div className="w-px h-10 bg-white relative">
+            <span className="absolute -top-5 left-1/2 -translate-x-1/2 text-[9px] font-bold text-red-400 whitespace-nowrap">-1.78 cutoff</span>
+          </div>
+          <div className="w-24 h-8 rounded-r-lg bg-gradient-to-r from-red-500 to-red-700 flex items-center justify-center">
+            <span className="text-[10px] font-bold text-white">Danger</span>
+          </div>
+        </div>
+        <div className="mt-1 flex justify-between text-[9px] text-zinc-600">
+          <span>-8 (very safe)</span>
+          <span>-3 (healthy)</span>
+          <span>-1.78</span>
+          <span>+4 (high risk)</span>
+        </div>
+      </div>
+      {/* Histogram bars */}
+      <div className="flex items-end gap-[2px]" style={{ height: 140 }}>
         {data.map((d, i) => {
-          const h = (d.count / maxC) * 160;
+          const h = (d.count / maxC) * 120;
           const above = d.bin_start >= threshold;
           return (
-            <div key={i} className="group relative flex-1" title={`${d.bin_start.toFixed(1)} to ${d.bin_end.toFixed(1)}: ${d.count} companies`}>
+            <div key={i} className="group relative flex-1" title={`Score ${d.bin_start.toFixed(1)} to ${d.bin_end.toFixed(1)}: ${d.count} companies`}>
               <div className="absolute bottom-0 w-full rounded-t-sm transition-all hover:brightness-125"
-                style={{ height: Math.max(h, 1), backgroundColor: above ? "#ef4444" : "#22c55e", opacity: 0.8 }} />
+                style={{ height: Math.max(h, 1), backgroundColor: above ? "#ef4444" : "#22c55e", opacity: 0.75 }} />
             </div>
           );
         })}
       </div>
-      <div className="mt-2 flex items-center justify-between text-[10px] text-zinc-600">
-        <span>-8 (safe)</span>
-        <span className="rounded bg-red-500/20 px-2 py-0.5 text-red-400">-1.78 threshold</span>
-        <span>+4 (manipulation)</span>
-      </div>
+      <p className="mt-3 text-[10px] text-zinc-600">Each bar = a score range. Height = number of companies in that range. Most cluster around -2.5 to -3 (healthy).</p>
     </div>
   );
 }
@@ -720,7 +755,7 @@ export function FraudInAmericaClient() {
   const nav = [
     { id: "hero", label: "Overview" }, { id: "ppp", label: "PPP Fraud" },
     { id: "nonprofits", label: "Nonprofits" }, { id: "corporate", label: "Corporate" }, { id: "healthcare", label: "Healthcare" },
-    { id: "crosscutting", label: "Patterns" }, { id: "methodology", label: "Methods" },
+    { id: "crosscutting", label: "Patterns" }, { id: "conclusions", label: "Conclusions" }, { id: "methodology", label: "Methods" },
   ];
 
   return (
@@ -771,6 +806,24 @@ export function FraudInAmericaClient() {
           )}
         </div>
       </section>
+
+      {/* Legal Disclaimer */}
+      <div className="mx-auto max-w-5xl px-6 py-6">
+        <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 px-6 py-4">
+          <p className="text-xs font-bold uppercase tracking-wider text-amber-400 mb-2">Important Disclaimer</p>
+          <p className="text-xs leading-relaxed text-zinc-400">
+            This analysis uses publicly available data and published academic models to identify
+            <strong className="text-zinc-300"> statistical patterns</strong>, not to accuse any
+            individual or organization of fraud. An anomalous M-Score, PPP loan pattern, or
+            billing outlier may have entirely legitimate explanations. Public company names
+            appear because their SEC filings are public record. PPP borrower details are from
+            the SBA&apos;s own FOIA publication. <strong className="text-zinc-300">Nothing in this
+            report constitutes a legal finding or accusation.</strong> Entities mentioned should
+            be considered innocent of any wrongdoing. Readers should conduct their own
+            due diligence before drawing conclusions.
+          </p>
+        </div>
+      </div>
 
       <SectionDivider />
 
@@ -1052,31 +1105,6 @@ export function FraudInAmericaClient() {
                   />
                 </div>
               )}
-            </div>
-          )}
-
-          {/* Network Graph */}
-          {pppNetwork && pppNetwork.nodes?.length > 0 && (
-            <div className="mt-16">
-              <h3 className="text-2xl font-extrabold text-zinc-100">The Web: How Entities Connect</h3>
-              <p className="mt-3 mb-6 max-w-2xl text-sm text-zinc-500">
-                Each gray node is an address. Colored nodes are entities that filed PPP loans
-                from that address. When dozens of separate LLCs all lead back to the same
-                mailbox, the pattern becomes visible. Drag nodes to explore.
-              </p>
-              <div className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-4">
-                <ForceGraph
-                  nodes={pppNetwork.nodes.map((n: any) => ({
-                    ...n,
-                    community: n.type === 'address' ? 0 : n.anomaly ? 1 : 2,
-                    total_amount: n.amount,
-                  }))}
-                  links={pppNetwork.links}
-                  width={1100}
-                  height={600}
-                  title="PPP Loan Address Network (Top 30 Clusters)"
-                />
-              </div>
             </div>
           )}
 
@@ -1686,6 +1714,79 @@ export function FraudInAmericaClient() {
           )}
 
           <Source text="CFPB Consumer Complaint Database + DOJ FCA Statistics" url="https://www.consumerfinance.gov/data-research/consumer-complaints/" />
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════════
+          CONCLUSIONS
+         ═══════════════════════════════════════════════════════════════ */}
+      <section data-section="conclusions" id="conclusions" className="px-6 py-20 bg-zinc-900/30">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="text-3xl font-extrabold tracking-tight">What This Means</h2>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-zinc-400">
+            We analyzed 15 million records from 6 federal datasets using 4 different machine
+            learning approaches. Here is what the data tells us.
+          </p>
+
+          <div className="mt-10 space-y-8">
+            <div className="rounded-xl border border-red-500/20 bg-red-500/5 p-6">
+              <h3 className="text-lg font-bold text-red-400">1. PPP fraud was systematic, not random</h3>
+              <p className="mt-2 text-sm text-zinc-400">
+                19,371 loans worth $32.4 billion show patterns that don&apos;t occur naturally:
+                round dollar amounts 16x more common, addresses hosting 50+ separate LLCs,
+                sole proprietors claiming 500 employees. The fraud rate climbed from 1.6% to
+                7.8% as the program ran longer, meaning it was learned behavior. Lenders with
+                weak vetting approved anomalous loans at rates 30x higher than careful ones.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-6">
+              <h3 className="text-lg font-bold text-amber-400">2. The government caught some of it</h3>
+              <p className="mt-2 text-sm text-zinc-400">
+                Anomalous loans were forgiven at 72% vs 94% for normal loans, and 19% got
+                zero forgiveness (vs 2.3% normal). That 8x gap in non-forgiveness means the SBA
+                did flag many suspicious loans. But the math is clear: 72% of $32.4B in
+                anomalous loans was still forgiven. That&apos;s roughly $23 billion in potentially
+                fraudulent loans that passed through the system.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-blue-500/20 bg-blue-500/5 p-6">
+              <h3 className="text-lg font-bold text-blue-400">3. Accounting models predict real-world problems</h3>
+              <p className="mt-2 text-sm text-zinc-400">
+                Of the top 10 companies flagged by the Beneish M-Score, 5 subsequently faced
+                securities fraud class actions, active investigations, going concern warnings,
+                or Nasdaq delisting. One was confirmed to have fabricated data provided to the
+                FDA. Another was delisted entirely. The model identified 2 false positives
+                (legitimate drug launches), proving it&apos;s specific but not perfect.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-violet-500/20 bg-violet-500/5 p-6">
+              <h3 className="text-lg font-bold text-violet-400">4. Public data is enough to find patterns</h3>
+              <p className="mt-2 text-sm text-zinc-400">
+                Every dataset used in this analysis is freely downloadable from federal government
+                websites. No special access, no insider data, no paid databases. The SBA publishes
+                every PPP loan. The SEC publishes every 10-K filing. CMS publishes every prescriber.
+                The tools to find fraud patterns are available to anyone. The question is whether
+                anyone is looking.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-zinc-600/20 bg-zinc-800/30 p-6">
+              <h3 className="text-lg font-bold text-zinc-300">5. What we can&apos;t tell you</h3>
+              <p className="mt-2 text-sm text-zinc-400">
+                Statistical models find patterns, not intent. A round loan amount could be a
+                coincidence. An address with 50 LLCs could be a legitimate property management
+                company. A high M-Score could reflect rapid growth, not manipulation.
+                We cannot and do not accuse anyone of fraud. What we can say is that these
+                patterns exist, they&apos;re statistically significant, and they match the
+                profiles of entities that have been caught.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
