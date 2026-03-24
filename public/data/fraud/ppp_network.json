@@ -1,0 +1,2196 @@
+{
+  "nodes": [
+    {
+      "id": "addr_0",
+      "label": "11410 COMMON OAKS DR, Raleigh, NC",
+      "type": "address",
+      "loans": 51,
+      "amount": 21379611.0,
+      "anomalies": 51
+    },
+    {
+      "id": "ent_1",
+      "label": "CONCORD DAYTON HOTEL II LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1830855.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_2",
+      "label": "CITYMARKET HOTEL DEVELOPMENT L",
+      "type": "entity",
+      "loans": 2,
+      "amount": 1423618.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_3",
+      "label": "CONCORD SIERRA NLI WPB HOTEL L",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1285610.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_4",
+      "label": "CONCORD DAYTON HOTEL II, LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1249500.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_5",
+      "label": "CONCORD AZTEC BRICKELL LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 977399.0,
+      "anomaly": true
+    },
+    {
+      "id": "addr_6",
+      "label": "1140 RESERVOIR AVE, CRANSTON, RI",
+      "type": "address",
+      "loans": 50,
+      "amount": 39178126.0,
+      "anomalies": 5
+    },
+    {
+      "id": "ent_7",
+      "label": "PROCACCIANTI COMPANIES, INC.",
+      "type": "entity",
+      "loans": 1,
+      "amount": 2297180.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_8",
+      "label": "PROCACCIANTI COMPANIES INC.",
+      "type": "entity",
+      "loans": 1,
+      "amount": 2000000.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_9",
+      "label": "TPG KC MO I LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1955618.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_10",
+      "label": "HCP GROSVENOR ORLANDO OWNER LL",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1879957.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_11",
+      "label": "PIL II LP",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1806738.0,
+      "anomaly": false
+    },
+    {
+      "id": "addr_12",
+      "label": "1445 5TH ST, Santa Monica, CA",
+      "type": "address",
+      "loans": 49,
+      "amount": 12486832.0,
+      "anomalies": 49
+    },
+    {
+      "id": "ent_13",
+      "label": "ALISAL VENTURES LLC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 875400.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_14",
+      "label": "SPRINGHOP, LLC.",
+      "type": "entity",
+      "loans": 2,
+      "amount": 835085.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_15",
+      "label": "DOWNEYHOP, INC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 734652.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_16",
+      "label": "MARINAHOP, INC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 594000.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_17",
+      "label": "BUNHOP, LLC.",
+      "type": "entity",
+      "loans": 2,
+      "amount": 517704.0,
+      "anomaly": true
+    },
+    {
+      "id": "addr_18",
+      "label": "2390 TOWER DR, Monroe, LA",
+      "type": "address",
+      "loans": 49,
+      "amount": 13684503.0,
+      "anomalies": 49
+    },
+    {
+      "id": "ent_19",
+      "label": "INTERMOUNTAIN MANAGEMENT L.L.C",
+      "type": "entity",
+      "loans": 1,
+      "amount": 2000000.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_20",
+      "label": "INTERMOUNTAIN MANAGEMENT, LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1742900.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_21",
+      "label": "WEST VALLEY HOSPITALITY LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 412574.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_22",
+      "label": "LSH 1 LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 396891.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_23",
+      "label": "RENO AIRPORT LODGING LLC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 396656.0,
+      "anomaly": true
+    },
+    {
+      "id": "addr_24",
+      "label": "7 PEARL CT, ALLENDALE, NJ",
+      "type": "address",
+      "loans": 48,
+      "amount": 65964209.0,
+      "anomalies": 42
+    },
+    {
+      "id": "ent_25",
+      "label": "APPLE FOOD SERVICE OF NEW JERS",
+      "type": "entity",
+      "loans": 2,
+      "amount": 11092837.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_26",
+      "label": "DOHERTY APPLE FLORIDA, LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 8225167.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_27",
+      "label": "DOHERTY BREADS, LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 4325370.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_28",
+      "label": "DOHERTY BREADS NYC LLC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 3905157.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_29",
+      "label": "APPLE FOOD SERVICE OF NEW YORK",
+      "type": "entity",
+      "loans": 1,
+      "amount": 2772012.0,
+      "anomaly": true
+    },
+    {
+      "id": "addr_30",
+      "label": "830 W TRAILCREEK DR, PEORIA, IL",
+      "type": "address",
+      "loans": 42,
+      "amount": 16740960.0,
+      "anomalies": 42
+    },
+    {
+      "id": "ent_31",
+      "label": "PETERSEN MANAGEMENT COMPANY LL",
+      "type": "entity",
+      "loans": 1,
+      "amount": 2351600.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_32",
+      "label": "PETERSEN HEALTH PROPERTIES LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 896000.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_33",
+      "label": "PETERSEN HEALTH CARE VII LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 768100.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_34",
+      "label": "MARIGOLD HCO LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 725500.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_35",
+      "label": "PLAZA WEST DEVELOPMENT, LLC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 689040.0,
+      "anomaly": true
+    },
+    {
+      "id": "addr_36",
+      "label": "14504 HERTZ QUAIL SPRINGS, Oklahoma City, OK",
+      "type": "address",
+      "loans": 38,
+      "amount": 25320715.0,
+      "anomalies": 1
+    },
+    {
+      "id": "ent_37",
+      "label": "BRICKTOWN BREWERY RESTAURANTS,",
+      "type": "entity",
+      "loans": 1,
+      "amount": 2779200.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_38",
+      "label": "EMERGING BRANDS, INC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 2495795.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_39",
+      "label": "BRICKTOWN BREWERY RESTAURANTS ",
+      "type": "entity",
+      "loans": 1,
+      "amount": 2000000.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_40",
+      "label": "JIMMY'S EGG LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1656018.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_41",
+      "label": "FIESTA HOLDINGS LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1655525.0,
+      "anomaly": false
+    },
+    {
+      "id": "addr_42",
+      "label": "807 DORSEY STREET, GAINESVILLE, GA",
+      "type": "address",
+      "loans": 36,
+      "amount": 32501960.0,
+      "anomalies": 36
+    },
+    {
+      "id": "ent_43",
+      "label": "KIDS2, INC.",
+      "type": "entity",
+      "loans": 1,
+      "amount": 5979192.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_44",
+      "label": "CULPEPPER & ASSOCIATES SECURIT",
+      "type": "entity",
+      "loans": 1,
+      "amount": 3077905.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_45",
+      "label": "DIVERSIFIED UTILITY SERVICES, ",
+      "type": "entity",
+      "loans": 1,
+      "amount": 2855695.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_46",
+      "label": "NIEMAN PRINTING, INC.",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1957862.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_47",
+      "label": "NOX HEALTH GROUP, INC.",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1829992.0,
+      "anomaly": true
+    },
+    {
+      "id": "addr_48",
+      "label": "206 TERMINAL DR, PLAINVIEW, NY",
+      "type": "address",
+      "loans": 36,
+      "amount": 18588990.0,
+      "anomalies": 0
+    },
+    {
+      "id": "ent_49",
+      "label": "IMOBILE OF CA LLC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 3534072.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_50",
+      "label": "IMOBILE OF NY LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1557928.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_51",
+      "label": "IMOBILE OF NY, LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1542900.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_52",
+      "label": "IMOBILE LLC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 1375028.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_53",
+      "label": "IMOBILE OF MA LLC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 1022580.0,
+      "anomaly": false
+    },
+    {
+      "id": "addr_54",
+      "label": "731 N MAIN ST, SIKESTON, MO",
+      "type": "address",
+      "loans": 35,
+      "amount": 10979652.0,
+      "anomalies": 35
+    },
+    {
+      "id": "ent_55",
+      "label": "TRUEMARK INC.",
+      "type": "entity",
+      "loans": 1,
+      "amount": 641652.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_56",
+      "label": "KINGMAN NO 1, LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 572700.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_57",
+      "label": "HAVASU NURSING CENTER #2, INC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 478200.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_58",
+      "label": "AVA NO 1, INC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 448200.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_59",
+      "label": "JOPLIN NO. 10, LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 442700.0,
+      "anomaly": true
+    },
+    {
+      "id": "addr_60",
+      "label": "1829 UNION ST, SAN FRANCISCO, CA",
+      "type": "address",
+      "loans": 31,
+      "amount": 9400069.0,
+      "anomalies": 31
+    },
+    {
+      "id": "ent_61",
+      "label": "DELA DOWNTOWN LLC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 953177.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_62",
+      "label": "2030 UNION STREET LLC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 607034.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_63",
+      "label": "APMEX LLC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 600719.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_64",
+      "label": "JBURGER LLC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 575434.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_65",
+      "label": "CORTE MADERA MEX LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 525000.0,
+      "anomaly": true
+    },
+    {
+      "id": "addr_66",
+      "label": "4100 REGENT ST STE G, Columbus, OH",
+      "type": "address",
+      "loans": 31,
+      "amount": 21558156.0,
+      "anomalies": 0
+    },
+    {
+      "id": "ent_67",
+      "label": "RB PORTLAND LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1712228.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_68",
+      "label": "RB CHERRY CREEK LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1410115.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_69",
+      "label": "RB WAIKIKI LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1309790.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_70",
+      "label": "NP PLATINUM HOTEL LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1303841.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_71",
+      "label": "THE RB WYNFREY LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1297117.0,
+      "anomaly": false
+    },
+    {
+      "id": "addr_72",
+      "label": "200 EXECUTIVE BLVD, SOUTHINGTON, CT",
+      "type": "address",
+      "loans": 30,
+      "amount": 17887172.0,
+      "anomalies": 30
+    },
+    {
+      "id": "ent_73",
+      "label": "M.C. ELECTRICAL NY INC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1778520.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_74",
+      "label": "RAMAQUOIS OPERATING CO., LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1424362.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_75",
+      "label": "AXIOM TECHNOLOGY GROUP LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1354900.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_76",
+      "label": "THE GOODSPEED OPERA HOUSE FOUN",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1283271.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_77",
+      "label": "COUNSELING IN SCHOOLS, INC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1056542.0,
+      "anomaly": true
+    },
+    {
+      "id": "addr_78",
+      "label": "10 MIDDLE ST 17TH FLOOR, BRIDGEPORT, CT",
+      "type": "address",
+      "loans": 30,
+      "amount": 6549500.0,
+      "anomalies": 30
+    },
+    {
+      "id": "ent_79",
+      "label": "TREFZ CORPORATION",
+      "type": "entity",
+      "loans": 1,
+      "amount": 739300.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_80",
+      "label": "YONKERS 4199 LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 316800.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_81",
+      "label": "STAMFORD 7362 LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 264200.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_82",
+      "label": "BRONX 2765 LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 255500.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_83",
+      "label": "YONKERS 3221 LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 236000.0,
+      "anomaly": true
+    },
+    {
+      "id": "addr_84",
+      "label": "2000 WARE BOTTOM SPRING R, Chester, VA",
+      "type": "address",
+      "loans": 30,
+      "amount": 18063790.0,
+      "anomalies": 0
+    },
+    {
+      "id": "ent_85",
+      "label": "SHAMIN HOTELS INC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 2856634.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_86",
+      "label": "3001 ATLANTIC LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 2000000.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_87",
+      "label": "3315 ATLANTIC LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1357307.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_88",
+      "label": "HENLEY SPW LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1329388.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_89",
+      "label": "50 KINGSMILL LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1075816.0,
+      "anomaly": false
+    },
+    {
+      "id": "addr_90",
+      "label": "7700 NE PARKWAY DRIVE SUI, VANCOUVER, WA",
+      "type": "address",
+      "loans": 29,
+      "amount": 17620000.0,
+      "anomalies": 7
+    },
+    {
+      "id": "ent_91",
+      "label": "CARE CENTER (ANCHORAGE) INC.",
+      "type": "entity",
+      "loans": 1,
+      "amount": 990000.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_92",
+      "label": "CARE CENTER (SULLIVAN PARK) IN",
+      "type": "entity",
+      "loans": 1,
+      "amount": 990000.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_93",
+      "label": "PCI CARE VENTURES I, INC.",
+      "type": "entity",
+      "loans": 1,
+      "amount": 990000.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_94",
+      "label": "CARE CENTER (CASCADE TERRACE) ",
+      "type": "entity",
+      "loans": 1,
+      "amount": 890000.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_95",
+      "label": "CARE CENTER EDMONDS",
+      "type": "entity",
+      "loans": 1,
+      "amount": 800000.0,
+      "anomaly": false
+    },
+    {
+      "id": "addr_96",
+      "label": "500 VIRGINIA ST EAST, CHARLESTON, WV",
+      "type": "address",
+      "loans": 29,
+      "amount": 16258100.0,
+      "anomalies": 1
+    },
+    {
+      "id": "ent_97",
+      "label": "KANAWHA STONE COMPANY, INC.",
+      "type": "entity",
+      "loans": 1,
+      "amount": 2560000.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_98",
+      "label": "MOSES FORD, INC.",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1418000.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_99",
+      "label": "MOSES CHEVROLET LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1149000.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_100",
+      "label": "KTC MANAGEMENT LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1076100.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_101",
+      "label": "MOSES CADILLAC BUICK GMC TRUCK",
+      "type": "entity",
+      "loans": 1,
+      "amount": 800500.0,
+      "anomaly": false
+    },
+    {
+      "id": "addr_102",
+      "label": "133 N JEFFERSON STREET FL, CHICAGO, IL",
+      "type": "address",
+      "loans": 28,
+      "amount": 16785700.0,
+      "anomalies": 28
+    },
+    {
+      "id": "ent_103",
+      "label": "CALISTOGA RANCH OWNER LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 2255900.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_104",
+      "label": "ADVENTUROUS JOURNEYS LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1927200.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_105",
+      "label": "GRADUATE MINNEAPOLIS LESSEE LL",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1227800.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_106",
+      "label": "RAAJ ANN ARBOR LESSEE LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 871700.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_107",
+      "label": "GRADUATE NASHVILLE LESSEE LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 759600.0,
+      "anomaly": true
+    },
+    {
+      "id": "addr_108",
+      "label": "1375 REMINGTON RD STE E, Schaumburg, IL",
+      "type": "address",
+      "loans": 28,
+      "amount": 8547894.0,
+      "anomalies": 28
+    },
+    {
+      "id": "ent_109",
+      "label": "PROMINENCE ROSEMONT LLC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 2100000.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_110",
+      "label": "PEARL HOSPITALITY LLC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 900000.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_111",
+      "label": "BASK MANAGERS LLC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 600000.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_112",
+      "label": "MILWAUKEE RESTAURANT LLC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 600000.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_113",
+      "label": "PROMINENCE FAIRBORN LLC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 600000.0,
+      "anomaly": true
+    },
+    {
+      "id": "addr_114",
+      "label": "701 E 83RD AVE, Merrillville, IN",
+      "type": "address",
+      "loans": 28,
+      "amount": 25852003.0,
+      "anomalies": 28
+    },
+    {
+      "id": "ent_115",
+      "label": "IMD2 LLC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 3649800.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_116",
+      "label": "CLARGRAN LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 2000000.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_117",
+      "label": "CONAUS LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 2000000.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_118",
+      "label": "HOTDEN LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 2000000.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_119",
+      "label": "WESAUS LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1987720.0,
+      "anomaly": true
+    },
+    {
+      "id": "addr_120",
+      "label": "1985 CEDARBRIDGE AVE STE , Lakewood, NJ",
+      "type": "address",
+      "loans": 28,
+      "amount": 7753832.0,
+      "anomalies": 6
+    },
+    {
+      "id": "ent_121",
+      "label": "LVP H2S SEATTLE HOLDING CORP",
+      "type": "entity",
+      "loans": 2,
+      "amount": 651937.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_122",
+      "label": "LVP HP NEW ORLEANS HOLDING COR",
+      "type": "entity",
+      "loans": 2,
+      "amount": 602291.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_123",
+      "label": "LVP FPS AIRPORT HOLDING CORP",
+      "type": "entity",
+      "loans": 1,
+      "amount": 531793.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_124",
+      "label": "LVP TUCSON HOLDING CORP",
+      "type": "entity",
+      "loans": 2,
+      "amount": 528993.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_125",
+      "label": "LVP LIC HOTEL HOLDING CORP",
+      "type": "entity",
+      "loans": 1,
+      "amount": 508648.0,
+      "anomaly": true
+    },
+    {
+      "id": "addr_126",
+      "label": "201 MAIN ST, Allenhurst, CA",
+      "type": "address",
+      "loans": 27,
+      "amount": 11479926.0,
+      "anomalies": 18
+    },
+    {
+      "id": "ent_127",
+      "label": "CTWS, LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1041000.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_128",
+      "label": "PRESS COMMUNICATIONS, LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 845700.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_129",
+      "label": "THE ARC OF SOUTHINGTON INC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 833350.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_130",
+      "label": "201 MAIN STREET LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 737422.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_131",
+      "label": "KEYSTONE ADOLESCENT CENTER, IN",
+      "type": "entity",
+      "loans": 1,
+      "amount": 725758.0,
+      "anomaly": false
+    },
+    {
+      "id": "addr_132",
+      "label": "1 MAIN ST, Chatham, NY",
+      "type": "address",
+      "loans": 27,
+      "amount": 11631536.0,
+      "anomalies": 15
+    },
+    {
+      "id": "ent_133",
+      "label": "ACCESS TCA INC.",
+      "type": "entity",
+      "loans": 1,
+      "amount": 2000000.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_134",
+      "label": "GROM ASSOCIATES, INC.",
+      "type": "entity",
+      "loans": 2,
+      "amount": 1569184.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_135",
+      "label": "BLUME FORTE FRIED ZERRES & MOL",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1118645.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_136",
+      "label": "ALPHA INC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 680500.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_137",
+      "label": "ISLESFORD DOCK RESTAURANT AND ",
+      "type": "entity",
+      "loans": 2,
+      "amount": 553600.0,
+      "anomaly": true
+    },
+    {
+      "id": "addr_138",
+      "label": "MAIN ST, LAROSE, LA",
+      "type": "address",
+      "loans": 27,
+      "amount": 8874035.0,
+      "anomalies": 20
+    },
+    {
+      "id": "ent_139",
+      "label": "SPICER RUDSTROM PLLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 981140.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_140",
+      "label": "GALAXY HOME SOLUTIONS",
+      "type": "entity",
+      "loans": 1,
+      "amount": 918000.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_141",
+      "label": "THE CORNETT GROUP, INC.",
+      "type": "entity",
+      "loans": 1,
+      "amount": 765100.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_142",
+      "label": "REGAL OIL, INC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 616900.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_143",
+      "label": "TOWNSEND SALES & SERVICE INC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 514000.0,
+      "anomaly": true
+    },
+    {
+      "id": "addr_144",
+      "label": "2161 NW MILITARY HWY STE , San Antonio, TX",
+      "type": "address",
+      "loans": 27,
+      "amount": 6623364.0,
+      "anomalies": 0
+    },
+    {
+      "id": "ent_145",
+      "label": "R HAKIM CORP",
+      "type": "entity",
+      "loans": 2,
+      "amount": 673257.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_146",
+      "label": "KAMARAYA LP",
+      "type": "entity",
+      "loans": 1,
+      "amount": 333463.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_147",
+      "label": "YARA LP",
+      "type": "entity",
+      "loans": 1,
+      "amount": 320018.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_148",
+      "label": "RAYA LP",
+      "type": "entity",
+      "loans": 1,
+      "amount": 298914.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_149",
+      "label": "MAYA MAYA INC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 287988.0,
+      "anomaly": false
+    },
+    {
+      "id": "addr_150",
+      "label": "4655 W CHASE AVE, Lincolnwood, IL",
+      "type": "address",
+      "loans": 26,
+      "amount": 16459803.0,
+      "anomalies": 26
+    },
+    {
+      "id": "ent_151",
+      "label": "INTERNATIONAL NURSING & REHAB ",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1404388.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_152",
+      "label": "THE ARBORS OPERATOR, LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1165869.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_153",
+      "label": "APERION FINANCIAL, LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1001170.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_154",
+      "label": "HIGHLAND PARK NURSING &AMP; RE",
+      "type": "entity",
+      "loans": 1,
+      "amount": 851341.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_155",
+      "label": "APERION CARE GLENWOOD",
+      "type": "entity",
+      "loans": 1,
+      "amount": 817587.0,
+      "anomaly": true
+    },
+    {
+      "id": "addr_156",
+      "label": "25 WASHINGTON ST, Morristown, NJ",
+      "type": "address",
+      "loans": 26,
+      "amount": 24358901.0,
+      "anomalies": 19
+    },
+    {
+      "id": "ent_157",
+      "label": "ORLANDO PIZZA SYSTEMS LLC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 4938600.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_158",
+      "label": "VILLA ENTERPRISES HOLDING CORP",
+      "type": "entity",
+      "loans": 1,
+      "amount": 2662700.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_159",
+      "label": "VILLA INVESTMENTS INC.",
+      "type": "entity",
+      "loans": 2,
+      "amount": 2471332.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_160",
+      "label": "SCOTTO GEORGE AND MARTHA'S LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 2068600.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_161",
+      "label": "VILLA ENTERPRISE MANAGEMENT LT",
+      "type": "entity",
+      "loans": 1,
+      "amount": 2000000.0,
+      "anomaly": true
+    },
+    {
+      "id": "addr_162",
+      "label": "155 LITTLEFIELD AVE, Bangor, ME",
+      "type": "address",
+      "loans": 26,
+      "amount": 11403600.0,
+      "anomalies": 26
+    },
+    {
+      "id": "ent_163",
+      "label": "LAFAYETTE PORTLAND LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1032839.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_164",
+      "label": "WHITE HOUSE MOTEL",
+      "type": "entity",
+      "loans": 2,
+      "amount": 960916.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_165",
+      "label": "LAFAYETTE SOUTH PORTLAND INC",
+      "type": "entity",
+      "loans": 2,
+      "amount": 852876.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_166",
+      "label": "LAFAYETTE AUGUSTA LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 813942.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_167",
+      "label": "LAFAYETTE PORTLAND, LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 750000.0,
+      "anomaly": true
+    },
+    {
+      "id": "addr_168",
+      "label": "103 15TH AVE NW STE 200, Willmar, MN",
+      "type": "address",
+      "loans": 26,
+      "amount": 9269200.0,
+      "anomalies": 26
+    },
+    {
+      "id": "ent_169",
+      "label": "TORGERSON PROPERTIES LIMITED P",
+      "type": "entity",
+      "loans": 1,
+      "amount": 1140002.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_170",
+      "label": "TORGERSON PROPERTIES INC.",
+      "type": "entity",
+      "loans": 1,
+      "amount": 963900.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_171",
+      "label": "TPI CORE INC.",
+      "type": "entity",
+      "loans": 1,
+      "amount": 953648.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_172",
+      "label": "CARPENTER AND TORGERSON II LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 640717.0,
+      "anomaly": true
+    },
+    {
+      "id": "ent_173",
+      "label": "HINW LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 617484.0,
+      "anomaly": true
+    },
+    {
+      "id": "addr_174",
+      "label": "4600 LENA DR, MECHANICSBURG, PA",
+      "type": "address",
+      "loans": 26,
+      "amount": 57479300.0,
+      "anomalies": 1
+    },
+    {
+      "id": "ent_175",
+      "label": "1125 SIR FRANCIS DRAKE BOULEVA",
+      "type": "entity",
+      "loans": 1,
+      "amount": 6478200.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_176",
+      "label": "7173 NORTH SHARON AVENUE OPERA",
+      "type": "entity",
+      "loans": 1,
+      "amount": 4201200.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_177",
+      "label": "VIBRA HEALTHCARE CORPORATE LLC",
+      "type": "entity",
+      "loans": 1,
+      "amount": 3815700.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_178",
+      "label": "NORTHERN CALIFORNIA REHABILITA",
+      "type": "entity",
+      "loans": 1,
+      "amount": 3238200.0,
+      "anomaly": false
+    },
+    {
+      "id": "ent_179",
+      "label": "VIBRA HOSPITAL OF SACRAMENTO, ",
+      "type": "entity",
+      "loans": 1,
+      "amount": 3141100.0,
+      "anomaly": false
+    }
+  ],
+  "links": [
+    {
+      "source": "addr_0",
+      "target": "ent_1",
+      "amount": 1830855.0
+    },
+    {
+      "source": "addr_0",
+      "target": "ent_2",
+      "amount": 1423618.0
+    },
+    {
+      "source": "addr_0",
+      "target": "ent_3",
+      "amount": 1285610.0
+    },
+    {
+      "source": "addr_0",
+      "target": "ent_4",
+      "amount": 1249500.0
+    },
+    {
+      "source": "addr_0",
+      "target": "ent_5",
+      "amount": 977399.0
+    },
+    {
+      "source": "addr_6",
+      "target": "ent_7",
+      "amount": 2297180.0
+    },
+    {
+      "source": "addr_6",
+      "target": "ent_8",
+      "amount": 2000000.0
+    },
+    {
+      "source": "addr_6",
+      "target": "ent_9",
+      "amount": 1955618.0
+    },
+    {
+      "source": "addr_6",
+      "target": "ent_10",
+      "amount": 1879957.0
+    },
+    {
+      "source": "addr_6",
+      "target": "ent_11",
+      "amount": 1806738.0
+    },
+    {
+      "source": "addr_12",
+      "target": "ent_13",
+      "amount": 875400.0
+    },
+    {
+      "source": "addr_12",
+      "target": "ent_14",
+      "amount": 835085.0
+    },
+    {
+      "source": "addr_12",
+      "target": "ent_15",
+      "amount": 734652.0
+    },
+    {
+      "source": "addr_12",
+      "target": "ent_16",
+      "amount": 594000.0
+    },
+    {
+      "source": "addr_12",
+      "target": "ent_17",
+      "amount": 517704.0
+    },
+    {
+      "source": "addr_18",
+      "target": "ent_19",
+      "amount": 2000000.0
+    },
+    {
+      "source": "addr_18",
+      "target": "ent_20",
+      "amount": 1742900.0
+    },
+    {
+      "source": "addr_18",
+      "target": "ent_21",
+      "amount": 412574.0
+    },
+    {
+      "source": "addr_18",
+      "target": "ent_22",
+      "amount": 396891.0
+    },
+    {
+      "source": "addr_18",
+      "target": "ent_23",
+      "amount": 396656.0
+    },
+    {
+      "source": "addr_24",
+      "target": "ent_25",
+      "amount": 11092837.0
+    },
+    {
+      "source": "addr_24",
+      "target": "ent_26",
+      "amount": 8225167.0
+    },
+    {
+      "source": "addr_24",
+      "target": "ent_27",
+      "amount": 4325370.0
+    },
+    {
+      "source": "addr_24",
+      "target": "ent_28",
+      "amount": 3905157.0
+    },
+    {
+      "source": "addr_24",
+      "target": "ent_29",
+      "amount": 2772012.0
+    },
+    {
+      "source": "addr_30",
+      "target": "ent_31",
+      "amount": 2351600.0
+    },
+    {
+      "source": "addr_30",
+      "target": "ent_32",
+      "amount": 896000.0
+    },
+    {
+      "source": "addr_30",
+      "target": "ent_33",
+      "amount": 768100.0
+    },
+    {
+      "source": "addr_30",
+      "target": "ent_34",
+      "amount": 725500.0
+    },
+    {
+      "source": "addr_30",
+      "target": "ent_35",
+      "amount": 689040.0
+    },
+    {
+      "source": "addr_36",
+      "target": "ent_37",
+      "amount": 2779200.0
+    },
+    {
+      "source": "addr_36",
+      "target": "ent_38",
+      "amount": 2495795.0
+    },
+    {
+      "source": "addr_36",
+      "target": "ent_39",
+      "amount": 2000000.0
+    },
+    {
+      "source": "addr_36",
+      "target": "ent_40",
+      "amount": 1656018.0
+    },
+    {
+      "source": "addr_36",
+      "target": "ent_41",
+      "amount": 1655525.0
+    },
+    {
+      "source": "addr_42",
+      "target": "ent_43",
+      "amount": 5979192.0
+    },
+    {
+      "source": "addr_42",
+      "target": "ent_44",
+      "amount": 3077905.0
+    },
+    {
+      "source": "addr_42",
+      "target": "ent_45",
+      "amount": 2855695.0
+    },
+    {
+      "source": "addr_42",
+      "target": "ent_46",
+      "amount": 1957862.0
+    },
+    {
+      "source": "addr_42",
+      "target": "ent_47",
+      "amount": 1829992.0
+    },
+    {
+      "source": "addr_48",
+      "target": "ent_49",
+      "amount": 3534072.0
+    },
+    {
+      "source": "addr_48",
+      "target": "ent_50",
+      "amount": 1557928.0
+    },
+    {
+      "source": "addr_48",
+      "target": "ent_51",
+      "amount": 1542900.0
+    },
+    {
+      "source": "addr_48",
+      "target": "ent_52",
+      "amount": 1375028.0
+    },
+    {
+      "source": "addr_48",
+      "target": "ent_53",
+      "amount": 1022580.0
+    },
+    {
+      "source": "addr_54",
+      "target": "ent_55",
+      "amount": 641652.0
+    },
+    {
+      "source": "addr_54",
+      "target": "ent_56",
+      "amount": 572700.0
+    },
+    {
+      "source": "addr_54",
+      "target": "ent_57",
+      "amount": 478200.0
+    },
+    {
+      "source": "addr_54",
+      "target": "ent_58",
+      "amount": 448200.0
+    },
+    {
+      "source": "addr_54",
+      "target": "ent_59",
+      "amount": 442700.0
+    },
+    {
+      "source": "addr_60",
+      "target": "ent_61",
+      "amount": 953177.0
+    },
+    {
+      "source": "addr_60",
+      "target": "ent_62",
+      "amount": 607034.0
+    },
+    {
+      "source": "addr_60",
+      "target": "ent_63",
+      "amount": 600719.0
+    },
+    {
+      "source": "addr_60",
+      "target": "ent_64",
+      "amount": 575434.0
+    },
+    {
+      "source": "addr_60",
+      "target": "ent_65",
+      "amount": 525000.0
+    },
+    {
+      "source": "addr_66",
+      "target": "ent_67",
+      "amount": 1712228.0
+    },
+    {
+      "source": "addr_66",
+      "target": "ent_68",
+      "amount": 1410115.0
+    },
+    {
+      "source": "addr_66",
+      "target": "ent_69",
+      "amount": 1309790.0
+    },
+    {
+      "source": "addr_66",
+      "target": "ent_70",
+      "amount": 1303841.0
+    },
+    {
+      "source": "addr_66",
+      "target": "ent_71",
+      "amount": 1297117.0
+    },
+    {
+      "source": "addr_72",
+      "target": "ent_73",
+      "amount": 1778520.0
+    },
+    {
+      "source": "addr_72",
+      "target": "ent_74",
+      "amount": 1424362.0
+    },
+    {
+      "source": "addr_72",
+      "target": "ent_75",
+      "amount": 1354900.0
+    },
+    {
+      "source": "addr_72",
+      "target": "ent_76",
+      "amount": 1283271.0
+    },
+    {
+      "source": "addr_72",
+      "target": "ent_77",
+      "amount": 1056542.0
+    },
+    {
+      "source": "addr_78",
+      "target": "ent_79",
+      "amount": 739300.0
+    },
+    {
+      "source": "addr_78",
+      "target": "ent_80",
+      "amount": 316800.0
+    },
+    {
+      "source": "addr_78",
+      "target": "ent_81",
+      "amount": 264200.0
+    },
+    {
+      "source": "addr_78",
+      "target": "ent_82",
+      "amount": 255500.0
+    },
+    {
+      "source": "addr_78",
+      "target": "ent_83",
+      "amount": 236000.0
+    },
+    {
+      "source": "addr_84",
+      "target": "ent_85",
+      "amount": 2856634.0
+    },
+    {
+      "source": "addr_84",
+      "target": "ent_86",
+      "amount": 2000000.0
+    },
+    {
+      "source": "addr_84",
+      "target": "ent_87",
+      "amount": 1357307.0
+    },
+    {
+      "source": "addr_84",
+      "target": "ent_88",
+      "amount": 1329388.0
+    },
+    {
+      "source": "addr_84",
+      "target": "ent_89",
+      "amount": 1075816.0
+    },
+    {
+      "source": "addr_90",
+      "target": "ent_91",
+      "amount": 990000.0
+    },
+    {
+      "source": "addr_90",
+      "target": "ent_92",
+      "amount": 990000.0
+    },
+    {
+      "source": "addr_90",
+      "target": "ent_93",
+      "amount": 990000.0
+    },
+    {
+      "source": "addr_90",
+      "target": "ent_94",
+      "amount": 890000.0
+    },
+    {
+      "source": "addr_90",
+      "target": "ent_95",
+      "amount": 800000.0
+    },
+    {
+      "source": "addr_96",
+      "target": "ent_97",
+      "amount": 2560000.0
+    },
+    {
+      "source": "addr_96",
+      "target": "ent_98",
+      "amount": 1418000.0
+    },
+    {
+      "source": "addr_96",
+      "target": "ent_99",
+      "amount": 1149000.0
+    },
+    {
+      "source": "addr_96",
+      "target": "ent_100",
+      "amount": 1076100.0
+    },
+    {
+      "source": "addr_96",
+      "target": "ent_101",
+      "amount": 800500.0
+    },
+    {
+      "source": "addr_102",
+      "target": "ent_103",
+      "amount": 2255900.0
+    },
+    {
+      "source": "addr_102",
+      "target": "ent_104",
+      "amount": 1927200.0
+    },
+    {
+      "source": "addr_102",
+      "target": "ent_105",
+      "amount": 1227800.0
+    },
+    {
+      "source": "addr_102",
+      "target": "ent_106",
+      "amount": 871700.0
+    },
+    {
+      "source": "addr_102",
+      "target": "ent_107",
+      "amount": 759600.0
+    },
+    {
+      "source": "addr_108",
+      "target": "ent_109",
+      "amount": 2100000.0
+    },
+    {
+      "source": "addr_108",
+      "target": "ent_110",
+      "amount": 900000.0
+    },
+    {
+      "source": "addr_108",
+      "target": "ent_111",
+      "amount": 600000.0
+    },
+    {
+      "source": "addr_108",
+      "target": "ent_112",
+      "amount": 600000.0
+    },
+    {
+      "source": "addr_108",
+      "target": "ent_113",
+      "amount": 600000.0
+    },
+    {
+      "source": "addr_114",
+      "target": "ent_115",
+      "amount": 3649800.0
+    },
+    {
+      "source": "addr_114",
+      "target": "ent_116",
+      "amount": 2000000.0
+    },
+    {
+      "source": "addr_114",
+      "target": "ent_117",
+      "amount": 2000000.0
+    },
+    {
+      "source": "addr_114",
+      "target": "ent_118",
+      "amount": 2000000.0
+    },
+    {
+      "source": "addr_114",
+      "target": "ent_119",
+      "amount": 1987720.0
+    },
+    {
+      "source": "addr_120",
+      "target": "ent_121",
+      "amount": 651937.0
+    },
+    {
+      "source": "addr_120",
+      "target": "ent_122",
+      "amount": 602291.0
+    },
+    {
+      "source": "addr_120",
+      "target": "ent_123",
+      "amount": 531793.0
+    },
+    {
+      "source": "addr_120",
+      "target": "ent_124",
+      "amount": 528993.0
+    },
+    {
+      "source": "addr_120",
+      "target": "ent_125",
+      "amount": 508648.0
+    },
+    {
+      "source": "addr_126",
+      "target": "ent_127",
+      "amount": 1041000.0
+    },
+    {
+      "source": "addr_126",
+      "target": "ent_128",
+      "amount": 845700.0
+    },
+    {
+      "source": "addr_126",
+      "target": "ent_129",
+      "amount": 833350.0
+    },
+    {
+      "source": "addr_126",
+      "target": "ent_130",
+      "amount": 737422.0
+    },
+    {
+      "source": "addr_126",
+      "target": "ent_131",
+      "amount": 725758.0
+    },
+    {
+      "source": "addr_132",
+      "target": "ent_133",
+      "amount": 2000000.0
+    },
+    {
+      "source": "addr_132",
+      "target": "ent_134",
+      "amount": 1569184.0
+    },
+    {
+      "source": "addr_132",
+      "target": "ent_135",
+      "amount": 1118645.0
+    },
+    {
+      "source": "addr_132",
+      "target": "ent_136",
+      "amount": 680500.0
+    },
+    {
+      "source": "addr_132",
+      "target": "ent_137",
+      "amount": 553600.0
+    },
+    {
+      "source": "addr_138",
+      "target": "ent_139",
+      "amount": 981140.0
+    },
+    {
+      "source": "addr_138",
+      "target": "ent_140",
+      "amount": 918000.0
+    },
+    {
+      "source": "addr_138",
+      "target": "ent_141",
+      "amount": 765100.0
+    },
+    {
+      "source": "addr_138",
+      "target": "ent_142",
+      "amount": 616900.0
+    },
+    {
+      "source": "addr_138",
+      "target": "ent_143",
+      "amount": 514000.0
+    },
+    {
+      "source": "addr_144",
+      "target": "ent_145",
+      "amount": 673257.0
+    },
+    {
+      "source": "addr_144",
+      "target": "ent_146",
+      "amount": 333463.0
+    },
+    {
+      "source": "addr_144",
+      "target": "ent_147",
+      "amount": 320018.0
+    },
+    {
+      "source": "addr_144",
+      "target": "ent_148",
+      "amount": 298914.0
+    },
+    {
+      "source": "addr_144",
+      "target": "ent_149",
+      "amount": 287988.0
+    },
+    {
+      "source": "addr_150",
+      "target": "ent_151",
+      "amount": 1404388.0
+    },
+    {
+      "source": "addr_150",
+      "target": "ent_152",
+      "amount": 1165869.0
+    },
+    {
+      "source": "addr_150",
+      "target": "ent_153",
+      "amount": 1001170.0
+    },
+    {
+      "source": "addr_150",
+      "target": "ent_154",
+      "amount": 851341.0
+    },
+    {
+      "source": "addr_150",
+      "target": "ent_155",
+      "amount": 817587.0
+    },
+    {
+      "source": "addr_156",
+      "target": "ent_157",
+      "amount": 4938600.0
+    },
+    {
+      "source": "addr_156",
+      "target": "ent_158",
+      "amount": 2662700.0
+    },
+    {
+      "source": "addr_156",
+      "target": "ent_159",
+      "amount": 2471332.0
+    },
+    {
+      "source": "addr_156",
+      "target": "ent_160",
+      "amount": 2068600.0
+    },
+    {
+      "source": "addr_156",
+      "target": "ent_161",
+      "amount": 2000000.0
+    },
+    {
+      "source": "addr_162",
+      "target": "ent_163",
+      "amount": 1032839.0
+    },
+    {
+      "source": "addr_162",
+      "target": "ent_164",
+      "amount": 960916.0
+    },
+    {
+      "source": "addr_162",
+      "target": "ent_165",
+      "amount": 852876.0
+    },
+    {
+      "source": "addr_162",
+      "target": "ent_166",
+      "amount": 813942.0
+    },
+    {
+      "source": "addr_162",
+      "target": "ent_167",
+      "amount": 750000.0
+    },
+    {
+      "source": "addr_168",
+      "target": "ent_169",
+      "amount": 1140002.0
+    },
+    {
+      "source": "addr_168",
+      "target": "ent_170",
+      "amount": 963900.0
+    },
+    {
+      "source": "addr_168",
+      "target": "ent_171",
+      "amount": 953648.0
+    },
+    {
+      "source": "addr_168",
+      "target": "ent_172",
+      "amount": 640717.0
+    },
+    {
+      "source": "addr_168",
+      "target": "ent_173",
+      "amount": 617484.0
+    },
+    {
+      "source": "addr_174",
+      "target": "ent_175",
+      "amount": 6478200.0
+    },
+    {
+      "source": "addr_174",
+      "target": "ent_176",
+      "amount": 4201200.0
+    },
+    {
+      "source": "addr_174",
+      "target": "ent_177",
+      "amount": 3815700.0
+    },
+    {
+      "source": "addr_174",
+      "target": "ent_178",
+      "amount": 3238200.0
+    },
+    {
+      "source": "addr_174",
+      "target": "ent_179",
+      "amount": 3141100.0
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "ppp_name": "INSTITUTE FOR FAMILY HEALTH",
+    "ppp_amount": 10000000.0,
+    "ppp_state": "NY",
+    "irs_name": "The Institute For Family Health",
+    "ein": "133273402",
+    "total_revenue": 0,
+    "ntee_code": "E320",
+    "ppp_to_revenue_ratio": null
+  },
+  {
+    "ppp_name": "PACIFIC CLINICS",
+    "ppp_amount": 10000000.0,
+    "ppp_state": "CA",
+    "irs_name": "Pacific Clinics",
+    "ein": "942295953",
+    "total_revenue": 0,
+    "ntee_code": "P300",
+    "ppp_to_revenue_ratio": null
+  },
+  {
+    "ppp_name": "CATALYST FAMILY INC",
+    "ppp_amount": 10000000.0,
+    "ppp_state": "CA",
+    "irs_name": "Catalyst Family Inc",
+    "ein": "942376637",
+    "total_revenue": 0,
+    "ntee_code": "B210",
+    "ppp_to_revenue_ratio": null
+  },
+  {
+    "ppp_name": "SENECA FAMILY OF AGENCIES",
+    "ppp_amount": 10000000.0,
+    "ppp_state": "CA",
+    "irs_name": "Seneca Family Of Agencies",
+    "ein": "942971761",
+    "total_revenue": 0,
+    "ntee_code": null,
+    "ppp_to_revenue_ratio": null
+  },
+  {
+    "ppp_name": "UNITED MEDICAL ASSOCIATES, P.C.",
+    "ppp_amount": 10000000.0,
+    "ppp_state": "NY",
+    "irs_name": "United Medical Associates Pc",
+    "ein": "161395906",
+    "total_revenue": 0,
+    "ntee_code": "E32Z",
+    "ppp_to_revenue_ratio": null
+  },
+  {
+    "ppp_name": "UNION OF ORTHODOX JEWISH CONGREGATIONS OF AMERICA",
+    "ppp_amount": 10000000.0,
+    "ppp_state": "NY",
+    "irs_name": "Union Of Orthodox Jewish Congregations Of America",
+    "ein": "135623717",
+    "total_revenue": 0,
+    "ntee_code": null,
+    "ppp_to_revenue_ratio": null
+  },
+  {
+    "ppp_name": "ADVANCE CARE ALLIANCE OF NY, INC.",
+    "ppp_amount": 10000000.0,
+    "ppp_state": "NY",
+    "irs_name": "Advance Care Alliance Of Ny Inc",
+    "ein": "465489816",
+    "total_revenue": 0,
+    "ntee_code": "P82",
+    "ppp_to_revenue_ratio": null
+  },
+  {
+    "ppp_name": "CROUSE HEALTH HOSPITAL INC",
+    "ppp_amount": 10000000.0,
+    "ppp_state": "NY",
+    "irs_name": "Crouse Health Hospital Inc",
+    "ein": "160960470",
+    "total_revenue": 0,
+    "ntee_code": "E220",
+    "ppp_to_revenue_ratio": null
+  },
+  {
+    "ppp_name": "JEWISH CHILD CARE ASSOCIATION OF NEW YORK",
+    "ppp_amount": 10000000.0,
+    "ppp_state": "NY",
+    "irs_name": "Jewish Child Care Association Of New York",
+    "ein": "131624060",
+    "total_revenue": 0,
+    "ntee_code": "P200",
+    "ppp_to_revenue_ratio": null
+  }
+]

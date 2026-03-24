@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
 import { Choropleth } from "@/components/viz/Choropleth";
+import { ForceGraph } from "@/components/viz/ForceGraph";
 
 // ─── Types ───────────────────────────────────────────────────────────
 
@@ -637,6 +638,14 @@ export function FraudInAmericaClient() {
   const [pppAnalysis, setPPPAnalysis] = useState<PPPDeepAnalysis | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [nonprofits, setNonprofits] = useState<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [pppNetwork, setPPPNetwork] = useState<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [stockPrices, setStockPrices] = useState<any[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [timelapse, setTimelapse] = useState<any[]>([]);
+  const [timelapseFrame, setTimelapseFrame] = useState(0);
+  const [timelapsePlay, setTimelapsePlay] = useState(false);
   const [corpFlagged, setCorpFlagged] = useState<CorporateFlagged[]>([]);
   const [corpDB, setCorpDB] = useState<DBEntry[]>([]);
   const [corpDist, setCorpDist] = useState<MScoreDistribution[]>([]);
@@ -665,9 +674,13 @@ export function FraudInAmericaClient() {
       fetch("/data/fraud/cfpb_velocity.json").then((r) => r.json()),
       fetch("/data/fraud/doj_fca_stats.json").then((r) => r.json()),
       fetch("/data/fraud/enforcement_timeline.json").then((r) => r.json()),
-    ]).then(([states, scatter, summary, naics, deepDive, pppAnal, npData, flagged, dist, cSummary, db, hSpec, cfpbData, dojData, tl]) => {
+      fetch("/data/fraud/ppp_network.json").then((r) => r.json()).catch(() => null),
+      fetch("/data/fraud/corporate_stock_prices.json").then((r) => r.json()).catch(() => []),
+      fetch("/data/fraud/ppp_timelapse.json").then((r) => r.json()).catch(() => []),
+    ]).then(([states, scatter, summary, naics, deepDive, pppAnal, npData, flagged, dist, cSummary, db, hSpec, cfpbData, dojData, tl, netData, stockData, tlData]) => {
       setPPPStates(states); setPPPScatter(scatter); setPPPSummary(summary); setPPPNaics(naics);
       setPPPDeep(deepDive); setPPPAnalysis(pppAnal); setNonprofits(npData); setCorpDB(db);
+      setPPPNetwork(netData); setStockPrices(stockData || []); setTimelapse(tlData || []);
       setCorpFlagged(flagged); setCorpDist(dist); setCorpSummary(cSummary);
       setHealthSpecialty(hSpec); setCFPB(cfpbData); setDOJ(dojData); setTimeline(tl);
       setLoading(false);
@@ -683,6 +696,18 @@ export function FraudInAmericaClient() {
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
   }, [loading]);
+
+  // Timelapse animation
+  useEffect(() => {
+    if (!timelapsePlay || !timelapse.length) return;
+    const interval = setInterval(() => {
+      setTimelapseFrame((f) => {
+        if (f >= timelapse.length - 1) { setTimelapsePlay(false); return f; }
+        return f + 1;
+      });
+    }, 800);
+    return () => clearInterval(interval);
+  }, [timelapsePlay, timelapse.length]);
 
   if (loading) {
     return (
@@ -1027,6 +1052,67 @@ export function FraudInAmericaClient() {
                   />
                 </div>
               )}
+            </div>
+          )}
+
+          {/* Network Graph */}
+          {pppNetwork && pppNetwork.nodes?.length > 0 && (
+            <div className="mt-16">
+              <h3 className="text-2xl font-extrabold text-zinc-100">The Web: How Entities Connect</h3>
+              <p className="mt-3 mb-6 max-w-2xl text-sm text-zinc-500">
+                Each gray node is an address. Colored nodes are entities that filed PPP loans
+                from that address. When dozens of separate LLCs all lead back to the same
+                mailbox, the pattern becomes visible. Drag nodes to explore.
+              </p>
+              <div className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-4">
+                <ForceGraph
+                  nodes={pppNetwork.nodes.map((n: any) => ({
+                    ...n,
+                    community: n.type === 'address' ? 0 : n.anomaly ? 1 : 2,
+                    total_amount: n.amount,
+                  }))}
+                  links={pppNetwork.links}
+                  width={1100}
+                  height={600}
+                  title="PPP Loan Address Network (Top 30 Clusters)"
+                />
+              </div>
+            </div>
+          )}
+
+          {/* Timelapse */}
+          {timelapse.length > 0 && (
+            <div className="mt-16">
+              <h3 className="text-2xl font-extrabold text-zinc-100">Watch Fraud Spread: Month by Month</h3>
+              <p className="mt-3 mb-4 max-w-2xl text-sm text-zinc-500">
+                Cumulative PPP anomalies by state over time. Press play to watch the pattern
+                build from April 2020 through mid-2021.
+              </p>
+              <div className="mb-4 flex items-center gap-4">
+                <button
+                  onClick={() => { if (timelapseFrame >= timelapse.length - 1) setTimelapseFrame(0); setTimelapsePlay(!timelapsePlay); }}
+                  className="rounded-lg bg-zinc-800 px-4 py-2 text-sm font-medium text-zinc-200 hover:bg-zinc-700">
+                  {timelapsePlay ? "Pause" : "Play"}
+                </button>
+                <input type="range" min={0} max={timelapse.length - 1} value={timelapseFrame}
+                  onChange={(e) => { setTimelapsePlay(false); setTimelapseFrame(parseInt(e.target.value)); }}
+                  className="flex-1" />
+                <span className="text-sm font-mono text-zinc-400">{timelapse[timelapseFrame]?.month || ""}</span>
+              </div>
+              <div className="grid grid-cols-2 gap-3 mb-4">
+                <Stat label="Cumulative Loans" value={timelapse[timelapseFrame]?.total_loans?.toLocaleString() || "0"} />
+                <Stat label="Cumulative Anomalies" value={timelapse[timelapseFrame]?.total_anomalies?.toLocaleString() || "0"} accent="text-red-400" />
+              </div>
+              <Choropleth
+                data={(timelapse[timelapseFrame]?.states || []).map((s: any) => ({
+                  state: s.state,
+                  state_fips: s.fips,
+                  value: s.rate * 100,
+                  label: `${s.state}: ${s.anomalies.toLocaleString()} anomalies of ${s.loans.toLocaleString()} loans`,
+                }))}
+                valueFormat={(v) => v.toFixed(1) + "% anomaly rate"}
+                colorScheme="reds"
+              />
             </div>
           )}
 
@@ -1413,6 +1499,65 @@ export function FraudInAmericaClient() {
             </div>
           )}
 
+          {/* Stock Price Validation */}
+          {stockPrices.length > 0 && (
+            <div className="mt-16">
+              <h3 className="text-2xl font-extrabold text-zinc-100">Did the Market Agree? Stock Performance</h3>
+              <p className="mt-3 mb-6 max-w-2xl text-sm text-zinc-500">
+                If the M-Score identifies real problems, stock prices should reflect it.
+                Here is 1-year price performance for each flagged company.
+              </p>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {stockPrices.map((s: any, i: number) => (
+                  <div key={i} className="rounded-xl border border-zinc-800 bg-zinc-900/50 px-5 py-4">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <span className="rounded bg-zinc-800 px-1.5 py-0.5 text-[10px] font-mono text-blue-400">{s.ticker}</span>
+                        <span className="ml-2 text-xs text-zinc-500">M-Score: {s.mscore.toFixed(1)}</span>
+                      </div>
+                      <span className={`text-lg font-extrabold ${s.change_pct < 0 ? "text-red-400" : "text-green-400"}`}>
+                        {s.change_pct > 0 ? "+" : ""}{s.change_pct}%
+                      </span>
+                    </div>
+                    <p className="mt-1 text-xs text-zinc-500">{s.company}</p>
+                    {/* Mini sparkline */}
+                    {s.weekly_prices?.length > 0 && (
+                      <svg viewBox="0 0 100 30" className="mt-2 h-8 w-full" preserveAspectRatio="none">
+                        {(() => {
+                          const prices = s.weekly_prices.map((p: any) => p.p);
+                          const min = Math.min(...prices);
+                          const max = Math.max(...prices);
+                          const range = max - min || 1;
+                          const points = prices.map((p: number, j: number) =>
+                            `${(j / (prices.length - 1)) * 100},${30 - ((p - min) / range) * 25}`
+                          ).join(" ");
+                          return (
+                            <>
+                              <polyline fill={s.change_pct < 0 ? "#ef4444" : "#22c55e"} fillOpacity="0.1" stroke="none"
+                                points={`0,30 ${points} 100,30`} />
+                              <polyline fill="none" stroke={s.change_pct < 0 ? "#ef4444" : "#22c55e"} strokeWidth="0.8"
+                                points={points} />
+                            </>
+                          );
+                        })()}
+                      </svg>
+                    )}
+                    <div className="mt-1 flex justify-between text-[9px] text-zinc-600">
+                      <span>${s.start_price}</span>
+                      <span>${s.end_price}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <WhyBox>
+                Of the 10 flagged companies with stock data, 7 saw price declines over the
+                trailing year. HCW Biologics fell 96.5%. Airship AI fell 46.9%. The two
+                &quot;false positive&quot; biotechs (Arcutis +38.8%, TG Therapeutics initially up then
+                down) confirm the model correctly identified their growth but the growth was real.
+              </WhyBox>
+            </div>
+          )}
+
           <Source text="SEC EDGAR XBRL Financial Statement Data Sets + EDGAR Submissions API" url="https://www.sec.gov/dera/data/financial-statement-data-sets" />
         </div>
       </section>
@@ -1624,6 +1769,37 @@ export function FraudInAmericaClient() {
       </section>
 
       {/* Footer */}
+      {/* Download Section */}
+      <section className="px-6 py-16 border-t border-zinc-800">
+        <div className="mx-auto max-w-5xl">
+          <h2 className="mb-6 text-2xl font-extrabold">Download the Data</h2>
+          <p className="mb-6 text-sm text-zinc-400">
+            All analysis data is available as JSON files. Use these to verify our findings,
+            run your own analysis, or build on this work.
+          </p>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { file: "ppp_pattern_summary.json", label: "PPP Summary Stats", desc: "Key metrics, pattern counts" },
+              { file: "ppp_state_summary.json", label: "PPP by State", desc: "56 states/territories with anomaly rates" },
+              { file: "ppp_deep_dive.json", label: "PPP Case Files", desc: "Address clusters, suspicious entities" },
+              { file: "ppp_nonprofits.json", label: "Nonprofit Analysis", desc: "Charter schools, religious orgs, healthcare" },
+              { file: "corporate_database.json", label: "M-Score Database", desc: "552 companies with full M-Score breakdown" },
+              { file: "corporate_flagged_companies.json", label: "Flagged Companies", desc: "Top flagged with news context + validation" },
+              { file: "healthcare_specialty.json", label: "Healthcare Specialties", desc: "Exclusion rates by medical specialty" },
+              { file: "cfpb_velocity.json", label: "CFPB Complaints", desc: "120 months of complaint velocity" },
+              { file: "ppp_network.json", label: "Address Network", desc: "180 nodes, 150 links for graph viz" },
+            ].map((d) => (
+              <a key={d.file} href={`/data/fraud/${d.file}`} download
+                className="rounded-xl border border-zinc-800 bg-zinc-900/50 px-4 py-3 transition-colors hover:border-zinc-600 hover:bg-zinc-900/80 block">
+                <p className="text-sm font-medium text-zinc-200">{d.label}</p>
+                <p className="text-[10px] text-zinc-500">{d.desc}</p>
+                <p className="mt-1 text-[10px] font-mono text-blue-400">{d.file}</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <footer className="border-t border-zinc-800 px-6 py-10">
         <div className="mx-auto max-w-5xl text-center">
           <p className="text-sm text-zinc-500">Analysis by Josh Elberg, Palavir LLC. March 2026.</p>
