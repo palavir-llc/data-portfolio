@@ -62,6 +62,12 @@ interface CFPBVelocity { velocity: Array<{ month: string; total: number }>; spik
 interface DOJStats { annual_recoveries: Array<{ year: number; total_recoveries: number; qui_tam_recoveries: number; qui_tam_filed: number }>; }
 interface EnforcementEvent { date: string; domain: string; title: string; amount: number; }
 
+interface DBEntry {
+  company: string; cik: number; sector: string; year: number; mscore: number;
+  flagged: boolean; dsri: number; gmi: number; aqi: number; sgi: number;
+  tata: number; revenue: number; ticker?: string; exchange?: string; driver: string;
+}
+
 // ─── Helpers ─────────────────────────────────────────────────────────
 
 function $(n: number): string {
@@ -157,6 +163,158 @@ function AnimatedBar({ label, value, maxValue, color = "#ef4444", fmt }: {
       <span className="w-16 text-right font-mono text-[11px] text-zinc-300">
         {fmt ? fmt(value) : value.toFixed(1)}
       </span>
+    </div>
+  );
+}
+
+// ─── Searchable Company Database ─────────────────────────────────────
+
+function CompanyDatabase({ data }: { data: DBEntry[] }) {
+  const [query, setQuery] = useState("");
+  const [sectorFilter, setSectorFilter] = useState("All");
+  const [flaggedOnly, setFlaggedOnly] = useState(false);
+  const [expanded, setExpanded] = useState<number | null>(null);
+  const [page, setPage] = useState(0);
+  const pageSize = 25;
+
+  const sectors = ["All", ...Array.from(new Set(data.map((d) => d.sector).filter(Boolean))).sort()];
+
+  const filtered = data.filter((d) => {
+    if (query && !d.company.toLowerCase().includes(query.toLowerCase()) && !(d.ticker || "").toLowerCase().includes(query.toLowerCase())) return false;
+    if (sectorFilter !== "All" && d.sector !== sectorFilter) return false;
+    if (flaggedOnly && !d.flagged) return false;
+    return true;
+  });
+
+  const paged = filtered.slice(page * pageSize, (page + 1) * pageSize);
+  const totalPages = Math.ceil(filtered.length / pageSize);
+
+  const driverColors: Record<string, string> = { SGI: "text-orange-400", TATA: "text-red-400", DSRI: "text-yellow-400", GMI: "text-pink-400", AQI: "text-purple-400" };
+
+  // Mini component bar for expanded row
+  function MiniBar({ label, value, max, danger }: { label: string; value: number; max: number; danger?: boolean }) {
+    const pct = Math.min(Math.abs(value) / max * 100, 100);
+    return (
+      <div className="flex items-center gap-2">
+        <span className="w-10 text-right text-[10px] text-zinc-500">{label}</span>
+        <div className="h-3 flex-1 rounded bg-zinc-800">
+          <div className="h-3 rounded transition-all" style={{ width: `${pct}%`, backgroundColor: danger ? "#ef4444" : "#3b82f6" }} />
+        </div>
+        <span className="w-12 text-right text-[10px] text-zinc-400">{value.toFixed(2)}</span>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      {/* Search + Filters */}
+      <div className="mb-4 flex flex-wrap items-center gap-3">
+        <input type="text" placeholder="Search company or ticker..."
+          className="rounded-lg border border-zinc-700 bg-zinc-800/80 px-3 py-2 text-sm text-zinc-200 placeholder-zinc-500 outline-none focus:border-zinc-500 w-64"
+          value={query} onChange={(e) => { setQuery(e.target.value); setPage(0); }} />
+        <select className="rounded-lg border border-zinc-700 bg-zinc-800/80 px-3 py-2 text-sm text-zinc-300 outline-none"
+          value={sectorFilter} onChange={(e) => { setSectorFilter(e.target.value); setPage(0); }}>
+          {sectors.map((s) => <option key={s} value={s}>{s}</option>)}
+        </select>
+        <label className="flex items-center gap-2 text-xs text-zinc-400 cursor-pointer">
+          <input type="checkbox" checked={flaggedOnly} onChange={(e) => { setFlaggedOnly(e.target.checked); setPage(0); }}
+            className="rounded border-zinc-600 bg-zinc-800" />
+          Flagged only (M &gt; -1.78)
+        </label>
+        <span className="text-xs text-zinc-500">{filtered.length.toLocaleString()} companies</span>
+      </div>
+
+      {/* Table */}
+      <div className="overflow-x-auto rounded-xl border border-zinc-800">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="bg-zinc-900/80 text-left text-xs text-zinc-500">
+              <th className="px-3 py-2.5 w-8"></th>
+              <th className="px-3 py-2.5">Company</th>
+              <th className="px-3 py-2.5">Ticker</th>
+              <th className="px-3 py-2.5">Sector</th>
+              <th className="px-3 py-2.5 text-right">M-Score</th>
+              <th className="px-3 py-2.5 text-right">Revenue</th>
+              <th className="px-3 py-2.5">Driver</th>
+            </tr>
+          </thead>
+          <tbody>
+            {paged.map((c, i) => (
+              <>
+                <tr key={c.cik} className="border-t border-zinc-800/40 cursor-pointer transition-colors hover:bg-zinc-900/40"
+                  onClick={() => setExpanded(expanded === c.cik ? null : c.cik)}>
+                  <td className="px-3 py-2 text-zinc-600">{expanded === c.cik ? "v" : ">"}</td>
+                  <td className="px-3 py-2 font-medium text-zinc-200">{c.company}</td>
+                  <td className="px-3 py-2">
+                    {c.ticker ? <span className="rounded bg-zinc-800 px-1.5 py-0.5 text-[10px] font-mono text-blue-400">{c.ticker}</span> : <span className="text-zinc-700">--</span>}
+                  </td>
+                  <td className="px-3 py-2 text-xs text-zinc-500">{c.sector}</td>
+                  <td className={`px-3 py-2 text-right font-mono font-bold ${c.flagged ? "text-red-400" : "text-zinc-400"}`}>{c.mscore.toFixed(2)}</td>
+                  <td className="px-3 py-2 text-right text-zinc-400">{c.revenue > 0 ? $(c.revenue) : "--"}</td>
+                  <td className="px-3 py-2">
+                    <span className={`text-xs font-bold ${driverColors[c.driver] || "text-zinc-400"}`}>{c.driver}</span>
+                  </td>
+                </tr>
+                {expanded === c.cik && (
+                  <tr key={c.cik + "-detail"} className="bg-zinc-900/30">
+                    <td colSpan={7} className="px-6 py-4">
+                      <div className="grid gap-4 sm:grid-cols-2">
+                        <div>
+                          <p className="mb-2 text-xs font-bold text-zinc-400">M-Score Components</p>
+                          <div className="space-y-1.5">
+                            <MiniBar label="DSRI" value={c.dsri} max={10} danger={c.dsri > 1.5} />
+                            <MiniBar label="GMI" value={c.gmi} max={10} danger={c.gmi > 1.5} />
+                            <MiniBar label="AQI" value={c.aqi} max={10} danger={c.aqi > 1.5} />
+                            <MiniBar label="SGI" value={c.sgi} max={Math.max(c.sgi, 10)} danger={c.sgi > 1.5} />
+                            <MiniBar label="TATA" value={c.tata} max={1} danger={c.tata > 0.05} />
+                          </div>
+                        </div>
+                        <div>
+                          <p className="mb-2 text-xs font-bold text-zinc-400">Filing Details</p>
+                          <div className="space-y-1 text-xs text-zinc-500">
+                            <p>CIK: {c.cik} | Year: {c.year}</p>
+                            {c.exchange && <p>Exchange: {c.exchange}</p>}
+                            <p>M-Score: {c.mscore.toFixed(4)} ({c.flagged ? "ABOVE threshold" : "below threshold"})</p>
+                            <a href={`https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=${c.cik}&type=10-K&dateb=&owner=include&count=5`}
+                              target="_blank" rel="noopener noreferrer" className="mt-2 inline-block text-blue-400 underline hover:text-blue-300">
+                              View SEC Filings
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                )}
+              </>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="mt-3 flex items-center justify-between text-xs text-zinc-500">
+          <button onClick={() => setPage(Math.max(0, page - 1))} disabled={page === 0}
+            className="rounded bg-zinc-800 px-3 py-1 disabled:opacity-30 hover:bg-zinc-700">Prev</button>
+          <span>Page {page + 1} of {totalPages}</span>
+          <button onClick={() => setPage(Math.min(totalPages - 1, page + 1))} disabled={page >= totalPages - 1}
+            className="rounded bg-zinc-800 px-3 py-1 disabled:opacity-30 hover:bg-zinc-700">Next</button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Rich Tooltip Component ──────────────────────────────────────────
+
+function RichTooltip({ x, y, children, visible }: {
+  x: number; y: number; children: React.ReactNode; visible: boolean;
+}) {
+  if (!visible) return null;
+  return (
+    <div className="pointer-events-none absolute z-50 max-w-xs rounded-xl border border-zinc-700 bg-zinc-900/95 px-4 py-3 shadow-2xl backdrop-blur-sm"
+      style={{ left: x + 16, top: y - 10 }}>
+      {children}
     </div>
   );
 }
@@ -401,6 +559,7 @@ export function FraudInAmericaClient() {
   const [pppNaics, setPPPNaics] = useState<NAICSData[]>([]);
   const [pppDeep, setPPPDeep] = useState<PPPDeepDive | null>(null);
   const [corpFlagged, setCorpFlagged] = useState<CorporateFlagged[]>([]);
+  const [corpDB, setCorpDB] = useState<DBEntry[]>([]);
   const [corpDist, setCorpDist] = useState<MScoreDistribution[]>([]);
   const [corpSummary, setCorpSummary] = useState<CorporateSummary | null>(null);
   const [healthSpecialty, setHealthSpecialty] = useState<SpecialtyData[]>([]);
@@ -420,13 +579,14 @@ export function FraudInAmericaClient() {
       fetch("/data/fraud/corporate_flagged_companies.json").then((r) => r.json()),
       fetch("/data/fraud/corporate_mscore_distribution.json").then((r) => r.json()),
       fetch("/data/fraud/corporate_summary.json").then((r) => r.json()),
+      fetch("/data/fraud/corporate_database.json").then((r) => r.json()).catch(() => []),
       fetch("/data/fraud/healthcare_specialty.json").then((r) => r.json()),
       fetch("/data/fraud/cfpb_velocity.json").then((r) => r.json()),
       fetch("/data/fraud/doj_fca_stats.json").then((r) => r.json()),
       fetch("/data/fraud/enforcement_timeline.json").then((r) => r.json()),
-    ]).then(([states, scatter, summary, naics, deepDive, flagged, dist, cSummary, hSpec, cfpbData, dojData, tl]) => {
+    ]).then(([states, scatter, summary, naics, deepDive, flagged, dist, cSummary, db, hSpec, cfpbData, dojData, tl]) => {
       setPPPStates(states); setPPPScatter(scatter); setPPPSummary(summary); setPPPNaics(naics);
-      setPPPDeep(deepDive);
+      setPPPDeep(deepDive); setCorpDB(db);
       setCorpFlagged(flagged); setCorpDist(dist); setCorpSummary(cSummary);
       setHealthSpecialty(hSpec); setCFPB(cfpbData); setDOJ(dojData); setTimeline(tl);
       setLoading(false);
@@ -874,6 +1034,19 @@ export function FraudInAmericaClient() {
                   </div>
                 ))}
               </div>
+            </div>
+          )}
+
+          {/* Full Database */}
+          {corpDB.length > 0 && (
+            <div className="mt-16">
+              <h3 className="text-2xl font-extrabold text-zinc-100">Full Company Database</h3>
+              <p className="mt-3 mb-6 max-w-3xl text-sm text-zinc-500">
+                Search all {corpDB.length.toLocaleString()} public companies we scored. Click any row to
+                expand its M-Score component breakdown with a visual bar chart showing which
+                ratios are elevated. Every company links directly to its SEC EDGAR filings.
+              </p>
+              <CompanyDatabase data={corpDB} />
             </div>
           )}
 
