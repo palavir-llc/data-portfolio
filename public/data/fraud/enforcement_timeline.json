@@ -1,0 +1,68 @@
+[
+  {
+    "date": "2020-03-27",
+    "domain": "PPP",
+    "title": "CARES Act signed, PPP created",
+    "amount": 349000000000
+  },
+  {
+    "date": "2020-04-24",
+    "domain": "PPP",
+    "title": "PPP expanded (+$310B)",
+    "amount": 310000000000
+  },
+  {
+    "date": "2021-03-01",
+    "domain": "PPP",
+    "title": "DOJ PPP fraud strike force launched",
+    "amount": 0
+  },
+  {
+    "date": "2021-09-30",
+    "domain": "DOJ",
+    "title": "FY2021: $5.6B FCA recoveries (record)",
+    "amount": 5600000000
+  },
+  {
+    "date": "2022-08-01",
+    "domain": "PPP",
+    "title": "PPP fraud statute extended to 10 years",
+    "amount": 0
+  },
+  {
+    "date": "2023-01-01",
+    "domain": "Crypto",
+    "title": "FTX collapse, $8B in losses",
+    "amount": 8000000000
+  },
+  {
+    "date": "2024-01-01",
+    "domain": "Healthcare",
+    "title": "Largest-ever Medicare fraud takedown: 193 charged",
+    "amount": 2750000000
+  },
+  {
+    "date": "2024-09-30",
+    "domain": "PPP",
+    "title": "SBA flags 669K+ loans for investigation",
+    "amount": 0
+  },
+  {
+    "date": "2025-08-01",
+    "domain": "DOJ",
+    "title": "DOJ Trade Fraud Task Force launched",
+    "amount": 0
+  },
+  {
+    "date": "2025-09-30",
+    "domain": "DOJ",
+    "title": "FY2025: $6.8B FCA recoveries (new record)",
+    "amount": 6800000000
+  },
+  {
+    "date": "2025-12-31",
+    "domain": "Crypto",
+    "title": "$17B stolen in crypto scams (2025)",
+    "amount": 17000000000
+  }
+]

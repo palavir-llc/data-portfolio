@@ -1,0 +1,33 @@
+{
+  "total_loans": 968522,
+  "total_amount": 515517882888.46,
+  "total_anomalies": 19371,
+  "anomaly_amount": 32411178723.05,
+  "anomaly_rate_count": 0.02,
+  "anomaly_rate_amount": 0.0629,
+  "patterns": {
+    "round_amounts": {
+      "count": 41448,
+      "pct": 0.0428,
+      "among_anomalies": 0.5304
+    },
+    "duplicate_addresses": {
+      "loans_at_shared_address": 298700,
+      "max_loans_at_one_address": 92,
+      "addresses_with_5plus": 1303
+    },
+    "zero_jobs_large_loan": {
+      "count": 5,
+      "total_amount": 1509359.0
+    },
+    "impossible_employees": {
+      "count": 11373
+    }
+  },
+  "avg_loan_normal": 508988.25,
+  "avg_loan_anomaly": 1673180.46,
+  "median_amount_per_employee_normal": 11520.0,
+  "median_amount_per_employee_anomaly": 13636.36,
+  "data_source": "SBA PPP FOIA (data.sba.gov/dataset/ppp-foia)",
+  "data_accessed": "2026-03-24"
+}

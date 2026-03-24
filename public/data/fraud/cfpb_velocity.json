@@ -1,0 +1,1452 @@
+{
+  "velocity": [
+    {
+      "month": "2016-04",
+      "total": 15597,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 3235,
+        "Mortgage": 3515,
+        "Checking or savings account": 0,
+        "Credit card": 1584
+      }
+    },
+    {
+      "month": "2016-05",
+      "total": 15511,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 3059,
+        "Mortgage": 3479,
+        "Checking or savings account": 0,
+        "Credit card": 1573
+      }
+    },
+    {
+      "month": "2016-06",
+      "total": 16057,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 3229,
+        "Mortgage": 3509,
+        "Checking or savings account": 0,
+        "Credit card": 1566
+      }
+    },
+    {
+      "month": "2016-07",
+      "total": 16038,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 3016,
+        "Mortgage": 3186,
+        "Checking or savings account": 0,
+        "Credit card": 1760
+      }
+    },
+    {
+      "month": "2016-08",
+      "total": 17683,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 4155,
+        "Mortgage": 3486,
+        "Checking or savings account": 0,
+        "Credit card": 2021
+      }
+    },
+    {
+      "month": "2016-09",
+      "total": 17563,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 3523,
+        "Mortgage": 3680,
+        "Checking or savings account": 0,
+        "Credit card": 2188
+      }
+    },
+    {
+      "month": "2016-10",
+      "total": 17797,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 3562,
+        "Mortgage": 3541,
+        "Checking or savings account": 0,
+        "Credit card": 2064
+      }
+    },
+    {
+      "month": "2016-11",
+      "total": 15198,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 3282,
+        "Mortgage": 3191,
+        "Checking or savings account": 0,
+        "Credit card": 1731
+      }
+    },
+    {
+      "month": "2016-12",
+      "total": 15329,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 3662,
+        "Mortgage": 3053,
+        "Checking or savings account": 0,
+        "Credit card": 1823
+      }
+    },
+    {
+      "month": "2017-01",
+      "total": 20994,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 3722,
+        "Mortgage": 3303,
+        "Checking or savings account": 0,
+        "Credit card": 1892
+      }
+    },
+    {
+      "month": "2017-02",
+      "total": 18087,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 3938,
+        "Mortgage": 2922,
+        "Checking or savings account": 0,
+        "Credit card": 1829
+      }
+    },
+    {
+      "month": "2017-03",
+      "total": 19744,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 4592,
+        "Mortgage": 3248,
+        "Checking or savings account": 0,
+        "Credit card": 2086
+      }
+    },
+    {
+      "month": "2017-04",
+      "total": 18536,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 1961,
+        "Debt collection": 4170,
+        "Mortgage": 2571,
+        "Checking or savings account": 347,
+        "Credit card": 1326
+      }
+    },
+    {
+      "month": "2017-05",
+      "total": 19278,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 7107,
+        "Debt collection": 4148,
+        "Mortgage": 2664,
+        "Checking or savings account": 1385,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2017-06",
+      "total": 18548,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 6920,
+        "Debt collection": 3701,
+        "Mortgage": 2350,
+        "Checking or savings account": 1734,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2017-07",
+      "total": 20420,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 8182,
+        "Debt collection": 4215,
+        "Mortgage": 2294,
+        "Checking or savings account": 1675,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2017-08",
+      "total": 21382,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 8786,
+        "Debt collection": 4369,
+        "Mortgage": 2444,
+        "Checking or savings account": 1574,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2017-09",
+      "total": 27336,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 16090,
+        "Debt collection": 3533,
+        "Mortgage": 2262,
+        "Checking or savings account": 1574,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2017-10",
+      "total": 20445,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 8730,
+        "Debt collection": 4028,
+        "Mortgage": 2303,
+        "Checking or savings account": 1467,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2017-11",
+      "total": 18981,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 7899,
+        "Debt collection": 3559,
+        "Mortgage": 2168,
+        "Checking or savings account": 1594,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2017-12",
+      "total": 19023,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 7694,
+        "Debt collection": 3880,
+        "Mortgage": 2034,
+        "Checking or savings account": 1413,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2018-01",
+      "total": 23633,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 9621,
+        "Debt collection": 4898,
+        "Mortgage": 2124,
+        "Checking or savings account": 1739,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2018-02",
+      "total": 21960,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 9683,
+        "Debt collection": 4461,
+        "Mortgage": 2097,
+        "Checking or savings account": 1611,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2018-03",
+      "total": 23620,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 9874,
+        "Debt collection": 5254,
+        "Mortgage": 2420,
+        "Checking or savings account": 1762,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2018-04",
+      "total": 24314,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 10338,
+        "Debt collection": 4748,
+        "Mortgage": 2724,
+        "Checking or savings account": 1911,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2018-05",
+      "total": 22322,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 9470,
+        "Debt collection": 4729,
+        "Mortgage": 2220,
+        "Checking or savings account": 1831,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2018-06",
+      "total": 20092,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 8492,
+        "Debt collection": 4241,
+        "Mortgage": 1885,
+        "Checking or savings account": 1755,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2018-07",
+      "total": 20948,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 9137,
+        "Debt collection": 3991,
+        "Mortgage": 2016,
+        "Checking or savings account": 1814,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2018-08",
+      "total": 21710,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 9447,
+        "Debt collection": 4403,
+        "Mortgage": 2084,
+        "Checking or savings account": 1695,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2018-09",
+      "total": 19065,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 8400,
+        "Debt collection": 3678,
+        "Mortgage": 1780,
+        "Checking or savings account": 1669,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2018-10",
+      "total": 21883,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 9846,
+        "Debt collection": 4078,
+        "Mortgage": 1966,
+        "Checking or savings account": 1902,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2018-11",
+      "total": 19046,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 8927,
+        "Debt collection": 3343,
+        "Mortgage": 1634,
+        "Checking or savings account": 1717,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2018-12",
+      "total": 18545,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 8362,
+        "Debt collection": 3255,
+        "Mortgage": 1618,
+        "Checking or savings account": 1801,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2019-01",
+      "total": 18926,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 8512,
+        "Debt collection": 3126,
+        "Mortgage": 1779,
+        "Checking or savings account": 1795,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2019-02",
+      "total": 20195,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 9361,
+        "Debt collection": 3785,
+        "Mortgage": 1749,
+        "Checking or savings account": 1623,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2019-03",
+      "total": 23401,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 10999,
+        "Debt collection": 4224,
+        "Mortgage": 2002,
+        "Checking or savings account": 1820,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2019-04",
+      "total": 22905,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 11057,
+        "Debt collection": 3977,
+        "Mortgage": 1993,
+        "Checking or savings account": 1817,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2019-05",
+      "total": 23843,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 11918,
+        "Debt collection": 4129,
+        "Mortgage": 1945,
+        "Checking or savings account": 1876,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2019-06",
+      "total": 23338,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 11739,
+        "Debt collection": 4043,
+        "Mortgage": 1857,
+        "Checking or savings account": 1814,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2019-07",
+      "total": 25073,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 13002,
+        "Debt collection": 4005,
+        "Mortgage": 2013,
+        "Checking or savings account": 1843,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2019-08",
+      "total": 26043,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 13518,
+        "Debt collection": 4219,
+        "Mortgage": 2035,
+        "Checking or savings account": 2062,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2019-09",
+      "total": 23565,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 12089,
+        "Debt collection": 3973,
+        "Mortgage": 1857,
+        "Checking or savings account": 1759,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2019-10",
+      "total": 25624,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 13211,
+        "Debt collection": 4015,
+        "Mortgage": 2069,
+        "Checking or savings account": 1936,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2019-11",
+      "total": 22642,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 11845,
+        "Debt collection": 3517,
+        "Mortgage": 1717,
+        "Checking or savings account": 1717,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2019-12",
+      "total": 21697,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 11305,
+        "Debt collection": 3321,
+        "Mortgage": 1687,
+        "Checking or savings account": 1673,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2020-01",
+      "total": 26395,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 14846,
+        "Debt collection": 3760,
+        "Mortgage": 1835,
+        "Checking or savings account": 1845,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2020-02",
+      "total": 25080,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 13601,
+        "Debt collection": 3972,
+        "Mortgage": 1825,
+        "Checking or savings account": 1725,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2020-03",
+      "total": 29481,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 17219,
+        "Debt collection": 4199,
+        "Mortgage": 2136,
+        "Checking or savings account": 1682,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2020-04",
+      "total": 34795,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 20811,
+        "Debt collection": 4507,
+        "Mortgage": 2201,
+        "Checking or savings account": 2022,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2020-05",
+      "total": 36988,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 23518,
+        "Debt collection": 4421,
+        "Mortgage": 1904,
+        "Checking or savings account": 1902,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2020-06",
+      "total": 37889,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 23454,
+        "Debt collection": 4428,
+        "Mortgage": 2009,
+        "Checking or savings account": 2390,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2020-07",
+      "total": 40640,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 25549,
+        "Debt collection": 4849,
+        "Mortgage": 2132,
+        "Checking or savings account": 2524,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2020-08",
+      "total": 39188,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 25266,
+        "Debt collection": 4734,
+        "Mortgage": 2091,
+        "Checking or savings account": 2086,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2020-09",
+      "total": 39878,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 25969,
+        "Debt collection": 4724,
+        "Mortgage": 2330,
+        "Checking or savings account": 2102,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2020-10",
+      "total": 43976,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 29976,
+        "Debt collection": 4937,
+        "Mortgage": 2241,
+        "Checking or savings account": 2051,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2020-11",
+      "total": 41542,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 28907,
+        "Debt collection": 4704,
+        "Mortgage": 1821,
+        "Checking or savings account": 1753,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2020-12",
+      "total": 48380,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 34600,
+        "Debt collection": 4649,
+        "Mortgage": 2127,
+        "Checking or savings account": 2156,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2021-01",
+      "total": 42481,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 28088,
+        "Debt collection": 5026,
+        "Mortgage": 2189,
+        "Checking or savings account": 2335,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2021-02",
+      "total": 33263,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 18374,
+        "Debt collection": 5283,
+        "Mortgage": 2333,
+        "Checking or savings account": 2191,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2021-03",
+      "total": 41172,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 22527,
+        "Debt collection": 6740,
+        "Mortgage": 2914,
+        "Checking or savings account": 2761,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2021-04",
+      "total": 39665,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 23374,
+        "Debt collection": 5738,
+        "Mortgage": 2522,
+        "Checking or savings account": 2452,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2021-05",
+      "total": 41312,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 25409,
+        "Debt collection": 5429,
+        "Mortgage": 2324,
+        "Checking or savings account": 2711,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2021-06",
+      "total": 45733,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 29669,
+        "Debt collection": 6617,
+        "Mortgage": 2172,
+        "Checking or savings account": 2312,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2021-07",
+      "total": 45075,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 28729,
+        "Debt collection": 7172,
+        "Mortgage": 1993,
+        "Checking or savings account": 2337,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2021-08",
+      "total": 42587,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 27222,
+        "Debt collection": 6058,
+        "Mortgage": 2055,
+        "Checking or savings account": 2471,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2021-09",
+      "total": 40372,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 25210,
+        "Debt collection": 5881,
+        "Mortgage": 2059,
+        "Checking or savings account": 2365,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2021-10",
+      "total": 39296,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 23704,
+        "Debt collection": 5725,
+        "Mortgage": 2094,
+        "Checking or savings account": 2447,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2021-11",
+      "total": 39071,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 23940,
+        "Debt collection": 5702,
+        "Mortgage": 1869,
+        "Checking or savings account": 2460,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2021-12",
+      "total": 45929,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 31294,
+        "Debt collection": 4937,
+        "Mortgage": 2009,
+        "Checking or savings account": 2714,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2022-01",
+      "total": 53231,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 37129,
+        "Debt collection": 5072,
+        "Mortgage": 2213,
+        "Checking or savings account": 2960,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2022-02",
+      "total": 53191,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 36534,
+        "Debt collection": 5511,
+        "Mortgage": 2215,
+        "Checking or savings account": 3003,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2022-03",
+      "total": 61898,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 43573,
+        "Debt collection": 6108,
+        "Mortgage": 2507,
+        "Checking or savings account": 3357,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2022-04",
+      "total": 72245,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 54426,
+        "Debt collection": 6008,
+        "Mortgage": 2274,
+        "Checking or savings account": 3236,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2022-05",
+      "total": 60384,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 45968,
+        "Debt collection": 4570,
+        "Mortgage": 1793,
+        "Checking or savings account": 2841,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2022-06",
+      "total": 61881,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 47275,
+        "Debt collection": 4547,
+        "Mortgage": 1794,
+        "Checking or savings account": 2808,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2022-07",
+      "total": 64455,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 49221,
+        "Debt collection": 4383,
+        "Mortgage": 1720,
+        "Checking or savings account": 3056,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2022-08",
+      "total": 69261,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 51934,
+        "Debt collection": 4962,
+        "Mortgage": 2019,
+        "Checking or savings account": 3431,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2022-09",
+      "total": 65785,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 49132,
+        "Debt collection": 4515,
+        "Mortgage": 1784,
+        "Checking or savings account": 3188,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2022-10",
+      "total": 75793,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 59077,
+        "Debt collection": 4730,
+        "Mortgage": 1624,
+        "Checking or savings account": 3102,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2022-11",
+      "total": 77041,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 61772,
+        "Debt collection": 4338,
+        "Mortgage": 1518,
+        "Checking or savings account": 2987,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2022-12",
+      "total": 85148,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 68155,
+        "Debt collection": 4718,
+        "Mortgage": 1825,
+        "Checking or savings account": 3615,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2023-01",
+      "total": 93934,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 70513,
+        "Debt collection": 5871,
+        "Mortgage": 2838,
+        "Checking or savings account": 6395,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2023-02",
+      "total": 86540,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 67892,
+        "Debt collection": 5251,
+        "Mortgage": 2165,
+        "Checking or savings account": 3944,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2023-03",
+      "total": 110643,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 89919,
+        "Debt collection": 6299,
+        "Mortgage": 2176,
+        "Checking or savings account": 4299,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2023-04",
+      "total": 97087,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 79744,
+        "Debt collection": 5514,
+        "Mortgage": 1658,
+        "Checking or savings account": 3477,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2023-05",
+      "total": 106214,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 86985,
+        "Debt collection": 5868,
+        "Mortgage": 1887,
+        "Checking or savings account": 4084,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2023-06",
+      "total": 104425,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 85439,
+        "Debt collection": 5599,
+        "Mortgage": 1703,
+        "Checking or savings account": 3883,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2023-07",
+      "total": 106775,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 0,
+        "Credit reporting, credit repair services, or other personal consumer reports": 87024,
+        "Debt collection": 5414,
+        "Mortgage": 1633,
+        "Checking or savings account": 4279,
+        "Credit card": 0
+      }
+    },
+    {
+      "month": "2023-08",
+      "total": 119712,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 20736,
+        "Credit reporting, credit repair services, or other personal consumer reports": 77310,
+        "Debt collection": 5844,
+        "Mortgage": 1844,
+        "Checking or savings account": 4315,
+        "Credit card": 1215
+      }
+    },
+    {
+      "month": "2023-09",
+      "total": 112887,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 92522,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 5298,
+        "Mortgage": 1632,
+        "Checking or savings account": 3811,
+        "Credit card": 4918
+      }
+    },
+    {
+      "month": "2023-10",
+      "total": 117421,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 94884,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 5451,
+        "Mortgage": 1721,
+        "Checking or savings account": 3795,
+        "Credit card": 5810
+      }
+    },
+    {
+      "month": "2023-11",
+      "total": 113366,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 92177,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 5567,
+        "Mortgage": 1818,
+        "Checking or savings account": 3770,
+        "Credit card": 5153
+      }
+    },
+    {
+      "month": "2023-12",
+      "total": 123067,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 101735,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 6138,
+        "Mortgage": 1779,
+        "Checking or savings account": 3821,
+        "Credit card": 4776
+      }
+    },
+    {
+      "month": "2024-01",
+      "total": 143368,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 119512,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 7178,
+        "Mortgage": 1812,
+        "Checking or savings account": 4032,
+        "Credit card": 5247
+      }
+    },
+    {
+      "month": "2024-02",
+      "total": 157615,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 132992,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 8773,
+        "Mortgage": 1942,
+        "Checking or savings account": 3833,
+        "Credit card": 5182
+      }
+    },
+    {
+      "month": "2024-03",
+      "total": 177821,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 147638,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 12358,
+        "Mortgage": 1894,
+        "Checking or savings account": 4257,
+        "Credit card": 5889
+      }
+    },
+    {
+      "month": "2024-04",
+      "total": 191116,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 160448,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 12912,
+        "Mortgage": 1816,
+        "Checking or savings account": 4327,
+        "Credit card": 6674
+      }
+    },
+    {
+      "month": "2024-05",
+      "total": 211964,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 181421,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 12426,
+        "Mortgage": 1715,
+        "Checking or savings account": 4539,
+        "Credit card": 6760
+      }
+    },
+    {
+      "month": "2024-06",
+      "total": 204172,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 177586,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 11100,
+        "Mortgage": 1576,
+        "Checking or savings account": 3886,
+        "Credit card": 5534
+      }
+    },
+    {
+      "month": "2024-07",
+      "total": 232655,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 203567,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 12149,
+        "Mortgage": 1739,
+        "Checking or savings account": 4328,
+        "Credit card": 6192
+      }
+    },
+    {
+      "month": "2024-08",
+      "total": 263823,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 230752,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 14173,
+        "Mortgage": 1862,
+        "Checking or savings account": 4682,
+        "Credit card": 7356
+      }
+    },
+    {
+      "month": "2024-09",
+      "total": 264825,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 230927,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 15476,
+        "Mortgage": 1781,
+        "Checking or savings account": 4270,
+        "Credit card": 7185
+      }
+    },
+    {
+      "month": "2024-10",
+      "total": 295882,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 259080,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 17484,
+        "Mortgage": 1810,
+        "Checking or savings account": 4693,
+        "Credit card": 7176
+      }
+    },
+    {
+      "month": "2024-11",
+      "total": 287082,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 253750,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 15457,
+        "Mortgage": 1718,
+        "Checking or savings account": 5175,
+        "Credit card": 6095
+      }
+    },
+    {
+      "month": "2024-12",
+      "total": 303978,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 267922,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 16424,
+        "Mortgage": 1784,
+        "Checking or savings account": 4797,
+        "Credit card": 6697
+      }
+    },
+    {
+      "month": "2025-01",
+      "total": 475787,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 365868,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 23830,
+        "Mortgage": 2205,
+        "Checking or savings account": 18368,
+        "Credit card": 9073
+      }
+    },
+    {
+      "month": "2025-02",
+      "total": 335240,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 293834,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 17034,
+        "Mortgage": 1754,
+        "Checking or savings account": 5452,
+        "Credit card": 6213
+      }
+    },
+    {
+      "month": "2025-03",
+      "total": 396977,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 354017,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 20372,
+        "Mortgage": 1824,
+        "Checking or savings account": 5070,
+        "Credit card": 6255
+      }
+    },
+    {
+      "month": "2025-04",
+      "total": 406115,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 364041,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 20305,
+        "Mortgage": 1848,
+        "Checking or savings account": 5229,
+        "Credit card": 6897
+      }
+    },
+    {
+      "month": "2025-05",
+      "total": 415186,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 370376,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 21959,
+        "Mortgage": 1968,
+        "Checking or savings account": 5394,
+        "Credit card": 7515
+      }
+    },
+    {
+      "month": "2025-06",
+      "total": 412171,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 368102,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 21861,
+        "Mortgage": 1903,
+        "Checking or savings account": 5557,
+        "Credit card": 7365
+      }
+    },
+    {
+      "month": "2025-07",
+      "total": 473203,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 423139,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 24876,
+        "Mortgage": 2171,
+        "Checking or savings account": 6403,
+        "Credit card": 8106
+      }
+    },
+    {
+      "month": "2025-08",
+      "total": 495582,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 445601,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 25629,
+        "Mortgage": 2042,
+        "Checking or savings account": 6505,
+        "Credit card": 7919
+      }
+    },
+    {
+      "month": "2025-09",
+      "total": 503854,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 452652,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 26818,
+        "Mortgage": 2017,
+        "Checking or savings account": 6141,
+        "Credit card": 8505
+      }
+    },
+    {
+      "month": "2025-10",
+      "total": 519794,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 469195,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 25550,
+        "Mortgage": 2088,
+        "Checking or savings account": 6310,
+        "Credit card": 7412
+      }
+    },
+    {
+      "month": "2025-11",
+      "total": 496401,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 448023,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 25656,
+        "Mortgage": 2189,
+        "Checking or savings account": 6059,
+        "Credit card": 6816
+      }
+    },
+    {
+      "month": "2025-12",
+      "total": 512073,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 455320,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 29203,
+        "Mortgage": 2613,
+        "Checking or savings account": 7683,
+        "Credit card": 7792
+      }
+    },
+    {
+      "month": "2026-01",
+      "total": 541832,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 480220,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 30740,
+        "Mortgage": 2936,
+        "Checking or savings account": 7868,
+        "Credit card": 9402
+      }
+    },
+    {
+      "month": "2026-02",
+      "total": 500462,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 449509,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 26784,
+        "Mortgage": 2449,
+        "Checking or savings account": 6525,
+        "Credit card": 7176
+      }
+    },
+    {
+      "month": "2026-03",
+      "total": 367125,
+      "categories": {
+        "Credit reporting or other personal consumer reports": 343658,
+        "Credit reporting, credit repair services, or other personal consumer reports": 0,
+        "Debt collection": 14066,
+        "Mortgage": 843,
+        "Checking or savings account": 2510,
+        "Credit card": 2578
+      }
+    }
+  ],
+  "spike_companies": [],
+  "info": {
+    "start": "2011-12-01",
+    "end": "2026-03-23",
+    "total_complaints": 14091586,
+    "unique_companies": 11
+  },
+  "data_source": "CFPB Consumer Complaint Database"
+}

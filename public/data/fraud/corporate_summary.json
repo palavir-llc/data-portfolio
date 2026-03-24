@@ -1,0 +1,17 @@
+{
+  "total_companies": 4042,
+  "total_company_years": 6088,
+  "flagged_count": 35,
+  "flagged_pct": 0.0057,
+  "median_mscore": -2.6735,
+  "mean_mscore": -2.7811,
+  "threshold": -1.78,
+  "data_source": "SEC EDGAR XBRL Financial Statement Data Sets",
+  "quarters_analyzed": [
+    "2024q1",
+    "2024q2",
+    "2024q3",
+    "2024q4"
+  ],
+  "data_accessed": "2026-03-24"
+}

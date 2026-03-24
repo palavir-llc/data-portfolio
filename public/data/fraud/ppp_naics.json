@@ -1,0 +1,252 @@
+[
+  {
+    "naics_code": "45",
+    "feature": "Retail Trade (45)",
+    "description": "Retail Trade",
+    "total_loans": 13403,
+    "anomaly_count": 487,
+    "importance": 0.0363,
+    "avg_loan": 438638.98,
+    "avg_employees": 47.3
+  },
+  {
+    "naics_code": "72",
+    "feature": "Accommodation/Food (72)",
+    "description": "Accommodation/Food",
+    "total_loans": 124760,
+    "anomaly_count": 4510,
+    "importance": 0.0361,
+    "avg_loan": 441826.58,
+    "avg_employees": 62.4
+  },
+  {
+    "naics_code": "55",
+    "feature": "Management (55)",
+    "description": "Management",
+    "total_loans": 2169,
+    "anomaly_count": 77,
+    "importance": 0.0355,
+    "avg_loan": 735569.35,
+    "avg_employees": 67.6
+  },
+  {
+    "naics_code": "21",
+    "feature": "Mining (21)",
+    "description": "Mining",
+    "total_loans": 8413,
+    "anomaly_count": 275,
+    "importance": 0.0327,
+    "avg_loan": 684980.09,
+    "avg_employees": 43.1
+  },
+  {
+    "naics_code": "99",
+    "feature": "NAICS 99 (99)",
+    "description": "NAICS 99",
+    "total_loans": 4090,
+    "anomaly_count": 121,
+    "importance": 0.0296,
+    "avg_loan": 323639.63,
+    "avg_employees": 58.8
+  },
+  {
+    "naics_code": "71",
+    "feature": "Arts/Entertainment (71)",
+    "description": "Arts/Entertainment",
+    "total_loans": 16916,
+    "anomaly_count": 451,
+    "importance": 0.0267,
+    "avg_loan": 483482.21,
+    "avg_employees": 69.5
+  },
+  {
+    "naics_code": "48",
+    "feature": "Transportation (48)",
+    "description": "Transportation",
+    "total_loans": 28799,
+    "anomaly_count": 743,
+    "importance": 0.0258,
+    "avg_loan": 535850.93,
+    "avg_employees": 50.0
+  },
+  {
+    "naics_code": "51",
+    "feature": "Information (51)",
+    "description": "Information",
+    "total_loans": 16368,
+    "anomaly_count": 387,
+    "importance": 0.0236,
+    "avg_loan": 596339.6,
+    "avg_employees": 43.8
+  },
+  {
+    "naics_code": "92",
+    "feature": "Public Admin (92)",
+    "description": "Public Admin",
+    "total_loans": 2966,
+    "anomaly_count": 70,
+    "importance": 0.0236,
+    "avg_loan": 563047.3,
+    "avg_employees": 51.9
+  },
+  {
+    "naics_code": "53",
+    "feature": "Real Estate (53)",
+    "description": "Real Estate",
+    "total_loans": 23525,
+    "anomaly_count": 538,
+    "importance": 0.0229,
+    "avg_loan": 518205.79,
+    "avg_employees": 45.2
+  },
+  {
+    "naics_code": "56",
+    "feature": "Admin/Support (56)",
+    "description": "Admin/Support",
+    "total_loans": 44657,
+    "anomaly_count": 987,
+    "importance": 0.0221,
+    "avg_loan": 569005.93,
+    "avg_employees": 65.2
+  },
+  {
+    "naics_code": "52",
+    "feature": "Finance/Insurance (52)",
+    "description": "Finance/Insurance",
+    "total_loans": 15264,
+    "anomaly_count": 313,
+    "importance": 0.0205,
+    "avg_loan": 519800.7,
+    "avg_employees": 38.4
+  },
+  {
+    "naics_code": "49",
+    "feature": "Transportation (49)",
+    "description": "Transportation",
+    "total_loans": 3273,
+    "anomaly_count": 63,
+    "importance": 0.0192,
+    "avg_loan": 512139.93,
+    "avg_employees": 58.9
+  },
+  {
+    "naics_code": "22",
+    "feature": "Utilities (22)",
+    "description": "Utilities",
+    "total_loans": 2317,
+    "anomaly_count": 43,
+    "importance": 0.0186,
+    "avg_loan": 640047.05,
+    "avg_employees": 42.4
+  },
+  {
+    "naics_code": "23",
+    "feature": "Construction (23)",
+    "description": "Construction",
+    "total_loans": 128575,
+    "anomaly_count": 2344,
+    "importance": 0.0182,
+    "avg_loan": 549314.88,
+    "avg_employees": 40.5
+  },
+  {
+    "naics_code": "11",
+    "feature": "Agriculture (11)",
+    "description": "Agriculture",
+    "total_loans": 13374,
+    "anomaly_count": 235,
+    "importance": 0.0176,
+    "avg_loan": 451574.98,
+    "avg_employees": 58.2
+  },
+  {
+    "naics_code": "62",
+    "feature": "Healthcare (62)",
+    "description": "Healthcare",
+    "total_loans": 117539,
+    "anomaly_count": 2031,
+    "importance": 0.0173,
+    "avg_loan": 546770.01,
+    "avg_employees": 62.2
+  },
+  {
+    "naics_code": "54",
+    "feature": "Professional Services (54)",
+    "description": "Professional Services",
+    "total_loans": 116021,
+    "anomaly_count": 1928,
+    "importance": 0.0166,
+    "avg_loan": 537336.56,
+    "avg_employees": 37.1
+  },
+  {
+    "naics_code": "61",
+    "feature": "Education (61)",
+    "description": "Education",
+    "total_loans": 20026,
+    "anomaly_count": 331,
+    "importance": 0.0165,
+    "avg_loan": 646286.43,
+    "avg_employees": 71.5
+  },
+  {
+    "naics_code": "81",
+    "feature": "Other Services (81)",
+    "description": "Other Services",
+    "total_loans": 57880,
+    "anomaly_count": 851,
+    "importance": 0.0147,
+    "avg_loan": 429191.43,
+    "avg_employees": 48.5
+  },
+  {
+    "naics_code": "31",
+    "feature": "Manufacturing (31)",
+    "description": "Manufacturing",
+    "total_loans": 12818,
+    "anomaly_count": 182,
+    "importance": 0.0142,
+    "avg_loan": 643560.44,
+    "avg_employees": 65.6
+  },
+  {
+    "naics_code": "33",
+    "feature": "Manufacturing (33)",
+    "description": "Manufacturing",
+    "total_loans": 64069,
+    "anomaly_count": 844,
+    "importance": 0.0132,
+    "avg_loan": 621940.46,
+    "avg_employees": 50.5
+  },
+  {
+    "naics_code": "32",
+    "feature": "Manufacturing (32)",
+    "description": "Manufacturing",
+    "total_loans": 24170,
+    "anomaly_count": 287,
+    "importance": 0.0119,
+    "avg_loan": 624305.4,
+    "avg_employees": 54.9
+  },
+  {
+    "naics_code": "42",
+    "feature": "Wholesale Trade (42)",
+    "description": "Wholesale Trade",
+    "total_loans": 50409,
+    "anomaly_count": 584,
+    "importance": 0.0116,
+    "avg_loan": 558165.76,
+    "avg_employees": 46.0
+  },
+  {
+    "naics_code": "44",
+    "feature": "Retail Trade (44)",
+    "description": "Retail Trade",
+    "total_loans": 50093,
+    "anomaly_count": 501,
+    "importance": 0.01,
+    "avg_loan": 545112.91,
+    "avg_employees": 55.5
+  }
+]

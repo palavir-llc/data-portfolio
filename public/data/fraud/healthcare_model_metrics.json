@@ -1,0 +1,62 @@
+{
+  "model_type": "RandomForest",
+  "n_samples": 1380665,
+  "n_features": 6,
+  "n_positive": 380,
+  "auc_roc": 0.6656,
+  "confusion_matrix": [
+    [
+      275854,
+      203
+    ],
+    [
+      76,
+      0
+    ]
+  ],
+  "classification_report": {
+    "0": {
+      "precision": 0.999724567825173,
+      "recall": 0.999264644620495,
+      "f1-score": 0.9994945533137556,
+      "support": 276057.0
+    },
+    "1": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1-score": 0.0,
+      "support": 76.0
+    },
+    "accuracy": 0.9989896173220876,
+    "macro avg": {
+      "precision": 0.4998622839125865,
+      "recall": 0.4996323223102475,
+      "f1-score": 0.4997472766568778,
+      "support": 276133.0
+    },
+    "weighted avg": {
+      "precision": 0.9994494139422445,
+      "recall": 0.9989896173220876,
+      "f1-score": 0.9992194627376496,
+      "support": 276133.0
+    }
+  },
+  "feature_importance": {
+    "cost_per_claim": 0.1864,
+    "claims_per_beneficiary": 0.1862,
+    "total_cost": 0.1818,
+    "total_claims": 0.1694,
+    "total_beneficiaries": 0.1482,
+    "specialty_encoded": 0.1281
+  },
+  "feature_cols": [
+    "total_claims",
+    "total_cost",
+    "total_beneficiaries",
+    "claims_per_beneficiary",
+    "cost_per_claim",
+    "specialty_encoded"
+  ],
+  "data_source": "CMS Medicare Part D Prescribers + OIG LEIE",
+  "data_accessed": "2026-03-24"
+}

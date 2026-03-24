@@ -1,0 +1,212 @@
+[
+  {
+    "feature": "Legal Medicine",
+    "importance": 0.0081,
+    "provider_count": 124,
+    "avg_claims": 904.0,
+    "avg_cost": 104497.31
+  },
+  {
+    "feature": "Addiction Medicine",
+    "importance": 0.0025,
+    "provider_count": 405,
+    "avg_claims": 799.0,
+    "avg_cost": 105913.67
+  },
+  {
+    "feature": "Interventional Pain Management",
+    "importance": 0.0019,
+    "provider_count": 1615,
+    "avg_claims": 2426.0,
+    "avg_cost": 158013.51
+  },
+  {
+    "feature": "Pain Management",
+    "importance": 0.0018,
+    "provider_count": 2816,
+    "avg_claims": 1851.0,
+    "avg_cost": 112076.56
+  },
+  {
+    "feature": "Pathology",
+    "importance": 0.0015,
+    "provider_count": 668,
+    "avg_claims": 118.0,
+    "avg_cost": 23416.46
+  },
+  {
+    "feature": "Plastic Surgery",
+    "importance": 0.0014,
+    "provider_count": 1408,
+    "avg_claims": 59.0,
+    "avg_cost": 1952.63
+  },
+  {
+    "feature": "Specialist",
+    "importance": 0.0014,
+    "provider_count": 2763,
+    "avg_claims": 241.0,
+    "avg_cost": 43381.79
+  },
+  {
+    "feature": "General Practice",
+    "importance": 0.0011,
+    "provider_count": 9097,
+    "avg_claims": 3045.0,
+    "avg_cost": 257684.7
+  },
+  {
+    "feature": "Family Medicine",
+    "importance": 0.001,
+    "provider_count": 1018,
+    "avg_claims": 648.0,
+    "avg_cost": 60215.73
+  },
+  {
+    "feature": "Physical Medicine and Rehabilitation",
+    "importance": 0.001,
+    "provider_count": 9043,
+    "avg_claims": 802.0,
+    "avg_cost": 55150.89
+  },
+  {
+    "feature": "Preventive Medicine",
+    "importance": 0.0009,
+    "provider_count": 1054,
+    "avg_claims": 726.0,
+    "avg_cost": 160188.48
+  },
+  {
+    "feature": "Family Practice",
+    "importance": 0.0008,
+    "provider_count": 116540,
+    "avg_claims": 3474.0,
+    "avg_cost": 338665.73
+  },
+  {
+    "feature": "Neuropsychiatry",
+    "importance": 0.0008,
+    "provider_count": 2640,
+    "avg_claims": 350.0,
+    "avg_cost": 53238.34
+  },
+  {
+    "feature": "Internal Medicine",
+    "importance": 0.0006,
+    "provider_count": 128226,
+    "avg_claims": 2855.0,
+    "avg_cost": 341353.98
+  },
+  {
+    "feature": "Psychiatry & Neurology",
+    "importance": 0.0006,
+    "provider_count": 16001,
+    "avg_claims": 357.0,
+    "avg_cost": 50170.25
+  },
+  {
+    "feature": "Sports Medicine",
+    "importance": 0.0006,
+    "provider_count": 1743,
+    "avg_claims": 336.0,
+    "avg_cost": 19145.29
+  },
+  {
+    "feature": "Anesthesiology",
+    "importance": 0.0005,
+    "provider_count": 6162,
+    "avg_claims": 814.0,
+    "avg_cost": 52980.61
+  },
+  {
+    "feature": "Certified Clinical Nurse Specialist",
+    "importance": 0.0005,
+    "provider_count": 2050,
+    "avg_claims": 995.0,
+    "avg_cost": 189353.28
+  },
+  {
+    "feature": "Otolaryngology",
+    "importance": 0.0005,
+    "provider_count": 10646,
+    "avg_claims": 513.0,
+    "avg_cost": 29916.56
+  },
+  {
+    "feature": "Orthopaedic Surgery",
+    "importance": 0.0004,
+    "provider_count": 2637,
+    "avg_claims": 67.0,
+    "avg_cost": 3443.16
+  },
+  {
+    "feature": "Allergy/ Immunology",
+    "importance": 0.0003,
+    "provider_count": 3982,
+    "avg_claims": 717.0,
+    "avg_cost": 405795.08
+  },
+  {
+    "feature": "Emergency Medicine",
+    "importance": 0.0003,
+    "provider_count": 54622,
+    "avg_claims": 285.0,
+    "avg_cost": 18557.48
+  },
+  {
+    "feature": "Obstetrics & Gynecology",
+    "importance": 0.0003,
+    "provider_count": 34229,
+    "avg_claims": 183.0,
+    "avg_cost": 24463.34
+  },
+  {
+    "feature": "Oral Surgery (Dentist only)",
+    "importance": 0.0003,
+    "provider_count": 5813,
+    "avg_claims": 358.0,
+    "avg_cost": 2352.43
+  },
+  {
+    "feature": "Plastic and Reconstructive Surgery",
+    "importance": 0.0003,
+    "provider_count": 3816,
+    "avg_claims": 111.0,
+    "avg_cost": 4723.7
+  },
+  {
+    "feature": "Podiatry",
+    "importance": 0.0003,
+    "provider_count": 15772,
+    "avg_claims": 310.0,
+    "avg_cost": 20038.7
+  },
+  {
+    "feature": "Psychiatry",
+    "importance": 0.0003,
+    "provider_count": 23909,
+    "avg_claims": 1406.0,
+    "avg_cost": 186108.35
+  },
+  {
+    "feature": "Cardiology",
+    "importance": 0.0002,
+    "provider_count": 19360,
+    "avg_claims": 3368.0,
+    "avg_cost": 666153.01
+  },
+  {
+    "feature": "Dentist",
+    "importance": 0.0002,
+    "provider_count": 131349,
+    "avg_claims": 89.0,
+    "avg_cost": 648.06
+  },
+  {
+    "feature": "Endocrinology",
+    "importance": 0.0002,
+    "provider_count": 6583,
+    "avg_claims": 2829.0,
+    "avg_cost": 1475510.18
+  }
+]

@@ -1,0 +1,140 @@
+[
+  {
+    "bin_start": -8.0,
+    "bin_end": -7.5,
+    "count": 10,
+    "flagged": "False"
+  },
+  {
+    "bin_start": -7.5,
+    "bin_end": -7.0,
+    "count": 3,
+    "flagged": "False"
+  },
+  {
+    "bin_start": -7.0,
+    "bin_end": -6.5,
+    "count": 0,
+    "flagged": "False"
+  },
+  {
+    "bin_start": -6.5,
+    "bin_end": -6.0,
+    "count": 1,
+    "flagged": "False"
+  },
+  {
+    "bin_start": -6.0,
+    "bin_end": -5.5,
+    "count": 3,
+    "flagged": "False"
+  },
+  {
+    "bin_start": -5.5,
+    "bin_end": -5.0,
+    "count": 4,
+    "flagged": "False"
+  },
+  {
+    "bin_start": -5.0,
+    "bin_end": -4.5,
+    "count": 2,
+    "flagged": "False"
+  },
+  {
+    "bin_start": -4.5,
+    "bin_end": -4.0,
+    "count": 14,
+    "flagged": "False"
+  },
+  {
+    "bin_start": -4.0,
+    "bin_end": -3.5,
+    "count": 27,
+    "flagged": "False"
+  },
+  {
+    "bin_start": -3.5,
+    "bin_end": -3.0,
+    "count": 68,
+    "flagged": "False"
+  },
+  {
+    "bin_start": -3.0,
+    "bin_end": -2.5,
+    "count": 258,
+    "flagged": "False"
+  },
+  {
+    "bin_start": -2.5,
+    "bin_end": -2.0,
+    "count": 124,
+    "flagged": "False"
+  },
+  {
+    "bin_start": -2.0,
+    "bin_end": -1.5,
+    "count": 17,
+    "flagged": "False"
+  },
+  {
+    "bin_start": -1.5,
+    "bin_end": -1.0,
+    "count": 5,
+    "flagged": "True"
+  },
+  {
+    "bin_start": -1.0,
+    "bin_end": -0.5,
+    "count": 3,
+    "flagged": "True"
+  },
+  {
+    "bin_start": -0.5,
+    "bin_end": 0.0,
+    "count": 3,
+    "flagged": "True"
+  },
+  {
+    "bin_start": 0.0,
+    "bin_end": 0.5,
+    "count": 2,
+    "flagged": "True"
+  },
+  {
+    "bin_start": 0.5,
+    "bin_end": 1.0,
+    "count": 4,
+    "flagged": "True"
+  },
+  {
+    "bin_start": 1.0,
+    "bin_end": 1.5,
+    "count": 1,
+    "flagged": "True"
+  },
+  {
+    "bin_start": 1.5,
+    "bin_end": 2.0,
+    "count": 3,
+    "flagged": "True"
+  },
+  {
+    "bin_start": 2.0,
+    "bin_end": 2.5,
+    "count": 3,
+    "flagged": "True"
+  },
+  {
+    "bin_start": 2.5,
+    "bin_end": 3.0,
+    "count": 2,
+    "flagged": "True"
+  },
+  {
+    "bin_start": 3.0,
+    "bin_end": 3.5,
+    "count": 0,
+    "flagged": "True"
+  }
+]

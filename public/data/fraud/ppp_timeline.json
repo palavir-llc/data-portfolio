@@ -1,0 +1,106 @@
+[
+  {
+    "month": "2020-04",
+    "total_loans": 548334,
+    "total_amount": 330305847118.79,
+    "anomaly_count": 8229,
+    "anomaly_amount": 18860074019.9,
+    "anomaly_rate": 0.015
+  },
+  {
+    "month": "2020-05",
+    "total_loans": 93960,
+    "total_amount": 39076592514.03,
+    "anomaly_count": 2117,
+    "anomaly_amount": 2403452767.74,
+    "anomaly_rate": 0.0225
+  },
+  {
+    "month": "2020-06",
+    "total_loans": 11289,
+    "total_amount": 5052506051.44,
+    "anomaly_count": 918,
+    "anomaly_amount": 687613120.51,
+    "anomaly_rate": 0.0813
+  },
+  {
+    "month": "2020-07",
+    "total_loans": 3813,
+    "total_amount": 1808689222.92,
+    "anomaly_count": 220,
+    "anomaly_amount": 218897199.06,
+    "anomaly_rate": 0.0577
+  },
+  {
+    "month": "2020-08",
+    "total_loans": 2038,
+    "total_amount": 1391799644.34,
+    "anomaly_count": 114,
+    "anomaly_amount": 246290867.82,
+    "anomaly_rate": 0.0559
+  },
+  {
+    "month": "2020-12",
+    "total_loans": 4,
+    "total_amount": 6935285.0,
+    "anomaly_count": 0,
+    "anomaly_amount": 0.0,
+    "anomaly_rate": 0.0
+  },
+  {
+    "month": "2021-01",
+    "total_loans": 105154,
+    "total_amount": 45099149123.37,
+    "anomaly_count": 1761,
+    "anomaly_amount": 2022197520.43,
+    "anomaly_rate": 0.0167
+  },
+  {
+    "month": "2021-02",
+    "total_loans": 112336,
+    "total_amount": 48776360160.64,
+    "anomaly_count": 2640,
+    "anomaly_amount": 3264539040.36,
+    "anomaly_rate": 0.0235
+  },
+  {
+    "month": "2021-03",
+    "total_loans": 66139,
+    "total_amount": 30314842916.02,
+    "anomaly_count": 2077,
+    "anomaly_amount": 2652549577.7,
+    "anomaly_rate": 0.0314
+  },
+  {
+    "month": "2021-04",
+    "total_loans": 19219,
+    "total_amount": 10236678811.42,
+    "anomaly_count": 855,
+    "anomaly_amount": 1496899290.29,
+    "anomaly_rate": 0.0445
+  },
+  {
+    "month": "2021-05",
+    "total_loans": 5837,
+    "total_amount": 3171049653.27,
+    "anomaly_count": 395,
+    "anomaly_amount": 499908308.53,
+    "anomaly_rate": 0.0677
+  },
+  {
+    "month": "2021-06",
+    "total_loans": 398,
+    "total_amount": 275432387.21,
+    "anomaly_count": 44,
+    "anomaly_amount": 56757010.71,
+    "anomaly_rate": 0.1106
+  },
+  {
+    "month": "2021-07",
+    "total_loans": 1,
+    "total_amount": 2000000.0,
+    "anomaly_count": 1,
+    "anomaly_amount": 2000000.0,
+    "anomaly_rate": 1.0
+  }
+]

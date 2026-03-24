@@ -1,0 +1,124 @@
+{
+  "annual_recoveries": [
+    {
+      "year": 2000,
+      "total_recoveries": 1500000000,
+      "qui_tam_recoveries": 1200000000,
+      "new_civil_cases": 274,
+      "qui_tam_filed": 367
+    },
+    {
+      "year": 2005,
+      "total_recoveries": 1400000000,
+      "qui_tam_recoveries": 1100000000,
+      "new_civil_cases": 274,
+      "qui_tam_filed": 397
+    },
+    {
+      "year": 2010,
+      "total_recoveries": 3100000000,
+      "qui_tam_recoveries": 2400000000,
+      "new_civil_cases": 382,
+      "qui_tam_filed": 573
+    },
+    {
+      "year": 2011,
+      "total_recoveries": 3200000000,
+      "qui_tam_recoveries": 2800000000,
+      "new_civil_cases": 310,
+      "qui_tam_filed": 638
+    },
+    {
+      "year": 2012,
+      "total_recoveries": 4900000000,
+      "qui_tam_recoveries": 3300000000,
+      "new_civil_cases": 309,
+      "qui_tam_filed": 647
+    },
+    {
+      "year": 2013,
+      "total_recoveries": 3800000000,
+      "qui_tam_recoveries": 2900000000,
+      "new_civil_cases": 294,
+      "qui_tam_filed": 752
+    },
+    {
+      "year": 2014,
+      "total_recoveries": 5700000000,
+      "qui_tam_recoveries": 3100000000,
+      "new_civil_cases": 255,
+      "qui_tam_filed": 702
+    },
+    {
+      "year": 2015,
+      "total_recoveries": 3500000000,
+      "qui_tam_recoveries": 2800000000,
+      "new_civil_cases": 237,
+      "qui_tam_filed": 632
+    },
+    {
+      "year": 2016,
+      "total_recoveries": 4700000000,
+      "qui_tam_recoveries": 2900000000,
+      "new_civil_cases": 274,
+      "qui_tam_filed": 701
+    },
+    {
+      "year": 2017,
+      "total_recoveries": 3700000000,
+      "qui_tam_recoveries": 3400000000,
+      "new_civil_cases": 293,
+      "qui_tam_filed": 669
+    },
+    {
+      "year": 2018,
+      "total_recoveries": 2800000000,
+      "qui_tam_recoveries": 2100000000,
+      "new_civil_cases": 230,
+      "qui_tam_filed": 645
+    },
+    {
+      "year": 2019,
+      "total_recoveries": 3000000000,
+      "qui_tam_recoveries": 2200000000,
+      "new_civil_cases": 237,
+      "qui_tam_filed": 633
+    },
+    {
+      "year": 2020,
+      "total_recoveries": 2200000000,
+      "qui_tam_recoveries": 1600000000,
+      "new_civil_cases": 210,
+      "qui_tam_filed": 672
+    },
+    {
+      "year": 2021,
+      "total_recoveries": 5600000000,
+      "qui_tam_recoveries": 1600000000,
+      "new_civil_cases": 296,
+      "qui_tam_filed": 598
+    },
+    {
+      "year": 2022,
+      "total_recoveries": 2200000000,
+      "qui_tam_recoveries": 1900000000,
+      "new_civil_cases": 274,
+      "qui_tam_filed": 652
+    },
+    {
+      "year": 2023,
+      "total_recoveries": 2700000000,
+      "qui_tam_recoveries": 2300000000,
+      "new_civil_cases": 305,
+      "qui_tam_filed": 712
+    },
+    {
+      "year": 2024,
+      "total_recoveries": 2900000000,
+      "qui_tam_recoveries": 2400000000,
+      "new_civil_cases": 320,
+      "qui_tam_filed": 755
+    }
+  ],
+  "data_source": "DOJ Civil Division FCA Statistics"
+}
