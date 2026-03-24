@@ -1,0 +1,233 @@
+{
+  "address_clusters_to_investigate": [
+    {
+      "description": "48 unique entities at one address",
+      "loans": 49,
+      "anomalies": 49,
+      "amount": 13684503,
+      "states": [
+        "LA"
+      ]
+    },
+    {
+      "description": "48 unique entities at one address",
+      "loans": 50,
+      "anomalies": 5,
+      "amount": 39178126,
+      "states": [
+        "RI"
+      ]
+    },
+    {
+      "description": "43 unique entities at one address",
+      "loans": 51,
+      "anomalies": 51,
+      "amount": 21379611,
+      "states": [
+        "NC"
+      ]
+    },
+    {
+      "description": "41 unique entities at one address",
+      "loans": 48,
+      "anomalies": 42,
+      "amount": 65964209,
+      "states": [
+        "NJ"
+      ]
+    },
+    {
+      "description": "41 unique entities at one address",
+      "loans": 42,
+      "anomalies": 42,
+      "amount": 16740960,
+      "states": [
+        "IL"
+      ]
+    },
+    {
+      "description": "37 unique entities at one address",
+      "loans": 38,
+      "anomalies": 1,
+      "amount": 25320715,
+      "states": [
+        "OK"
+      ]
+    },
+    {
+      "description": "36 unique entities at one address",
+      "loans": 36,
+      "anomalies": 36,
+      "amount": 32501960,
+      "states": [
+        "GA"
+      ]
+    },
+    {
+      "description": "35 unique entities at one address",
+      "loans": 35,
+      "anomalies": 35,
+      "amount": 10979652,
+      "states": [
+        "CA",
+        "MO"
+      ]
+    },
+    {
+      "description": "35 unique entities at one address",
+      "loans": 49,
+      "anomalies": 49,
+      "amount": 12486832,
+      "states": [
+        "CA"
+      ]
+    },
+    {
+      "description": "31 unique entities at one address",
+      "loans": 31,
+      "anomalies": 0,
+      "amount": 21558156,
+      "states": [
+        "OH"
+      ]
+    },
+    {
+      "description": "30 unique entities at one address",
+      "loans": 30,
+      "anomalies": 30,
+      "amount": 17887172,
+      "states": [
+        "CT"
+      ]
+    },
+    {
+      "description": "30 unique entities at one address",
+      "loans": 30,
+      "anomalies": 30,
+      "amount": 6549500,
+      "states": [
+        "CT"
+      ]
+    },
+    {
+      "description": "29 unique entities at one address",
+      "loans": 29,
+      "anomalies": 7,
+      "amount": 17620000,
+      "states": [
+        "WA"
+      ]
+    }
+  ],
+  "high_risk_states": [
+    {
+      "state": "West Virginia",
+      "risk_score": 100.0,
+      "why": "PPP anomaly rate 2.7%, 47 LEIE exclusions per 100K, 3.1 home health exclusions per 100K"
+    },
+    {
+      "state": "Rhode Island",
+      "risk_score": 74.9,
+      "why": "PPP anomaly rate 2.4%, 47 LEIE exclusions per 100K, 0.9 home health exclusions per 100K"
+    },
+    {
+      "state": "Mississippi",
+      "risk_score": 74.0,
+      "why": "PPP anomaly rate 1.2%, 69 LEIE exclusions per 100K, 2.3 home health exclusions per 100K"
+    },
+    {
+      "state": "Maine",
+      "risk_score": 60.0,
+      "why": "PPP anomaly rate 2.1%, 46 LEIE exclusions per 100K, 0.2 home health exclusions per 100K"
+    },
+    {
+      "state": "Nevada",
+      "risk_score": 58.0,
+      "why": "PPP anomaly rate 2.3%, 22 LEIE exclusions per 100K, 0.3 home health exclusions per 100K"
+    }
+  ],
+  "high_risk_industries": [
+    {
+      "industry": "Check Cashing/Payday",
+      "rate": 0.0476,
+      "multiplier": 2.4,
+      "loans": 42
+    },
+    {
+      "industry": "Pawn Shop",
+      "rate": 0.0408,
+      "multiplier": 2.0,
+      "loans": 98
+    },
+    {
+      "industry": "Hotel/Motel",
+      "rate": 0.0386,
+      "multiplier": 1.9,
+      "loans": 12904
+    },
+    {
+      "industry": "Staffing/Temp Agency",
+      "rate": 0.0374,
+      "multiplier": 1.9,
+      "loans": 2781
+    },
+    {
+      "industry": "Security Guard",
+      "rate": 0.035,
+      "multiplier": 1.7,
+      "loans": 572
+    },
+    {
+      "industry": "Gym/Fitness",
+      "rate": 0.0324,
+      "multiplier": 1.6,
+      "loans": 1329
+    },
+    {
+      "industry": "Gas Station/C-Store",
+      "rate": 0.0264,
+      "multiplier": 1.3,
+      "loans": 758
+    },
+    {
+      "industry": "Restaurant/Fast Food",
+      "rate": 0.0263,
+      "multiplier": 1.3,
+      "loans": 19626
+    }
+  ],
+  "lender_anomalies": [
+    {
+      "lender": "Signature Bank (NYC)",
+      "anomaly_rate": 0.057,
+      "loans": 3858,
+      "note": "Collapsed March 2023. 2.85x average anomaly rate."
+    },
+    {
+      "lender": "First Century Bank",
+      "anomaly_rate": 0.75,
+      "loans": 48,
+      "note": "75% anomaly rate on 48 loans."
+    }
+  ],
+  "forgiveness_questions": [
+    {
+      "finding": "15 congressional districts forgave 100% of anomalous loans",
+      "data_source": "SBA PPP FOIA + Congressional District field"
+    },
+    {
+      "finding": "FL-28 forgave only 16.3% of anomalous loans vs 100% in SC-07",
+      "data_source": "Same"
+    },
+    {
+      "finding": "$23B+ in anomalous loans were fully forgiven",
+      "data_source": "Calculated from ForgivenessAmount field"
+    }
+  ],
+  "identity_fraud_signals": {
+    "prac_finding": "PRAC identified $5.4B in PPP/EIDL using 69,323 potentially fraudulent SSNs (government finding)",
+    "addresses_20plus_names": 60,
+    "new_biz_1m_plus": 5225,
+    "new_biz_anomaly_rate": 0.0676
+  }
+}
