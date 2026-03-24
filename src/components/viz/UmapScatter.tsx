@@ -113,6 +113,15 @@ export function UmapScatter({
       });
 
     const legend = g.append("g").attr("transform", `translate(${w - 150}, 10)`);
+    legend.append("rect")
+      .attr("x", -8)
+      .attr("y", -8)
+      .attr("width", 158)
+      .attr("height", clusters.length * 20 + 8)
+      .attr("rx", 4)
+      .attr("fill", "rgba(24, 24, 27, 0.85)")
+      .attr("stroke", "#3f3f46")
+      .attr("stroke-width", 0.5);
     clusters.forEach((c, i) => {
       const row = legend.append("g").attr("transform", `translate(0, ${i * 20})`);
       row.append("circle").attr("r", 5).attr("fill", colorScale(c));

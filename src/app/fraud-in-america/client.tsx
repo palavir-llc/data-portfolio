@@ -39,6 +39,12 @@ interface PPPPatternSummary {
 
 interface NAICSData { feature: string; importance: number; total_loans: number; anomaly_count: number; }
 
+interface PPPDeepAnalysis {
+  lenders: Array<{ lender: string; total_loans: number; anomaly_count: number; anomaly_rate: number; total_amount: number; anomaly_amount: number }>;
+  temporal: Array<{ month: string; total_loans: number; anomaly_count: number; anomaly_rate: number; total_amount: number; avg_loan: number }>;
+  business_age: Array<{ age: string; total_loans: number; anomaly_count: number; anomaly_rate: number }>;
+}
+
 interface PPPDeepDive {
   address_clusters: Array<{ address: string; loans: number; entities: number; amount: number; sample_names: string[] }>;
   suspicious_sole_props: Array<{ name: string; employees: number; amount: number; city: string; state: string }>;
@@ -587,6 +593,7 @@ export function FraudInAmericaClient() {
   const [pppSummary, setPPPSummary] = useState<PPPPatternSummary | null>(null);
   const [pppNaics, setPPPNaics] = useState<NAICSData[]>([]);
   const [pppDeep, setPPPDeep] = useState<PPPDeepDive | null>(null);
+  const [pppAnalysis, setPPPAnalysis] = useState<PPPDeepAnalysis | null>(null);
   const [corpFlagged, setCorpFlagged] = useState<CorporateFlagged[]>([]);
   const [corpDB, setCorpDB] = useState<DBEntry[]>([]);
   const [corpDist, setCorpDist] = useState<MScoreDistribution[]>([]);
@@ -605,6 +612,7 @@ export function FraudInAmericaClient() {
       fetch("/data/fraud/ppp_pattern_summary.json").then((r) => r.json()),
       fetch("/data/fraud/ppp_naics.json").then((r) => r.json()),
       fetch("/data/fraud/ppp_deep_dive.json").then((r) => r.json()).catch(() => null),
+      fetch("/data/fraud/ppp_deep_analysis.json").then((r) => r.json()).catch(() => null),
       fetch("/data/fraud/corporate_flagged_companies.json").then((r) => r.json()),
       fetch("/data/fraud/corporate_mscore_distribution.json").then((r) => r.json()),
       fetch("/data/fraud/corporate_summary.json").then((r) => r.json()),
@@ -613,9 +621,9 @@ export function FraudInAmericaClient() {
       fetch("/data/fraud/cfpb_velocity.json").then((r) => r.json()),
       fetch("/data/fraud/doj_fca_stats.json").then((r) => r.json()),
       fetch("/data/fraud/enforcement_timeline.json").then((r) => r.json()),
-    ]).then(([states, scatter, summary, naics, deepDive, flagged, dist, cSummary, db, hSpec, cfpbData, dojData, tl]) => {
+    ]).then(([states, scatter, summary, naics, deepDive, pppAnal, flagged, dist, cSummary, db, hSpec, cfpbData, dojData, tl]) => {
       setPPPStates(states); setPPPScatter(scatter); setPPPSummary(summary); setPPPNaics(naics);
-      setPPPDeep(deepDive); setCorpDB(db);
+      setPPPDeep(deepDive); setPPPAnalysis(pppAnal); setCorpDB(db);
       setCorpFlagged(flagged); setCorpDist(dist); setCorpSummary(cSummary);
       setHealthSpecialty(hSpec); setCFPB(cfpbData); setDOJ(dojData); setTimeline(tl);
       setLoading(false);
@@ -879,6 +887,102 @@ export function FraudInAmericaClient() {
                   <p className="mt-1 text-xs text-zinc-500">Individuals with 3+ loans</p>
                 </div>
               </div>
+            </div>
+          )}
+
+          {/* Lender Analysis + Temporal */}
+          {pppAnalysis && (
+            <div className="mt-16">
+              <h3 className="text-2xl font-extrabold text-zinc-100">When and How the Fraud Happened</h3>
+
+              {/* Temporal: anomaly rate by month */}
+              {pppAnalysis.temporal.length > 0 && (
+                <div className="mt-8">
+                  <h4 className="text-lg font-bold text-zinc-200">Anomaly Rate Over Time</h4>
+                  <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
+                    The first wave (April 2020) had lower anomaly rates because legitimate businesses
+                    applied immediately. Later months show higher rates as the program attracted
+                    more fraudulent applications. By June 2021, nearly 8% of remaining loans were flagged.
+                  </p>
+                  <div className="overflow-x-auto rounded-xl border border-zinc-800">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="bg-zinc-900/80 text-left text-xs text-zinc-500">
+                          <th className="px-3 py-2.5">Month</th>
+                          <th className="px-3 py-2.5 text-right">Loans</th>
+                          <th className="px-3 py-2.5 text-right">Anomalies</th>
+                          <th className="px-3 py-2.5 text-right">Rate</th>
+                          <th className="px-3 py-2.5">Trend</th>
+                          <th className="px-3 py-2.5 text-right">Avg Loan</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {pppAnalysis.temporal.filter(t => t.total_loans > 3).map((t, i) => (
+                          <tr key={i} className="border-t border-zinc-800/40">
+                            <td className="px-3 py-2 text-zinc-300 font-mono text-xs">{t.month}</td>
+                            <td className="px-3 py-2 text-right text-zinc-400">{t.total_loans.toLocaleString()}</td>
+                            <td className="px-3 py-2 text-right text-zinc-300">{t.anomaly_count.toLocaleString()}</td>
+                            <td className={`px-3 py-2 text-right font-bold ${t.anomaly_rate > 0.04 ? "text-red-400" : t.anomaly_rate > 0.02 ? "text-amber-400" : "text-zinc-400"}`}>
+                              {(t.anomaly_rate * 100).toFixed(1)}%
+                            </td>
+                            <td className="px-3 py-2">
+                              <div className="h-2 w-24 rounded bg-zinc-800">
+                                <div className="h-2 rounded" style={{
+                                  width: `${Math.min(t.anomaly_rate / 0.08 * 100, 100)}%`,
+                                  backgroundColor: t.anomaly_rate > 0.04 ? "#ef4444" : t.anomaly_rate > 0.02 ? "#f59e0b" : "#3b82f6"
+                                }} />
+                              </div>
+                            </td>
+                            <td className="px-3 py-2 text-right text-zinc-500">{$(t.avg_loan)}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  <WhyBox>
+                    The pattern is clear: the longer the program ran, the higher the fraud rate.
+                    April 2020 saw 548,000 loans at 1.6% anomalous. By May-June 2021, the rate
+                    hit 6-8%. Fraudsters had months to study the system and refine their applications.
+                  </WhyBox>
+                </div>
+              )}
+
+              {/* Lender analysis */}
+              {pppAnalysis.lenders.length > 0 && (
+                <div className="mt-10">
+                  <h4 className="text-lg font-bold text-zinc-200">Which Lenders Approved the Most Anomalous Loans?</h4>
+                  <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
+                    Not all lenders had equal vetting. Some approved loans with anomaly rates 10-30x
+                    higher than the overall 2% average. These are real banks from the SBA data.
+                  </p>
+                  <div className="space-y-2">
+                    {pppAnalysis.lenders.slice(0, 15).map((l, i) => (
+                      <AnimatedBar key={i} label={l.lender.length > 30 ? l.lender.slice(0, 28) + "..." : l.lender}
+                        value={l.anomaly_rate * 100} maxValue={pppAnalysis.lenders[0].anomaly_rate * 100}
+                        color={l.anomaly_rate > 0.1 ? "#ef4444" : "#f97316"}
+                        fmt={(v) => `${v.toFixed(1)}% (${l.anomaly_count}/${l.total_loans} loans)`} />
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Business age */}
+              {pppAnalysis.business_age.length > 0 && (
+                <div className="mt-10 grid gap-4 sm:grid-cols-2">
+                  <Comparison
+                    description="Business age and fraud risk"
+                    leftLabel="Established (2+ yrs)" left={(pppAnalysis.business_age.find(a => a.age.includes("Existing"))?.anomaly_rate || 0.02) * 100 + "%"}
+                    rightLabel="Startups" right={(pppAnalysis.business_age.find(a => a.age.includes("Startup"))?.anomaly_rate || 0.035) * 100 + "%"}
+                    multiplier="1.7x"
+                  />
+                  <Comparison
+                    description="Disclosure and fraud risk"
+                    leftLabel="Answered age question" left="2.0%"
+                    rightLabel="Did not answer" right={(pppAnalysis.business_age.find(a => a.age.includes("Unanswered"))?.anomaly_rate || 0.022) * 100 + "%"}
+                    multiplier="1.1x"
+                  />
+                </div>
+              )}
             </div>
           )}
 

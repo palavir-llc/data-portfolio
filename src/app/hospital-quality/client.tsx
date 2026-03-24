@@ -375,7 +375,7 @@ export function HospitalQualityClient() {
                             {cleanMeasureName(key)}
                           </span>
                           <span className="font-mono text-zinc-300">
-                            {val.toFixed(3)}
+                            {Math.abs(val) >= 10 ? Math.round(val).toLocaleString() : val.toFixed(1)}
                           </span>
                         </div>
                       ))}
@@ -384,6 +384,9 @@ export function HospitalQualityClient() {
                 );
               })}
           </div>
+          <p className="mt-4 text-center text-xs text-zinc-500">
+            Lower values generally indicate better performance.
+          </p>
         </div>
       </section>
 
@@ -530,7 +533,7 @@ export function HospitalQualityClient() {
                           <div
                             className="h-3 rounded-full bg-violet-500/70"
                             style={{
-                              width: `${Math.min(p.individual * 100 * 4, 100)}%`,
+                              width: `${Math.min((p.individual / (pcaCumulative[0]?.individual || 1)) * 100, 100)}%`,
                             }}
                           />
                         </div>

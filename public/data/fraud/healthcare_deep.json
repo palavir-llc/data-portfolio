@@ -1,0 +1,453 @@
+{
+  "state_exclusions": [
+    {
+      "state": "MS",
+      "providers": 10666,
+      "excluded": 6,
+      "rate": 0.000563,
+      "total_cost": 2664920236.0,
+      "avg_cost": 249852.0
+    },
+    {
+      "state": "ME",
+      "providers": 7200,
+      "excluded": 4,
+      "rate": 0.000556,
+      "total_cost": 1473915763.0,
+      "avg_cost": 204711.0
+    },
+    {
+      "state": "KY",
+      "providers": 19073,
+      "excluded": 10,
+      "rate": 0.000524,
+      "total_cost": 4889324987.0,
+      "avg_cost": 256348.0
+    },
+    {
+      "state": "CA",
+      "providers": 139057,
+      "excluded": 69,
+      "rate": 0.000496,
+      "total_cost": 27095825175.0,
+      "avg_cost": 194854.0
+    },
+    {
+      "state": "LA",
+      "providers": 20543,
+      "excluded": 10,
+      "rate": 0.000487,
+      "total_cost": 4527354051.0,
+      "avg_cost": 220384.0
+    },
+    {
+      "state": "NV",
+      "providers": 10293,
+      "excluded": 5,
+      "rate": 0.000486,
+      "total_cost": 1877856997.0,
+      "avg_cost": 182440.0
+    },
+    {
+      "state": "MO",
+      "providers": 25377,
+      "excluded": 12,
+      "rate": 0.000473,
+      "total_cost": 5752649333.0,
+      "avg_cost": 226688.0
+    },
+    {
+      "state": "IA",
+      "providers": 13211,
+      "excluded": 6,
+      "rate": 0.000454,
+      "total_cost": 2416828095.0,
+      "avg_cost": 182941.0
+    },
+    {
+      "state": "AL",
+      "providers": 17811,
+      "excluded": 8,
+      "rate": 0.000449,
+      "total_cost": 5094185486.0,
+      "avg_cost": 286013.0
+    },
+    {
+      "state": "TN",
+      "providers": 29129,
+      "excluded": 13,
+      "rate": 0.000446,
+      "total_cost": 6893805758.0,
+      "avg_cost": 236665.0
+    },
+    {
+      "state": "PR",
+      "providers": 11379,
+      "excluded": 5,
+      "rate": 0.000439,
+      "total_cost": 2901026147.0,
+      "avg_cost": 254946.0
+    },
+    {
+      "state": "TX",
+      "providers": 92813,
+      "excluded": 36,
+      "rate": 0.000388,
+      "total_cost": 19281398645.0,
+      "avg_cost": 207745.0
+    },
+    {
+      "state": "VT",
+      "providers": 2878,
+      "excluded": 1,
+      "rate": 0.000347,
+      "total_cost": 546556006.0,
+      "avg_cost": 189908.0
+    },
+    {
+      "state": "AR",
+      "providers": 11827,
+      "excluded": 4,
+      "rate": 0.000338,
+      "total_cost": 2553926335.0,
+      "avg_cost": 215940.0
+    },
+    {
+      "state": "AK",
+      "providers": 3054,
+      "excluded": 1,
+      "rate": 0.000327,
+      "total_cost": 393321925.0,
+      "avg_cost": 128789.0
+    },
+    {
+      "state": "PA",
+      "providers": 64171,
+      "excluded": 21,
+      "rate": 0.000327,
+      "total_cost": 13214907644.0,
+      "avg_cost": 205933.0
+    },
+    {
+      "state": "MI",
+      "providers": 46434,
+      "excluded": 15,
+      "rate": 0.000323,
+      "total_cost": 9402278660.0,
+      "avg_cost": 202487.0
+    },
+    {
+      "state": "OR",
+      "providers": 19079,
+      "excluded": 6,
+      "rate": 0.000314,
+      "total_cost": 2822700744.0,
+      "avg_cost": 147948.0
+    },
+    {
+      "state": "FL",
+      "providers": 93928,
+      "excluded": 27,
+      "rate": 0.000287,
+      "total_cost": 20294294660.0,
+      "avg_cost": 216062.0
+    },
+    {
+      "state": "OH",
+      "providers": 53444,
+      "excluded": 15,
+      "rate": 0.000281,
+      "total_cost": 10854815727.0,
+      "avg_cost": 203106.0
+    },
+    {
+      "state": "VA",
+      "providers": 32413,
+      "excluded": 9,
+      "rate": 0.000278,
+      "total_cost": 5547925044.0,
+      "avg_cost": 171164.0
+    },
+    {
+      "state": "NC",
+      "providers": 44019,
+      "excluded": 10,
+      "rate": 0.000227,
+      "total_cost": 9758022858.0,
+      "avg_cost": 221678.0
+    },
+    {
+      "state": "GA",
+      "providers": 36843,
+      "excluded": 8,
+      "rate": 0.000217,
+      "total_cost": 8626899161.0,
+      "avg_cost": 234153.0
+    },
+    {
+      "state": "WA",
+      "providers": 32568,
+      "excluded": 7,
+      "rate": 0.000215,
+      "total_cost": 4558348946.0,
+      "avg_cost": 139964.0
+    },
+    {
+      "state": "MT",
+      "providers": 4847,
+      "excluded": 1,
+      "rate": 0.000206,
+      "total_cost": 679754192.0,
+      "avg_cost": 140242.0
+    },
+    {
+      "state": "CT",
+      "providers": 19551,
+      "excluded": 4,
+      "rate": 0.000205,
+      "total_cost": 3959399706.0,
+      "avg_cost": 202516.0
+    },
+    {
+      "state": "AZ",
+      "providers": 29429,
+      "excluded": 6,
+      "rate": 0.000204,
+      "total_cost": 4968621818.0,
+      "avg_cost": 168834.0
+    },
+    {
+      "state": "HI",
+      "providers": 4975,
+      "excluded": 1,
+      "rate": 0.000201,
+      "total_cost": 931134797.0,
+      "avg_cost": 187163.0
+    },
+    {
+      "state": "DC",
+      "providers": 5191,
+      "excluded": 1,
+      "rate": 0.000193,
+      "total_cost": 635459755.0,
+      "avg_cost": 122416.0
+    },
+    {
+      "state": "IL",
+      "providers": 53002,
+      "excluded": 10,
+      "rate": 0.000189,
+      "total_cost": 9229212714.0,
+      "avg_cost": 174130.0
+    },
+    {
+      "state": "MD",
+      "providers": 26786,
+      "excluded": 5,
+      "rate": 0.000187,
+      "total_cost": 4039071713.0,
+      "avg_cost": 150790.0
+    },
+    {
+      "state": "CO",
+      "providers": 23912,
+      "excluded": 4,
+      "rate": 0.000167,
+      "total_cost": 3422106133.0,
+      "avg_cost": 143113.0
+    },
+    {
+      "state": "NJ",
+      "providers": 36308,
+      "excluded": 6,
+      "rate": 0.000165,
+      "total_cost": 7726372317.0,
+      "avg_cost": 212801.0
+    },
+    {
+      "state": "NY",
+      "providers": 104092,
+      "excluded": 17,
+      "rate": 0.000163,
+      "total_cost": 22464458632.0,
+      "avg_cost": 215813.0
+    },
+    {
+      "state": "IN",
+      "providers": 26170,
+      "excluded": 4,
+      "rate": 0.000153,
+      "total_cost": 6290143255.0,
+      "avg_cost": 240357.0
+    },
+    {
+      "state": "ID",
+      "providers": 7492,
+      "excluded": 1,
+      "rate": 0.000133,
+      "total_cost": 1207713068.0,
+      "avg_cost": 161200.0
+    },
+    {
+      "state": "NE",
+      "providers": 8338,
+      "excluded": 1,
+      "rate": 0.00012,
+      "total_cost": 1490356802.0,
+      "avg_cost": 178743.0
+    },
+    {
+      "state": "WI",
+      "providers": 25408,
+      "excluded": 3,
+      "rate": 0.000118,
+      "total_cost": 4739172262.0,
+      "avg_cost": 186523.0
+    },
+    {
+      "state": "SC",
+      "providers": 21448,
+      "excluded": 2,
+      "rate": 9.3e-05,
+      "total_cost": 4894715566.0,
+      "avg_cost": 228213.0
+    },
+    {
+      "state": "MN",
+      "providers": 25375,
+      "excluded": 2,
+      "rate": 7.9e-05,
+      "total_cost": 3956210000.0,
+      "avg_cost": 155910.0
+    },
+    {
+      "state": "MA",
+      "providers": 39945,
+      "excluded": 3,
+      "rate": 7.5e-05,
+      "total_cost": 7224992851.0,
+      "avg_cost": 180874.0
+    },
+    {
+      "state": "OK",
+      "providers": 14030,
+      "excluded": 1,
+      "rate": 7.1e-05,
+      "total_cost": 3100384145.0,
+      "avg_cost": 220982.0
+    },
+    {
+      "state": "AE",
+      "providers": 120,
+      "excluded": 0,
+      "rate": 0.0,
+      "total_cost": 5028171.0,
+      "avg_cost": 41901.0
+    },
+    {
+      "state": "DE",
+      "providers": 4341,
+      "excluded": 0,
+      "rate": 0.0,
+      "total_cost": 908769104.0,
+      "avg_cost": 209346.0
+    },
+    {
+      "state": "GU",
+      "providers": 176,
+      "excluded": 0,
+      "rate": 0.0,
+      "total_cost": 13451543.0,
+      "avg_cost": 76429.0
+    },
+    {
+      "state": "KS",
+      "providers": 11495,
+      "excluded": 0,
+      "rate": 0.0,
+      "total_cost": 2237850429.0,
+      "avg_cost": 194680.0
+    },
+    {
+      "state": "ND",
+      "providers": 3423,
+      "excluded": 0,
+      "rate": 0.0,
+      "total_cost": 524935514.0,
+      "avg_cost": 153355.0
+    },
+    {
+      "state": "NH",
+      "providers": 7126,
+      "excluded": 0,
+      "rate": 0.0,
+      "total_cost": 1140537431.0,
+      "avg_cost": 160053.0
+    },
+    {
+      "state": "NM",
+      "providers": 8297,
+      "excluded": 0,
+      "rate": 0.0,
+      "total_cost": 1239224223.0,
+      "avg_cost": 149358.0
+    },
+    {
+      "state": "RI",
+      "providers": 5750,
+      "excluded": 0,
+      "rate": 0.0,
+      "total_cost": 888826104.0,
+      "avg_cost": 154578.0
+    },
+    {
+      "state": "SD",
+      "providers": 4029,
+      "excluded": 0,
+      "rate": 0.0,
+      "total_cost": 658739949.0,
+      "avg_cost": 163500.0
+    },
+    {
+      "state": "UT",
+      "providers": 11191,
+      "excluded": 0,
+      "rate": 0.0,
+      "total_cost": 1462794758.0,
+      "avg_cost": 130712.0
+    },
+    {
+      "state": "VI",
+      "providers": 187,
+      "excluded": 0,
+      "rate": 0.0,
+      "total_cost": 32800775.0,
+      "avg_cost": 175405.0
+    },
+    {
+      "state": "WV",
+      "providers": 8487,
+      "excluded": 0,
+      "rate": 0.0,
+      "total_cost": 1856446734.0,
+      "avg_cost": 218740.0
+    },
+    {
+      "state": "WY",
+      "providers": 2187,
+      "excluded": 0,
+      "rate": 0.0,
+      "total_cost": 255184501.0,
+      "avg_cost": 116682.0
+    },
+    {
+      "state": "ZZ",
+      "providers": 147,
+      "excluded": 0,
+      "rate": 0.0,
+      "total_cost": 6651293.0,
+      "avg_cost": 45247.0
+    }
+  ],
+  "top_billers_count": 20
+}

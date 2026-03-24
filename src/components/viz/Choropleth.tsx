@@ -90,7 +90,17 @@ export function Choropleth({
           tooltip.style.display = "block";
           tooltip.style.left = event.offsetX + 12 + "px";
           tooltip.style.top = event.offsetY - 10 + "px";
-          tooltip.innerHTML = `<strong>${row.label || row.state}</strong><br/>${valueFormat(row.value)}`;
+          const barW = Math.min(Math.max(row.value / (maxVal || 1) * 120, 8), 120);
+          tooltip.innerHTML = `
+            <div style="min-width:180px">
+              <strong style="font-size:13px">${row.label || row.state}</strong>
+              <div style="margin:6px 0 4px;display:flex;align-items:center;gap:8px">
+                <div style="flex:1;height:6px;background:#27272a;border-radius:3px">
+                  <div style="width:${barW}px;height:6px;background:#ef4444;border-radius:3px"></div>
+                </div>
+                <span style="font-weight:bold;color:#ef4444">${valueFormat(row.value)}</span>
+              </div>
+            </div>`;
         }
       })
       .on("mousemove", function (event: MouseEvent) {
