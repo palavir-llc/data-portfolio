@@ -186,5 +186,147 @@
       "jobs": 500,
       "type": "Non-Profit Organization"
     }
+  ],
+  "charter_schools": {
+    "total": 8165,
+    "clusters": [
+      {
+        "address": "3125 S Gilbert Rd, Gilbert, AZ",
+        "schools": 6,
+        "amount": 6155580,
+        "anomalies": 5,
+        "network": "Legacy Traditional Schools",
+        "states": [
+          "AZ"
+        ]
+      },
+      {
+        "address": "5730 Broadview Road, OH",
+        "schools": 10,
+        "amount": 3479000,
+        "anomalies": 0,
+        "network": "Constellation Schools",
+        "states": [
+          "OH"
+        ]
+      },
+      {
+        "address": "6630 Surrey St, NV",
+        "schools": 6,
+        "amount": 13183894,
+        "anomalies": 1,
+        "network": "Doral/Pinecrest/Mater Academy",
+        "states": [
+          "NV"
+        ]
+      },
+      {
+        "address": "33-00 Broadway, NJ",
+        "schools": 6,
+        "amount": 9454155,
+        "anomalies": 0,
+        "network": "Arts & Science Charter Schools",
+        "states": [
+          "NJ"
+        ]
+      },
+      {
+        "address": "177 Holston Dr, CA",
+        "schools": 6,
+        "amount": 16954067,
+        "anomalies": 1,
+        "network": "Multiple charter corps",
+        "states": [
+          "CA"
+        ]
+      }
+    ]
+  },
+  "religious": {
+    "total": 9413,
+    "anomaly_rate": 0.0099,
+    "big_loans": [
+      {
+        "name": "SAINT FRANCIS MINISTRIES, INC.",
+        "amount": 10000000,
+        "city": "Salina",
+        "state": "KS",
+        "anomaly": true
+      },
+      {
+        "name": "UNION OF ORTHODOX JEWISH CONGREGATIONS OF AMERICA",
+        "amount": 10000000,
+        "city": "New York",
+        "state": "NY",
+        "anomaly": true
+      },
+      {
+        "name": "PRESBYTERIAN CHURCH USA A CORP",
+        "amount": 8850500,
+        "city": "Louisville",
+        "state": "KY",
+        "anomaly": true
+      },
+      {
+        "name": "ARCHDIOCESE OF NEW YORK",
+        "amount": 7735890,
+        "city": "New York",
+        "state": "NY",
+        "anomaly": true
+      },
+      {
+        "name": "LIFE. CHURCH OPERATIONS, LLC",
+        "amount": 7007000,
+        "city": "Edmond",
+        "state": "OK",
+        "anomaly": true
+      }
+    ]
+  },
+  "healthcare_np": {
+    "total": 4299,
+    "anomaly_rate": 0.0319,
+    "anomaly_count": 137,
+    "ten_million_loans": 10,
+    "description": "Healthcare nonprofits are 3.19% anomalous, the highest rate among nonprofit categories. 10 healthcare nonprofits received exactly $10M."
+  },
+  "forgiveness": {
+    "normal_fully_forgiven_pct": 94.3,
+    "anomaly_fully_forgiven_pct": 72.1,
+    "normal_no_forgiveness_pct": 2.3,
+    "anomaly_no_forgiveness_pct": 18.8,
+    "description": "Anomalous loans are much less likely to be fully forgiven (72% vs 94%) and much more likely to have zero forgiveness (19% vs 2%). This suggests the government did catch some of them."
+  },
+  "state_rates": [
+    {
+      "state": "NY",
+      "rate": 0.0396,
+      "count": 5019,
+      "avg_loan": 876320
+    },
+    {
+      "state": "WA",
+      "rate": 0.0294,
+      "count": 1225,
+      "avg_loan": 711497
+    },
+    {
+      "state": "AZ",
+      "rate": 0.0255,
+      "count": 707,
+      "avg_loan": 732745
+    },
+    {
+      "state": "WV",
+      "rate": 0.0255,
+      "count": 275,
+      "avg_loan": 691673
+    },
+    {
+      "state": "KS",
+      "rate": 0.023,
+      "count": 653,
+      "avg_loan": 820815
+    }
   ]
 }

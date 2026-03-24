@@ -1067,14 +1067,101 @@ export function FraudInAmericaClient() {
               The question is which ones aren&apos;t.
             </WhyBox>
 
-            {/* Top anomalous nonprofits */}
+            {/* Forgiveness: the smoking gun */}
+            {nonprofits.forgiveness && (
+              <div className="mt-10">
+                <h3 className="text-lg font-bold text-zinc-200">The Forgiveness Gap: Did the Government Notice?</h3>
+                <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
+                  PPP loans were designed to be forgiven if used for payroll. If anomalous loans
+                  were real, they should be forgiven at the same rate as normal loans. They aren&apos;t.
+                </p>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <Comparison
+                    description="Loans fully forgiven (100% of amount)"
+                    leftLabel="Normal loans" left={nonprofits.forgiveness.normal_fully_forgiven_pct + "%"}
+                    rightLabel="Anomalous loans" right={nonprofits.forgiveness.anomaly_fully_forgiven_pct + "%"}
+                    multiplier={Math.round(nonprofits.forgiveness.normal_fully_forgiven_pct / nonprofits.forgiveness.anomaly_fully_forgiven_pct * 10) / 10 + "x"}
+                  />
+                  <Comparison
+                    description="Loans with ZERO forgiveness"
+                    leftLabel="Normal loans" left={nonprofits.forgiveness.normal_no_forgiveness_pct + "%"}
+                    rightLabel="Anomalous loans" right={nonprofits.forgiveness.anomaly_no_forgiveness_pct + "%"}
+                    multiplier={Math.round(nonprofits.forgiveness.anomaly_no_forgiveness_pct / nonprofits.forgiveness.normal_no_forgiveness_pct * 10) / 10 + "x"}
+                  />
+                </div>
+                <WhyBox>
+                  Anomalous loans are forgiven at 72% vs 94% for normal loans. And 19% of anomalous
+                  loans received zero forgiveness, compared to just 2.3% of normal loans. This
+                  8x gap in non-forgiveness suggests the SBA did flag many of these, but billions
+                  in anomalous loans were still fully forgiven.
+                </WhyBox>
+              </div>
+            )}
+
+            {/* Charter school networks */}
+            {nonprofits.charter_schools && (
+              <div className="mt-10">
+                <h3 className="text-lg font-bold text-zinc-200">Charter School Networks: One Address, Many Schools</h3>
+                <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
+                  {nonprofits.charter_schools.total.toLocaleString()} charter schools and academies received PPP loans.
+                  Some filed multiple loans from the same management office. Most are legitimate
+                  networks (Constellation, Legacy Traditional). But the pattern is worth examining:
+                  5 of 6 Legacy Traditional School loans from one Arizona address were flagged.
+                </p>
+                <CaseFile
+                  title="Charter School Address Clusters"
+                  color="amber"
+                  items={(nonprofits.charter_schools.clusters || []).map((c: { address: string; schools: number; amount: number; anomalies: number; network: string }) => ({
+                    label: c.network,
+                    detail: `${c.address}: ${c.schools} schools, ${c.anomalies} anomalous`,
+                    amount: $(c.amount),
+                  }))}
+                />
+              </div>
+            )}
+
+            {/* Religious organizations */}
+            {nonprofits.religious && (
+              <div className="mt-10">
+                <h3 className="text-lg font-bold text-zinc-200">Religious Organizations: Big Money, Low Scrutiny</h3>
+                <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
+                  {nonprofits.religious.total.toLocaleString()} religious organizations received PPP loans.
+                  Their anomaly rate is low ({(nonprofits.religious.anomaly_rate * 100).toFixed(1)}%), but the
+                  largest religious PPP loans tell an interesting story. 5 of 13 loans above $5M
+                  were flagged as anomalous, including a $10M loan to Saint Francis Ministries.
+                </p>
+                <CaseFile
+                  title="Largest Religious Organization PPP Loans"
+                  color="violet"
+                  items={(nonprofits.religious.big_loans || []).map((l: { name: string; amount: number; city: string; state: string; anomaly: boolean }) => ({
+                    label: l.name,
+                    detail: `${l.city}, ${l.state} ${l.anomaly ? "- FLAGGED" : ""}`,
+                    amount: $(l.amount),
+                  }))}
+                />
+              </div>
+            )}
+
+            {/* Healthcare nonprofits */}
+            {nonprofits.healthcare_np && (
+              <div className="mt-10">
+                <h3 className="text-lg font-bold text-zinc-200">Healthcare Nonprofits: The Highest Anomaly Rate</h3>
+                <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
+                  At {(nonprofits.healthcare_np.anomaly_rate * 100).toFixed(1)}%, healthcare nonprofits
+                  have the highest anomaly rate of any nonprofit category.{" "}
+                  {nonprofits.healthcare_np.ten_million_loans} healthcare nonprofits received exactly $10M,
+                  the program maximum. All were flagged.
+                </p>
+              </div>
+            )}
+
+            {/* Top anomalous nonprofits table */}
             {nonprofits.top_anomalous?.length > 0 && (
               <div className="mt-8">
                 <h3 className="text-lg font-bold text-zinc-200">Largest Flagged Nonprofit Loans</h3>
                 <p className="mt-2 mb-4 text-sm text-zinc-500">
-                  Every one of these is a $10M loan with exactly 500 employees reported.
-                  That exact combination, the program maximum with a round employee count,
-                  is one of the strongest anomaly signals.
+                  Every one of these is a $10M loan. The pattern: max loan amount, round employee
+                  count (usually exactly 500), healthcare or social services sector.
                 </p>
                 <div className="overflow-x-auto rounded-xl border border-zinc-800">
                   <table className="w-full text-sm">
