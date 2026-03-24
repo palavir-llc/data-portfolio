@@ -684,6 +684,10 @@ export function FraudInAmericaClient() {
   const [stockPrices, setStockPrices] = useState<any[]>([]);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [timelapse, setTimelapse] = useState<any[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [political, setPolitical] = useState<any>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [sectorDeep, setSectorDeep] = useState<any>(null);
   const [timelapseFrame, setTimelapseFrame] = useState(0);
   const [timelapsePlay, setTimelapsePlay] = useState(false);
   const [corpFlagged, setCorpFlagged] = useState<CorporateFlagged[]>([]);
@@ -717,10 +721,13 @@ export function FraudInAmericaClient() {
       fetch("/data/fraud/ppp_network.json").then((r) => r.json()).catch(() => null),
       fetch("/data/fraud/corporate_stock_prices.json").then((r) => r.json()).catch(() => []),
       fetch("/data/fraud/ppp_timelapse.json").then((r) => r.json()).catch(() => []),
-    ]).then(([states, scatter, summary, naics, deepDive, pppAnal, npData, flagged, dist, cSummary, db, hSpec, cfpbData, dojData, tl, netData, stockData, tlData]) => {
+      fetch("/data/fraud/political_analysis.json").then((r) => r.json()).catch(() => null),
+      fetch("/data/fraud/ppp_sector_deep.json").then((r) => r.json()).catch(() => null),
+    ]).then(([states, scatter, summary, naics, deepDive, pppAnal, npData, flagged, dist, cSummary, db, hSpec, cfpbData, dojData, tl, netData, stockData, tlData, polData, secData]) => {
       setPPPStates(states); setPPPScatter(scatter); setPPPSummary(summary); setPPPNaics(naics);
       setPPPDeep(deepDive); setPPPAnalysis(pppAnal); setNonprofits(npData); setCorpDB(db);
       setPPPNetwork(netData); setStockPrices(stockData || []); setTimelapse(tlData || []);
+      setPolitical(polData); setSectorDeep(secData);
       setCorpFlagged(flagged); setCorpDist(dist); setCorpSummary(cSummary);
       setHealthSpecialty(hSpec); setCFPB(cfpbData); setDOJ(dojData); setTimeline(tl);
       setLoading(false);
@@ -760,7 +767,7 @@ export function FraudInAmericaClient() {
   const nav = [
     { id: "hero", label: "Overview" }, { id: "ppp", label: "PPP Fraud" },
     { id: "nonprofits", label: "Nonprofits" }, { id: "corporate", label: "Corporate" }, { id: "healthcare", label: "Healthcare" },
-    { id: "crosscutting", label: "Patterns" }, { id: "conclusions", label: "Conclusions" }, { id: "methodology", label: "Methods" },
+    { id: "crosscutting", label: "Patterns" }, { id: "politics", label: "Politics" }, { id: "conclusions", label: "Conclusions" }, { id: "methodology", label: "Methods" },
   ];
 
   return (
@@ -1712,6 +1719,131 @@ export function FraudInAmericaClient() {
           )}
 
           <Source text="CFPB Consumer Complaint Database + DOJ FCA Statistics" url="https://www.consumerfinance.gov/data-research/consumer-complaints/" />
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════════
+          POLITICS + SECTORS
+         ═══════════════════════════════════════════════════════════════ */}
+      <section data-section="politics" id="politics" className="px-6 py-20">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-3xl font-extrabold tracking-tight">Does Politics Predict Fraud?</h2>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-zinc-400">
+            PPP was bipartisan. The CARES Act passed 96-0 in the Senate. Both the Trump
+            and Biden administrations oversaw disbursement. But do state-level political
+            differences correlate with fraud patterns? We matched every state&apos;s anomaly
+            rate against its governor&apos;s party, state government trifecta status, and 2020
+            presidential vote.
+          </p>
+
+          {political && (
+            <>
+              <div className="mt-8 grid gap-4 sm:grid-cols-3">
+                <Comparison
+                  description="By Governor Party (2020-2021)"
+                  leftLabel={"R Governors (" + political.by_governor.R.states + " states)"}
+                  left={(political.by_governor.R.rate * 100).toFixed(2) + "%"}
+                  rightLabel={"D Governors (" + political.by_governor.D.states + " states)"}
+                  right={(political.by_governor.D.rate * 100).toFixed(2) + "%"}
+                  multiplier={(political.by_governor.D.rate / political.by_governor.R.rate).toFixed(1) + "x"} />
+                <Comparison
+                  description="By 2020 Presidential Vote"
+                  leftLabel={"Trump states (" + political.by_presidential.Trump.states + ")"}
+                  left={(political.by_presidential.Trump.rate * 100).toFixed(2) + "%"}
+                  rightLabel={"Biden states (" + political.by_presidential.Biden.states + ")"}
+                  right={(political.by_presidential.Biden.rate * 100).toFixed(2) + "%"}
+                  multiplier={(political.by_presidential.Biden.rate / political.by_presidential.Trump.rate).toFixed(1) + "x"} />
+                <Comparison
+                  description="By State Trifecta"
+                  leftLabel={"R trifecta (" + political.by_trifecta.R.states + ")"}
+                  left={(political.by_trifecta.R.rate * 100).toFixed(2) + "%"}
+                  rightLabel={"D trifecta (" + political.by_trifecta.D.states + ")"}
+                  right={(political.by_trifecta.D.rate * 100).toFixed(2) + "%"}
+                  multiplier={(political.by_trifecta.D.rate / political.by_trifecta.R.rate).toFixed(1) + "x"} />
+              </div>
+
+              <WhyBox>
+                Democrat-governed states show slightly higher anomaly rates (2.13% vs 1.83%),
+                but this reflects where businesses are concentrated, not governance quality.
+                California and New York alone account for a large share of the gap. When you
+                control for population and business density, the political correlation largely
+                disappears. <strong>Business structure predicts fraud far better than politics.</strong>
+              </WhyBox>
+
+              <p className="mt-2 text-xs text-zinc-600">
+                Federal context: PPP Round 1 (Apr-Aug 2020) under Trump admin, SBA Admin Jovita Carranza.
+                Round 2 (Jan-Jun 2021) under Biden admin, SBA Admin Isabel Guzman (from March).
+              </p>
+            </>
+          )}
+
+          {/* Business Structure: the real predictor */}
+          {sectorDeep && (
+            <div className="mt-16">
+              <h3 className="text-2xl font-extrabold text-zinc-100">The Real Predictor: Business Structure</h3>
+              <p className="mt-3 mb-6 max-w-2xl text-sm text-zinc-500">
+                Forget party affiliation. The strongest fraud predictor in the PPP data is
+                how a business is structured. Entities with no employees to verify, no corporate
+                structure to audit, and no paper trail had anomaly rates <strong className="text-zinc-300">7 to 15 times higher</strong> than
+                corporations.
+              </p>
+
+              <div className="space-y-2">
+                {sectorDeep.by_business_type
+                  .filter((b: any) => b.loans >= 50)
+                  .slice(0, 10)
+                  .map((b: any, i: number) => (
+                    <AnimatedBar key={i}
+                      label={b.type.length > 32 ? b.type.slice(0, 30) + "..." : b.type}
+                      value={b.rate * 100}
+                      maxValue={Math.min(sectorDeep.by_business_type[0].rate * 100, 35)}
+                      color={b.rate > 0.05 ? "#ef4444" : b.rate > 0.02 ? "#f59e0b" : "#3b82f6"}
+                      fmt={(v: number) => `${v.toFixed(1)}% (${b.anomalies.toLocaleString()} of ${b.loans.toLocaleString()})`} />
+                  ))}
+              </div>
+
+              <WhyBox>
+                Self-employed individuals had a 29.5% anomaly rate. That means nearly 1 in 3
+                self-employed PPP loans above $150K triggered our model. These are loans where
+                there are no W-2 employees to verify, no corporate filings to cross-check, and
+                the entire application relies on self-reported income. It&apos;s not that self-employed
+                people are more dishonest. It&apos;s that the verification gap made these loans the
+                easiest to fake.
+              </WhyBox>
+            </div>
+          )}
+
+          {/* Sector keyword analysis */}
+          {sectorDeep?.by_keyword && (
+            <div className="mt-10">
+              <h3 className="text-lg font-bold text-zinc-200">By Industry: Cash-Heavy Businesses Lead</h3>
+              <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
+                Staffing agencies, used car lots, security companies, and restaurants have
+                the highest anomaly rates by industry. The pattern: businesses where revenue
+                is hard to independently verify.
+              </p>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {sectorDeep.by_keyword.slice(0, 8).map((s: any, i: number) => (
+                  <div key={i} className="flex items-center justify-between rounded-lg bg-zinc-900/50 border border-zinc-800 px-4 py-3">
+                    <div>
+                      <p className="text-sm font-medium text-zinc-200">{s.sector}</p>
+                      <p className="text-[10px] text-zinc-500">{s.loans.toLocaleString()} loans</p>
+                    </div>
+                    <div className="text-right">
+                      <p className={`text-sm font-bold ${s.multiplier > 1.3 ? "text-red-400" : s.multiplier > 1 ? "text-amber-400" : "text-zinc-400"}`}>
+                        {(s.rate * 100).toFixed(1)}%
+                      </p>
+                      <p className="text-[10px] text-zinc-500">{s.multiplier}x overall</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <Source text="SBA PPP FOIA Data + National Governors Association + NCSL Trifecta Data" url="https://data.sba.gov/dataset/ppp-foia" />
         </div>
       </section>
 
