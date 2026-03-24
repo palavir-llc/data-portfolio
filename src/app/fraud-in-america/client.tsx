@@ -60,6 +60,7 @@ interface CorporateFlagged {
   ticker?: string; exchange?: string; state_inc?: string; latest_10k_date?: string;
   restatement_filings?: number; recent_8k_count?: number; insider_transaction_count?: number;
   primary_driver?: string; driver_explanation?: string; driver_contribution?: number;
+  news_summary?: string; current_status?: string;
 }
 interface MScoreDistribution { bin_start: number; bin_end: number; count: number; flagged: boolean; }
 interface CorporateSummary { total_companies: number; total_company_years: number; flagged_count: number; flagged_pct: number; median_mscore: number; threshold: number; }
@@ -1266,6 +1267,16 @@ export function FraudInAmericaClient() {
                           {c.primary_driver === "AQI" && <span className="text-zinc-400"> (Asset Quality Index = {c.aqi.toFixed(1)}x)</span>}
                         </p>
                         <p className="mt-1 text-xs text-zinc-400">{c.driver_explanation}</p>
+                      </div>
+                    )}
+                    {/* News context */}
+                    {c.news_summary && (
+                      <div className="mt-3 rounded-lg bg-zinc-800/30 border border-zinc-700/50 px-4 py-3">
+                        <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 mb-1">What we found</p>
+                        <p className="text-xs text-zinc-400 leading-relaxed">{c.news_summary}</p>
+                        {c.current_status && (
+                          <p className="mt-1.5 text-[10px] font-medium text-amber-400">{c.current_status}</p>
+                        )}
                       </div>
                     )}
                     <div className="mt-3 flex flex-wrap gap-3 text-[10px] text-zinc-500">

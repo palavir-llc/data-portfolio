@@ -31,7 +31,9 @@
     "description": "",
     "primary_driver": "SGI",
     "driver_explanation": "Revenue grew abnormally fast year-over-year. High sales growth is the #1 predictor in the Beneish model because companies faking revenue show sudden spikes.",
-    "driver_contribution": 73.95
+    "driver_contribution": 73.95,
+    "news_summary": "Securities fraud investigation by Berger Montague (2022). M-Score driven by 83.9x revenue growth from BRIUMVI drug launch. Revenue went from near-zero to $234M in one year. The high M-Score likely reflects a legitimate pharmaceutical launch rather than manipulation, but the 4 restatements and the prior fraud investigation warrant scrutiny.",
+    "current_status": "Active on Nasdaq. Prior securities fraud investigation (2022)."
   },
   {
     "cik": 1842566,
@@ -65,7 +67,9 @@
     "description": "",
     "primary_driver": "TATA",
     "driver_explanation": "Total accruals are unusually high relative to cash flow. This means reported earnings far exceed actual cash coming in. Big gap between paper profits and real money.",
-    "driver_contribution": 13.18
+    "driver_contribution": 13.18,
+    "news_summary": "Filed amended 10-K (March 2025). High TATA score (2.816) means reported earnings far exceed cash flow. Small-cap AI company with limited revenue history.",
+    "current_status": "Active on Nasdaq. Amended annual report filed."
   },
   {
     "cik": 1787306,
@@ -99,7 +103,9 @@
     "description": "",
     "primary_driver": "SGI",
     "driver_explanation": "Revenue grew abnormally fast year-over-year. High sales growth is the #1 predictor in the Beneish model because companies faking revenue show sudden spikes.",
-    "driver_contribution": 13.53
+    "driver_contribution": 13.53,
+    "news_summary": "Biotech with 16.2x revenue growth from drug launches. Two restatement filings. Similar pattern to TG Therapeutics: rapid drug commercialization inflates SGI.",
+    "current_status": "Active on Nasdaq. Growth-stage biotech."
   },
   {
     "cik": 1828673,
@@ -167,7 +173,9 @@
     "description": "",
     "primary_driver": "TATA",
     "driver_explanation": "Total accruals are unusually high relative to cash flow. This means reported earnings far exceed actual cash coming in. Big gap between paper profits and real money.",
-    "driver_contribution": 5.4
+    "driver_contribution": 5.4,
+    "news_summary": "Going concern warning in SEC filings. Q2 2025: $31.7M revenue but $5.6M loss. Cash of only $4.83M versus $55.3M in debt. Secured emergency loan extensions from lenders. High TATA score indicates paper profits not matched by cash.",
+    "current_status": "Going concern risk. Emergency debt extensions."
   },
   {
     "cik": 1819438,
@@ -201,7 +209,9 @@
     "description": "",
     "primary_driver": "SGI",
     "driver_explanation": "Revenue grew abnormally fast year-over-year. High sales growth is the #1 predictor in the Beneish model because companies faking revenue show sudden spikes.",
-    "driver_contribution": 6.63
+    "driver_contribution": 6.63,
+    "news_summary": "Multiple securities fraud class actions filed (2023) after Grizzly Research report alleged problematic partnership with ESI in Australia. Stock dropped significantly. Cases filed in Oregon federal court by Glancy Prongay & Murray, Rosen Law, Pomerantz.",
+    "current_status": "Active securities fraud class action. Former SPAC."
   },
   {
     "cik": 1828318,
@@ -235,7 +245,9 @@
     "description": "",
     "primary_driver": "DSRI",
     "driver_explanation": "Accounts receivable grew much faster than revenue. This often means revenue is being booked before cash is collected, or fictitious sales are being recorded.",
-    "driver_contribution": 3.07
+    "driver_contribution": 3.07,
+    "news_summary": "Active securities fraud investigation (December 2024) by Block & Leviton and Levi & Korsinsky after sudden CFO departure. Raised $100M in offering shortly after claiming no capital needs. Earlier class action (2023) alleged misleading revenue projections; reported only $8,000 in Q3 2022 revenue.",
+    "current_status": "Active fraud investigation (2024). CFO departed suddenly."
   },
   {
     "cik": 1720893,
@@ -269,7 +281,9 @@
     "description": "",
     "primary_driver": "GMI",
     "driver_explanation": "Gross margins deteriorated significantly. Companies under pressure to meet earnings targets may manipulate revenue or costs to mask declining fundamentals.",
-    "driver_contribution": 5.22
+    "driver_contribution": 5.22,
+    "news_summary": "Securities fraud class action filed for period Dec 2021 to Jun 2023. Principal investigator in Phase 3 trial failed to follow consent procedures and \"may have fabricated\" email correspondence provided to FDA. Stock fell 63.8% in one day. Fiduciary duty investigation opened Oct 2025 by Halper Sadeh.",
+    "current_status": "Class action active. Clinical trial data fabrication allegation."
   },
   {
     "cik": 1098972,
@@ -401,7 +415,9 @@
     "insider_transaction_count": 161,
     "primary_driver": "AQI",
     "driver_explanation": "Asset quality declined sharply. The company may be capitalizing expenses (turning costs into assets) to inflate earnings.",
-    "driver_contribution": 2.69
+    "driver_contribution": 2.69,
+    "news_summary": "Six amended annual report filings (restatements), the highest count in our dataset. Acquired Irwin Naturals for $42.5M. Revenue growing but repeated filing amendments raise questions about internal accounting controls.",
+    "current_status": "6 restatements. Active on Nasdaq."
   },
   {
     "cik": 1438943,
@@ -497,6 +513,8 @@
     "insider_transaction_count": 45,
     "primary_driver": "GMI",
     "driver_explanation": "Gross margins deteriorated significantly. Companies under pressure to meet earnings targets may manipulate revenue or costs to mask declining fundamentals.",
-    "driver_contribution": 1.44
+    "driver_contribution": 1.44,
+    "news_summary": "Received Nasdaq delisting determination (April 2024) for failing to maintain $1.00 minimum bid price. Executed 1-for-50 reverse stock split (September 2024) to regain compliance. Three amended annual reports (restatements).",
+    "current_status": "Delisting risk. Reverse stock split. 3 restatements."
   }
 ]
