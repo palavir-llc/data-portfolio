@@ -1,0 +1,178 @@
+{
+  "leie_total": 82749,
+  "home_health_hospice_excluded": 1777,
+  "ca_exclusions": 9643,
+  "mn_exclusions": 1370,
+  "top_excluded_specialties": [
+    {
+      "specialty": "NURSE/NURSES AIDE",
+      "count": 34430
+    },
+    {
+      "specialty": "OWNER/OPERATOR",
+      "count": 3181
+    },
+    {
+      "specialty": "PERSONAL CARE PROVID",
+      "count": 3088
+    },
+    {
+      "specialty": "HEALTH CARE AIDE",
+      "count": 2951
+    },
+    {
+      "specialty": "NO KNOWN AFFILIATION",
+      "count": 2129
+    },
+    {
+      "specialty": "CHIROPRACTIC",
+      "count": 2020
+    },
+    {
+      "specialty": "GENERAL PRACTICE/FP",
+      "count": 1864
+    },
+    {
+      "specialty": "EMPLOYEE",
+      "count": 1805
+    },
+    {
+      "specialty": "PHARMACIST",
+      "count": 1707
+    },
+    {
+      "specialty": "HOME HEALTH AGENCY",
+      "count": 1417
+    },
+    {
+      "specialty": "DENTIST",
+      "count": 1345
+    },
+    {
+      "specialty": "GENERAL PRACTICE",
+      "count": 1209
+    },
+    {
+      "specialty": "TECHNICIAN",
+      "count": 1113
+    },
+    {
+      "specialty": "DME - GENERAL",
+      "count": 939
+    },
+    {
+      "specialty": "COUNSELOR",
+      "count": 878
+    }
+  ],
+  "ca_top_specialties": [
+    {
+      "specialty": "NURSE/NURSES AIDE",
+      "count": 3064
+    },
+    {
+      "specialty": "CHIROPRACTIC",
+      "count": 625
+    },
+    {
+      "specialty": "NO KNOWN AFFILIATION",
+      "count": 411
+    },
+    {
+      "specialty": "HEALTH CARE AIDE",
+      "count": 405
+    },
+    {
+      "specialty": "OWNER/OPERATOR",
+      "count": 391
+    },
+    {
+      "specialty": "PERSONAL CARE PROVID",
+      "count": 248
+    },
+    {
+      "specialty": "DENTIST",
+      "count": 237
+    },
+    {
+      "specialty": "GENERAL PRACTICE/FP",
+      "count": 237
+    },
+    {
+      "specialty": "TECHNICIAN",
+      "count": 235
+    },
+    {
+      "specialty": "EMPLOYEE",
+      "count": 218
+    }
+  ],
+  "hh_by_state": [
+    {
+      "state": "FL",
+      "count": 260
+    },
+    {
+      "state": "OH",
+      "count": 217
+    },
+    {
+      "state": "TX",
+      "count": 149
+    },
+    {
+      "state": "MN",
+      "count": 124
+    },
+    {
+      "state": "CA",
+      "count": 105
+    },
+    {
+      "state": "LA",
+      "count": 85
+    },
+    {
+      "state": "PA",
+      "count": 70
+    },
+    {
+      "state": "MS",
+      "count": 69
+    },
+    {
+      "state": "IL",
+      "count": 56
+    },
+    {
+      "state": "WV",
+      "count": 56
+    },
+    {
+      "state": "MI",
+      "count": 53
+    },
+    {
+      "state": "AZ",
+      "count": 42
+    },
+    {
+      "state": "NY",
+      "count": 41
+    },
+    {
+      "state": "GA",
+      "count": 38
+    },
+    {
+      "state": "AL",
+      "count": 37
+    }
+  ],
+  "known_fraud_connections": {
+    "mn_feeding_our_future": "Largest pandemic fraud scheme: $250M. 90+ charged, 60+ convicted. Feeding Our Future not in PPP above $150K.",
+    "ca_hospice_epidemic": "LA County alone: $3.5B estimated hospice fraud. 280+ licenses revoked. Hospice count in LA area spiked from 722 (2018) to 1,799 (2024).",
+    "mn_autism_aba": "Smart Therapy Center billed $31.8M for $14M scheme. Indiana: $29M paid for 84 patients ($340K/child).",
+    "pattern": "Common thread: programs with weak verification, fee-for-service billing, and rapid provider growth enable systematic fraud."
+  }
+}
