@@ -325,14 +325,19 @@ def generate_outputs(metrics, providers):
 
         scatter_data = []
         for _, row in scatter_df.iterrows():
+            def safe_float(val, default=0):
+                import math
+                v = float(val) if val is not None else default
+                return default if (math.isnan(v) or math.isinf(v)) else v
+
             scatter_data.append({
                 "npi": str(row.get("npi", "")),
                 "specialty": str(row.get("specialty", "Unknown")),
                 "state": str(row.get("state", "")),
-                "x": round(float(row.get("total_cost", 0)), 2),
-                "y": round(float(row.get("claims_per_beneficiary", 0)), 2),
-                "total_claims": int(row.get("total_claims", 0)),
-                "outlier_score": round(float(row.get(score_col, 0)), 4),
+                "x": round(safe_float(row.get("total_cost", 0)), 2),
+                "y": round(safe_float(row.get("claims_per_beneficiary", 0)), 2),
+                "total_claims": int(safe_float(row.get("total_claims", 0))),
+                "outlier_score": round(safe_float(row.get(score_col, 0)), 4),
                 "is_outlier": bool(row.get("excluded", 0) or row.get("predicted_fraud", 0) or row.get("anomaly_label", 1) == -1),
             })
     else:
