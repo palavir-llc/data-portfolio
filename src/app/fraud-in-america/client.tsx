@@ -409,7 +409,8 @@ function HBar({ data, labelKey, valueKey, color = "#f97316", max = 15, fmt }: {
 function ScatterPlot({ data }: { data: PPPScatterPoint[] }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [tooltip, setTooltip] = useState<{ x: number; y: number; text: string } | null>(null);
+  const [tip, setTip] = useState<{ x: number; y: number; point: PPPScatterPoint } | null>(null);
+  const pointsRef = useRef<Array<{ px: number; py: number; d: PPPScatterPoint }>>([]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -438,57 +439,85 @@ function ScatterPlot({ data }: { data: PPPScatterPoint[] }) {
     const yMin = Math.min(...yVals), yMax = Math.max(...yVals);
     const xR = xMax - xMin || 1, yR = yMax - yMin || 1;
 
-    // Grid lines
-    ctx.strokeStyle = "#27272a";
-    ctx.lineWidth = 0.5;
+    ctx.strokeStyle = "#27272a"; ctx.lineWidth = 0.5;
     for (let i = 0; i <= 4; i++) {
       const gy = pad.top + (ph / 4) * i;
       ctx.beginPath(); ctx.moveTo(pad.left, gy); ctx.lineTo(w - pad.right, gy); ctx.stroke();
     }
 
+    const pts: typeof pointsRef.current = [];
     const sorted = [...data].sort((a, b) => (a.is_anomaly ? 1 : 0) - (b.is_anomaly ? 1 : 0));
     for (const d of sorted) {
       const px = pad.left + ((Math.log10(Math.max(d.x, 1)) - xMin) / xR) * pw;
       const py = pad.top + ph - ((Math.log10(Math.max(d.y, 1)) - yMin) / yR) * ph;
       const r = Math.max(2, Math.min(7, Math.log10(d.amount + 1) - 3));
+      pts.push({ px, py, d });
       ctx.beginPath();
       ctx.arc(px, py, r, 0, Math.PI * 2);
       ctx.fillStyle = d.is_anomaly ? "rgba(239,68,68,0.65)" : "rgba(100,116,139,0.18)";
       ctx.fill();
       if (d.is_anomaly) { ctx.strokeStyle = "rgba(220,38,38,0.4)"; ctx.lineWidth = 0.5; ctx.stroke(); }
     }
+    pointsRef.current = pts;
 
-    // Axes labels
-    ctx.fillStyle = "#71717a";
-    ctx.font = "11px system-ui";
-    ctx.textAlign = "center";
+    ctx.fillStyle = "#71717a"; ctx.font = "11px system-ui"; ctx.textAlign = "center";
     ctx.fillText("Cost per Employee (log scale)", pad.left + pw / 2, h - 6);
-    ctx.save();
-    ctx.translate(14, pad.top + ph / 2);
-    ctx.rotate(-Math.PI / 2);
-    ctx.fillText("Address Frequency (log scale)", 0, 0);
-    ctx.restore();
+    ctx.save(); ctx.translate(14, pad.top + ph / 2); ctx.rotate(-Math.PI / 2);
+    ctx.fillText("Address Frequency (log scale)", 0, 0); ctx.restore();
 
-    // Legend
     ctx.font = "11px system-ui";
     ctx.fillStyle = "rgba(239,68,68,0.8)";
     ctx.beginPath(); ctx.arc(w - 140, 16, 4, 0, Math.PI * 2); ctx.fill();
-    ctx.fillStyle = "#a1a1aa"; ctx.textAlign = "left";
-    ctx.fillText("Anomaly", w - 132, 20);
+    ctx.fillStyle = "#a1a1aa"; ctx.textAlign = "left"; ctx.fillText("Anomaly", w - 132, 20);
     ctx.fillStyle = "rgba(100,116,139,0.5)";
     ctx.beginPath(); ctx.arc(w - 60, 16, 4, 0, Math.PI * 2); ctx.fill();
-    ctx.fillStyle = "#a1a1aa";
-    ctx.fillText("Normal", w - 52, 20);
-
+    ctx.fillStyle = "#a1a1aa"; ctx.fillText("Normal", w - 52, 20);
   }, [data]);
+
+  function handleMouseMove(e: React.MouseEvent) {
+    const rect = (e.target as HTMLElement).getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+    let closest: typeof pointsRef.current[0] | null = null;
+    let minDist = 20;
+    for (const p of pointsRef.current) {
+      const dist = Math.hypot(p.px - mx, p.py - my);
+      if (dist < minDist) { minDist = dist; closest = p; }
+    }
+    if (closest) {
+      setTip({ x: mx, y: my, point: closest.d });
+    } else {
+      setTip(null);
+    }
+  }
 
   return (
     <div ref={wrapRef} className="relative">
-      <canvas ref={canvasRef} className="rounded-xl border border-zinc-800 bg-zinc-900/30" />
-      {tooltip && (
-        <div className="pointer-events-none absolute z-10 rounded bg-zinc-800 px-3 py-2 text-xs text-zinc-100 shadow-lg"
-          style={{ left: tooltip.x + 12, top: tooltip.y - 10 }}>
-          {tooltip.text}
+      <canvas ref={canvasRef} className="rounded-xl border border-zinc-800 bg-zinc-900/30"
+        onMouseMove={handleMouseMove} onMouseLeave={() => setTip(null)} />
+      {tip && (
+        <div className="pointer-events-none absolute z-50 w-56 rounded-xl border border-zinc-700 bg-zinc-900/95 p-3 shadow-2xl backdrop-blur-sm"
+          style={{ left: Math.min(tip.x + 16, (wrapRef.current?.clientWidth || 600) - 240), top: tip.y - 10 }}>
+          <div className="flex items-center justify-between mb-2">
+            <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${tip.point.is_anomaly ? "bg-red-500/20 text-red-400" : "bg-zinc-700 text-zinc-400"}`}>
+              {tip.point.is_anomaly ? "ANOMALY" : "Normal"}
+            </span>
+            <span className="text-xs text-zinc-500">{tip.point.state}</span>
+          </div>
+          <p className="text-sm font-bold text-white">{$(tip.point.amount)}</p>
+          <p className="text-[10px] text-zinc-500 mb-2">Loan amount</p>
+          {/* Mini bar indicators */}
+          <div className="space-y-1.5">
+            <div>
+              <div className="flex justify-between text-[10px] text-zinc-500"><span>$/Employee</span><span>{$(tip.point.x)}</span></div>
+              <div className="h-1.5 rounded bg-zinc-800"><div className="h-1.5 rounded bg-amber-500" style={{ width: `${Math.min(Math.log10(Math.max(tip.point.x, 1)) / 6 * 100, 100)}%` }} /></div>
+            </div>
+            <div>
+              <div className="flex justify-between text-[10px] text-zinc-500"><span>Addr. Freq</span><span>{tip.point.y.toFixed(0)}x</span></div>
+              <div className="h-1.5 rounded bg-zinc-800"><div className="h-1.5 rounded bg-blue-500" style={{ width: `${Math.min(tip.point.y / 50 * 100, 100)}%` }} /></div>
+            </div>
+          </div>
+          <p className="mt-2 text-[10px] text-zinc-600">Jobs reported: {tip.point.jobs} | NAICS: {tip.point.naics}</p>
         </div>
       )}
     </div>
