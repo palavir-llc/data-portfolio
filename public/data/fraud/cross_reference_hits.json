@@ -1,0 +1,515 @@
+{
+  "cross_database_hits": [],
+  "dorsey_street_detail": {
+    "address": "807 DORSEY STREET",
+    "city": "GAINESVILLE",
+    "state": "GA",
+    "county": "HALL",
+    "total_loans": 36,
+    "unique_names": 36,
+    "anomalies": 36,
+    "anomaly_pct": 1.0,
+    "total_amount": 32501960,
+    "total_forgiven": 32788729,
+    "unique_naics": 13,
+    "unique_business_types": 4,
+    "entities": [
+      {
+        "name": "KIDS2, INC.",
+        "amount": 5979192,
+        "jobs": 222,
+        "naics": "339930",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 6053600,
+        "date": "04/07/2020"
+      },
+      {
+        "name": "CULPEPPER & ASSOCIATES SECURITY SERVICES, INC.",
+        "amount": 3077905,
+        "jobs": 351,
+        "naics": "561612",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 3112104,
+        "date": "04/28/2020"
+      },
+      {
+        "name": "DIVERSIFIED UTILITY SERVICES, LLC",
+        "amount": 2855695,
+        "jobs": 225,
+        "naics": "236220",
+        "type": "Limited  Liability Company(LLC)",
+        "anomaly": true,
+        "forgiven": 2877192,
+        "date": "04/15/2020"
+      },
+      {
+        "name": "NIEMAN PRINTING, INC.",
+        "amount": 1957862,
+        "jobs": 157,
+        "naics": "323111",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 1969307,
+        "date": "04/10/2020"
+      },
+      {
+        "name": "NOX HEALTH GROUP, INC.",
+        "amount": 1829992,
+        "jobs": 129,
+        "naics": "541715",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 1841074,
+        "date": "04/08/2020"
+      },
+      {
+        "name": "RTI COMMUNITY MANAGEMENT ASSOCIATES INC.",
+        "amount": 1802715,
+        "jobs": 147,
+        "naics": "531311",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 1812630,
+        "date": "04/28/2020"
+      },
+      {
+        "name": "MEDCIPHERS, LLC",
+        "amount": 1703837,
+        "jobs": 434,
+        "naics": "621610",
+        "type": "Limited  Liability Company(LLC)",
+        "anomaly": true,
+        "forgiven": 1720733,
+        "date": "04/15/2020"
+      },
+      {
+        "name": "STERLING NORTH AMERICA INC.",
+        "amount": 1657749,
+        "jobs": 110,
+        "naics": "323111",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 1672807,
+        "date": "04/27/2020"
+      },
+      {
+        "name": "THE LLOYD GROUP, INC.",
+        "amount": 1174265,
+        "jobs": 61,
+        "naics": "541519",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 1181604,
+        "date": "04/07/2020"
+      },
+      {
+        "name": "INSURANCE HOUSE HOLDINGS, INC.",
+        "amount": 1124972,
+        "jobs": 72,
+        "naics": "524126",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 1135097,
+        "date": "04/06/2020"
+      },
+      {
+        "name": "PLAYER AND COMPANY",
+        "amount": 986750,
+        "jobs": 85,
+        "naics": "236210",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 993602,
+        "date": "04/13/2020"
+      },
+      {
+        "name": "SENTRY ROOF SERVICES, LLC",
+        "amount": 753147,
+        "jobs": 28,
+        "naics": "238160",
+        "type": "Limited  Liability Company(LLC)",
+        "anomaly": true,
+        "forgiven": 761411,
+        "date": "04/09/2020"
+      },
+      {
+        "name": "AJAYA, LLC",
+        "amount": 739110,
+        "jobs": 72,
+        "naics": "236220",
+        "type": "Limited  Liability Company(LLC)",
+        "anomaly": true,
+        "forgiven": 743305,
+        "date": "04/05/2020"
+      },
+      {
+        "name": "INDEPENDENT HOSPITALISTS PLLC",
+        "amount": 627351,
+        "jobs": 25,
+        "naics": "622110",
+        "type": "Limited  Liability Company(LLC)",
+        "anomaly": true,
+        "forgiven": 634356,
+        "date": "04/28/2020"
+      },
+      {
+        "name": "IWERKS ENTERTAINMENT, INC.",
+        "amount": 614495,
+        "jobs": 67,
+        "naics": "512110",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 621681,
+        "date": "04/16/2020"
+      },
+      {
+        "name": "CONNECTION CHEMICAL LP",
+        "amount": 499745,
+        "jobs": 27,
+        "naics": "424690",
+        "type": "Partnership",
+        "anomaly": true,
+        "forgiven": 502466,
+        "date": "04/07/2020"
+      },
+      {
+        "name": "KECH, INC.",
+        "amount": 440902,
+        "jobs": 61,
+        "naics": "541519",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 445360,
+        "date": "04/27/2020"
+      },
+      {
+        "name": "PIERRE FREY INC.",
+        "amount": 370460,
+        "jobs": 30,
+        "naics": "314999",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 373784,
+        "date": "05/01/2020"
+      },
+      {
+        "name": "SKY COMMUNICATIONS, INC.",
+        "amount": 354888,
+        "jobs": 25,
+        "naics": "541618",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 356692,
+        "date": "04/29/2020"
+      },
+      {
+        "name": "NATIONAL MAIL/MARKETING CORPORATION",
+        "amount": 336413,
+        "jobs": 11,
+        "naics": "541860",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 340105,
+        "date": "04/09/2020"
+      },
+      {
+        "name": "DUNWOODY VILLAGE INFANTS, INC.",
+        "amount": 333234,
+        "jobs": 42,
+        "naics": "624410",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 335215,
+        "date": "04/08/2020"
+      },
+      {
+        "name": "AMICIS SOLUTIONS, INC.",
+        "amount": 323643,
+        "jobs": 18,
+        "naics": "541519",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 325495,
+        "date": "04/07/2020"
+      },
+      {
+        "name": "JEFFREY COOPER, O.D., P.C.",
+        "amount": 269721,
+        "jobs": 10,
+        "naics": "621320",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 272231,
+        "date": "04/29/2020"
+      },
+      {
+        "name": "PHILADELPHIA CHILDRENS ALLIANCE",
+        "amount": 258356,
+        "jobs": 47,
+        "naics": "624110",
+        "type": "Non-Profit Organization",
+        "anomaly": true,
+        "forgiven": 260221,
+        "date": "04/29/2020"
+      },
+      {
+        "name": "RICHARD T. SMITH, PC",
+        "amount": 254531,
+        "jobs": 24,
+        "naics": "541110",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 256200,
+        "date": "04/05/2020"
+      },
+      {
+        "name": "A.S. TURNER AND SONS, INC.",
+        "amount": 239817,
+        "jobs": 25,
+        "naics": "812210",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 241016,
+        "date": "04/29/2020"
+      },
+      {
+        "name": "KBF DESIGN GALLERY",
+        "amount": 226699,
+        "jobs": 17,
+        "naics": "236118",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 228771,
+        "date": "04/28/2020"
+      },
+      {
+        "name": "LAUFSED LLC",
+        "amount": 217093,
+        "jobs": 16,
+        "naics": "541330",
+        "type": "Limited  Liability Company(LLC)",
+        "anomaly": true,
+        "forgiven": 218679,
+        "date": "04/28/2020"
+      },
+      {
+        "name": "OMEGA ASSOCIATION MANAGEMENT, INC.",
+        "amount": 212314,
+        "jobs": 21,
+        "naics": "531311",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 213724,
+        "date": "04/14/2020"
+      },
+      {
+        "name": "RAUSCH ADVISORY SERVICES LLC",
+        "amount": 206338,
+        "jobs": 25,
+        "naics": "541611",
+        "type": "Limited  Liability Company(LLC)",
+        "anomaly": true,
+        "forgiven": 207897,
+        "date": "04/29/2020"
+      },
+      {
+        "name": "CAPSICUM GROUP LLC",
+        "amount": 199403,
+        "jobs": 11,
+        "naics": "541618",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 200433,
+        "date": "04/15/2020"
+      },
+      {
+        "name": "CEPCO MANAGEMENT SERVICES, LLC",
+        "amount": 198925,
+        "jobs": 27,
+        "naics": "531311",
+        "type": "Limited  Liability Company(LLC)",
+        "anomaly": true,
+        "forgiven": 199920,
+        "date": "04/29/2020"
+      },
+      {
+        "name": "CRYSTAL COAST MANAGEMENT CONSULTANTS INC.",
+        "amount": 186403,
+        "jobs": 25,
+        "naics": "531311",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 188365,
+        "date": "04/29/2020"
+      },
+      {
+        "name": "AMP BILLING, LLC",
+        "amount": 178561,
+        "jobs": 13,
+        "naics": "561110",
+        "type": "Limited  Liability Company(LLC)",
+        "anomaly": true,
+        "forgiven": 179474,
+        "date": "04/28/2020"
+      },
+      {
+        "name": "SIMON PARKES ART CONSERVATION, INC.",
+        "amount": 159450,
+        "jobs": 9,
+        "naics": "712110",
+        "type": "Corporation",
+        "anomaly": true,
+        "forgiven": 160672,
+        "date": "04/29/2020"
+      },
+      {
+        "name": "NES ADH HOLDINGS, LLC",
+        "amount": 150024,
+        "jobs": 26,
+        "naics": "621610",
+        "type": "Limited  Liability Company(LLC)",
+        "anomaly": true,
+        "forgiven": 151504,
+        "date": "04/15/2020"
+      }
+    ],
+    "source": "SBA PPP FOIA (data.sba.gov/dataset/ppp-foia)",
+    "verification": "Search SBA PPP data for BorrowerAddress = \"807 DORSEY STREET\""
+  },
+  "most_suspicious_networks": [
+    {
+      "address": "11410 COMMON OAKS DR",
+      "city": "Raleigh",
+      "state": "NC",
+      "why_suspicious": [
+        "100% of loans anomalous",
+        "43 unique entity names"
+      ],
+      "entities": 51,
+      "anomalies": 51,
+      "amount": 21379611,
+      "forgiven": 19175992
+    },
+    {
+      "address": "1445 5TH ST",
+      "city": "Santa Monica",
+      "state": "CA",
+      "why_suspicious": [
+        "100% of loans anomalous",
+        "35 unique entity names"
+      ],
+      "entities": 49,
+      "anomalies": 49,
+      "amount": 12486832,
+      "forgiven": 9224821
+    },
+    {
+      "address": "2390 TOWER DR",
+      "city": "Monroe",
+      "state": "LA",
+      "why_suspicious": [
+        "100% of loans anomalous",
+        "Forgiven MORE than borrowed",
+        "48 unique entity names"
+      ],
+      "entities": 49,
+      "anomalies": 49,
+      "amount": 13684503,
+      "forgiven": 13790226
+    },
+    {
+      "address": "7 PEARL CT",
+      "city": "ALLENDALE",
+      "state": "NJ",
+      "why_suspicious": [
+        "41 unique entity names"
+      ],
+      "entities": 48,
+      "anomalies": 42,
+      "amount": 65964209,
+      "forgiven": 54929294
+    },
+    {
+      "address": "830 W TRAILCREEK DR",
+      "city": "PEORIA",
+      "state": "IL",
+      "why_suspicious": [
+        "100% of loans anomalous",
+        "Forgiven MORE than borrowed",
+        "41 unique entity names"
+      ],
+      "entities": 42,
+      "anomalies": 42,
+      "amount": 16740960,
+      "forgiven": 16939508
+    },
+    {
+      "address": "807 DORSEY STREET",
+      "city": "GAINESVILLE",
+      "state": "GA",
+      "why_suspicious": [
+        "13 different industries at one address",
+        "100% of loans anomalous",
+        "Forgiven MORE than borrowed",
+        "36 unique entity names"
+      ],
+      "entities": 36,
+      "anomalies": 36,
+      "amount": 32501960,
+      "forgiven": 32788729
+    },
+    {
+      "address": "731 N MAIN ST",
+      "city": "SIKESTON",
+      "state": "MO",
+      "why_suspicious": [
+        "100% of loans anomalous",
+        "35 unique entity names"
+      ],
+      "entities": 35,
+      "anomalies": 35,
+      "amount": 10979652,
+      "forgiven": 10089427
+    },
+    {
+      "address": "1829 UNION ST",
+      "city": "SAN FRANCISCO",
+      "state": "CA",
+      "why_suspicious": [
+        "100% of loans anomalous"
+      ],
+      "entities": 31,
+      "anomalies": 31,
+      "amount": 9400069,
+      "forgiven": 9010057
+    },
+    {
+      "address": "200 EXECUTIVE BLVD",
+      "city": "SOUTHINGTON",
+      "state": "CT",
+      "why_suspicious": [
+        "17 different industries at one address",
+        "100% of loans anomalous"
+      ],
+      "entities": 30,
+      "anomalies": 30,
+      "amount": 17887172,
+      "forgiven": 17313869
+    },
+    {
+      "address": "10 MIDDLE ST 17TH FLOOR",
+      "city": "BRIDGEPORT",
+      "state": "CT",
+      "why_suspicious": [
+        "100% of loans anomalous",
+        "Forgiven MORE than borrowed"
+      ],
+      "entities": 30,
+      "anomalies": 30,
+      "amount": 6549500,
+      "forgiven": 6599653
+    }
+  ]
+}
