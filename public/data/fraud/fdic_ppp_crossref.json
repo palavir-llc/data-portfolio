@@ -1,0 +1,3703 @@
+{
+  "matches": [
+    {
+      "failed_bank": "CITIZENS BANK",
+      "ppp_lender": "CITIZENS BANK, NATIONAL ASSOCIATION",
+      "ppp_loans": 7831,
+      "anomalies": 197,
+      "rate": 0.0252,
+      "total_amount": 4501241905
+    },
+    {
+      "failed_bank": "CITY NATIONAL BANK OF NEW JERSEY",
+      "ppp_lender": "CITY NATIONAL BANK",
+      "ppp_loans": 7442,
+      "anomalies": 214,
+      "rate": 0.0288,
+      "total_amount": 5079886467
+    },
+    {
+      "failed_bank": "FIRST NATIONAL BANK",
+      "ppp_lender": "FIRST NATIONAL BANK OF PENNSYLVANIA",
+      "ppp_loans": 5436,
+      "anomalies": 79,
+      "rate": 0.0145,
+      "total_amount": 3004173843
+    },
+    {
+      "failed_bank": "HORIZON BANK",
+      "ppp_lender": "FIRST HORIZON BANK",
+      "ppp_loans": 4816,
+      "anomalies": 113,
+      "rate": 0.0235,
+      "total_amount": 2726819162
+    },
+    {
+      "failed_bank": "SIGNATURE BANK",
+      "ppp_lender": "SIGNATURE BANK",
+      "ppp_loans": 4392,
+      "anomalies": 233,
+      "rate": 0.0531,
+      "total_amount": 3095606254
+    },
+    {
+      "failed_bank": "FIRST UNITED BANK",
+      "ppp_lender": "UNITED BANK",
+      "ppp_loans": 3020,
+      "anomalies": 45,
+      "rate": 0.0149,
+      "total_amount": 1591846916
+    },
+    {
+      "failed_bank": "AMERICAN UNITED BANK",
+      "ppp_lender": "UNITED BANK",
+      "ppp_loans": 3020,
+      "anomalies": 45,
+      "rate": 0.0149,
+      "total_amount": 1591846916
+    },
+    {
+      "failed_bank": "FIRST BANK OF KANSAS CITY",
+      "ppp_lender": "FIRST BANK",
+      "ppp_loans": 2913,
+      "anomalies": 36,
+      "rate": 0.0124,
+      "total_amount": 1392321060
+    },
+    {
+      "failed_bank": "COMMUNITY FIRST BANK",
+      "ppp_lender": "FIRST BANK",
+      "ppp_loans": 2913,
+      "anomalies": 36,
+      "rate": 0.0124,
+      "total_amount": 1392321060
+    },
+    {
+      "failed_bank": "FIRST BANK OF BEVERLY HILLS",
+      "ppp_lender": "FIRST BANK",
+      "ppp_loans": 2913,
+      "anomalies": 36,
+      "rate": 0.0124,
+      "total_amount": 1392321060
+    },
+    {
+      "failed_bank": "FIRST BANKING CENTER",
+      "ppp_lender": "FIRST BANK",
+      "ppp_loans": 2913,
+      "anomalies": 36,
+      "rate": 0.0124,
+      "total_amount": 1392321060
+    },
+    {
+      "failed_bank": "SUNFIRST BANK",
+      "ppp_lender": "FIRST BANK",
+      "ppp_loans": 2913,
+      "anomalies": 36,
+      "rate": 0.0124,
+      "total_amount": 1392321060
+    },
+    {
+      "failed_bank": "FIRST BANKAMERICANO",
+      "ppp_lender": "FIRST BANK",
+      "ppp_loans": 2913,
+      "anomalies": 36,
+      "rate": 0.0124,
+      "total_amount": 1392321060
+    },
+    {
+      "failed_bank": "FIRST BANK OF JACKSONVILLE",
+      "ppp_lender": "FIRST BANK",
+      "ppp_loans": 2913,
+      "anomalies": 36,
+      "rate": 0.0124,
+      "total_amount": 1392321060
+    },
+    {
+      "failed_bank": "AMERICANFIRST BANK",
+      "ppp_lender": "FIRST BANK",
+      "ppp_loans": 2913,
+      "anomalies": 36,
+      "rate": 0.0124,
+      "total_amount": 1392321060
+    },
+    {
+      "failed_bank": "DECATUR FIRST BANK",
+      "ppp_lender": "FIRST BANK",
+      "ppp_loans": 2913,
+      "anomalies": 36,
+      "rate": 0.0124,
+      "total_amount": 1392321060
+    },
+    {
+      "failed_bank": "FIRST BANK OF IDAHO, FSB",
+      "ppp_lender": "FIRST BANK",
+      "ppp_loans": 2913,
+      "anomalies": 36,
+      "rate": 0.0124,
+      "total_amount": 1392321060
+    },
+    {
+      "failed_bank": "COMMUNITY FIRST BANK - CHICAGO",
+      "ppp_lender": "FIRST BANK",
+      "ppp_loans": 2913,
+      "anomalies": 36,
+      "rate": 0.0124,
+      "total_amount": 1392321060
+    },
+    {
+      "failed_bank": "THE PEOPLES BANK",
+      "ppp_lender": "PEOPLES BANK",
+      "ppp_loans": 2643,
+      "anomalies": 64,
+      "rate": 0.0242,
+      "total_amount": 1243425635
+    },
+    {
+      "failed_bank": "FIRST PEOPLES BANK",
+      "ppp_lender": "PEOPLES BANK",
+      "ppp_loans": 2643,
+      "anomalies": 64,
+      "rate": 0.0242,
+      "total_amount": 1243425635
+    },
+    {
+      "failed_bank": "CENTENNIAL BANK",
+      "ppp_lender": "CENTENNIAL BANK",
+      "ppp_loans": 2471,
+      "anomalies": 22,
+      "rate": 0.0089,
+      "total_amount": 1097624636
+    },
+    {
+      "failed_bank": "1ST COMMERCE BANK",
+      "ppp_lender": "COMMERCE BANK",
+      "ppp_loans": 2096,
+      "anomalies": 32,
+      "rate": 0.0153,
+      "total_amount": 1630376327
+    },
+    {
+      "failed_bank": "GLOBAL COMMERCE BANK",
+      "ppp_lender": "COMMERCE BANK",
+      "ppp_loans": 2096,
+      "anomalies": 32,
+      "rate": 0.0153,
+      "total_amount": 1630376327
+    },
+    {
+      "failed_bank": "NEVADA COMMERCE BANK",
+      "ppp_lender": "COMMERCE BANK",
+      "ppp_loans": 2096,
+      "anomalies": 32,
+      "rate": 0.0153,
+      "total_amount": 1630376327
+    },
+    {
+      "failed_bank": "TENNESSEE COMMERCE BANK",
+      "ppp_lender": "COMMERCE BANK",
+      "ppp_loans": 2096,
+      "anomalies": 32,
+      "rate": 0.0153,
+      "total_amount": 1630376327
+    },
+    {
+      "failed_bank": "COMMERCE BANK OF SOUTHWEST FLORIDA",
+      "ppp_lender": "COMMERCE BANK",
+      "ppp_loans": 2096,
+      "anomalies": 32,
+      "rate": 0.0153,
+      "total_amount": 1630376327
+    },
+    {
+      "failed_bank": "HARVEST BANK OF MARYLAND",
+      "ppp_lender": "ARVEST BANK",
+      "ppp_loans": 2002,
+      "anomalies": 23,
+      "rate": 0.0115,
+      "total_amount": 1024520931
+    },
+    {
+      "failed_bank": "BANK USA, NA",
+      "ppp_lender": "HSBC BANK USA, NATIONAL ASSOCIATION",
+      "ppp_loans": 1991,
+      "anomalies": 54,
+      "rate": 0.0271,
+      "total_amount": 1467567804
+    },
+    {
+      "failed_bank": "MOUNTAIN HERITAGE BANK",
+      "ppp_lender": "HERITAGE BANK",
+      "ppp_loans": 1980,
+      "anomalies": 38,
+      "rate": 0.0192,
+      "total_amount": 1034752826
+    },
+    {
+      "failed_bank": "MICHIGAN HERITAGE BANK",
+      "ppp_lender": "HERITAGE BANK",
+      "ppp_loans": 1980,
+      "anomalies": 38,
+      "rate": 0.0192,
+      "total_amount": 1034752826
+    },
+    {
+      "failed_bank": "HERITAGE BANK OF FLORIDA",
+      "ppp_lender": "HERITAGE BANK",
+      "ppp_loans": 1980,
+      "anomalies": 38,
+      "rate": 0.0192,
+      "total_amount": 1034752826
+    },
+    {
+      "failed_bank": "HERITAGE BANKING GROUP",
+      "ppp_lender": "HERITAGE BANK",
+      "ppp_loans": 1980,
+      "anomalies": 38,
+      "rate": 0.0192,
+      "total_amount": 1034752826
+    },
+    {
+      "failed_bank": "FIRST HERITAGE BANK",
+      "ppp_lender": "HERITAGE BANK",
+      "ppp_loans": 1980,
+      "anomalies": 38,
+      "rate": 0.0192,
+      "total_amount": 1034752826
+    },
+    {
+      "failed_bank": "HERITAGE BANK OF NORTH FLORIDA",
+      "ppp_lender": "HERITAGE BANK",
+      "ppp_loans": 1980,
+      "anomalies": 38,
+      "rate": 0.0192,
+      "total_amount": 1034752826
+    },
+    {
+      "failed_bank": "NORTHWEST BANK & TRUST",
+      "ppp_lender": "NORTHWEST BANK",
+      "ppp_loans": 1815,
+      "anomalies": 22,
+      "rate": 0.0121,
+      "total_amount": 895513300
+    },
+    {
+      "failed_bank": "VALLEY BANK",
+      "ppp_lender": "CACHE VALLEY BANK",
+      "ppp_loans": 1666,
+      "anomalies": 30,
+      "rate": 0.018,
+      "total_amount": 815571348
+    },
+    {
+      "failed_bank": "PREMIER BANK",
+      "ppp_lender": "PACIFIC PREMIER BANK",
+      "ppp_loans": 1532,
+      "anomalies": 19,
+      "rate": 0.0124,
+      "total_amount": 1020241681
+    },
+    {
+      "failed_bank": "R-G PREMIER BANK OF PUERTO RICO",
+      "ppp_lender": "PREMIER BANK",
+      "ppp_loans": 1179,
+      "anomalies": 10,
+      "rate": 0.0085,
+      "total_amount": 616717213
+    },
+    {
+      "failed_bank": "PARK NATIONAL BANK",
+      "ppp_lender": "THE PARK NATIONAL BANK",
+      "ppp_loans": 1140,
+      "anomalies": 18,
+      "rate": 0.0158,
+      "total_amount": 515141577
+    },
+    {
+      "failed_bank": "FIRST STATE BANK",
+      "ppp_lender": "FIRST STATE BANK",
+      "ppp_loans": 1132,
+      "anomalies": 10,
+      "rate": 0.0088,
+      "total_amount": 482760466
+    },
+    {
+      "failed_bank": "THE FIRST STATE BANK OF WINCHESTER",
+      "ppp_lender": "FIRST STATE BANK",
+      "ppp_loans": 1132,
+      "anomalies": 10,
+      "rate": 0.0088,
+      "total_amount": 482760466
+    },
+    {
+      "failed_bank": "THE FIRST STATE BANK",
+      "ppp_lender": "FIRST STATE BANK",
+      "ppp_loans": 1132,
+      "anomalies": 10,
+      "rate": 0.0088,
+      "total_amount": 482760466
+    },
+    {
+      "failed_bank": "FIRST STATE BANK OF ALTUS",
+      "ppp_lender": "FIRST STATE BANK",
+      "ppp_loans": 1132,
+      "anomalies": 10,
+      "rate": 0.0088,
+      "total_amount": 482760466
+    },
+    {
+      "failed_bank": "COASTAL COMMUNITY BANK",
+      "ppp_lender": "COASTAL COMMUNITY BANK",
+      "ppp_loans": 1083,
+      "anomalies": 27,
+      "rate": 0.0249,
+      "total_amount": 580597282
+    },
+    {
+      "failed_bank": "REPUBLIC BANK",
+      "ppp_lender": "REPUBLIC BANK & TRUST COMPANY",
+      "ppp_loans": 1067,
+      "anomalies": 16,
+      "rate": 0.015,
+      "total_amount": 557449868
+    },
+    {
+      "failed_bank": "GRANITE COMMUNITY BANK, NATIONAL ASSOCIATION",
+      "ppp_lender": "COMMUNITY BANK, NATIONAL ASSOCIATION",
+      "ppp_loans": 1014,
+      "anomalies": 24,
+      "rate": 0.0237,
+      "total_amount": 516295994
+    },
+    {
+      "failed_bank": "TEXAS COMMUNITY BANK, NATIONAL ASSOCIATION",
+      "ppp_lender": "COMMUNITY BANK, NATIONAL ASSOCIATION",
+      "ppp_loans": 1014,
+      "anomalies": 24,
+      "rate": 0.0237,
+      "total_amount": 516295994
+    },
+    {
+      "failed_bank": "LEGACY BANK",
+      "ppp_lender": "LEGACY BANK",
+      "ppp_loans": 944,
+      "anomalies": 18,
+      "rate": 0.0191,
+      "total_amount": 512854800
+    },
+    {
+      "failed_bank": "CITIZENS BANK OF NORTHERN CALIFORNIA",
+      "ppp_lender": "CITIZENS BANK",
+      "ppp_loans": 884,
+      "anomalies": 12,
+      "rate": 0.0136,
+      "total_amount": 334076607
+    },
+    {
+      "failed_bank": "CITIZENS BANK OF EFFINGHAM",
+      "ppp_lender": "CITIZENS BANK",
+      "ppp_loans": 884,
+      "anomalies": 12,
+      "rate": 0.0136,
+      "total_amount": 334076607
+    },
+    {
+      "failed_bank": "CITIZENS BANK & TRUST COMPANY OF CHICAGO",
+      "ppp_lender": "CITIZENS BANK",
+      "ppp_loans": 884,
+      "anomalies": 12,
+      "rate": 0.0136,
+      "total_amount": 334076607
+    },
+    {
+      "failed_bank": "PEOPLES FIRST COMMUNITY BANK",
+      "ppp_lender": "FIRST COMMUNITY BANK",
+      "ppp_loans": 831,
+      "anomalies": 12,
+      "rate": 0.0144,
+      "total_amount": 351541271
+    },
+    {
+      "failed_bank": "FIRST COMMUNITY BANK",
+      "ppp_lender": "FIRST COMMUNITY BANK",
+      "ppp_loans": 831,
+      "anomalies": 12,
+      "rate": 0.0144,
+      "total_amount": 351541271
+    },
+    {
+      "failed_bank": "FIRST COMMUNITY BANK OF SOUTHWEST FLORIDA",
+      "ppp_lender": "FIRST COMMUNITY BANK",
+      "ppp_loans": 831,
+      "anomalies": 12,
+      "rate": 0.0144,
+      "total_amount": 351541271
+    },
+    {
+      "failed_bank": "THE FIRST NATIONAL BANK OF FLORIDA",
+      "ppp_lender": "FIRST NATIONAL BANK",
+      "ppp_loans": 774,
+      "anomalies": 12,
+      "rate": 0.0155,
+      "total_amount": 354625135
+    },
+    {
+      "failed_bank": "FIRST NATIONAL BANK OF ANTHONY",
+      "ppp_lender": "FIRST NATIONAL BANK",
+      "ppp_loans": 774,
+      "anomalies": 12,
+      "rate": 0.0155,
+      "total_amount": 354625135
+    },
+    {
+      "failed_bank": "FIRST NATIONAL BANK OF CRESTVIEW",
+      "ppp_lender": "FIRST NATIONAL BANK",
+      "ppp_loans": 774,
+      "anomalies": 12,
+      "rate": 0.0155,
+      "total_amount": 354625135
+    },
+    {
+      "failed_bank": "FIRST NATIONAL BANK OF THE SOUTH",
+      "ppp_lender": "FIRST NATIONAL BANK",
+      "ppp_loans": 774,
+      "anomalies": 12,
+      "rate": 0.0155,
+      "total_amount": 354625135
+    },
+    {
+      "failed_bank": "THE FIRST NATIONAL BANK OF OLATHE",
+      "ppp_lender": "FIRST NATIONAL BANK",
+      "ppp_loans": 774,
+      "anomalies": 12,
+      "rate": 0.0155,
+      "total_amount": 354625135
+    },
+    {
+      "failed_bank": "THE FIRST NATIONAL BANK OF DANVILLE",
+      "ppp_lender": "FIRST NATIONAL BANK",
+      "ppp_loans": 774,
+      "anomalies": 12,
+      "rate": 0.0155,
+      "total_amount": 354625135
+    },
+    {
+      "failed_bank": "FIRST NATIONAL BANK OF CENTRAL FLORIDA",
+      "ppp_lender": "FIRST NATIONAL BANK",
+      "ppp_loans": 774,
+      "anomalies": 12,
+      "rate": 0.0155,
+      "total_amount": 354625135
+    },
+    {
+      "failed_bank": "THE FIRST NATIONAL BANK OF DAVIS",
+      "ppp_lender": "FIRST NATIONAL BANK",
+      "ppp_loans": 774,
+      "anomalies": 12,
+      "rate": 0.0155,
+      "total_amount": 354625135
+    },
+    {
+      "failed_bank": "BEACH FIRST NATIONAL BANK",
+      "ppp_lender": "FIRST NATIONAL BANK",
+      "ppp_loans": 774,
+      "anomalies": 12,
+      "rate": 0.0155,
+      "total_amount": 354625135
+    },
+    {
+      "failed_bank": "WILLIAMSBURG FIRST NATIONAL BANK",
+      "ppp_lender": "FIRST NATIONAL BANK",
+      "ppp_loans": 774,
+      "anomalies": 12,
+      "rate": 0.0155,
+      "total_amount": 354625135
+    },
+    {
+      "failed_bank": "THE FIRST NATIONAL BANK OF BARNESVILLE",
+      "ppp_lender": "FIRST NATIONAL BANK",
+      "ppp_loans": 774,
+      "anomalies": 12,
+      "rate": 0.0155,
+      "total_amount": 354625135
+    },
+    {
+      "failed_bank": "CITIZENS FIRST NATIONAL BANK",
+      "ppp_lender": "FIRST NATIONAL BANK",
+      "ppp_loans": 774,
+      "anomalies": 12,
+      "rate": 0.0155,
+      "total_amount": 354625135
+    },
+    {
+      "failed_bank": "FIRST NATIONAL BANK OF GEORGIA",
+      "ppp_lender": "FIRST NATIONAL BANK",
+      "ppp_loans": 774,
+      "anomalies": 12,
+      "rate": 0.0155,
+      "total_amount": 354625135
+    },
+    {
+      "failed_bank": "AMERICAN NATIONAL BANK",
+      "ppp_lender": "AMERICAN NATIONAL BANK",
+      "ppp_loans": 768,
+      "anomalies": 11,
+      "rate": 0.0143,
+      "total_amount": 450442662
+    },
+    {
+      "failed_bank": "FIDELITY BANK",
+      "ppp_lender": "THE FIDELITY BANK",
+      "ppp_loans": 768,
+      "anomalies": 3,
+      "rate": 0.0039,
+      "total_amount": 273990926
+    },
+    {
+      "failed_bank": "NEW LIBERTY BANK",
+      "ppp_lender": "LIBERTY BANK",
+      "ppp_loans": 734,
+      "anomalies": 11,
+      "rate": 0.015,
+      "total_amount": 346925119
+    },
+    {
+      "failed_bank": "SECURITY EXCHANGE BANK",
+      "ppp_lender": "EXCHANGE BANK",
+      "ppp_loans": 707,
+      "anomalies": 22,
+      "rate": 0.0311,
+      "total_amount": 320844439
+    },
+    {
+      "failed_bank": "COMMUNITY BANKS OF COLORADO",
+      "ppp_lender": "COMMUNITY BANKS OF COLORADO, A DIVISION OF",
+      "ppp_loans": 698,
+      "anomalies": 9,
+      "rate": 0.0129,
+      "total_amount": 376397880
+    },
+    {
+      "failed_bank": "INDEPENDENT BANKERS' BANK",
+      "ppp_lender": "INDEPENDENT BANK",
+      "ppp_loans": 697,
+      "anomalies": 5,
+      "rate": 0.0072,
+      "total_amount": 341292931
+    },
+    {
+      "failed_bank": "IRWIN UNION BANK AND TRUST COMPANY",
+      "ppp_lender": "UNION BANK AND TRUST COMPANY",
+      "ppp_loans": 668,
+      "anomalies": 4,
+      "rate": 0.006,
+      "total_amount": 386215181
+    },
+    {
+      "failed_bank": "FIRST INTERNATIONAL BANK",
+      "ppp_lender": "FIRST INTERNATIONAL BANK & TRUST",
+      "ppp_loans": 654,
+      "anomalies": 7,
+      "rate": 0.0107,
+      "total_amount": 366922318
+    },
+    {
+      "failed_bank": "COMMUNITY CENTRAL BANK",
+      "ppp_lender": "CENTRAL BANK",
+      "ppp_loans": 626,
+      "anomalies": 8,
+      "rate": 0.0128,
+      "total_amount": 347315558
+    },
+    {
+      "failed_bank": "CENTRAL BANK OF GEORGIA",
+      "ppp_lender": "CENTRAL BANK",
+      "ppp_loans": 626,
+      "anomalies": 8,
+      "rate": 0.0128,
+      "total_amount": 347315558
+    },
+    {
+      "failed_bank": "UNITY NATIONAL BANK",
+      "ppp_lender": "COMMUNITY NATIONAL BANK",
+      "ppp_loans": 581,
+      "anomalies": 4,
+      "rate": 0.0069,
+      "total_amount": 309570247
+    },
+    {
+      "failed_bank": "COMMUNITY NATIONAL BANK",
+      "ppp_lender": "COMMUNITY NATIONAL BANK",
+      "ppp_loans": 581,
+      "anomalies": 4,
+      "rate": 0.0069,
+      "total_amount": 309570247
+    },
+    {
+      "failed_bank": "COMMUNITY NATIONAL BANK AT BARTOW",
+      "ppp_lender": "COMMUNITY NATIONAL BANK",
+      "ppp_loans": 581,
+      "anomalies": 4,
+      "rate": 0.0069,
+      "total_amount": 309570247
+    },
+    {
+      "failed_bank": "COMMUNITY NATIONAL BANK OF SARASOTA COUNTY",
+      "ppp_lender": "COMMUNITY NATIONAL BANK",
+      "ppp_loans": 581,
+      "anomalies": 4,
+      "rate": 0.0069,
+      "total_amount": 309570247
+    },
+    {
+      "failed_bank": "WATERFORD VILLAGE BANK",
+      "ppp_lender": "VILLAGE BANK",
+      "ppp_loans": 553,
+      "anomalies": 2,
+      "rate": 0.0036,
+      "total_amount": 246777794
+    },
+    {
+      "failed_bank": "VALLEY COMMUNITY BANK",
+      "ppp_lender": "OAK VALLEY COMMUNITY BANK",
+      "ppp_loans": 531,
+      "anomalies": 3,
+      "rate": 0.0056,
+      "total_amount": 257500000
+    },
+    {
+      "failed_bank": "HEARTLAND BANK",
+      "ppp_lender": "HEARTLAND BANK AND TRUST COMPANY",
+      "ppp_loans": 514,
+      "anomalies": 3,
+      "rate": 0.0058,
+      "total_amount": 215538305
+    },
+    {
+      "failed_bank": "FIRST CORNERSTONE BANK",
+      "ppp_lender": "CORNERSTONE BANK",
+      "ppp_loans": 503,
+      "anomalies": 5,
+      "rate": 0.0099,
+      "total_amount": 273189246
+    },
+    {
+      "failed_bank": "PARTNERS BANK",
+      "ppp_lender": "TEXAS PARTNERS BANK",
+      "ppp_loans": 502,
+      "anomalies": 3,
+      "rate": 0.006,
+      "total_amount": 285503650
+    },
+    {
+      "failed_bank": "SUNRISE BANK",
+      "ppp_lender": "SUNRISE BANKS NATIONAL ASSOCIATION",
+      "ppp_loans": 499,
+      "anomalies": 9,
+      "rate": 0.018,
+      "total_amount": 255997700
+    },
+    {
+      "failed_bank": "NEW CITY BANK",
+      "ppp_lender": "CITY BANK",
+      "ppp_loans": 465,
+      "anomalies": 5,
+      "rate": 0.0108,
+      "total_amount": 217711307
+    },
+    {
+      "failed_bank": "CAPITOL CITY BANK & TRUST COMPANY",
+      "ppp_lender": "CITY BANK",
+      "ppp_loans": 465,
+      "anomalies": 5,
+      "rate": 0.0108,
+      "total_amount": 217711307
+    },
+    {
+      "failed_bank": "MID CITY BANK, INC.",
+      "ppp_lender": "CITY BANK",
+      "ppp_loans": 465,
+      "anomalies": 5,
+      "rate": 0.0108,
+      "total_amount": 217711307
+    },
+    {
+      "failed_bank": "FIRST CITY BANK OF FLORIDA",
+      "ppp_lender": "CITY BANK",
+      "ppp_loans": 465,
+      "anomalies": 5,
+      "rate": 0.0108,
+      "total_amount": 217711307
+    },
+    {
+      "failed_bank": "GUARANTY BANK",
+      "ppp_lender": "GUARANTY BANK & TRUST, NATIONAL ASSOCIATION",
+      "ppp_loans": 443,
+      "anomalies": 5,
+      "rate": 0.0113,
+      "total_amount": 207267077
+    },
+    {
+      "failed_bank": "ATLANTIC SOUTHERN BANK",
+      "ppp_lender": "SOUTHERN BANK",
+      "ppp_loans": 439,
+      "anomalies": 6,
+      "rate": 0.0137,
+      "total_amount": 200651330
+    },
+    {
+      "failed_bank": "AMERICAN SOUTHERN BANK",
+      "ppp_lender": "SOUTHERN BANK",
+      "ppp_loans": 439,
+      "anomalies": 6,
+      "rate": 0.0137,
+      "total_amount": 200651330
+    },
+    {
+      "failed_bank": "FIRST SOUTHERN BANK",
+      "ppp_lender": "SOUTHERN BANK",
+      "ppp_loans": 439,
+      "anomalies": 6,
+      "rate": 0.0137,
+      "total_amount": 200651330
+    },
+    {
+      "failed_bank": "OLD SOUTHERN BANK",
+      "ppp_lender": "SOUTHERN BANK",
+      "ppp_loans": 439,
+      "anomalies": 6,
+      "rate": 0.0137,
+      "total_amount": 200651330
+    },
+    {
+      "failed_bank": "FIRST FEDERAL BANK",
+      "ppp_lender": "FIRST FEDERAL BANK",
+      "ppp_loans": 421,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 157736808
+    },
+    {
+      "failed_bank": "FIRST FEDERAL BANK OF NORTH FLORIDA",
+      "ppp_lender": "FIRST FEDERAL BANK",
+      "ppp_loans": 421,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 157736808
+    },
+    {
+      "failed_bank": "FIRST FEDERAL BANK OF CALIFORNIA,  A FEDERAL SAVINGS BANK",
+      "ppp_lender": "FIRST FEDERAL BANK",
+      "ppp_loans": 421,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 157736808
+    },
+    {
+      "failed_bank": "SUN WEST BANK",
+      "ppp_lender": "WEST BANK",
+      "ppp_loans": 413,
+      "anomalies": 5,
+      "rate": 0.0121,
+      "total_amount": 257960558
+    },
+    {
+      "failed_bank": "AMERICA WEST BANK",
+      "ppp_lender": "WEST BANK",
+      "ppp_loans": 413,
+      "anomalies": 5,
+      "rate": 0.0121,
+      "total_amount": 257960558
+    },
+    {
+      "failed_bank": "MIDWEST BANK AND TRUST COMPANY",
+      "ppp_lender": "WEST BANK",
+      "ppp_loans": 413,
+      "anomalies": 5,
+      "rate": 0.0121,
+      "total_amount": 257960558
+    },
+    {
+      "failed_bank": "KEY WEST BANK",
+      "ppp_lender": "WEST BANK",
+      "ppp_loans": 413,
+      "anomalies": 5,
+      "rate": 0.0121,
+      "total_amount": 257960558
+    },
+    {
+      "failed_bank": "COMMUNITY BANK OF ROCKMART",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "RIVERVIEW COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "COMMUNITY BANK OF WEST GEORGIA",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "COMMUNITY BANK OF ARIZONA",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "HARVEST COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "FIRST CHOICE COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "PEOPLES COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "SOUTHSHORE COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "GULF STATE COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "SUNSHINE STATE COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "PIEDMONT COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "COMMUNITY BANK OF THE OZARKS",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "FIRST COMMERCE COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "OLDE CYPRESS COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "HIGHLAND COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "MARCO COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "FLORIDA COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "TOWN COMMUNITY BANK AND TRUST",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "COMMUNITY BANK & TRUST",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "APPALACHIAN COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "CITIZENS COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "LAKESIDE COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "COMMUNITY BANK OF NEVADA",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "LOUISA COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "SATILLA COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "PLATINUM COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "APPALACIAN COMMUNITY BANK, F.S.B.",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "PISGAH COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "BRICKWELL COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "SOUTHERN COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "WESTSIDE COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "CARSON RIVER COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "THE BUCKHEAD COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "PREMIER COMMUNITY BANK OF THE EMERALD COAST",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "BUTTE COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "COMMUNITY BANK OF LEMONT",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "NEIGHBORHOOD COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "CHIPOLA COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "SOUTHWEST COMMUNITY BANK",
+      "ppp_lender": "UNITY BANK",
+      "ppp_loans": 409,
+      "anomalies": 3,
+      "rate": 0.0073,
+      "total_amount": 179186739
+    },
+    {
+      "failed_bank": "SUMMIT BANK",
+      "ppp_lender": "SUMMIT BANK",
+      "ppp_loans": 388,
+      "anomalies": 11,
+      "rate": 0.0284,
+      "total_amount": 204534454
+    },
+    {
+      "failed_bank": "UNION BANK, NATIONAL ASSOCIATION",
+      "ppp_lender": "ION BANK",
+      "ppp_loans": 381,
+      "anomalies": 8,
+      "rate": 0.021,
+      "total_amount": 182736514
+    },
+    {
+      "failed_bank": "CHAMPION BANK",
+      "ppp_lender": "ION BANK",
+      "ppp_loans": 381,
+      "anomalies": 8,
+      "rate": 0.021,
+      "total_amount": 182736514
+    },
+    {
+      "failed_bank": "ORION BANK",
+      "ppp_lender": "ION BANK",
+      "ppp_loans": 381,
+      "anomalies": 8,
+      "rate": 0.021,
+      "total_amount": 182736514
+    },
+    {
+      "failed_bank": "IRWIN UNION BANK, FSB",
+      "ppp_lender": "ION BANK",
+      "ppp_loans": 381,
+      "anomalies": 8,
+      "rate": 0.021,
+      "total_amount": 182736514
+    },
+    {
+      "failed_bank": "MAINSTREET BANK",
+      "ppp_lender": "MAINSTREET BANK",
+      "ppp_loans": 372,
+      "anomalies": 9,
+      "rate": 0.0242,
+      "total_amount": 205250406
+    },
+    {
+      "failed_bank": "MCINTOSH COMMERCIAL BANK",
+      "ppp_lender": "COMMERCIAL BANK",
+      "ppp_loans": 349,
+      "anomalies": 1,
+      "rate": 0.0029,
+      "total_amount": 135104058
+    },
+    {
+      "failed_bank": "FIRST COMMERCIAL BANK",
+      "ppp_lender": "COMMERCIAL BANK",
+      "ppp_loans": 349,
+      "anomalies": 1,
+      "rate": 0.0029,
+      "total_amount": 135104058
+    },
+    {
+      "failed_bank": "ROCKBRIDGE COMMERCIAL BANK",
+      "ppp_lender": "COMMERCIAL BANK",
+      "ppp_loans": 349,
+      "anomalies": 1,
+      "rate": 0.0029,
+      "total_amount": 135104058
+    },
+    {
+      "failed_bank": "UNITED COMMERCIAL BANK",
+      "ppp_lender": "COMMERCIAL BANK",
+      "ppp_loans": 349,
+      "anomalies": 1,
+      "rate": 0.0029,
+      "total_amount": 135104058
+    },
+    {
+      "failed_bank": "FIRST COMMERCIAL BANK OF FLORIDA",
+      "ppp_lender": "COMMERCIAL BANK",
+      "ppp_loans": 349,
+      "anomalies": 1,
+      "rate": 0.0029,
+      "total_amount": 135104058
+    },
+    {
+      "failed_bank": "WESTERN COMMERCIAL BANK",
+      "ppp_lender": "COMMERCIAL BANK",
+      "ppp_loans": 349,
+      "anomalies": 1,
+      "rate": 0.0029,
+      "total_amount": 135104058
+    },
+    {
+      "failed_bank": "PIERCE COMMERCIAL BANK",
+      "ppp_lender": "COMMERCIAL BANK",
+      "ppp_loans": 349,
+      "anomalies": 1,
+      "rate": 0.0029,
+      "total_amount": 135104058
+    },
+    {
+      "failed_bank": "EASTSIDE COMMERCIAL BANK",
+      "ppp_lender": "COMMERCIAL BANK",
+      "ppp_loans": 349,
+      "anomalies": 1,
+      "rate": 0.0029,
+      "total_amount": 135104058
+    },
+    {
+      "failed_bank": "FIRST COMMERCIAL BANK OF TAMPA BAY",
+      "ppp_lender": "COMMERCIAL BANK",
+      "ppp_loans": 349,
+      "anomalies": 1,
+      "rate": 0.0029,
+      "total_amount": 135104058
+    },
+    {
+      "failed_bank": "PEOPLES STATE BANK",
+      "ppp_lender": "PEOPLES STATE BANK",
+      "ppp_loans": 304,
+      "anomalies": 2,
+      "rate": 0.0066,
+      "total_amount": 159484118
+    },
+    {
+      "failed_bank": "ALABAMA TRUST BANK, NATIONAL ASSOCIATION",
+      "ppp_lender": "T BANK, NATIONAL ASSOCIATION",
+      "ppp_loans": 301,
+      "anomalies": 3,
+      "rate": 0.01,
+      "total_amount": 85985416
+    },
+    {
+      "failed_bank": "INTER SAVINGS BANK, FSB D/B/A/ INTERBANK, FSB",
+      "ppp_lender": "INTERBANK",
+      "ppp_loans": 297,
+      "anomalies": 7,
+      "rate": 0.0236,
+      "total_amount": 150363967
+    },
+    {
+      "failed_bank": "CITIZENS NATIONAL BANK",
+      "ppp_lender": "CITIZENS NATIONAL BANK",
+      "ppp_loans": 283,
+      "anomalies": 7,
+      "rate": 0.0247,
+      "total_amount": 111442646
+    },
+    {
+      "failed_bank": "ALL AMERICAN BANK",
+      "ppp_lender": "AMERICAN BANK",
+      "ppp_loans": 276,
+      "anomalies": 2,
+      "rate": 0.0072,
+      "total_amount": 122290483
+    },
+    {
+      "failed_bank": "SUN AMERICAN BANK",
+      "ppp_lender": "AMERICAN BANK",
+      "ppp_loans": 276,
+      "anomalies": 2,
+      "rate": 0.0072,
+      "total_amount": 122290483
+    },
+    {
+      "failed_bank": "FIRST VIETNAMESE AMERICAN BANK",
+      "ppp_lender": "AMERICAN BANK",
+      "ppp_loans": 276,
+      "anomalies": 2,
+      "rate": 0.0072,
+      "total_amount": 122290483
+    },
+    {
+      "failed_bank": "PREMIER AMERICAN BANK",
+      "ppp_lender": "AMERICAN BANK",
+      "ppp_loans": 276,
+      "anomalies": 2,
+      "rate": 0.0072,
+      "total_amount": 122290483
+    },
+    {
+      "failed_bank": "SECURITY BANK OF NORTH FULTON",
+      "ppp_lender": "SECURITY BANK",
+      "ppp_loans": 269,
+      "anomalies": 2,
+      "rate": 0.0074,
+      "total_amount": 133392324
+    },
+    {
+      "failed_bank": "SECURITY BANK OF HOUSTON COUNTY",
+      "ppp_lender": "SECURITY BANK",
+      "ppp_loans": 269,
+      "anomalies": 2,
+      "rate": 0.0074,
+      "total_amount": 133392324
+    },
+    {
+      "failed_bank": "SECURITY BANK OF JONES COUNTY",
+      "ppp_lender": "SECURITY BANK",
+      "ppp_loans": 269,
+      "anomalies": 2,
+      "rate": 0.0074,
+      "total_amount": 133392324
+    },
+    {
+      "failed_bank": "CENTURY SECURITY BANK",
+      "ppp_lender": "SECURITY BANK",
+      "ppp_loans": 269,
+      "anomalies": 2,
+      "rate": 0.0074,
+      "total_amount": 133392324
+    },
+    {
+      "failed_bank": "SUN SECURITY BANK",
+      "ppp_lender": "SECURITY BANK",
+      "ppp_loans": 269,
+      "anomalies": 2,
+      "rate": 0.0074,
+      "total_amount": 133392324
+    },
+    {
+      "failed_bank": "AFFINITY BANK",
+      "ppp_lender": "AFFINITY BANK, NATIONAL ASSOCIATION",
+      "ppp_loans": 269,
+      "anomalies": 3,
+      "rate": 0.0112,
+      "total_amount": 109721063
+    },
+    {
+      "failed_bank": "NEVADA SECURITY BANK",
+      "ppp_lender": "SECURITY BANK",
+      "ppp_loans": 269,
+      "anomalies": 2,
+      "rate": 0.0074,
+      "total_amount": 133392324
+    },
+    {
+      "failed_bank": "COMMUNITY SECURITY BANK",
+      "ppp_lender": "SECURITY BANK",
+      "ppp_loans": 269,
+      "anomalies": 2,
+      "rate": 0.0074,
+      "total_amount": 133392324
+    },
+    {
+      "failed_bank": "SECURITY BANK OF NORTH METRO",
+      "ppp_lender": "SECURITY BANK",
+      "ppp_loans": 269,
+      "anomalies": 2,
+      "rate": 0.0074,
+      "total_amount": 133392324
+    },
+    {
+      "failed_bank": "SECURITY BANK, NATIONAL ASSOCIATION",
+      "ppp_lender": "SECURITY BANK",
+      "ppp_loans": 269,
+      "anomalies": 2,
+      "rate": 0.0074,
+      "total_amount": 133392324
+    },
+    {
+      "failed_bank": "UNITED SECURITY BANK",
+      "ppp_lender": "SECURITY BANK",
+      "ppp_loans": 269,
+      "anomalies": 2,
+      "rate": 0.0074,
+      "total_amount": 133392324
+    },
+    {
+      "failed_bank": "SECURITY BANK OF GWINNETT COUNTY",
+      "ppp_lender": "SECURITY BANK",
+      "ppp_loans": 269,
+      "anomalies": 2,
+      "rate": 0.0074,
+      "total_amount": 133392324
+    },
+    {
+      "failed_bank": "SECURITY BANK OF BIBB COUNTY",
+      "ppp_lender": "SECURITY BANK",
+      "ppp_loans": 269,
+      "anomalies": 2,
+      "rate": 0.0074,
+      "total_amount": 133392324
+    },
+    {
+      "failed_bank": "NEW CENTURY BANK",
+      "ppp_lender": "CENTURY BANK",
+      "ppp_loans": 251,
+      "anomalies": 3,
+      "rate": 0.012,
+      "total_amount": 130666221
+    },
+    {
+      "failed_bank": "CENTURY BANK, A FEDERAL SAVINGS BANK",
+      "ppp_lender": "CENTURY BANK",
+      "ppp_loans": 251,
+      "anomalies": 3,
+      "rate": 0.012,
+      "total_amount": 130666221
+    },
+    {
+      "failed_bank": "1ST AMERICAN STATE BANK OF MINNESOTA",
+      "ppp_lender": "AMERICAN STATE BANK",
+      "ppp_loans": 238,
+      "anomalies": 9,
+      "rate": 0.0378,
+      "total_amount": 121220074
+    },
+    {
+      "failed_bank": "FIRST GUARANTY BANK AND TRUST COMPANY OF JACKSONVILLE",
+      "ppp_lender": "GUARANTY BANK",
+      "ppp_loans": 236,
+      "anomalies": 1,
+      "rate": 0.0042,
+      "total_amount": 91869076
+    },
+    {
+      "failed_bank": "CITIZENS STATE BANK",
+      "ppp_lender": "CITIZENS STATE BANK",
+      "ppp_loans": 224,
+      "anomalies": 3,
+      "rate": 0.0134,
+      "total_amount": 87025597
+    },
+    {
+      "failed_bank": "MONTGOMERY BANK & TRUST",
+      "ppp_lender": "MONTGOMERY BANK",
+      "ppp_loans": 204,
+      "anomalies": 3,
+      "rate": 0.0147,
+      "total_amount": 115396726
+    },
+    {
+      "failed_bank": "WHEATLAND BANK",
+      "ppp_lender": "WHEATLAND BANK, A DIVISION OF GLACIER BANK",
+      "ppp_loans": 202,
+      "anomalies": 2,
+      "rate": 0.0099,
+      "total_amount": 83566067
+    },
+    {
+      "failed_bank": "THE NATIONAL REPUBLIC BANK OF CHICAGO",
+      "ppp_lender": "REPUBLIC BANK OF CHICAGO",
+      "ppp_loans": 200,
+      "anomalies": 3,
+      "rate": 0.015,
+      "total_amount": 101291698
+    },
+    {
+      "failed_bank": "CHESTATEE STATE BANK",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "THE ELIZABETH STATE BANK",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "NORTH MILWAUKEE STATE BANK",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "HEARTLAND TRI-STATE BANK",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "MCINTOSH STATE BANK",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "MILLENNIUM STATE BANK OF TEXAS",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "EVERGREEN STATE BANK",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "THE FREEDOM STATE BANK",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "FARMERS' AND TRADERS' STATE BANK",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "PACIFIC STATE BANK",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "PUTNAM STATE BANK",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "JENNINGS STATE BANK",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "ST. STEPHEN STATE BANK",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "CENTRAL FLORIDA STATE BANK",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "ENLOE STATE BANK",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "THE FARMERS AND MERCHANTS STATE BANK OF ARGONIA",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "FIRST CHEROKEE STATE BANK",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "ALMENA STATE BANK",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "MADISONVILLE STATE BANK",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "HIGH DESERT STATE BANK",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "STATE BANK OF AURORA",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "ERICSON STATE BANK",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "BADGER STATE BANK",
+      "ppp_lender": "STATE BANK",
+      "ppp_loans": 198,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 76336703
+    },
+    {
+      "failed_bank": "ENTERPRISE BANKING COMPANY",
+      "ppp_lender": "ENTERPRISE BANK",
+      "ppp_loans": 196,
+      "anomalies": 3,
+      "rate": 0.0153,
+      "total_amount": 89958324
+    },
+    {
+      "failed_bank": "THE BANK OF COMMERCE",
+      "ppp_lender": "THE BANK OF COMMERCE",
+      "ppp_loans": 190,
+      "anomalies": 3,
+      "rate": 0.0158,
+      "total_amount": 73905141
+    },
+    {
+      "failed_bank": "COOPERATIVE BANK",
+      "ppp_lender": "THE COOPERATIVE BANK OF CAPE COD",
+      "ppp_loans": 180,
+      "anomalies": 7,
+      "rate": 0.0389,
+      "total_amount": 71999077
+    },
+    {
+      "failed_bank": "ACCESS BANK",
+      "ppp_lender": "ACCESS BANK",
+      "ppp_loans": 180,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 90360140
+    },
+    {
+      "failed_bank": "NEW FRONTIER BANK",
+      "ppp_lender": "R BANK",
+      "ppp_loans": 168,
+      "anomalies": 4,
+      "rate": 0.0238,
+      "total_amount": 90015580
+    },
+    {
+      "failed_bank": "SUPERIOR BANK",
+      "ppp_lender": "R BANK",
+      "ppp_loans": 168,
+      "anomalies": 4,
+      "rate": 0.0238,
+      "total_amount": 90015580
+    },
+    {
+      "failed_bank": "FRONTIER BANK",
+      "ppp_lender": "R BANK",
+      "ppp_loans": 168,
+      "anomalies": 4,
+      "rate": 0.0238,
+      "total_amount": 90015580
+    },
+    {
+      "failed_bank": "NORTHERN STAR BANK",
+      "ppp_lender": "R BANK",
+      "ppp_loans": 168,
+      "anomalies": 4,
+      "rate": 0.0238,
+      "total_amount": 90015580
+    },
+    {
+      "failed_bank": "THE JOHN WARNER BANK",
+      "ppp_lender": "R BANK",
+      "ppp_loans": 168,
+      "anomalies": 4,
+      "rate": 0.0238,
+      "total_amount": 90015580
+    },
+    {
+      "failed_bank": "EARTHSTAR BANK",
+      "ppp_lender": "R BANK",
+      "ppp_loans": 168,
+      "anomalies": 4,
+      "rate": 0.0238,
+      "total_amount": 90015580
+    },
+    {
+      "failed_bank": "OLD HARBOR BANK",
+      "ppp_lender": "R BANK",
+      "ppp_loans": 168,
+      "anomalies": 4,
+      "rate": 0.0238,
+      "total_amount": 90015580
+    },
+    {
+      "failed_bank": "FRONTIER BANK, FSB",
+      "ppp_lender": "R BANK",
+      "ppp_loans": 168,
+      "anomalies": 4,
+      "rate": 0.0238,
+      "total_amount": 90015580
+    },
+    {
+      "failed_bank": "CHARTER BANK",
+      "ppp_lender": "R BANK",
+      "ppp_loans": 168,
+      "anomalies": 4,
+      "rate": 0.0238,
+      "total_amount": 90015580
+    },
+    {
+      "failed_bank": "FIRSTIER BANK",
+      "ppp_lender": "R BANK",
+      "ppp_loans": 168,
+      "anomalies": 4,
+      "rate": 0.0238,
+      "total_amount": 90015580
+    },
+    {
+      "failed_bank": "ROCK RIVER BANK",
+      "ppp_lender": "R BANK",
+      "ppp_loans": 168,
+      "anomalies": 4,
+      "rate": 0.0238,
+      "total_amount": 90015580
+    },
+    {
+      "failed_bank": "COLUMBIA RIVER BANK",
+      "ppp_lender": "R BANK",
+      "ppp_loans": 168,
+      "anomalies": 4,
+      "rate": 0.0238,
+      "total_amount": 90015580
+    },
+    {
+      "failed_bank": "BUTLER BANK",
+      "ppp_lender": "R BANK",
+      "ppp_loans": 168,
+      "anomalies": 4,
+      "rate": 0.0238,
+      "total_amount": 90015580
+    },
+    {
+      "failed_bank": "JASPER BANKING COMPANY",
+      "ppp_lender": "R BANK",
+      "ppp_loans": 168,
+      "anomalies": 4,
+      "rate": 0.0238,
+      "total_amount": 90015580
+    },
+    {
+      "failed_bank": "COPPER STAR BANK",
+      "ppp_lender": "R BANK",
+      "ppp_loans": 168,
+      "anomalies": 4,
+      "rate": 0.0238,
+      "total_amount": 90015580
+    },
+    {
+      "failed_bank": "THUNDER BANK",
+      "ppp_lender": "R BANK",
+      "ppp_loans": 168,
+      "anomalies": 4,
+      "rate": 0.0238,
+      "total_amount": 90015580
+    },
+    {
+      "failed_bank": "CAPE FEAR BANK",
+      "ppp_lender": "R BANK",
+      "ppp_loans": 168,
+      "anomalies": 4,
+      "rate": 0.0238,
+      "total_amount": 90015580
+    },
+    {
+      "failed_bank": "AMCORE BANK, NATIONAL ASSOCIATION",
+      "ppp_lender": "CORE BANK",
+      "ppp_loans": 160,
+      "anomalies": 1,
+      "rate": 0.0062,
+      "total_amount": 74823885
+    },
+    {
+      "failed_bank": "COLONIAL BANK",
+      "ppp_lender": "THE CROGHAN COLONIAL BANK",
+      "ppp_loans": 158,
+      "anomalies": 3,
+      "rate": 0.019,
+      "total_amount": 92173207
+    },
+    {
+      "failed_bank": "COUNTRY BANK",
+      "ppp_lender": "MIDCOUNTRY BANK",
+      "ppp_loans": 143,
+      "anomalies": 4,
+      "rate": 0.028,
+      "total_amount": 84323610
+    },
+    {
+      "failed_bank": "BANK OF WYOMING",
+      "ppp_lender": "JONAH BANK OF WYOMING",
+      "ppp_loans": 138,
+      "anomalies": 3,
+      "rate": 0.0217,
+      "total_amount": 59129587
+    },
+    {
+      "failed_bank": "MILLENNIUM BANK, NATIONAL ASSOCIATION",
+      "ppp_lender": "MILLENNIUM BANK",
+      "ppp_loans": 137,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 51432596
+    },
+    {
+      "failed_bank": "CHARTER OAK BANK",
+      "ppp_lender": "OAK BANK",
+      "ppp_loans": 136,
+      "anomalies": 1,
+      "rate": 0.0074,
+      "total_amount": 64448296
+    },
+    {
+      "failed_bank": "FIRST CAPITAL BANK",
+      "ppp_lender": "CAPITAL BANK",
+      "ppp_loans": 136,
+      "anomalies": 3,
+      "rate": 0.0221,
+      "total_amount": 53614213
+    },
+    {
+      "failed_bank": "COLORADO CAPITAL BANK",
+      "ppp_lender": "CAPITAL BANK",
+      "ppp_loans": 136,
+      "anomalies": 3,
+      "rate": 0.0221,
+      "total_amount": 53614213
+    },
+    {
+      "failed_bank": "IMPERIAL CAPITAL BANK",
+      "ppp_lender": "CAPITAL BANK",
+      "ppp_loans": 136,
+      "anomalies": 3,
+      "rate": 0.0221,
+      "total_amount": 53614213
+    },
+    {
+      "failed_bank": "STRATEGIC CAPITAL BANK",
+      "ppp_lender": "CAPITAL BANK",
+      "ppp_loans": 136,
+      "anomalies": 3,
+      "rate": 0.0221,
+      "total_amount": 53614213
+    },
+    {
+      "failed_bank": "COMMUNITY CAPITAL BANK",
+      "ppp_lender": "CAPITAL BANK",
+      "ppp_loans": 136,
+      "anomalies": 3,
+      "rate": 0.0221,
+      "total_amount": 53614213
+    },
+    {
+      "failed_bank": "VALLEY CAPITAL BANK, N.A.",
+      "ppp_lender": "CAPITAL BANK",
+      "ppp_loans": 136,
+      "anomalies": 3,
+      "rate": 0.0221,
+      "total_amount": 53614213
+    },
+    {
+      "failed_bank": "CENTRAL PROGRESSIVE BANK",
+      "ppp_lender": "PROGRESSIVE BANK",
+      "ppp_loans": 131,
+      "anomalies": 2,
+      "rate": 0.0153,
+      "total_amount": 59431681
+    },
+    {
+      "failed_bank": "WESTERN NATIONAL BANK",
+      "ppp_lender": "SOUTHWESTERN NATIONAL BANK",
+      "ppp_loans": 126,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 49769523
+    },
+    {
+      "failed_bank": "HOME FEDERAL SAVINGS BANK",
+      "ppp_lender": "HOME FEDERAL SAVINGS BANK",
+      "ppp_loans": 125,
+      "anomalies": 2,
+      "rate": 0.016,
+      "total_amount": 55738447
+    },
+    {
+      "failed_bank": "FIRST SOUTHERN NATIONAL BANK",
+      "ppp_lender": "FIRST SOUTHERN NATIONAL BANK",
+      "ppp_loans": 107,
+      "anomalies": 3,
+      "rate": 0.028,
+      "total_amount": 41781030
+    },
+    {
+      "failed_bank": "GATEWAY BANK OF ST LOUIS",
+      "ppp_lender": "GATEWAY BANK",
+      "ppp_loans": 106,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 29343626
+    },
+    {
+      "failed_bank": "FAYETTE COUNTY BANK",
+      "ppp_lender": "COUNTY BANK",
+      "ppp_loans": 97,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 35442737
+    },
+    {
+      "failed_bank": "DOUGLAS COUNTY BANK",
+      "ppp_lender": "COUNTY BANK",
+      "ppp_loans": 97,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 35442737
+    },
+    {
+      "failed_bank": "POLK COUNTY BANK",
+      "ppp_lender": "COUNTY BANK",
+      "ppp_loans": 97,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 35442737
+    },
+    {
+      "failed_bank": "BARTOW COUNTY BANK",
+      "ppp_lender": "COUNTY BANK",
+      "ppp_loans": 97,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 35442737
+    },
+    {
+      "failed_bank": "NORTH COUNTY BANK",
+      "ppp_lender": "COUNTY BANK",
+      "ppp_loans": 97,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 35442737
+    },
+    {
+      "failed_bank": "ALLENDALE COUNTY BANK",
+      "ppp_lender": "COUNTY BANK",
+      "ppp_loans": 97,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 35442737
+    },
+    {
+      "failed_bank": "PARKWAY BANK",
+      "ppp_lender": "PARKWAY BANK AND TRUST COMPANY",
+      "ppp_loans": 96,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 51431442
+    },
+    {
+      "failed_bank": "BENCHMARK BANK",
+      "ppp_lender": "BENCHMARK BANK",
+      "ppp_loans": 93,
+      "anomalies": 2,
+      "rate": 0.0215,
+      "total_amount": 41690096
+    },
+    {
+      "failed_bank": "STERLING BANK",
+      "ppp_lender": "STERLING BANK",
+      "ppp_loans": 90,
+      "anomalies": 2,
+      "rate": 0.0222,
+      "total_amount": 44205020
+    },
+    {
+      "failed_bank": "AMERICAN STERLING BANK",
+      "ppp_lender": "STERLING BANK",
+      "ppp_loans": 90,
+      "anomalies": 2,
+      "rate": 0.0222,
+      "total_amount": 44205020
+    },
+    {
+      "failed_bank": "HOMETOWN NATIONAL BANK",
+      "ppp_lender": "HOMETOWN NATIONAL BANK",
+      "ppp_loans": 88,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 35423138
+    },
+    {
+      "failed_bank": "THE FARMERS BANK OF LYNCHBURG",
+      "ppp_lender": "FARMERS BANK",
+      "ppp_loans": 81,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 38677512
+    },
+    {
+      "failed_bank": "THE RIVERBANK",
+      "ppp_lender": "RIVERBANK",
+      "ppp_loans": 77,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 28256400
+    },
+    {
+      "failed_bank": "MUTUAL BANK",
+      "ppp_lender": "THINK MUTUAL BANK",
+      "ppp_loans": 70,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 24647300
+    },
+    {
+      "failed_bank": "WOODLANDS BANK",
+      "ppp_lender": "WOODLANDS BANK",
+      "ppp_loans": 65,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 23698553
+    },
+    {
+      "failed_bank": "GEORGE WASHINGTON SAVINGS BANK",
+      "ppp_lender": "WASHINGTON SAVINGS BANK",
+      "ppp_loans": 59,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 19794699
+    },
+    {
+      "failed_bank": "SUNRISE BANK OF ARIZONA",
+      "ppp_lender": "SUNRISE BANK",
+      "ppp_loans": 52,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 19605691
+    },
+    {
+      "failed_bank": "EVERGREEN BANK",
+      "ppp_lender": "EVERGREEN BANK GROUP",
+      "ppp_loans": 51,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 20733769
+    },
+    {
+      "failed_bank": "INTEGRITY BANK",
+      "ppp_lender": "INTEGRITY BANK & TRUST",
+      "ppp_loans": 50,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 17600731
+    },
+    {
+      "failed_bank": "PATRIOT BANK OF GEORGIA",
+      "ppp_lender": "PATRIOT BANK",
+      "ppp_loans": 43,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 23617067
+    },
+    {
+      "failed_bank": "PATRIOT BANK MINNESOTA",
+      "ppp_lender": "PATRIOT BANK",
+      "ppp_loans": 43,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 23617067
+    },
+    {
+      "failed_bank": "COASTAL BANK",
+      "ppp_lender": "INTRACOASTAL BANK",
+      "ppp_loans": 42,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 12860642
+    },
+    {
+      "failed_bank": "PACIFIC NATIONAL BANK",
+      "ppp_lender": "PACIFIC NATIONAL BANK",
+      "ppp_loans": 40,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 14639380
+    },
+    {
+      "failed_bank": "BANK OF ILLINOIS",
+      "ppp_lender": "FIRST TRUST BANK OF ILLINOIS",
+      "ppp_loans": 35,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 13006887
+    },
+    {
+      "failed_bank": "UNITED WESTERN BANK",
+      "ppp_lender": "WESTERN BANK",
+      "ppp_loans": 32,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 13213334
+    },
+    {
+      "failed_bank": "THE BANK OF ASHEVILLE",
+      "ppp_lender": "THE BANK",
+      "ppp_loans": 31,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 13308474
+    },
+    {
+      "failed_bank": "THE BANK OF MIAMI",
+      "ppp_lender": "THE BANK",
+      "ppp_loans": 31,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 13308474
+    },
+    {
+      "failed_bank": "THE BANK OF GEORGIA",
+      "ppp_lender": "THE BANK",
+      "ppp_loans": 31,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 13308474
+    },
+    {
+      "failed_bank": "THE BANK OF ELLIJAY",
+      "ppp_lender": "THE BANK",
+      "ppp_loans": 31,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 13308474
+    },
+    {
+      "failed_bank": "THE BANK OF BONIFAY",
+      "ppp_lender": "THE BANK",
+      "ppp_loans": 31,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 13308474
+    },
+    {
+      "failed_bank": "DARBY BANK & TRUST COMPANY",
+      "ppp_lender": "BANK & TRUST COMPANY",
+      "ppp_loans": 30,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 12026564
+    },
+    {
+      "failed_bank": "SECURITY SAVINGS BANK, F.S.B.",
+      "ppp_lender": "SECURITY SAVINGS BANK",
+      "ppp_loans": 29,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 12860768
+    },
+    {
+      "failed_bank": "METRO BANK OF DADE COUNTY",
+      "ppp_lender": "METRO BANK",
+      "ppp_loans": 28,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 11548235
+    },
+    {
+      "failed_bank": "1ST REGENTS BANK",
+      "ppp_lender": "TS BANK",
+      "ppp_loans": 22,
+      "anomalies": 2,
+      "rate": 0.0909,
+      "total_amount": 10743084
+    },
+    {
+      "failed_bank": "FIRST CHOICE BANK",
+      "ppp_lender": "FIRST CHOICE BANK",
+      "ppp_loans": 20,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 7538900
+    },
+    {
+      "failed_bank": "LINCOLN PARK SAVINGS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "NEXITY BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "TURNBERRY BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "HILLCREST BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BANK OF WAUSAU",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "HABERSHAM BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "RAINIER PACIFIC BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "WACCAMAW BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "PULASKI SAVINGS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BANK OF CHOICE",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "LANDMARK BANK OF FLORIDA",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "FIRST SECURITY NATIONAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "GEORGIA TRUST BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "GOLD CANYON BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "VENTURE BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "ALLEGIANCE BANK OF NORTH AMERICA",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "GREAT BASIN BANK OF NEVADA",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "TRUMAN BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "CREEKSIDE BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "GREATER ATLANTIC BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "PROGRESS BANK OF FLORIDA",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "PROSPERAN BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BC NATIONAL BANKS",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "ROSEMOUNT NATIONAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BANK OF HIAWASSEE",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "THE PARK AVENUE BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "LIBERTYPOINTE BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "NORTH HOUSTON BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BANK OF LEETON",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "COMMUNITYSOUTH BANK AND TRUST",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "FIRST NBC BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "SAN JOAQUIN BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "TIERONE BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "RIVERSIDE NATIONAL BANK OF FLORIDA",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "NEW SOUTH FEDERAL SAVINGS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "TRUST COMPANY BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "PARAMOUNT BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "SAN LUIS TRUST BANK, FSB",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "THE  BANK OF UNION",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "GEORGIAN BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "THE ROYAL PALM BANK OF FLORIDA",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "MOUNTAIN NATIONAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "AMERICAN TRUST BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BROADWAY BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "UNITED AMERICAS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "ADVANTA BANK CORP.",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "FIRST LOWNDES BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "NORTH GEORGIA BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "GULFSOUTH PRIVATE BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "CONVENANT BANK & TRUST",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "LA JOLLA BANK, FSB",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "FLAGSHIP NATIONAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "WESTBRIDGE BANK AND TRUST COMPANY",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "FORT LEE FEDERAL SAVINGS BANK, FSB",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "SANTA ANNA NATIONAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "GREENCHOICE BANK, FSB",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BANK OF FLORIDA - TAMPA BAY",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "GLASGOW SAVINGS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "LIBERTYBANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "THE LA COSTE NATIONAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "PUBLIC SAVINGS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "THE GORDON BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "TOWNE BANK OF ARIZONA",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "SLAVIE FEDERAL SAVINGS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "WESTERN SPRINGS NATIONAL BANK AND TRUST",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "RESOLUTE BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "CAROLINA FEDERAL SAVINGS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BANK OF SHOREWOOD",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "VANTUS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BANK OF ELMWOOD",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "CAPITALSOUTH BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "TIFTON BANKING COMPANY",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "THE COMMUNITY'S BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "AZTECAMERICA BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "VINEYARD BANK, NATIONAL ASSOCIATION",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "AMTRUST BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BANK OF WHITMAN",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "AMERICAN MARINE BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "SOUTHERN COLORADO NATIONAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "FIRST DUPAGE BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "THE COWLITZ BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BAYSIDE SAVINGS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "INDEPENDENT NATIONAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "EDGEBROOK BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "STATEWIDE BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "IDEAL FEDERAL SAVINGS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "PEOTONE BANK AND TRUST COMPANY",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "COLUMBIA SAVINGS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "PALM DESERT NATIONAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "MARITIME SAVINGS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "THE WOODBURY BANKING COMPANY",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "SEAWAY BANK AND TRUST COMPANY",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "NBRS FINANCIAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BRAMBLE SAVINGS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "FIRST SUBURBAN NATIONAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "PLANTATION FEDERAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "WATERFIELD BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "PALOS BANK AND TRUST COMPANY",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "SHORELINE BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "SILVERTON BANK, NATIONAL ASSOCIATION",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "LYDIAN PRIVATE BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "HAVEN TRUST BANK FLORIDA",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "SIGNATURE  BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "1ST PACIFIC BANK OF CALIFORNIA",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "SONOMA VALLEY BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "FIRST CHICAGO BANK & TRUST",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "CORTEZ COMMUNITY  BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "RAVENSWOOD BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "PACIFIC COAST NATIONAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "WESTSOUND BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BAY NATIONAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BANK OF LINCOLNWOOD",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "WASHINGTON FEDERAL BANK FOR SAVINGS",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "INTEGRA BANK NATIONAL ASSOCIATION",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "CANYON NATIONAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "SOUTHWESTUSA BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "FIRST PIEDMONT BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "VIRGINIA BUSINESS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "FOUNDERS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BANK OF THE EASTERN SHORE",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "THE TATNALL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "DESERT HILLS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BRADFORD BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "ARCOLA HOMESTEAD SAVINGS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "METROPACIFIC BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "COMMUNITY SOUTH BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "CRESCENT BANK AND TRUST COMPANY",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "CORUS BANK, N.A.",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "PINEHURST BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "FIRST REGIONAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "HIGH TRUST BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "ATLANTIC BANK AND TRUST",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "VANTAGE POINT BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "MARSHALL BANK, NATIONAL ASSOCIATION",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "INNOVATIVE BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BANK OF JACKSON COUNTY",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "TEMECULA VALLEY BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "HILLCREST BANK FLORIDA",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "DUPAGE NATIONAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "CALIFORNIA NATIONAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "HOMETOWN COMMUNITYBANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BARNES BANKING COMPANY",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "WARREN BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "SILICON VALLEY BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "FIRST REPUBLIC BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "HOME NATIONAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "ALLIED BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "CHARTER NATIONAL BANK AND TRUST",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "COVENANT BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "PENINSULA BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "NEW HORIZONS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "SYRINGA BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BLUE RIDGE SAVINGS BANK, INC.",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "DORAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "CENTRAL ARIZONA BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "AMERICAN EAGLE SAVINGS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "WAKULLA BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "ONE GEORGIA BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "EXCEL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "SOLUTIONSBANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "PROFICIO BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BANKUNITED, FSB",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "WESTERNBANK PUERTO RICO",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "FIRST EAST SIDE SAVINGS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BANK OF THE COMMONWEALTH",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "WASHINGTON FIRST INTERNATIONAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BANK OF FLORIDA - SOUTHWEST",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "OGLETHORPE BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "TAMALPAIS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "HOME VALLEY BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "LOS PADRES BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "MIRAE BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BANKMERIDIAN, N.A.",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BANK OF FLORIDA - SOUTHEAST",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "WAUKEGAN SAVINGS BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "MAINSTREET SAVINGS BANK, FSB",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "FIRST GEORGIA BANKING COMPANY",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "BANKS OF WISCONSIN",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "SAN DIEGO NATIONAL BANK",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    },
+    {
+      "failed_bank": "REPUBLIC FEDERAL BANK, N.A.",
+      "ppp_lender": "BANK",
+      "ppp_loans": 15,
+      "anomalies": 0,
+      "rate": 0.0,
+      "total_amount": 5837775
+    }
+  ],
+  "total_failed_banks": 483,
+  "total_ppp_lenders": 4189,
+  "note": "Banks that failed AFTER approving PPP loans. Bank failure may be unrelated to PPP lending."
+}
