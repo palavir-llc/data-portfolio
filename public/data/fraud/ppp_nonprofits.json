@@ -1,0 +1,190 @@
+{
+  "summary": {
+    "total_nonprofits": 56850,
+    "total_forprofit": 911674,
+    "np_anomaly_rate": 0.0176,
+    "fp_anomaly_rate": 0.0201,
+    "np_avg_loan": 694305.0,
+    "fp_avg_loan": 520413.0,
+    "np_total_amount": 39471244695.0,
+    "np_anomaly_amount": 2131811492.0
+  },
+  "by_type": [
+    {
+      "type": "Non-Profit Organization",
+      "count": 55950,
+      "anomalies": 987,
+      "rate": 0.0176,
+      "total_amount": 39042766907.0
+    },
+    {
+      "type": "Non-Profit Childcare Center",
+      "count": 900,
+      "anomalies": 14,
+      "rate": 0.0156,
+      "total_amount": 428477788.0
+    }
+  ],
+  "top_anomalous": [
+    {
+      "name": "INSTITUTE FOR FAMILY HEALTH",
+      "amount": 10000000.0,
+      "city": "New York",
+      "state": "NY",
+      "jobs": 500,
+      "type": "Non-Profit Organization"
+    },
+    {
+      "name": "PACIFIC CLINICS",
+      "amount": 10000000.0,
+      "city": "Arcadia",
+      "state": "CA",
+      "jobs": 103,
+      "type": "Non-Profit Organization"
+    },
+    {
+      "name": "CATALYST FAMILY INC",
+      "amount": 10000000.0,
+      "city": "MORGAN HILL",
+      "state": "CA",
+      "jobs": 500,
+      "type": "Non-Profit Organization"
+    },
+    {
+      "name": "SENECA FAMILY OF AGENCIES",
+      "amount": 10000000.0,
+      "city": "OAKLAND",
+      "state": "CA",
+      "jobs": 440,
+      "type": "Non-Profit Organization"
+    },
+    {
+      "name": "ERIE COUNTY MEDICAL CENTER CORPORATION",
+      "amount": 10000000.0,
+      "city": "BUFFALO",
+      "state": "NY",
+      "jobs": 500,
+      "type": "Non-Profit Organization"
+    },
+    {
+      "name": "UNITED MEDICAL ASSOCIATES, P.C.",
+      "amount": 10000000.0,
+      "city": "Vestal",
+      "state": "NY",
+      "jobs": 415,
+      "type": "Non-Profit Organization"
+    },
+    {
+      "name": "UNION OF ORTHODOX JEWISH CONGREGATIONS OF AMERICA",
+      "amount": 10000000.0,
+      "city": "new york",
+      "state": "NY",
+      "jobs": 500,
+      "type": "Non-Profit Organization"
+    },
+    {
+      "name": "ADVANCE CARE ALLIANCE OF NY, INC.",
+      "amount": 10000000.0,
+      "city": "New York",
+      "state": "NY",
+      "jobs": 500,
+      "type": "Non-Profit Organization"
+    },
+    {
+      "name": "JDRF INTERNATIONAL",
+      "amount": 10000000.0,
+      "city": "NEW YORK",
+      "state": "NY",
+      "jobs": 381,
+      "type": "Non-Profit Organization"
+    },
+    {
+      "name": "CROUSE HEALTH HOSPITAL INC",
+      "amount": 10000000.0,
+      "city": "SYRACUSE",
+      "state": "NY",
+      "jobs": 500,
+      "type": "Non-Profit Organization"
+    },
+    {
+      "name": "THE NEW YORK RACING ASSOCIATION INC",
+      "amount": 10000000.0,
+      "city": "OZONE PARK",
+      "state": "NY",
+      "jobs": 453,
+      "type": "Non-Profit Organization"
+    },
+    {
+      "name": "JEWISH CHILD CARE ASSOCIATION OF NEW YORK",
+      "amount": 10000000.0,
+      "city": "Brooklyn",
+      "state": "NY",
+      "jobs": 500,
+      "type": "Non-Profit Organization"
+    },
+    {
+      "name": "NEW YORK HOTEL TRADES COUNCIL AND HOTEL ASSOCIATION OF NY HE",
+      "amount": 10000000.0,
+      "city": "New York",
+      "state": "NY",
+      "jobs": 287,
+      "type": "Non-Profit Organization"
+    },
+    {
+      "name": "SUNFLOWER ELECTRIC POWER CORPORATION",
+      "amount": 10000000.0,
+      "city": "HAYS",
+      "state": "KS",
+      "jobs": 500,
+      "type": "Non-Profit Organization"
+    },
+    {
+      "name": "SAINT FRANCIS MINISTRIES, INC.",
+      "amount": 10000000.0,
+      "city": "SALINA",
+      "state": "KS",
+      "jobs": 500,
+      "type": "Non-Profit Organization"
+    },
+    {
+      "name": "COMPASS HEALTH",
+      "amount": 10000000.0,
+      "city": "EVERETT",
+      "state": "WA",
+      "jobs": 500,
+      "type": "Non-Profit Organization"
+    },
+    {
+      "name": "YOUNG MEN'S CHRISTIAN ASSOCIATION OF CHICAGO",
+      "amount": 10000000.0,
+      "city": "Chicago",
+      "state": "IL",
+      "jobs": 500,
+      "type": "Non-Profit Organization"
+    },
+    {
+      "name": "JOURNEYCARE, INC.",
+      "amount": 10000000.0,
+      "city": "GLENVIEW",
+      "state": "IL",
+      "jobs": 500,
+      "type": "Non-Profit Organization"
+    },
+    {
+      "name": "AMERICAN ACADEMY OF PEDIATRICS",
+      "amount": 10000000.0,
+      "city": "ITASCA",
+      "state": "IL",
+      "jobs": 250,
+      "type": "Non-Profit Organization"
+    },
+    {
+      "name": "NATIONAL DCP, LLC",
+      "amount": 10000000.0,
+      "city": "Duluth",
+      "state": "GA",
+      "jobs": 500,
+      "type": "Non-Profit Organization"
+    }
+  ]
+}

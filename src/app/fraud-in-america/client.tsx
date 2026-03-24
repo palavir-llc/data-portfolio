@@ -563,19 +563,59 @@ function Timeline({ data, color = "#3b82f6", label, fmt }: {
   data: Array<{ month: string; total: number }>; color?: string; label?: string;
   fmt?: (v: number) => string;
 }) {
+  const [hoverIdx, setHoverIdx] = useState<number | null>(null);
+  const wrapRef = useRef<HTMLDivElement>(null);
+
   if (!data.length) return null;
   const maxV = Math.max(...data.map((d) => d.total), 1);
-  const h = 180;
-  const points = data.map((d, i) => `${(i / (data.length - 1)) * 100},${100 - (d.total / maxV) * 85}`);
+  const h = 200;
+  const padL = 50, padR = 10, padT = 15, padB = 25;
+  const chartW = 100; // viewBox units
+
+  function handleMouse(e: React.MouseEvent<SVGSVGElement>) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const relX = (e.clientX - rect.left) / rect.width;
+    const idx = Math.round(relX * (data.length - 1));
+    setHoverIdx(Math.max(0, Math.min(idx, data.length - 1)));
+  }
+
+  const hData = hoverIdx !== null ? data[hoverIdx] : null;
 
   return (
-    <div className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-5">
+    <div ref={wrapRef} className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-5 relative">
       {label && <p className="mb-3 text-xs font-medium text-zinc-400">{label}</p>}
-      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full" style={{ height: h }}>
-        <polyline fill={color} fillOpacity="0.12" stroke="none"
-          points={`0,100 ${points.join(" ")} 100,100`} />
-        <polyline fill="none" stroke={color} strokeWidth="0.4" points={points.join(" ")} />
+      <svg viewBox={`0 0 ${chartW} 100`} preserveAspectRatio="none" className="w-full" style={{ height: h }}
+        onMouseMove={handleMouse} onMouseLeave={() => setHoverIdx(null)}>
+        {/* Area fill */}
+        <polyline fill={color} fillOpacity="0.1" stroke="none"
+          points={`0,100 ${data.map((d, i) => `${(i / (data.length - 1)) * chartW},${100 - (d.total / maxV) * 85}`).join(" ")} ${chartW},100`} />
+        {/* Line */}
+        <polyline fill="none" stroke={color} strokeWidth="0.3"
+          points={data.map((d, i) => `${(i / (data.length - 1)) * chartW},${100 - (d.total / maxV) * 85}`).join(" ")} />
+        {/* Hover line + dot */}
+        {hoverIdx !== null && (
+          <>
+            <line x1={(hoverIdx / (data.length - 1)) * chartW} y1="0"
+              x2={(hoverIdx / (data.length - 1)) * chartW} y2="100"
+              stroke="#71717a" strokeWidth="0.2" strokeDasharray="1,1" />
+            <circle cx={(hoverIdx / (data.length - 1)) * chartW}
+              cy={100 - (data[hoverIdx].total / maxV) * 85}
+              r="1.2" fill={color} stroke="white" strokeWidth="0.3" />
+          </>
+        )}
       </svg>
+      {/* Hover tooltip */}
+      {hData && hoverIdx !== null && (
+        <div className="pointer-events-none absolute z-50 rounded-lg border border-zinc-700 bg-zinc-900/95 px-3 py-2 shadow-xl text-xs backdrop-blur-sm"
+          style={{ left: `${Math.min(Math.max((hoverIdx / (data.length - 1)) * 100, 10), 80)}%`, top: 30 }}>
+          <p className="font-bold text-zinc-200">{hData.month}</p>
+          <p style={{ color }}>{fmt ? fmt(hData.total) : hData.total.toLocaleString()}</p>
+          {/* Mini bar */}
+          <div className="mt-1 h-1.5 w-20 rounded bg-zinc-800">
+            <div className="h-1.5 rounded" style={{ width: `${(hData.total / maxV) * 100}%`, backgroundColor: color }} />
+          </div>
+        </div>
+      )}
       <div className="mt-2 flex justify-between text-[10px] text-zinc-600">
         <span>{data[0]?.month}</span>
         {fmt && <span className="text-zinc-400">Peak: {fmt(maxV)}</span>}
@@ -594,6 +634,8 @@ export function FraudInAmericaClient() {
   const [pppNaics, setPPPNaics] = useState<NAICSData[]>([]);
   const [pppDeep, setPPPDeep] = useState<PPPDeepDive | null>(null);
   const [pppAnalysis, setPPPAnalysis] = useState<PPPDeepAnalysis | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [nonprofits, setNonprofits] = useState<any>(null);
   const [corpFlagged, setCorpFlagged] = useState<CorporateFlagged[]>([]);
   const [corpDB, setCorpDB] = useState<DBEntry[]>([]);
   const [corpDist, setCorpDist] = useState<MScoreDistribution[]>([]);
@@ -613,6 +655,7 @@ export function FraudInAmericaClient() {
       fetch("/data/fraud/ppp_naics.json").then((r) => r.json()),
       fetch("/data/fraud/ppp_deep_dive.json").then((r) => r.json()).catch(() => null),
       fetch("/data/fraud/ppp_deep_analysis.json").then((r) => r.json()).catch(() => null),
+      fetch("/data/fraud/ppp_nonprofits.json").then((r) => r.json()).catch(() => null),
       fetch("/data/fraud/corporate_flagged_companies.json").then((r) => r.json()),
       fetch("/data/fraud/corporate_mscore_distribution.json").then((r) => r.json()),
       fetch("/data/fraud/corporate_summary.json").then((r) => r.json()),
@@ -621,9 +664,9 @@ export function FraudInAmericaClient() {
       fetch("/data/fraud/cfpb_velocity.json").then((r) => r.json()),
       fetch("/data/fraud/doj_fca_stats.json").then((r) => r.json()),
       fetch("/data/fraud/enforcement_timeline.json").then((r) => r.json()),
-    ]).then(([states, scatter, summary, naics, deepDive, pppAnal, flagged, dist, cSummary, db, hSpec, cfpbData, dojData, tl]) => {
+    ]).then(([states, scatter, summary, naics, deepDive, pppAnal, npData, flagged, dist, cSummary, db, hSpec, cfpbData, dojData, tl]) => {
       setPPPStates(states); setPPPScatter(scatter); setPPPSummary(summary); setPPPNaics(naics);
-      setPPPDeep(deepDive); setPPPAnalysis(pppAnal); setCorpDB(db);
+      setPPPDeep(deepDive); setPPPAnalysis(pppAnal); setNonprofits(npData); setCorpDB(db);
       setCorpFlagged(flagged); setCorpDist(dist); setCorpSummary(cSummary);
       setHealthSpecialty(hSpec); setCFPB(cfpbData); setDOJ(dojData); setTimeline(tl);
       setLoading(false);
@@ -650,7 +693,7 @@ export function FraudInAmericaClient() {
 
   const nav = [
     { id: "hero", label: "Overview" }, { id: "ppp", label: "PPP Fraud" },
-    { id: "corporate", label: "Corporate" }, { id: "healthcare", label: "Healthcare" },
+    { id: "nonprofits", label: "Nonprofits" }, { id: "corporate", label: "Corporate" }, { id: "healthcare", label: "Healthcare" },
     { id: "crosscutting", label: "Patterns" }, { id: "methodology", label: "Methods" },
   ];
 
@@ -989,6 +1032,78 @@ export function FraudInAmericaClient() {
           <Source text="SBA PPP FOIA Data (data.sba.gov)" url="https://data.sba.gov/dataset/ppp-foia" />
         </div>
       </section>
+
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════════
+          NONPROFITS
+         ═══════════════════════════════════════════════════════════════ */}
+      {nonprofits && (
+        <section data-section="nonprofits" id="nonprofits" className="px-6 py-20">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="text-3xl font-extrabold tracking-tight">Nonprofits: Hiding in Plain Sight?</h2>
+            <p className="mt-4 max-w-3xl text-base leading-relaxed text-zinc-400">
+              Nonprofits received {$(nonprofits.summary.np_total_amount)} in PPP loans.
+              They account for {(nonprofits.summary.total_nonprofits / (nonprofits.summary.total_nonprofits + nonprofits.summary.total_forprofit) * 100).toFixed(1)}% of
+              all loans above $150K. Their anomaly rate ({(nonprofits.summary.np_anomaly_rate * 100).toFixed(2)}%) is
+              actually lower than for-profits ({(nonprofits.summary.fp_anomaly_rate * 100).toFixed(2)}%). But the patterns
+              within nonprofits tell a different story.
+            </p>
+
+            <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
+              <Stat label="Nonprofit PPP Loans" value={nonprofits.summary.total_nonprofits.toLocaleString()} sub={$(nonprofits.summary.np_total_amount) + " total"} />
+              <Stat label="Anomaly Rate" value={(nonprofits.summary.np_anomaly_rate * 100).toFixed(2) + "%"} sub="vs " accent="text-amber-400" />
+              <Stat label="Avg Nonprofit Loan" value={$(nonprofits.summary.np_avg_loan)} sub={"vs " + $(nonprofits.summary.fp_avg_loan) + " for-profit"} />
+              <Stat label="Flagged Amount" value={$(nonprofits.summary.np_anomaly_amount)} sub="Nonprofit anomalies" accent="text-red-400" />
+            </div>
+
+            <WhyBox>
+              Nonprofits had slightly lower anomaly rates overall, but their anomalous loans
+              are concentrated in specific patterns: charter school networks filing from the
+              same address across multiple states, healthcare organizations claiming the maximum
+              $10M with exactly 500 employees, and religious organizations with identical names
+              in dozens of states. The legitimate ones are real (churches do have the same names).
+              The question is which ones aren&apos;t.
+            </WhyBox>
+
+            {/* Top anomalous nonprofits */}
+            {nonprofits.top_anomalous?.length > 0 && (
+              <div className="mt-8">
+                <h3 className="text-lg font-bold text-zinc-200">Largest Flagged Nonprofit Loans</h3>
+                <p className="mt-2 mb-4 text-sm text-zinc-500">
+                  Every one of these is a $10M loan with exactly 500 employees reported.
+                  That exact combination, the program maximum with a round employee count,
+                  is one of the strongest anomaly signals.
+                </p>
+                <div className="overflow-x-auto rounded-xl border border-zinc-800">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="bg-zinc-900/80 text-left text-xs text-zinc-500">
+                        <th className="px-4 py-2.5">Organization</th>
+                        <th className="px-4 py-2.5 text-right">Amount</th>
+                        <th className="px-4 py-2.5">Location</th>
+                        <th className="px-4 py-2.5 text-right">Jobs</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {nonprofits.top_anomalous.slice(0, 12).map((n: { name: string; amount: number; city: string; state: string; jobs: number }, i: number) => (
+                        <tr key={i} className="border-t border-zinc-800/40 hover:bg-zinc-900/40">
+                          <td className="px-4 py-2 text-zinc-200">{n.name}</td>
+                          <td className="px-4 py-2 text-right font-mono text-red-400">{$(n.amount)}</td>
+                          <td className="px-4 py-2 text-zinc-500">{n.city}, {n.state}</td>
+                          <td className="px-4 py-2 text-right text-zinc-400">{n.jobs}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+
+            <Source text="SBA PPP FOIA Data (data.sba.gov)" url="https://data.sba.gov/dataset/ppp-foia" />
+          </div>
+        </section>
+      )}
 
       <SectionDivider />
 
