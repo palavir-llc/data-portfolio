@@ -1,0 +1,581 @@
+{
+  "context": {
+    "ppp_round1": "April-August 2020: Trump administration, SBA Administrator Jovita Carranza",
+    "ppp_round2": "January-June 2021: Biden administration (from Jan 20), SBA Administrator Isabel Guzman (from March 2021)",
+    "note": "PPP was bipartisan (CARES Act passed 96-0 in Senate). State-level patterns reflect local economic conditions, business density, and lender behavior more than political affiliation."
+  },
+  "by_governor": {
+    "R": {
+      "states": 27,
+      "total_loans": 401155,
+      "anomalies": 7337,
+      "rate": 0.0183,
+      "total_amount": 208259163494,
+      "anomaly_amount": 11903551458
+    },
+    "D": {
+      "states": 24,
+      "total_loans": 563567,
+      "anomalies": 12003,
+      "rate": 0.0213,
+      "total_amount": 305415342725,
+      "anomaly_amount": 20420810838
+    }
+  },
+  "by_trifecta": {
+    "R": {
+      "states": 22,
+      "total_loans": 344214,
+      "anomalies": 6394,
+      "rate": 0.0186,
+      "total_amount": 178063794452,
+      "anomaly_amount": 10238341304
+    },
+    "D": {
+      "states": 16,
+      "total_loans": 404271,
+      "anomalies": 9618,
+      "rate": 0.0238,
+      "total_amount": 218146076934,
+      "anomaly_amount": 15682850985
+    },
+    "S": {
+      "states": 13,
+      "total_loans": 216237,
+      "anomalies": 3328,
+      "rate": 0.0154,
+      "total_amount": 117464634832,
+      "anomaly_amount": 6403170006
+    }
+  },
+  "by_presidential": {
+    "Trump": {
+      "states": 25,
+      "total_loans": 359610,
+      "anomalies": 6513,
+      "rate": 0.0181,
+      "total_amount": 186626715844,
+      "anomaly_amount": 10553160067
+    },
+    "Biden": {
+      "states": 26,
+      "total_loans": 605112,
+      "anomalies": 12827,
+      "rate": 0.0212,
+      "total_amount": 327047790375,
+      "anomaly_amount": 21771202229
+    }
+  },
+  "state_detail": [
+    {
+      "state": "CA",
+      "state_name": "California",
+      "anomaly_rate": 0.0272,
+      "governor_party": "D",
+      "trifecta": "D",
+      "presidential_2020": "D",
+      "total_loans": 130611,
+      "anomaly_count": 3550
+    },
+    {
+      "state": "WV",
+      "state_name": "West Virginia",
+      "anomaly_rate": 0.027,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "R",
+      "total_loans": 3365,
+      "anomaly_count": 91
+    },
+    {
+      "state": "NY",
+      "state_name": "New York",
+      "anomaly_rate": 0.0263,
+      "governor_party": "D",
+      "trifecta": "D",
+      "presidential_2020": "D",
+      "total_loans": 74107,
+      "anomaly_count": 1948
+    },
+    {
+      "state": "FL",
+      "state_name": "Florida",
+      "anomaly_rate": 0.0249,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "R",
+      "total_loans": 60030,
+      "anomaly_count": 1492
+    },
+    {
+      "state": "NJ",
+      "state_name": "New Jersey",
+      "anomaly_rate": 0.0246,
+      "governor_party": "D",
+      "trifecta": "D",
+      "presidential_2020": "D",
+      "total_loans": 32535,
+      "anomaly_count": 801
+    },
+    {
+      "state": "RI",
+      "state_name": "Rhode Island",
+      "anomaly_rate": 0.024,
+      "governor_party": "D",
+      "trifecta": "D",
+      "presidential_2020": "D",
+      "total_loans": 3792,
+      "anomaly_count": 91
+    },
+    {
+      "state": "CT",
+      "state_name": "Connecticut",
+      "anomaly_rate": 0.0235,
+      "governor_party": "D",
+      "trifecta": "D",
+      "presidential_2020": "D",
+      "total_loans": 12890,
+      "anomaly_count": 303
+    },
+    {
+      "state": "NV",
+      "state_name": "Nevada",
+      "anomaly_rate": 0.0231,
+      "governor_party": "D",
+      "trifecta": "D",
+      "presidential_2020": "D",
+      "total_loans": 8260,
+      "anomaly_count": 191
+    },
+    {
+      "state": "WA",
+      "state_name": "Washington",
+      "anomaly_rate": 0.0223,
+      "governor_party": "D",
+      "trifecta": "D",
+      "presidential_2020": "D",
+      "total_loans": 23753,
+      "anomaly_count": 529
+    },
+    {
+      "state": "TN",
+      "state_name": "Tennessee",
+      "anomaly_rate": 0.0216,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "R",
+      "total_loans": 15868,
+      "anomaly_count": 343
+    },
+    {
+      "state": "GA",
+      "state_name": "Georgia",
+      "anomaly_rate": 0.0214,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "D",
+      "total_loans": 25834,
+      "anomaly_count": 553
+    },
+    {
+      "state": "IL",
+      "state_name": "Illinois",
+      "anomaly_rate": 0.0213,
+      "governor_party": "D",
+      "trifecta": "D",
+      "presidential_2020": "D",
+      "total_loans": 40814,
+      "anomaly_count": 868
+    },
+    {
+      "state": "ME",
+      "state_name": "Maine",
+      "anomaly_rate": 0.0213,
+      "governor_party": "D",
+      "trifecta": "D",
+      "presidential_2020": "D",
+      "total_loans": 4185,
+      "anomaly_count": 89
+    },
+    {
+      "state": "TX",
+      "state_name": "Texas",
+      "anomaly_rate": 0.0211,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "R",
+      "total_loans": 76193,
+      "anomaly_count": 1607
+    },
+    {
+      "state": "WY",
+      "state_name": "Wyoming",
+      "anomaly_rate": 0.0192,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "R",
+      "total_loans": 2137,
+      "anomaly_count": 41
+    },
+    {
+      "state": "DE",
+      "state_name": "Delaware",
+      "anomaly_rate": 0.019,
+      "governor_party": "D",
+      "trifecta": "D",
+      "presidential_2020": "D",
+      "total_loans": 2995,
+      "anomaly_count": 57
+    },
+    {
+      "state": "LA",
+      "state_name": "Louisiana",
+      "anomaly_rate": 0.0188,
+      "governor_party": "D",
+      "trifecta": "S",
+      "presidential_2020": "R",
+      "total_loans": 13669,
+      "anomaly_count": 257
+    },
+    {
+      "state": "DC",
+      "state_name": "District of Columbia",
+      "anomaly_rate": 0.0186,
+      "governor_party": "D",
+      "trifecta": "D",
+      "presidential_2020": "D",
+      "total_loans": 4398,
+      "anomaly_count": 82
+    },
+    {
+      "state": "VA",
+      "state_name": "Virginia",
+      "anomaly_rate": 0.0185,
+      "governor_party": "D",
+      "trifecta": "D",
+      "presidential_2020": "D",
+      "total_loans": 23267,
+      "anomaly_count": 430
+    },
+    {
+      "state": "MA",
+      "state_name": "Massachusetts",
+      "anomaly_rate": 0.0183,
+      "governor_party": "R",
+      "trifecta": "S",
+      "presidential_2020": "D",
+      "total_loans": 27474,
+      "anomaly_count": 503
+    },
+    {
+      "state": "PA",
+      "state_name": "Pennsylvania",
+      "anomaly_rate": 0.0182,
+      "governor_party": "D",
+      "trifecta": "S",
+      "presidential_2020": "D",
+      "total_loans": 38536,
+      "anomaly_count": 700
+    },
+    {
+      "state": "HI",
+      "state_name": "Hawaii",
+      "anomaly_rate": 0.0181,
+      "governor_party": "D",
+      "trifecta": "D",
+      "presidential_2020": "D",
+      "total_loans": 4980,
+      "anomaly_count": 90
+    },
+    {
+      "state": "UT",
+      "state_name": "Utah",
+      "anomaly_rate": 0.0179,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "R",
+      "total_loans": 9292,
+      "anomaly_count": 166
+    },
+    {
+      "state": "MT",
+      "state_name": "Montana",
+      "anomaly_rate": 0.0178,
+      "governor_party": "R",
+      "trifecta": "S",
+      "presidential_2020": "R",
+      "total_loans": 3144,
+      "anomaly_count": 56
+    },
+    {
+      "state": "MO",
+      "state_name": "Missouri",
+      "anomaly_rate": 0.0174,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "R",
+      "total_loans": 16349,
+      "anomaly_count": 284
+    },
+    {
+      "state": "OH",
+      "state_name": "Ohio",
+      "anomaly_rate": 0.0163,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "R",
+      "total_loans": 32645,
+      "anomaly_count": 533
+    },
+    {
+      "state": "NM",
+      "state_name": "New Mexico",
+      "anomaly_rate": 0.0161,
+      "governor_party": "D",
+      "trifecta": "D",
+      "presidential_2020": "D",
+      "total_loans": 4485,
+      "anomaly_count": 72
+    },
+    {
+      "state": "AK",
+      "state_name": "Alaska",
+      "anomaly_rate": 0.0158,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "R",
+      "total_loans": 2662,
+      "anomaly_count": 42
+    },
+    {
+      "state": "CO",
+      "state_name": "Colorado",
+      "anomaly_rate": 0.0158,
+      "governor_party": "D",
+      "trifecta": "D",
+      "presidential_2020": "D",
+      "total_loans": 19743,
+      "anomaly_count": 312
+    },
+    {
+      "state": "KY",
+      "state_name": "Kentucky",
+      "anomaly_rate": 0.0154,
+      "governor_party": "D",
+      "trifecta": "S",
+      "presidential_2020": "R",
+      "total_loans": 9178,
+      "anomaly_count": 141
+    },
+    {
+      "state": "MD",
+      "state_name": "Maryland",
+      "anomaly_rate": 0.0152,
+      "governor_party": "R",
+      "trifecta": "S",
+      "presidential_2020": "D",
+      "total_loans": 18978,
+      "anomaly_count": 289
+    },
+    {
+      "state": "ND",
+      "state_name": "North Dakota",
+      "anomaly_rate": 0.0152,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "R",
+      "total_loans": 3222,
+      "anomaly_count": 49
+    },
+    {
+      "state": "OR",
+      "state_name": "Oregon",
+      "anomaly_rate": 0.0152,
+      "governor_party": "D",
+      "trifecta": "D",
+      "presidential_2020": "D",
+      "total_loans": 13456,
+      "anomaly_count": 205
+    },
+    {
+      "state": "NC",
+      "state_name": "North Carolina",
+      "anomaly_rate": 0.0148,
+      "governor_party": "D",
+      "trifecta": "S",
+      "presidential_2020": "R",
+      "total_loans": 22827,
+      "anomaly_count": 337
+    },
+    {
+      "state": "SC",
+      "state_name": "South Carolina",
+      "anomaly_rate": 0.0144,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "R",
+      "total_loans": 10744,
+      "anomaly_count": 155
+    },
+    {
+      "state": "AZ",
+      "state_name": "Arizona",
+      "anomaly_rate": 0.0143,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "D",
+      "total_loans": 15791,
+      "anomaly_count": 226
+    },
+    {
+      "state": "MI",
+      "state_name": "Michigan",
+      "anomaly_rate": 0.0138,
+      "governor_party": "D",
+      "trifecta": "S",
+      "presidential_2020": "D",
+      "total_loans": 29802,
+      "anomaly_count": 412
+    },
+    {
+      "state": "OK",
+      "state_name": "Oklahoma",
+      "anomaly_rate": 0.0138,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "R",
+      "total_loans": 9999,
+      "anomaly_count": 138
+    },
+    {
+      "state": "NH",
+      "state_name": "New Hampshire",
+      "anomaly_rate": 0.0136,
+      "governor_party": "R",
+      "trifecta": "S",
+      "presidential_2020": "D",
+      "total_loans": 5078,
+      "anomaly_count": 69
+    },
+    {
+      "state": "MN",
+      "state_name": "Minnesota",
+      "anomaly_rate": 0.0133,
+      "governor_party": "D",
+      "trifecta": "S",
+      "presidential_2020": "D",
+      "total_loans": 19728,
+      "anomaly_count": 263
+    },
+    {
+      "state": "IN",
+      "state_name": "Indiana",
+      "anomaly_rate": 0.0131,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "R",
+      "total_loans": 16599,
+      "anomaly_count": 217
+    },
+    {
+      "state": "KS",
+      "state_name": "Kansas",
+      "anomaly_rate": 0.013,
+      "governor_party": "D",
+      "trifecta": "S",
+      "presidential_2020": "R",
+      "total_loans": 8203,
+      "anomaly_count": 107
+    },
+    {
+      "state": "AL",
+      "state_name": "Alabama",
+      "anomaly_rate": 0.0123,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "R",
+      "total_loans": 10912,
+      "anomaly_count": 134
+    },
+    {
+      "state": "MS",
+      "state_name": "Mississippi",
+      "anomaly_rate": 0.0122,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "R",
+      "total_loans": 5504,
+      "anomaly_count": 67
+    },
+    {
+      "state": "NE",
+      "state_name": "Nebraska",
+      "anomaly_rate": 0.0117,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "R",
+      "total_loans": 5804,
+      "anomaly_count": 68
+    },
+    {
+      "state": "SD",
+      "state_name": "South Dakota",
+      "anomaly_rate": 0.0115,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "R",
+      "total_loans": 2695,
+      "anomaly_count": 31
+    },
+    {
+      "state": "VT",
+      "state_name": "Vermont",
+      "anomaly_rate": 0.0115,
+      "governor_party": "R",
+      "trifecta": "S",
+      "presidential_2020": "D",
+      "total_loans": 2267,
+      "anomaly_count": 26
+    },
+    {
+      "state": "WI",
+      "state_name": "Wisconsin",
+      "anomaly_rate": 0.0097,
+      "governor_party": "D",
+      "trifecta": "S",
+      "presidential_2020": "D",
+      "total_loans": 17353,
+      "anomaly_count": 168
+    },
+    {
+      "state": "IA",
+      "state_name": "Iowa",
+      "anomaly_rate": 0.0095,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "R",
+      "total_loans": 8295,
+      "anomaly_count": 79
+    },
+    {
+      "state": "ID",
+      "state_name": "Idaho",
+      "anomaly_rate": 0.0091,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "R",
+      "total_loans": 4417,
+      "anomaly_count": 40
+    },
+    {
+      "state": "AR",
+      "state_name": "Arkansas",
+      "anomaly_rate": 0.0065,
+      "governor_party": "R",
+      "trifecta": "R",
+      "presidential_2020": "R",
+      "total_loans": 5857,
+      "anomaly_count": 38
+    }
+  ]
+}

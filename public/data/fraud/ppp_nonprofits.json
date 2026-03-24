@@ -251,37 +251,43 @@
         "amount": 10000000,
         "city": "Salina",
         "state": "KS",
-        "anomaly": true
+        "anomaly": false,
+        "note": "Institutional loan - legitimate organizational application"
       },
       {
         "name": "UNION OF ORTHODOX JEWISH CONGREGATIONS OF AMERICA",
         "amount": 10000000,
         "city": "New York",
         "state": "NY",
-        "anomaly": true
+        "anomaly": false,
+        "note": "Institutional loan - legitimate organizational application"
       },
       {
         "name": "PRESBYTERIAN CHURCH USA A CORP",
         "amount": 8850500,
         "city": "Louisville",
         "state": "KY",
-        "anomaly": true
+        "anomaly": false,
+        "note": "Institutional loan - legitimate organizational application"
       },
       {
         "name": "ARCHDIOCESE OF NEW YORK",
         "amount": 7735890,
         "city": "New York",
         "state": "NY",
-        "anomaly": true
+        "anomaly": false,
+        "note": "Institutional loan - legitimate organizational application"
       },
       {
         "name": "LIFE. CHURCH OPERATIONS, LLC",
         "amount": 7007000,
         "city": "Edmond",
         "state": "OK",
-        "anomaly": true
+        "anomaly": false,
+        "note": "Institutional loan - legitimate organizational application"
       }
-    ]
+    ],
+    "note": "Religious organizations with the same name across states (First Baptist Church, Trinity Lutheran Church, etc.) are independent congregations, not a single entity filing multiple loans. These are NOT flagged as suspicious. Large institutional loans (archdioceses, denominational headquarters) are legitimate organizational PPP applications."
   },
   "healthcare_np": {
     "total": 4299,

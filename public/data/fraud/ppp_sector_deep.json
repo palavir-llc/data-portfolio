@@ -1,0 +1,279 @@
+{
+  "by_business_type": [
+    {
+      "type": "Self-Employed Individuals",
+      "loans": 492,
+      "anomalies": 145,
+      "rate": 0.2947,
+      "total": 174616149,
+      "avg_loan": 354911
+    },
+    {
+      "type": "Single Member LLC",
+      "loans": 80,
+      "anomalies": 17,
+      "rate": 0.2125,
+      "total": 27115399,
+      "avg_loan": 338942
+    },
+    {
+      "type": "Independent Contractors",
+      "loans": 112,
+      "anomalies": 16,
+      "rate": 0.1429,
+      "total": 43015556,
+      "avg_loan": 384067
+    },
+    {
+      "type": "Sole Proprietorship",
+      "loans": 12242,
+      "anomalies": 1720,
+      "rate": 0.1405,
+      "total": 5015884337,
+      "avg_loan": 409728
+    },
+    {
+      "type": "501(c)3 \u00bf Non Profit",
+      "loans": 1777,
+      "anomalies": 112,
+      "rate": 0.063,
+      "total": 2663688073,
+      "avg_loan": 1498980
+    },
+    {
+      "type": "Joint Venture",
+      "loans": 124,
+      "anomalies": 4,
+      "rate": 0.0323,
+      "total": 72089275,
+      "avg_loan": 581365
+    },
+    {
+      "type": "Employee Stock Ownership Plan(ESOP)",
+      "loans": 642,
+      "anomalies": 19,
+      "rate": 0.0296,
+      "total": 922962205,
+      "avg_loan": 1437636
+    },
+    {
+      "type": "Trust",
+      "loans": 401,
+      "anomalies": 10,
+      "rate": 0.0249,
+      "total": 299671079,
+      "avg_loan": 747309
+    },
+    {
+      "type": "Partnership",
+      "loans": 18150,
+      "anomalies": 420,
+      "rate": 0.0231,
+      "total": 10152749385,
+      "avg_loan": 559380
+    },
+    {
+      "type": "Limited  Liability Company(LLC)",
+      "loans": 261498,
+      "anomalies": 5971,
+      "rate": 0.0228,
+      "total": 130149152877,
+      "avg_loan": 497706
+    },
+    {
+      "type": "Limited Liability Partnership",
+      "loans": 12708,
+      "anomalies": 255,
+      "rate": 0.0201,
+      "total": 6816906816,
+      "avg_loan": 536426
+    },
+    {
+      "type": "Non-Profit Organization",
+      "loans": 55950,
+      "anomalies": 987,
+      "rate": 0.0176,
+      "total": 39042766907,
+      "avg_loan": 697815
+    },
+    {
+      "type": "Corporation",
+      "loans": 418229,
+      "anomalies": 6807,
+      "rate": 0.0163,
+      "total": 216661183625,
+      "avg_loan": 518044
+    },
+    {
+      "type": "Non-Profit Childcare Center",
+      "loans": 900,
+      "anomalies": 14,
+      "rate": 0.0156,
+      "total": 428477788,
+      "avg_loan": 476086
+    },
+    {
+      "type": "Tribal Concerns",
+      "loans": 64,
+      "anomalies": 1,
+      "rate": 0.0156,
+      "total": 52884450,
+      "avg_loan": 826320
+    },
+    {
+      "type": "Subchapter S Corporation",
+      "loans": 174794,
+      "anomalies": 2717,
+      "rate": 0.0155,
+      "total": 95609674943,
+      "avg_loan": 546985
+    },
+    {
+      "type": "Professional Association",
+      "loans": 6253,
+      "anomalies": 92,
+      "rate": 0.0147,
+      "total": 3223664513,
+      "avg_loan": 515539
+    },
+    {
+      "type": "Cooperative",
+      "loans": 2433,
+      "anomalies": 35,
+      "rate": 0.0144,
+      "total": 1579316076,
+      "avg_loan": 649123
+    },
+    {
+      "type": "Housing Co-op",
+      "loans": 152,
+      "anomalies": 2,
+      "rate": 0.0132,
+      "total": 54282187,
+      "avg_loan": 357120
+    },
+    {
+      "type": "501(c)6 \u00bf Non Profit Membership",
+      "loans": 762,
+      "anomalies": 8,
+      "rate": 0.0105,
+      "total": 376674687,
+      "avg_loan": 494324
+    }
+  ],
+  "by_keyword": [
+    {
+      "sector": "Staffing/Temp",
+      "loans": 2854,
+      "anomalies": 102,
+      "rate": 0.0357,
+      "multiplier": 1.8,
+      "total": 2498530130
+    },
+    {
+      "sector": "Used Car",
+      "loans": 648,
+      "anomalies": 19,
+      "rate": 0.0293,
+      "multiplier": 1.5,
+      "total": 296148008
+    },
+    {
+      "sector": "Security Guard",
+      "loans": 3270,
+      "anomalies": 89,
+      "rate": 0.0272,
+      "multiplier": 1.4,
+      "total": 1870485556
+    },
+    {
+      "sector": "Restaurants",
+      "loans": 19351,
+      "anomalies": 510,
+      "rate": 0.0264,
+      "multiplier": 1.3,
+      "total": 8788371605
+    },
+    {
+      "sector": "Consulting",
+      "loans": 8282,
+      "anomalies": 196,
+      "rate": 0.0237,
+      "multiplier": 1.2,
+      "total": 4443709340
+    },
+    {
+      "sector": "Trucking",
+      "loans": 8258,
+      "anomalies": 192,
+      "rate": 0.0233,
+      "multiplier": 1.2,
+      "total": 4128790669
+    },
+    {
+      "sector": "Nail/Hair Salon",
+      "loans": 3076,
+      "anomalies": 71,
+      "rate": 0.0231,
+      "multiplier": 1.2,
+      "total": 1079931983
+    },
+    {
+      "sector": "Gas Station",
+      "loans": 1358,
+      "anomalies": 27,
+      "rate": 0.0199,
+      "multiplier": 1.0,
+      "total": 763396117
+    },
+    {
+      "sector": "Real Estate",
+      "loans": 5275,
+      "anomalies": 101,
+      "rate": 0.0191,
+      "multiplier": 1.0,
+      "total": 2528533074
+    },
+    {
+      "sector": "Construction",
+      "loans": 47283,
+      "anomalies": 882,
+      "rate": 0.0187,
+      "multiplier": 0.9,
+      "total": 26634918586
+    },
+    {
+      "sector": "Cleaning Service",
+      "loans": 1871,
+      "anomalies": 31,
+      "rate": 0.0166,
+      "multiplier": 0.8,
+      "total": 720168779
+    },
+    {
+      "sector": "Law Firm",
+      "loans": 10923,
+      "anomalies": 154,
+      "rate": 0.0141,
+      "multiplier": 0.7,
+      "total": 4129476421
+    },
+    {
+      "sector": "Medical Practice",
+      "loans": 17230,
+      "anomalies": 222,
+      "rate": 0.0129,
+      "multiplier": 0.6,
+      "total": 7713011089
+    },
+    {
+      "sector": "Towing",
+      "loans": 1064,
+      "anomalies": 10,
+      "rate": 0.0094,
+      "multiplier": 0.5,
+      "total": 351902755
+    }
+  ],
+  "overall_rate": 0.02
+}

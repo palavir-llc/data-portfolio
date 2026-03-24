@@ -1,0 +1,34 @@
+[
+  {
+    "sector": "Hospice",
+    "loans": 985,
+    "anomalies": 15,
+    "rate": 0.0152,
+    "total_amount": 615256775,
+    "multiplier": 0.8
+  },
+  {
+    "sector": "Daycare/Childcare",
+    "loans": 1870,
+    "anomalies": 19,
+    "rate": 0.0102,
+    "total_amount": 573978537,
+    "multiplier": 0.5
+  },
+  {
+    "sector": "Autism/ABA",
+    "loans": 910,
+    "anomalies": 13,
+    "rate": 0.0143,
+    "total_amount": 569494024,
+    "multiplier": 0.7
+  },
+  {
+    "sector": "Home Health",
+    "loans": 4796,
+    "anomalies": 100,
+    "rate": 0.0209,
+    "total_amount": 2622254048,
+    "multiplier": 1.0
+  }
+]

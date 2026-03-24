@@ -268,13 +268,18 @@ function CompanyDatabase({ data }: { data: DBEntry[] }) {
                     <td colSpan={7} className="px-6 py-4">
                       <div className="grid gap-4 sm:grid-cols-2">
                         <div>
-                          <p className="mb-2 text-xs font-bold text-zinc-400">M-Score Components</p>
+                          <p className="mb-2 text-xs font-bold text-zinc-400">M-Score Components <span className="font-normal text-zinc-600">(1.0 = normal, higher = elevated)</span></p>
                           <div className="space-y-1.5">
                             <MiniBar label="DSRI" value={c.dsri} max={10} danger={c.dsri > 1.5} />
+                            <p className="text-[9px] text-zinc-600 ml-12 -mt-1">Receivables Index: are customers paying slower?</p>
                             <MiniBar label="GMI" value={c.gmi} max={10} danger={c.gmi > 1.5} />
+                            <p className="text-[9px] text-zinc-600 ml-12 -mt-1">Gross Margin: are profit margins shrinking?</p>
                             <MiniBar label="AQI" value={c.aqi} max={10} danger={c.aqi > 1.5} />
+                            <p className="text-[9px] text-zinc-600 ml-12 -mt-1">Asset Quality: turning costs into &quot;assets&quot;?</p>
                             <MiniBar label="SGI" value={c.sgi} max={Math.max(c.sgi, 10)} danger={c.sgi > 1.5} />
+                            <p className="text-[9px] text-zinc-600 ml-12 -mt-1">Sales Growth: unusually fast revenue growth?</p>
                             <MiniBar label="TATA" value={c.tata} max={1} danger={c.tata > 0.05} />
+                            <p className="text-[9px] text-zinc-600 ml-12 -mt-1">Accruals: gap between paper profit and cash?</p>
                           </div>
                         </div>
                         <div>
@@ -1234,25 +1239,18 @@ export function FraudInAmericaClient() {
               </div>
             )}
 
-            {/* Religious organizations */}
+            {/* Religious organizations - legitimate */}
             {nonprofits.religious && (
               <div className="mt-10">
-                <h3 className="text-lg font-bold text-zinc-200">Religious Organizations: Big Money, Low Scrutiny</h3>
+                <h3 className="text-lg font-bold text-zinc-200">Religious Organizations: Mostly Legitimate</h3>
                 <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
-                  {nonprofits.religious.total.toLocaleString()} religious organizations received PPP loans.
-                  Their anomaly rate is low ({(nonprofits.religious.anomaly_rate * 100).toFixed(1)}%), but the
-                  largest religious PPP loans tell an interesting story. 5 of 13 loans above $5M
-                  were flagged as anomalous, including a $10M loan to Saint Francis Ministries.
+                  {nonprofits.religious.total.toLocaleString()} religious organizations received PPP loans
+                  with a low anomaly rate of {(nonprofits.religious.anomaly_rate * 100).toFixed(1)}%.
+                  Churches with the same name across states (First Baptist, Trinity Lutheran) are
+                  independent congregations, not a single entity double-dipping. The large institutional
+                  loans (archdioceses, denominational headquarters) are legitimate organizational
+                  applications for multi-location employers.
                 </p>
-                <CaseFile
-                  title="Largest Religious Organization PPP Loans"
-                  color="violet"
-                  items={(nonprofits.religious.big_loans || []).map((l: { name: string; amount: number; city: string; state: string; anomaly: boolean }) => ({
-                    label: l.name,
-                    detail: `${l.city}, ${l.state} ${l.anomaly ? "- FLAGGED" : ""}`,
-                    amount: $(l.amount),
-                  }))}
-                />
               </div>
             )}
 
