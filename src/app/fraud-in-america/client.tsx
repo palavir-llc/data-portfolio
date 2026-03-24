@@ -60,7 +60,7 @@ interface CorporateFlagged {
   ticker?: string; exchange?: string; state_inc?: string; latest_10k_date?: string;
   restatement_filings?: number; recent_8k_count?: number; insider_transaction_count?: number;
   primary_driver?: string; driver_explanation?: string; driver_contribution?: number;
-  news_summary?: string; current_status?: string;
+  news_summary?: string; current_status?: string; validation?: string;
 }
 interface MScoreDistribution { bin_start: number; bin_end: number; count: number; flagged: boolean; }
 interface CorporateSummary { total_companies: number; total_company_years: number; flagged_count: number; flagged_pct: number; median_mscore: number; threshold: number; }
@@ -1251,9 +1251,26 @@ export function FraudInAmericaClient() {
                           {c.latest_10k_date && <span className="ml-2">Latest 10-K: {c.latest_10k_date}</span>}
                         </p>
                       </div>
-                      <div className="rounded-lg bg-red-500/15 px-3 py-1.5 text-center">
-                        <p className="text-lg font-extrabold text-red-400">{c.mscore.toFixed(2)}</p>
-                        <p className="text-[10px] text-red-400/70">M-Score</p>
+                      <div className="text-right">
+                        <div className="rounded-lg bg-red-500/15 px-3 py-1.5 text-center inline-block">
+                          <p className="text-lg font-extrabold text-red-400">{c.mscore.toFixed(2)}</p>
+                          <p className="text-[10px] text-red-400/70">M-Score</p>
+                        </div>
+                        {c.validation && (
+                          <p className={`mt-1 text-[9px] font-bold uppercase tracking-wider ${
+                            c.validation === "confirmed_fraud_risk" ? "text-red-400" :
+                            c.validation === "confirmed_manipulation" ? "text-red-500" :
+                            c.validation === "confirmed_concern" ? "text-amber-400" :
+                            c.validation === "false_positive" ? "text-green-400" :
+                            "text-zinc-500"
+                          }`}>
+                            {c.validation === "confirmed_fraud_risk" ? "Confirmed risk" :
+                             c.validation === "confirmed_manipulation" ? "Manipulation confirmed" :
+                             c.validation === "confirmed_concern" ? "Concern confirmed" :
+                             c.validation === "false_positive" ? "Likely legitimate" :
+                             c.validation === "watch" ? "Watch list" : ""}
+                          </p>
+                        )}
                       </div>
                     </div>
                     {c.driver_explanation && (
