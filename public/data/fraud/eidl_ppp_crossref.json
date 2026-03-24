@@ -1,0 +1,284 @@
+{
+  "summary": {
+    "ppp_unique_names": 857117,
+    "eidl_unique_names": 3544634,
+    "in_both": 113836,
+    "double_dipper_ppp_loans": 141150,
+    "double_dipper_anomaly_rate": 0.0192,
+    "ppp_only_anomaly_rate": 0.0201,
+    "total_eidl_loans": 3766274,
+    "total_eidl_amount": 0
+  },
+  "top_combined": [
+    {
+      "name": "ALTAMAREA GROUP LLC",
+      "ppp_amount": 10400000,
+      "eidl_amount": 0,
+      "combined": 10400000,
+      "ppp_loans": 2,
+      "eidl_loans": 1,
+      "ppp_anomaly": true
+    },
+    {
+      "name": "PINSTRIPES, INC.",
+      "ppp_amount": 9725100,
+      "eidl_amount": 0,
+      "combined": 9725100,
+      "ppp_loans": 2,
+      "eidl_loans": 1,
+      "ppp_anomaly": true
+    },
+    {
+      "name": "HIGHLAND BAKING COMPANY INC",
+      "ppp_amount": 8792000,
+      "eidl_amount": 0,
+      "combined": 8792000,
+      "ppp_loans": 1,
+      "eidl_loans": 1,
+      "ppp_anomaly": false
+    },
+    {
+      "name": "FIVE GUYS ENTERPRISES, LLC",
+      "ppp_amount": 8574600,
+      "eidl_amount": 0,
+      "combined": 8574600,
+      "ppp_loans": 1,
+      "eidl_loans": 1,
+      "ppp_anomaly": false
+    },
+    {
+      "name": "47TH AND 7TH LLC",
+      "ppp_amount": 7986873,
+      "eidl_amount": 0,
+      "combined": 7986873,
+      "ppp_loans": 1,
+      "eidl_loans": 1,
+      "ppp_anomaly": false
+    },
+    {
+      "name": "M. COHEN AND SONS, INC.",
+      "ppp_amount": 7552802,
+      "eidl_amount": 0,
+      "combined": 7552802,
+      "ppp_loans": 1,
+      "eidl_loans": 2,
+      "ppp_anomaly": false
+    },
+    {
+      "name": "HARRELL'S, LLC",
+      "ppp_amount": 7120700,
+      "eidl_amount": 0,
+      "combined": 7120700,
+      "ppp_loans": 1,
+      "eidl_loans": 1,
+      "ppp_anomaly": true
+    },
+    {
+      "name": "CNY GROUP LLC",
+      "ppp_amount": 6426247,
+      "eidl_amount": 0,
+      "combined": 6426247,
+      "ppp_loans": 2,
+      "eidl_loans": 2,
+      "ppp_anomaly": true
+    },
+    {
+      "name": "HB COMMUNICATIONS, INC.",
+      "ppp_amount": 6073800,
+      "eidl_amount": 0,
+      "combined": 6073800,
+      "ppp_loans": 1,
+      "eidl_loans": 1,
+      "ppp_anomaly": false
+    },
+    {
+      "name": "JA CROSON LLC",
+      "ppp_amount": 5192000,
+      "eidl_amount": 0,
+      "combined": 5192000,
+      "ppp_loans": 1,
+      "eidl_loans": 1,
+      "ppp_anomaly": false
+    },
+    {
+      "name": "BMD CORPORATION",
+      "ppp_amount": 5147700,
+      "eidl_amount": 0,
+      "combined": 5147700,
+      "ppp_loans": 1,
+      "eidl_loans": 1,
+      "ppp_anomaly": false
+    },
+    {
+      "name": "THE HARRISON STEEL CASTINGS COMPANY",
+      "ppp_amount": 5012000,
+      "eidl_amount": 0,
+      "combined": 5012000,
+      "ppp_loans": 1,
+      "eidl_loans": 1,
+      "ppp_anomaly": false
+    },
+    {
+      "name": "PIPING & EQUIPMENT COMPANY, INC.",
+      "ppp_amount": 4999997,
+      "eidl_amount": 0,
+      "combined": 4999997,
+      "ppp_loans": 2,
+      "eidl_loans": 1,
+      "ppp_anomaly": false
+    },
+    {
+      "name": "PHOENIX MANAGEMENT, INC.",
+      "ppp_amount": 4947917,
+      "eidl_amount": 0,
+      "combined": 4947917,
+      "ppp_loans": 1,
+      "eidl_loans": 1,
+      "ppp_anomaly": false
+    },
+    {
+      "name": "EARTHBOUND HOLDING LLC",
+      "ppp_amount": 4904761,
+      "eidl_amount": 0,
+      "combined": 4904761,
+      "ppp_loans": 1,
+      "eidl_loans": 1,
+      "ppp_anomaly": false
+    },
+    {
+      "name": "AMERICAN LINEHAUL CORPORATION",
+      "ppp_amount": 4699250,
+      "eidl_amount": 0,
+      "combined": 4699250,
+      "ppp_loans": 2,
+      "eidl_loans": 1,
+      "ppp_anomaly": true
+    },
+    {
+      "name": "SPERIDIAN TECHNOLOGIES LLC",
+      "ppp_amount": 4630300,
+      "eidl_amount": 0,
+      "combined": 4630300,
+      "ppp_loans": 2,
+      "eidl_loans": 1,
+      "ppp_anomaly": true
+    },
+    {
+      "name": "AD1 MANAGEMENT INC",
+      "ppp_amount": 4546090,
+      "eidl_amount": 0,
+      "combined": 4546090,
+      "ppp_loans": 2,
+      "eidl_loans": 1,
+      "ppp_anomaly": false
+    },
+    {
+      "name": "SALSON LOGISTICS INC",
+      "ppp_amount": 4513567,
+      "eidl_amount": 0,
+      "combined": 4513567,
+      "ppp_loans": 1,
+      "eidl_loans": 1,
+      "ppp_anomaly": true
+    },
+    {
+      "name": "LANDMARK REALTY LLC",
+      "ppp_amount": 4386166,
+      "eidl_amount": 0,
+      "combined": 4386166,
+      "ppp_loans": 3,
+      "eidl_loans": 2,
+      "ppp_anomaly": false
+    },
+    {
+      "name": "PIONEER HOMECARE INC",
+      "ppp_amount": 4371717,
+      "eidl_amount": 0,
+      "combined": 4371717,
+      "ppp_loans": 1,
+      "eidl_loans": 1,
+      "ppp_anomaly": false
+    },
+    {
+      "name": "INDUSTRIAL STEEL CONSTRUCTION, INC.",
+      "ppp_amount": 4307455,
+      "eidl_amount": 0,
+      "combined": 4307455,
+      "ppp_loans": 1,
+      "eidl_loans": 1,
+      "ppp_anomaly": false
+    },
+    {
+      "name": "VAL LIMITED",
+      "ppp_amount": 4303900,
+      "eidl_amount": 0,
+      "combined": 4303900,
+      "ppp_loans": 2,
+      "eidl_loans": 1,
+      "ppp_anomaly": true
+    },
+    {
+      "name": "GOLDING BARGE LINE, INC",
+      "ppp_amount": 4210442,
+      "eidl_amount": 0,
+      "combined": 4210442,
+      "ppp_loans": 1,
+      "eidl_loans": 1,
+      "ppp_anomaly": true
+    },
+    {
+      "name": "THE CONSULTANTS CONSORTIUM, INC.",
+      "ppp_amount": 4196500,
+      "eidl_amount": 0,
+      "combined": 4196500,
+      "ppp_loans": 1,
+      "eidl_loans": 1,
+      "ppp_anomaly": false
+    },
+    {
+      "name": "DISTRICT TACO LLC",
+      "ppp_amount": 4157240,
+      "eidl_amount": 0,
+      "combined": 4157240,
+      "ppp_loans": 2,
+      "eidl_loans": 1,
+      "ppp_anomaly": false
+    },
+    {
+      "name": "ALLEY THEATRE",
+      "ppp_amount": 4152321,
+      "eidl_amount": 0,
+      "combined": 4152321,
+      "ppp_loans": 2,
+      "eidl_loans": 2,
+      "ppp_anomaly": false
+    },
+    {
+      "name": "CAILIS MECHANICAL CORP.",
+      "ppp_amount": 4132137,
+      "eidl_amount": 0,
+      "combined": 4132137,
+      "ppp_loans": 2,
+      "eidl_loans": 1,
+      "ppp_anomaly": false
+    },
+    {
+      "name": "FRESH MADE KITCHEN RESTAURANT GROUP LLC",
+      "ppp_amount": 4059700,
+      "eidl_amount": 0,
+      "combined": 4059700,
+      "ppp_loans": 2,
+      "eidl_loans": 1,
+      "ppp_anomaly": true
+    },
+    {
+      "name": "XEC, LLC",
+      "ppp_amount": 4054483,
+      "eidl_amount": 0,
+      "combined": 4054483,
+      "ppp_loans": 1,
+      "eidl_loans": 1,
+      "ppp_anomaly": false
+    }
+  ]
+}

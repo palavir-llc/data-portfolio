@@ -1,0 +1,247 @@
+{
+  "state": "MI",
+  "matches": 496,
+  "over_50pct": 4,
+  "data": [
+    {
+      "name": "SCHEURER HEALTHCARE NETWORK",
+      "ppp_amount": 5467972,
+      "revenue": 479694,
+      "assets": 2968654,
+      "ppp_to_revenue": 11.4,
+      "anomaly": false
+    },
+    {
+      "name": "COMPASS COLLEGE OF CINEMATIC ARTS",
+      "ppp_amount": 240465,
+      "revenue": 380764,
+      "assets": 2060898,
+      "ppp_to_revenue": 0.63,
+      "anomaly": false
+    },
+    {
+      "name": "COMPASS COLLEGE OF CINEMATIC ARTS",
+      "ppp_amount": 240000,
+      "revenue": 380764,
+      "assets": 2060898,
+      "ppp_to_revenue": 0.63,
+      "anomaly": true
+    },
+    {
+      "name": "NORTH STAR REACH",
+      "ppp_amount": 420000,
+      "revenue": 729868,
+      "assets": 13130798,
+      "ppp_to_revenue": 0.58,
+      "anomaly": true
+    },
+    {
+      "name": "SOUTHWEST SOLUTIONS INC",
+      "ppp_amount": 2708966,
+      "revenue": 6052326,
+      "assets": 1873942,
+      "ppp_to_revenue": 0.45,
+      "anomaly": false
+    },
+    {
+      "name": "NORTH STAR REACH",
+      "ppp_amount": 306292,
+      "revenue": 729868,
+      "assets": 13130798,
+      "ppp_to_revenue": 0.42,
+      "anomaly": false
+    },
+    {
+      "name": "DYNAMIC YOUTH MINISTRIES",
+      "ppp_amount": 264900,
+      "revenue": 775518,
+      "assets": 1218485,
+      "ppp_to_revenue": 0.34,
+      "anomaly": false
+    },
+    {
+      "name": "DYNAMIC YOUTH MINISTRIES",
+      "ppp_amount": 260325,
+      "revenue": 775518,
+      "assets": 1218485,
+      "ppp_to_revenue": 0.34,
+      "anomaly": false
+    },
+    {
+      "name": "CHARITY MOTORS INC",
+      "ppp_amount": 153300,
+      "revenue": 496244,
+      "assets": 1670830,
+      "ppp_to_revenue": 0.31,
+      "anomaly": false
+    },
+    {
+      "name": "CHRISTIAN SCHOOLS INTERNATIONAL",
+      "ppp_amount": 342800,
+      "revenue": 1196156,
+      "assets": 6117579,
+      "ppp_to_revenue": 0.29,
+      "anomaly": false
+    },
+    {
+      "name": "CHRISTIAN SCHOOLS INTERNATIONAL",
+      "ppp_amount": 325100,
+      "revenue": 1196156,
+      "assets": 6117579,
+      "ppp_to_revenue": 0.27,
+      "anomaly": false
+    },
+    {
+      "name": "SUMMERS-KNOLL SCHOOL",
+      "ppp_amount": 265000,
+      "revenue": 1102094,
+      "assets": 3256162,
+      "ppp_to_revenue": 0.24,
+      "anomaly": false
+    },
+    {
+      "name": "SHARED CARE SERVICES INC",
+      "ppp_amount": 177728,
+      "revenue": 773157,
+      "assets": 33699,
+      "ppp_to_revenue": 0.23,
+      "anomaly": false
+    },
+    {
+      "name": "SHARED CARE SERVICES INC",
+      "ppp_amount": 177727,
+      "revenue": 773157,
+      "assets": 33699,
+      "ppp_to_revenue": 0.23,
+      "anomaly": false
+    },
+    {
+      "name": "ICCF NONPROFIT HOUSING CORPORATION",
+      "ppp_amount": 562205,
+      "revenue": 2521916,
+      "assets": 4609170,
+      "ppp_to_revenue": 0.22,
+      "anomaly": false
+    },
+    {
+      "name": "ICCF NONPROFIT HOUSING CORPORATION",
+      "ppp_amount": 562205,
+      "revenue": 2521916,
+      "assets": 4609170,
+      "ppp_to_revenue": 0.22,
+      "anomaly": false
+    },
+    {
+      "name": "COMPRENEW",
+      "ppp_amount": 419900,
+      "revenue": 1913994,
+      "assets": 1267492,
+      "ppp_to_revenue": 0.22,
+      "anomaly": false
+    },
+    {
+      "name": "COMPRENEW",
+      "ppp_amount": 398000,
+      "revenue": 1913994,
+      "assets": 1267492,
+      "ppp_to_revenue": 0.21,
+      "anomaly": false
+    },
+    {
+      "name": "SKYLINE CAMP AND CONFERENCE CENTER",
+      "ppp_amount": 174500,
+      "revenue": 842385,
+      "assets": 2626940,
+      "ppp_to_revenue": 0.21,
+      "anomaly": false
+    },
+    {
+      "name": "ST MARYS CULTURAL CENTER",
+      "ppp_amount": 173657,
+      "revenue": 810826,
+      "assets": 1305851,
+      "ppp_to_revenue": 0.21,
+      "anomaly": false
+    },
+    {
+      "name": "PRESBYTERIAN VILLAGES OF MICHIGAN",
+      "ppp_amount": 4438545,
+      "revenue": 21732549,
+      "assets": 44240487,
+      "ppp_to_revenue": 0.2,
+      "anomaly": false
+    },
+    {
+      "name": "CREATIVE EMPLOYMENT OPPORTUNITIES",
+      "ppp_amount": 776787,
+      "revenue": 3864756,
+      "assets": 8570347,
+      "ppp_to_revenue": 0.2,
+      "anomaly": false
+    },
+    {
+      "name": "CAMP ROGER",
+      "ppp_amount": 420700,
+      "revenue": 2154783,
+      "assets": 9201720,
+      "ppp_to_revenue": 0.2,
+      "anomaly": false
+    },
+    {
+      "name": "SUMMERS-KNOLL SCHOOL",
+      "ppp_amount": 221130,
+      "revenue": 1102094,
+      "assets": 3256162,
+      "ppp_to_revenue": 0.2,
+      "anomaly": false
+    },
+    {
+      "name": "COMMUNITY HEALING CENTERS",
+      "ppp_amount": 1036900,
+      "revenue": 5775452,
+      "assets": 3576565,
+      "ppp_to_revenue": 0.18,
+      "anomaly": false
+    },
+    {
+      "name": "FRENCH SCHOOL OF DETROIT PARENTS ASSOCIATION",
+      "ppp_amount": 217175,
+      "revenue": 1185630,
+      "assets": 1733933,
+      "ppp_to_revenue": 0.18,
+      "anomaly": false
+    },
+    {
+      "name": "RBM MINISTRIES INC",
+      "ppp_amount": 181700,
+      "revenue": 1029199,
+      "assets": 1216067,
+      "ppp_to_revenue": 0.18,
+      "anomaly": false
+    },
+    {
+      "name": "WORK SKILLS CORPORATION",
+      "ppp_amount": 2411900,
+      "revenue": 14354247,
+      "assets": 18295592,
+      "ppp_to_revenue": 0.17,
+      "anomaly": false
+    },
+    {
+      "name": "CARE OF SOUTHEASTERN MICHIGAN",
+      "ppp_amount": 899700,
+      "revenue": 5149261,
+      "assets": 2555792,
+      "ppp_to_revenue": 0.17,
+      "anomaly": false
+    },
+    {
+      "name": "YOUNG MENS CHRISTIAN ASSOCIATION",
+      "ppp_amount": 865300,
+      "revenue": 5065359,
+      "assets": 6835717,
+      "ppp_to_revenue": 0.17,
+      "anomaly": false
+    }
+  ]
+}

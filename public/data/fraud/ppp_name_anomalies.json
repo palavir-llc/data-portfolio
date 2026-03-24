@@ -1,0 +1,23 @@
+{
+  "llc_as_sole_prop": {
+    "count": 1901,
+    "anomalies": 248,
+    "rate": 0.1305
+  },
+  "numbers_in_name": {
+    "count": 8633,
+    "anomalies": 233,
+    "rate": 0.027
+  },
+  "short_names": {
+    "count": 626,
+    "anomalies": 20,
+    "rate": 0.0319
+  },
+  "shell_keywords": {
+    "count": 65260,
+    "anomalies": 1464,
+    "rate": 0.0224
+  },
+  "overall_rate": 0.02
+}
