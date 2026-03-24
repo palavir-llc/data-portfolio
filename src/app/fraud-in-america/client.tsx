@@ -51,6 +51,9 @@ interface CorporateFlagged {
   company: string; cik: number; sic: number; year: number; mscore: number;
   dsri: number; gmi: number; aqi: number; sgi: number; depi: number;
   sgai: number; tata: number; lvgi: number; revenue: number; total_assets: number; flagged: boolean;
+  ticker?: string; exchange?: string; state_inc?: string; latest_10k_date?: string;
+  restatement_filings?: number; recent_8k_count?: number; insider_transaction_count?: number;
+  primary_driver?: string; driver_explanation?: string; driver_contribution?: number;
 }
 interface MScoreDistribution { bin_start: number; bin_end: number; count: number; flagged: boolean; }
 interface CorporateSummary { total_companies: number; total_company_years: number; flagged_count: number; flagged_pct: number; median_mscore: number; threshold: number; }
@@ -703,19 +706,45 @@ export function FraudInAmericaClient() {
         <div className="mx-auto max-w-6xl">
           <h2 className="text-3xl font-extrabold tracking-tight">Corporate Accounting: Who&apos;s Cooking the Books?</h2>
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-zinc-400">
-            Every public company files a 10-K with the SEC. Those filings contain the raw numbers.
-            The <strong className="text-zinc-200">Beneish M-Score</strong> is an academic model that
-            computes 8 financial ratios from those filings to detect earnings manipulation.
-            A score above <strong className="text-zinc-200">-1.78</strong> means the math looks like
-            companies that were later caught cooking their books.
+            Every public company files a 10-K with the SEC. Those filings contain the raw
+            financial numbers. We downloaded all of them and ran a formula called the{" "}
+            <strong className="text-zinc-200">Beneish M-Score</strong> on each one.
           </p>
 
-          <WhyBox>
-            The M-Score was developed by Professor Messod Beneish at Indiana University. It correctly
-            flagged Enron as a likely manipulator before the scandal broke. The 8 variables measure
-            things like whether receivables are growing faster than revenue (DSRI), whether asset quality
-            is declining (AQI), and whether accruals are unusually high relative to cash flow (TATA).
-          </WhyBox>
+          {/* M-Score Visual Explainer */}
+          <div className="mt-8 rounded-xl border border-blue-500/30 bg-blue-500/5 p-6">
+            <h3 className="mb-4 text-base font-bold text-blue-300">How the Beneish M-Score Works</h3>
+            <p className="mb-5 text-sm text-zinc-400">
+              Professor Messod Beneish at Indiana University studied companies that were caught
+              manipulating earnings. He found that 8 financial ratios, computed from standard SEC
+              filings, could predict manipulation before it was discovered. The model famously
+              flagged Enron before the scandal broke. Here is what each ratio measures:
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {[
+                { code: "DSRI", name: "Receivables Index", plain: "Are customers paying slower? Could mean fake sales booked that will never be collected." },
+                { code: "GMI", name: "Gross Margin Index", plain: "Are profit margins shrinking? Companies under pressure may inflate revenue to mask declining margins." },
+                { code: "AQI", name: "Asset Quality Index", plain: "Is the company capitalizing expenses? Turning costs into \"assets\" on the balance sheet inflates earnings." },
+                { code: "SGI", name: "Sales Growth Index", plain: "Is revenue growing unusually fast? Sudden revenue spikes are the #1 manipulation signal." },
+                { code: "DEPI", name: "Depreciation Index", plain: "Are they slowing depreciation? Stretching asset life reduces expenses on paper." },
+                { code: "SGAI", name: "SGA Expense Index", plain: "Are overhead costs growing faster than revenue? Can indicate unsustainable business expansion." },
+                { code: "TATA", name: "Total Accruals", plain: "Gap between reported earnings and actual cash flow. Big gap = paper profits, not real money." },
+                { code: "LVGI", name: "Leverage Index", plain: "Is debt growing relative to assets? Heavily leveraged companies have more incentive to manipulate." },
+              ].map((item) => (
+                <div key={item.code} className="rounded-lg bg-zinc-800/40 px-4 py-3">
+                  <div className="flex items-center gap-2">
+                    <span className="rounded bg-blue-500/20 px-1.5 py-0.5 text-[10px] font-bold text-blue-300">{item.code}</span>
+                    <span className="text-xs font-medium text-zinc-300">{item.name}</span>
+                  </div>
+                  <p className="mt-1 text-xs text-zinc-500">{item.plain}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-4 text-xs text-zinc-500">
+              These 8 ratios are combined into a single score. Above <strong className="text-red-400">-1.78</strong> = likely manipulation.
+              Below = likely legitimate. Most healthy companies score around -2.5 to -3.0.
+            </p>
+          </div>
 
           {corpSummary && (
             <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
@@ -738,32 +767,52 @@ export function FraudInAmericaClient() {
             </div>
           )}
 
-          {/* Flagged Companies */}
+          {/* Flagged Companies - Enriched Table */}
           {corpFlagged.length > 0 && (
             <div className="mt-10">
-              <h3 className="text-lg font-bold text-zinc-200">Highest-Risk Public Companies</h3>
+              <h3 className="text-lg font-bold text-zinc-200">Flagged Companies: What the Filings Show</h3>
               <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
-                These are real public companies whose SEC filings produce M-Scores above the
-                manipulation threshold. This does not mean they committed fraud. It means their financial
-                ratios match the statistical profile of companies that historically have.
+                These are real public companies. The ticker symbols link to their actual SEC filings.
+                The &quot;Primary Driver&quot; column shows which financial ratio pushed them above the threshold,
+                and what that means in plain language.
               </p>
               <div className="overflow-x-auto rounded-xl border border-zinc-800">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="bg-zinc-900/80 text-left text-xs text-zinc-500">
                       <th className="px-4 py-3">Company</th>
+                      <th className="px-4 py-3">Ticker</th>
                       <th className="px-4 py-3 text-right">M-Score</th>
                       <th className="px-4 py-3 text-right">Revenue</th>
-                      <th className="px-4 py-3 text-right">Year</th>
+                      <th className="px-4 py-3">Primary Driver</th>
+                      <th className="px-4 py-3 text-right">Restatements</th>
                     </tr>
                   </thead>
                   <tbody>
                     {corpFlagged.slice(0, 15).map((c, i) => (
                       <tr key={i} className="border-t border-zinc-800/50 transition-colors hover:bg-zinc-900/40">
                         <td className="px-4 py-2.5 font-medium text-zinc-200">{c.company}</td>
+                        <td className="px-4 py-2.5">
+                          {c.ticker ? (
+                            <a href={`https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=${c.cik}&type=10-K&dateb=&owner=include&count=5`}
+                              target="_blank" rel="noopener noreferrer"
+                              className="rounded bg-zinc-800 px-1.5 py-0.5 text-xs font-mono text-blue-400 hover:text-blue-300">
+                              {c.ticker.split(",")[0]}
+                            </a>
+                          ) : <span className="text-xs text-zinc-600">N/A</span>}
+                        </td>
                         <td className="px-4 py-2.5 text-right font-mono text-red-400 font-bold">{c.mscore.toFixed(2)}</td>
                         <td className="px-4 py-2.5 text-right text-zinc-400">{$(c.revenue)}</td>
-                        <td className="px-4 py-2.5 text-right text-zinc-500">{c.year}</td>
+                        <td className="px-4 py-2.5">
+                          <span className="rounded bg-amber-500/15 px-1.5 py-0.5 text-[10px] font-bold text-amber-300">{c.primary_driver}</span>
+                        </td>
+                        <td className="px-4 py-2.5 text-right">
+                          {(c.restatement_filings || 0) > 0 ? (
+                            <span className="font-medium text-red-400">{c.restatement_filings}</span>
+                          ) : (
+                            <span className="text-zinc-600">0</span>
+                          )}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -772,7 +821,63 @@ export function FraudInAmericaClient() {
             </div>
           )}
 
-          <Source text="SEC EDGAR XBRL Financial Statement Data Sets" url="https://www.sec.gov/dera/data/financial-statement-data-sets" />
+          {/* Deep Dive: Top 3 Companies */}
+          {corpFlagged.length > 0 && (
+            <div className="mt-10">
+              <h3 className="text-lg font-bold text-zinc-200">Why These Companies Were Flagged</h3>
+              <p className="mt-2 mb-6 max-w-2xl text-sm text-zinc-500">
+                A high M-Score does not mean fraud. It means the financial ratios match the pattern.
+                Here is what specifically triggered each flag, using the company&apos;s own SEC filings.
+              </p>
+              <div className="space-y-4">
+                {corpFlagged.slice(0, 5).map((c, i) => (
+                  <div key={i} className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5">
+                    <div className="flex flex-wrap items-start justify-between gap-3">
+                      <div>
+                        <h4 className="font-bold text-zinc-100">{c.company}</h4>
+                        <p className="text-xs text-zinc-500">
+                          {c.ticker && <span className="mr-2">{c.exchange} : {c.ticker.split(",")[0]}</span>}
+                          {c.state_inc && <span className="mr-2">Inc. in {c.state_inc}</span>}
+                          Revenue: {$(c.revenue)}
+                          {c.latest_10k_date && <span className="ml-2">Latest 10-K: {c.latest_10k_date}</span>}
+                        </p>
+                      </div>
+                      <div className="rounded-lg bg-red-500/15 px-3 py-1.5 text-center">
+                        <p className="text-lg font-extrabold text-red-400">{c.mscore.toFixed(2)}</p>
+                        <p className="text-[10px] text-red-400/70">M-Score</p>
+                      </div>
+                    </div>
+                    {c.driver_explanation && (
+                      <div className="mt-3 rounded-lg bg-zinc-800/50 px-4 py-3">
+                        <p className="text-xs">
+                          <span className="font-bold text-amber-300">Primary driver: {c.primary_driver}</span>
+                          {c.primary_driver === "SGI" && <span className="text-zinc-400"> (Sales Growth Index = {c.sgi.toFixed(1)}x)</span>}
+                          {c.primary_driver === "TATA" && <span className="text-zinc-400"> (Total Accruals = {c.tata.toFixed(3)})</span>}
+                          {c.primary_driver === "DSRI" && <span className="text-zinc-400"> (Receivables Index = {c.dsri.toFixed(1)}x)</span>}
+                          {c.primary_driver === "GMI" && <span className="text-zinc-400"> (Gross Margin Index = {c.gmi.toFixed(1)}x)</span>}
+                          {c.primary_driver === "AQI" && <span className="text-zinc-400"> (Asset Quality Index = {c.aqi.toFixed(1)}x)</span>}
+                        </p>
+                        <p className="mt-1 text-xs text-zinc-400">{c.driver_explanation}</p>
+                      </div>
+                    )}
+                    <div className="mt-3 flex flex-wrap gap-3 text-[10px] text-zinc-500">
+                      {(c.restatement_filings || 0) > 0 && (
+                        <span className="rounded bg-red-500/10 px-2 py-0.5 text-red-400">{c.restatement_filings} restatement{(c.restatement_filings || 0) > 1 ? "s" : ""}</span>
+                      )}
+                      <span>{c.recent_8k_count || 0} 8-K filings</span>
+                      <span>{c.insider_transaction_count || 0} insider transactions</span>
+                      <a href={`https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=${c.cik}&type=&dateb=&owner=include&count=40`}
+                        target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-300">
+                        View all SEC filings
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <Source text="SEC EDGAR XBRL Financial Statement Data Sets + EDGAR Submissions API" url="https://www.sec.gov/dera/data/financial-statement-data-sets" />
         </div>
       </section>
 
