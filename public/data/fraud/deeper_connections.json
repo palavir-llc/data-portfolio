@@ -1,0 +1,514 @@
+{
+  "zip_code_hotspots": [
+    {
+      "zip": "64116-3822",
+      "city": "N Kansas City",
+      "state": "MO",
+      "loans": 23,
+      "anomalies": 23,
+      "rate": 1.0,
+      "amount": 5642423
+    },
+    {
+      "zip": "30326-4228",
+      "city": "Atlanta",
+      "state": "GA",
+      "loans": 20,
+      "anomalies": 20,
+      "rate": 1.0,
+      "amount": 5690087
+    },
+    {
+      "zip": "30501-6619",
+      "city": "GAINESVILLE",
+      "state": "GA",
+      "loans": 37,
+      "anomalies": 36,
+      "rate": 0.973,
+      "amount": 33324560
+    },
+    {
+      "zip": "90401-2401",
+      "city": "Santa Monica",
+      "state": "CA",
+      "loans": 29,
+      "anomalies": 28,
+      "rate": 0.9655,
+      "amount": 7963531
+    },
+    {
+      "zip": "59102-6453",
+      "city": "BILLINGS",
+      "state": "MT",
+      "loans": 24,
+      "anomalies": 23,
+      "rate": 0.9583,
+      "amount": 8338520
+    },
+    {
+      "zip": "94563-2538",
+      "city": "ORINDA",
+      "state": "CA",
+      "loans": 21,
+      "anomalies": 20,
+      "rate": 0.9524,
+      "amount": 6827874
+    },
+    {
+      "zip": "63801-2151",
+      "city": "SIKESTON",
+      "state": "MO",
+      "loans": 35,
+      "anomalies": 33,
+      "rate": 0.9429,
+      "amount": 10910800
+    },
+    {
+      "zip": "06489-1042",
+      "city": "SOUTHINGTON",
+      "state": "CT",
+      "loans": 32,
+      "anomalies": 30,
+      "rate": 0.9375,
+      "amount": 18460848
+    },
+    {
+      "zip": "07401-1654",
+      "city": "Allendale",
+      "state": "NJ",
+      "loans": 25,
+      "anomalies": 23,
+      "rate": 0.92,
+      "amount": 25856831
+    },
+    {
+      "zip": "71201-5760",
+      "city": "Monroe",
+      "state": "LA",
+      "loans": 50,
+      "anomalies": 46,
+      "rate": 0.92,
+      "amount": 13966073
+    },
+    {
+      "zip": "41042-3311",
+      "city": "FLORENCE",
+      "state": "KY",
+      "loans": 24,
+      "anomalies": 22,
+      "rate": 0.9167,
+      "amount": 5682700
+    },
+    {
+      "zip": "32073-4527",
+      "city": "ORANGE PARK",
+      "state": "FL",
+      "loans": 23,
+      "anomalies": 21,
+      "rate": 0.913,
+      "amount": 20213684
+    },
+    {
+      "zip": "61614-1862",
+      "city": "PEORIA",
+      "state": "IL",
+      "loans": 46,
+      "anomalies": 42,
+      "rate": 0.913,
+      "amount": 20093660
+    },
+    {
+      "zip": "27614-7002",
+      "city": "Raleigh",
+      "state": "NC",
+      "loans": 56,
+      "anomalies": 51,
+      "rate": 0.9107,
+      "amount": 23273655
+    },
+    {
+      "zip": "64060-7975",
+      "city": "KEARNEY",
+      "state": "MO",
+      "loans": 28,
+      "anomalies": 25,
+      "rate": 0.8929,
+      "amount": 22985300
+    },
+    {
+      "zip": "60173-4844",
+      "city": "Schaumburg",
+      "state": "IL",
+      "loans": 27,
+      "anomalies": 24,
+      "rate": 0.8889,
+      "amount": 9505719
+    },
+    {
+      "zip": "04401-7206",
+      "city": "Bangor",
+      "state": "ME",
+      "loans": 31,
+      "anomalies": 27,
+      "rate": 0.871,
+      "amount": 12715377
+    },
+    {
+      "zip": "56201-2195",
+      "city": "Willmar",
+      "state": "MN",
+      "loans": 30,
+      "anomalies": 26,
+      "rate": 0.8667,
+      "amount": 10216400
+    },
+    {
+      "zip": "92612-1524",
+      "city": "IRVINE",
+      "state": "CA",
+      "loans": 27,
+      "anomalies": 23,
+      "rate": 0.8519,
+      "amount": 30585801
+    },
+    {
+      "zip": "92801-2608",
+      "city": "Anaheim",
+      "state": "CA",
+      "loans": 44,
+      "anomalies": 36,
+      "rate": 0.8182,
+      "amount": 11815085
+    },
+    {
+      "zip": "46410-9202",
+      "city": "Merrillville",
+      "state": "IN",
+      "loans": 22,
+      "anomalies": 18,
+      "rate": 0.8182,
+      "amount": 21539533
+    },
+    {
+      "zip": "21152-9390",
+      "city": "SPARKS GLENCOE",
+      "state": "MD",
+      "loans": 24,
+      "anomalies": 19,
+      "rate": 0.7917,
+      "amount": 25713688
+    },
+    {
+      "zip": "33134-7412",
+      "city": "MIAMI",
+      "state": "FL",
+      "loans": 25,
+      "anomalies": 19,
+      "rate": 0.76,
+      "amount": 22318811
+    },
+    {
+      "zip": "06604-4223",
+      "city": "BRIDGEPORT",
+      "state": "CT",
+      "loans": 40,
+      "anomalies": 30,
+      "rate": 0.75,
+      "amount": 9273837
+    },
+    {
+      "zip": "80301-2724",
+      "city": "Boulder",
+      "state": "CO",
+      "loans": 28,
+      "anomalies": 21,
+      "rate": 0.75,
+      "amount": 10887604
+    },
+    {
+      "zip": "60712-1605",
+      "city": "Lincolnwood",
+      "state": "IL",
+      "loans": 35,
+      "anomalies": 26,
+      "rate": 0.7429,
+      "amount": 23734170
+    },
+    {
+      "zip": "07401-1610",
+      "city": "ALLENDALE",
+      "state": "NJ",
+      "loans": 26,
+      "anomalies": 19,
+      "rate": 0.7308,
+      "amount": 40991417
+    },
+    {
+      "zip": "60523-1818",
+      "city": "Oak Brook",
+      "state": "IL",
+      "loans": 23,
+      "anomalies": 16,
+      "rate": 0.6957,
+      "amount": 12461826
+    },
+    {
+      "zip": "33408-3026",
+      "city": "North Palm Beach",
+      "state": "FL",
+      "loans": 37,
+      "anomalies": 20,
+      "rate": 0.5405,
+      "amount": 23843982
+    },
+    {
+      "zip": "40245-1629",
+      "city": "LOUISVILLE",
+      "state": "KY",
+      "loans": 29,
+      "anomalies": 15,
+      "rate": 0.5172,
+      "amount": 41045112
+    }
+  ],
+  "payroll_allocation": {
+    "normal_avg_payroll_pct": 0.971,
+    "anomalous_avg_payroll_pct": 0.972,
+    "zero_payroll_anomaly_rate": 0.0321,
+    "has_payroll_anomaly_rate": 0.02
+  },
+  "franchise_analysis": [
+    {
+      "franchise": "The Waffle Experience",
+      "loans": 14,
+      "anomalies": 7,
+      "rate": 0.5
+    },
+    {
+      "franchise": "Applebee's Neighborhood Grill & Bar",
+      "loans": 168,
+      "anomalies": 78,
+      "rate": 0.4643
+    },
+    {
+      "franchise": "Waffle House",
+      "loans": 15,
+      "anomalies": 5,
+      "rate": 0.3333
+    },
+    {
+      "franchise": "Panera Bread",
+      "loans": 70,
+      "anomalies": 22,
+      "rate": 0.3143
+    },
+    {
+      "franchise": "Gold's Gym",
+      "loans": 43,
+      "anomalies": 12,
+      "rate": 0.2791
+    },
+    {
+      "franchise": "Autograph Collection",
+      "loans": 27,
+      "anomalies": 7,
+      "rate": 0.2593
+    },
+    {
+      "franchise": "Cambria by Choice Hotels",
+      "loans": 28,
+      "anomalies": 7,
+      "rate": 0.25
+    },
+    {
+      "franchise": "Famous Dave's",
+      "loans": 46,
+      "anomalies": 10,
+      "rate": 0.2174
+    },
+    {
+      "franchise": "Bottle & Bottega",
+      "loans": 10,
+      "anomalies": 2,
+      "rate": 0.2
+    },
+    {
+      "franchise": "Bar Louie",
+      "loans": 10,
+      "anomalies": 2,
+      "rate": 0.2
+    },
+    {
+      "franchise": "TownePlace Suites by Marriott",
+      "loans": 101,
+      "anomalies": 20,
+      "rate": 0.198
+    },
+    {
+      "franchise": "Johnny Carino's",
+      "loans": 37,
+      "anomalies": 7,
+      "rate": 0.1892
+    },
+    {
+      "franchise": "Chili's Grill & Bar",
+      "loans": 16,
+      "anomalies": 3,
+      "rate": 0.1875
+    },
+    {
+      "franchise": "AC Hotels by Marriott",
+      "loans": 57,
+      "anomalies": 10,
+      "rate": 0.1754
+    },
+    {
+      "franchise": "Red Robin",
+      "loans": 37,
+      "anomalies": 6,
+      "rate": 0.1622
+    }
+  ],
+  "lender_type_combos": [
+    {
+      "lender": "Capital Plus Financial, LLC",
+      "type": "Sole Proprietorship",
+      "loans": 23,
+      "anomalies": 18,
+      "rate": 0.7826
+    },
+    {
+      "lender": "First Century Bank National Association",
+      "type": "Corporation",
+      "loans": 32,
+      "anomalies": 24,
+      "rate": 0.75
+    },
+    {
+      "lender": "American Lending Center",
+      "type": "Sole Proprietorship",
+      "loans": 41,
+      "anomalies": 22,
+      "rate": 0.5366
+    },
+    {
+      "lender": "Amur Equipment Finance, Inc.",
+      "type": "Sole Proprietorship",
+      "loans": 38,
+      "anomalies": 20,
+      "rate": 0.5263
+    },
+    {
+      "lender": "New Market Bank",
+      "type": "Limited  Liability Company(LLC)",
+      "loans": 20,
+      "anomalies": 9,
+      "rate": 0.45
+    },
+    {
+      "lender": "First Midwest Bank of the Ozarks",
+      "type": "Corporation",
+      "loans": 41,
+      "anomalies": 18,
+      "rate": 0.439
+    },
+    {
+      "lender": "Newtek Small Business Finance, Inc.",
+      "type": "Sole Proprietorship",
+      "loans": 23,
+      "anomalies": 10,
+      "rate": 0.4348
+    },
+    {
+      "lender": "Customers Bank",
+      "type": "Self-Employed Individuals",
+      "loans": 41,
+      "anomalies": 17,
+      "rate": 0.4146
+    },
+    {
+      "lender": "Kabbage, Inc.",
+      "type": "Self-Employed Individuals",
+      "loans": 224,
+      "anomalies": 91,
+      "rate": 0.4062
+    },
+    {
+      "lender": "Blue Ridge Bank, National Association",
+      "type": "Sole Proprietorship",
+      "loans": 45,
+      "anomalies": 17,
+      "rate": 0.3778
+    },
+    {
+      "lender": "Community State Bank",
+      "type": "Limited  Liability Company(LLC)",
+      "loans": 113,
+      "anomalies": 39,
+      "rate": 0.3451
+    },
+    {
+      "lender": "Cross River Bank",
+      "type": "Self-Employed Individuals",
+      "loans": 34,
+      "anomalies": 11,
+      "rate": 0.3235
+    },
+    {
+      "lender": "Cross River Bank",
+      "type": "Sole Proprietorship",
+      "loans": 171,
+      "anomalies": 55,
+      "rate": 0.3216
+    },
+    {
+      "lender": "Celtic Bank Corporation",
+      "type": "Sole Proprietorship",
+      "loans": 101,
+      "anomalies": 31,
+      "rate": 0.3069
+    },
+    {
+      "lender": "WebBank",
+      "type": "Sole Proprietorship",
+      "loans": 40,
+      "anomalies": 12,
+      "rate": 0.3
+    },
+    {
+      "lender": "Westamerica Bank",
+      "type": "Sole Proprietorship",
+      "loans": 27,
+      "anomalies": 8,
+      "rate": 0.2963
+    },
+    {
+      "lender": "Banc of California",
+      "type": "Partnership",
+      "loans": 38,
+      "anomalies": 11,
+      "rate": 0.2895
+    },
+    {
+      "lender": "Cross Keys Bank",
+      "type": "Limited  Liability Company(LLC)",
+      "loans": 45,
+      "anomalies": 13,
+      "rate": 0.2889
+    },
+    {
+      "lender": "Flagler Bank",
+      "type": "Limited  Liability Company(LLC)",
+      "loans": 60,
+      "anomalies": 17,
+      "rate": 0.2833
+    },
+    {
+      "lender": "Equity Bank",
+      "type": "Partnership",
+      "loans": 32,
+      "anomalies": 9,
+      "rate": 0.2812
+    }
+  ]
+}
