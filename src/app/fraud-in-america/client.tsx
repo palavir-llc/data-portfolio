@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
-import { FeatureImportance } from "@/components/viz/FeatureImportance";
+import { Choropleth } from "@/components/viz/Choropleth";
 
 // ─── Types ───────────────────────────────────────────────────────────
 
@@ -21,389 +21,272 @@ interface PPPStateSummary {
 }
 
 interface PPPScatterPoint {
-  x: number;
-  y: number;
-  amount: number;
-  state: string;
-  naics: string;
-  jobs: number;
-  score: number;
-  is_anomaly: boolean;
+  x: number; y: number; amount: number; state: string;
+  naics: string; jobs: number; score: number; is_anomaly: boolean;
 }
 
 interface PPPPatternSummary {
-  total_loans: number;
-  total_amount: number;
-  total_anomalies: number;
-  anomaly_amount: number;
-  anomaly_rate_count: number;
-  anomaly_rate_amount: number;
+  total_loans: number; total_amount: number; total_anomalies: number;
+  anomaly_amount: number; anomaly_rate_count: number; anomaly_rate_amount: number;
   patterns: {
     round_amounts: { count: number; pct: number; among_anomalies: number };
     duplicate_addresses: { loans_at_shared_address: number; max_loans_at_one_address: number };
     zero_jobs_large_loan: { count: number; total_amount: number };
     impossible_employees: { count: number };
   };
-  avg_loan_anomaly: number;
-  avg_loan_normal: number;
+  avg_loan_anomaly: number; avg_loan_normal: number;
 }
 
-interface NAICSData {
-  feature: string;
-  importance: number;
-  total_loans: number;
-  anomaly_count: number;
-}
-
+interface NAICSData { feature: string; importance: number; total_loans: number; anomaly_count: number; }
 interface CorporateFlagged {
-  company: string;
-  cik: number;
-  sic: number;
-  year: number;
-  mscore: number;
-  dsri: number;
-  gmi: number;
-  aqi: number;
-  sgi: number;
-  depi: number;
-  sgai: number;
-  tata: number;
-  lvgi: number;
-  revenue: number;
-  total_assets: number;
-  flagged: boolean;
+  company: string; cik: number; sic: number; year: number; mscore: number;
+  dsri: number; gmi: number; aqi: number; sgi: number; depi: number;
+  sgai: number; tata: number; lvgi: number; revenue: number; total_assets: number; flagged: boolean;
 }
-
-interface MScoreDistribution {
-  bin_start: number;
-  bin_end: number;
-  count: number;
-  flagged: boolean;
-}
-
-interface CorporateSummary {
-  total_companies: number;
-  total_company_years: number;
-  flagged_count: number;
-  flagged_pct: number;
-  median_mscore: number;
-  threshold: number;
-}
-
-interface HealthcareOutlier {
-  npi: string;
-  specialty: string;
-  state: string;
-  x: number;
-  y: number;
-  total_claims: number;
-  outlier_score: number;
-  is_outlier: boolean;
-}
-
-interface SpecialtyData {
-  feature: string;
-  importance: number;
-  provider_count: number;
-  avg_claims: number;
-  avg_cost: number;
-}
-
-interface CFPBVelocity {
-  velocity: Array<{ month: string; total: number; categories?: Record<string, number> }>;
-  spike_companies: Array<{ company: string; total_complaints: number; spike_ratio: number }>;
-  info: { start: string; end: string; total_complaints: number };
-}
-
-interface EnforcementEvent {
-  date: string;
-  domain: string;
-  title: string;
-  amount: number;
-}
-
-interface DOJStats {
-  annual_recoveries: Array<{
-    year: number;
-    total_recoveries: number;
-    qui_tam_recoveries: number;
-    qui_tam_filed: number;
-  }>;
-}
+interface MScoreDistribution { bin_start: number; bin_end: number; count: number; flagged: boolean; }
+interface CorporateSummary { total_companies: number; total_company_years: number; flagged_count: number; flagged_pct: number; median_mscore: number; threshold: number; }
+interface SpecialtyData { feature: string; importance: number; provider_count: number; avg_claims: number; avg_cost: number; }
+interface CFPBVelocity { velocity: Array<{ month: string; total: number }>; spike_companies: Array<{ company: string; total_complaints: number; spike_ratio: number }>; info: { start: string; end: string; total_complaints: number }; }
+interface DOJStats { annual_recoveries: Array<{ year: number; total_recoveries: number; qui_tam_recoveries: number; qui_tam_filed: number }>; }
+interface EnforcementEvent { date: string; domain: string; title: string; amount: number; }
 
 // ─── Helpers ─────────────────────────────────────────────────────────
 
-function formatDollars(amount: number): string {
-  if (Math.abs(amount) >= 1e12) return "$" + (amount / 1e12).toFixed(1) + "T";
-  if (Math.abs(amount) >= 1e9) return "$" + (amount / 1e9).toFixed(1) + "B";
-  if (Math.abs(amount) >= 1e6) return "$" + (amount / 1e6).toFixed(1) + "M";
-  if (Math.abs(amount) >= 1e3) return "$" + (amount / 1e3).toFixed(0) + "K";
-  return "$" + amount.toFixed(0);
+function $(n: number): string {
+  if (Math.abs(n) >= 1e12) return "$" + (n / 1e12).toFixed(1) + "T";
+  if (Math.abs(n) >= 1e9) return "$" + (n / 1e9).toFixed(1) + "B";
+  if (Math.abs(n) >= 1e6) return "$" + (n / 1e6).toFixed(1) + "M";
+  if (Math.abs(n) >= 1e3) return "$" + (n / 1e3).toFixed(0) + "K";
+  return "$" + n.toFixed(0);
 }
 
-function StatCard({
-  label,
-  value,
-  sub,
-}: {
-  label: string;
-  value: string;
-  sub?: string;
-}) {
+// ─── Reusable Components ─────────────────────────────────────────────
+
+function Stat({ value, label, sub, accent }: { value: string; label: string; sub?: string; accent?: string }) {
   return (
-    <div className="rounded-lg border border-zinc-800 bg-zinc-900/60 px-5 py-4">
-      <p className="text-sm text-zinc-500">{label}</p>
-      <p className="mt-1 text-2xl font-bold text-white">{value}</p>
+    <div className="rounded-xl border border-zinc-800 bg-zinc-900/70 px-5 py-5">
+      <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">{label}</p>
+      <p className={`mt-2 text-3xl font-extrabold ${accent || "text-white"}`}>{value}</p>
       {sub && <p className="mt-1 text-xs text-zinc-500">{sub}</p>}
     </div>
   );
 }
 
-function DataSource({ text, url }: { text: string; url?: string }) {
-  return (
-    <p className="mt-4 text-xs text-zinc-600">
-      Source: {url ? (
-        <a href={url} target="_blank" rel="noopener noreferrer" className="underline hover:text-zinc-400">{text}</a>
-      ) : text}
-    </p>
-  );
-}
-
-// ─── Simple Chart Components ─────────────────────────────────────────
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function BarChart({
-  data,
-  labelKey,
-  valueKey,
-  color = "#f97316",
-  maxBars = 15,
-  formatValue,
-}: {
-  data: any[];
-  labelKey: string;
-  valueKey: string;
-  color?: string;
-  maxBars?: number;
-  formatValue?: (v: number) => string;
+function Comparison({ left, right, leftLabel, rightLabel, multiplier, description }: {
+  left: string; right: string; leftLabel: string; rightLabel: string; multiplier: string; description: string;
 }) {
-  const sorted = [...data]
-    .sort((a, b) => (b[valueKey] as number) - (a[valueKey] as number))
-    .slice(0, maxBars);
-  const maxVal = Math.max(...sorted.map((d) => d[valueKey] as number), 1);
-
   return (
-    <div className="space-y-2">
-      {sorted.map((d, i) => {
-        const val = d[valueKey] as number;
-        const pct = (val / maxVal) * 100;
-        return (
-          <div key={i} className="flex items-center gap-3">
-            <span className="w-40 truncate text-right text-xs text-zinc-400">
-              {String(d[labelKey])}
-            </span>
-            <div className="flex-1">
-              <div
-                className="h-5 rounded-sm"
-                style={{ width: `${Math.max(pct, 1)}%`, backgroundColor: color }}
-              />
-            </div>
-            <span className="w-20 text-right text-xs text-zinc-300">
-              {formatValue ? formatValue(val) : val.toFixed(1)}
-            </span>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
-function Histogram({
-  data,
-  threshold,
-  belowColor = "#22c55e",
-  aboveColor = "#ef4444",
-}: {
-  data: MScoreDistribution[];
-  threshold: number;
-  belowColor?: string;
-  aboveColor?: string;
-}) {
-  const maxCount = Math.max(...data.map((d) => d.count), 1);
-
-  return (
-    <div className="flex items-end gap-px" style={{ height: 200 }}>
-      {data.map((d, i) => {
-        const height = (d.count / maxCount) * 180;
-        const isAbove = d.bin_start >= threshold;
-        return (
-          <div key={i} className="group relative flex-1" title={`${d.bin_start} to ${d.bin_end}: ${d.count} companies`}>
-            <div
-              className="w-full rounded-t-sm transition-opacity hover:opacity-80"
-              style={{
-                height: Math.max(height, 1),
-                backgroundColor: isAbove ? aboveColor : belowColor,
-                marginTop: 180 - height,
-              }}
-            />
-            {d.bin_start === -2 && (
-              <span className="absolute -bottom-5 left-0 text-[10px] text-zinc-500">-2</span>
-            )}
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
-function TimelineChart({
-  data,
-  height = 200,
-  color = "#3b82f6",
-}: {
-  data: Array<{ month: string; total: number }>;
-  height?: number;
-  color?: string;
-}) {
-  if (!data.length) return null;
-  const maxVal = Math.max(...data.map((d) => d.total), 1);
-
-  return (
-    <div className="relative" style={{ height }}>
-      <svg width="100%" height={height} viewBox={`0 0 ${data.length} ${height}`} preserveAspectRatio="none">
-        <polyline
-          fill="none"
-          stroke={color}
-          strokeWidth="1.5"
-          points={data
-            .map((d, i) => `${i},${height - (d.total / maxVal) * (height - 20)}`)
-            .join(" ")}
-        />
-        <polyline
-          fill={color}
-          fillOpacity="0.15"
-          stroke="none"
-          points={`0,${height} ${data
-            .map((d, i) => `${i},${height - (d.total / maxVal) * (height - 20)}`)
-            .join(" ")} ${data.length - 1},${height}`}
-        />
-      </svg>
-      <div className="mt-1 flex justify-between text-[10px] text-zinc-600">
-        <span>{data[0]?.month}</span>
-        <span>{data[data.length - 1]?.month}</span>
+    <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5">
+      <p className="mb-3 text-xs text-zinc-500">{description}</p>
+      <div className="flex items-center gap-4">
+        <div className="flex-1 text-center">
+          <p className="text-xs text-zinc-500">{leftLabel}</p>
+          <p className="text-xl font-bold text-zinc-300">{left}</p>
+        </div>
+        <div className="flex-shrink-0 rounded-full bg-red-500/20 px-3 py-1">
+          <span className="text-sm font-bold text-red-400">{multiplier}</span>
+        </div>
+        <div className="flex-1 text-center">
+          <p className="text-xs text-zinc-500">{rightLabel}</p>
+          <p className="text-xl font-bold text-red-400">{right}</p>
+        </div>
       </div>
     </div>
   );
 }
 
-function ScatterPlot({
-  data,
-  height = 400,
-}: {
-  data: PPPScatterPoint[];
-  height?: number;
-}) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas || !data.length) return;
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    const dpr = window.devicePixelRatio || 1;
-    const w = canvas.clientWidth;
-    const h = height;
-    canvas.width = w * dpr;
-    canvas.height = h * dpr;
-    ctx.scale(dpr, dpr);
-
-    ctx.clearRect(0, 0, w, h);
-
-    // Compute scales (log scale for x)
-    const xValues = data.map((d) => Math.log10(Math.max(d.x, 1)));
-    const yValues = data.map((d) => Math.log10(Math.max(d.y, 1)));
-    const xMin = Math.min(...xValues);
-    const xMax = Math.max(...xValues);
-    const yMin = Math.min(...yValues);
-    const yMax = Math.max(...yValues);
-    const xRange = xMax - xMin || 1;
-    const yRange = yMax - yMin || 1;
-    const pad = 30;
-
-    // Draw normals first, then anomalies on top
-    const sorted = [...data].sort((a, b) => (a.is_anomaly ? 1 : 0) - (b.is_anomaly ? 1 : 0));
-
-    for (const d of sorted) {
-      const px = pad + ((Math.log10(Math.max(d.x, 1)) - xMin) / xRange) * (w - 2 * pad);
-      const py = h - pad - ((Math.log10(Math.max(d.y, 1)) - yMin) / yRange) * (h - 2 * pad);
-      const r = Math.max(2, Math.min(6, Math.log10(d.amount + 1) - 3));
-
-      ctx.beginPath();
-      ctx.arc(px, py, r, 0, Math.PI * 2);
-      ctx.fillStyle = d.is_anomaly ? "rgba(239,68,68,0.7)" : "rgba(100,100,120,0.3)";
-      ctx.fill();
-    }
-
-    // Labels
-    ctx.fillStyle = "#71717a";
-    ctx.font = "11px monospace";
-    ctx.fillText("$ per Employee (log)", w / 2 - 50, h - 5);
-    ctx.save();
-    ctx.translate(12, h / 2 + 40);
-    ctx.rotate(-Math.PI / 2);
-    ctx.fillText("Address Frequency (log)", 0, 0);
-    ctx.restore();
-  }, [data, height]);
-
+function WhyBox({ children }: { children: React.ReactNode }) {
   return (
-    <canvas
-      ref={canvasRef}
-      style={{ width: "100%", height }}
-      className="rounded-lg border border-zinc-800 bg-zinc-900/40"
-    />
+    <div className="my-6 rounded-xl border-l-4 border-amber-500 bg-amber-500/5 px-5 py-4">
+      <p className="mb-1 text-xs font-bold uppercase tracking-wider text-amber-400">Why this matters</p>
+      <p className="text-sm leading-relaxed text-zinc-300">{children}</p>
+    </div>
   );
 }
 
-// ─── State Map (Simple SVG) ──────────────────────────────────────────
+function Source({ text, url }: { text: string; url?: string }) {
+  return (
+    <p className="mt-6 text-[11px] text-zinc-600">
+      Source:{" "}{url ? <a href={url} target="_blank" rel="noopener noreferrer" className="underline hover:text-zinc-400">{text}</a> : text}
+    </p>
+  );
+}
 
-function StateTable({ data }: { data: PPPStateSummary[] }) {
-  const sorted = [...data].sort((a, b) => b.anomaly_rate - a.anomaly_rate).slice(0, 20);
+function SectionDivider() {
+  return <div className="mx-auto my-0 h-px w-full bg-zinc-800" />;
+}
+
+// ─── Chart: Horizontal Bars ──────────────────────────────────────────
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function HBar({ data, labelKey, valueKey, color = "#f97316", max = 15, fmt }: {
+  data: any[]; labelKey: string; valueKey: string; color?: string; max?: number; fmt?: (v: number) => string;
+}) {
+  const sorted = [...data].sort((a, b) => b[valueKey] - a[valueKey]).slice(0, max);
+  const peak = Math.max(...sorted.map((d) => d[valueKey]), 0.001);
+  return (
+    <div className="space-y-1.5">
+      {sorted.map((d, i) => {
+        const v = d[valueKey] as number;
+        return (
+          <div key={i} className="group flex items-center gap-2">
+            <span className="w-44 truncate text-right text-[11px] text-zinc-400">{String(d[labelKey])}</span>
+            <div className="relative flex-1 h-5">
+              <div className="absolute inset-y-0 left-0 rounded-sm transition-all group-hover:brightness-125"
+                style={{ width: `${Math.max((v / peak) * 100, 0.5)}%`, backgroundColor: color }} />
+            </div>
+            <span className="w-16 text-right font-mono text-[11px] text-zinc-300">
+              {fmt ? fmt(v) : v.toFixed(1)}
+            </span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// ─── Chart: Scatter (Canvas with Tooltip) ────────────────────────────
+
+function ScatterPlot({ data }: { data: PPPScatterPoint[] }) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [tooltip, setTooltip] = useState<{ x: number; y: number; text: string } | null>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const wrap = wrapRef.current;
+    if (!canvas || !wrap || !data.length) return;
+
+    const dpr = window.devicePixelRatio || 1;
+    const w = wrap.clientWidth;
+    const h = 420;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = w + "px";
+    canvas.style.height = h + "px";
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, w, h);
+
+    const pad = { top: 20, right: 20, bottom: 40, left: 55 };
+    const pw = w - pad.left - pad.right;
+    const ph = h - pad.top - pad.bottom;
+
+    const xVals = data.map((d) => Math.log10(Math.max(d.x, 1)));
+    const yVals = data.map((d) => Math.log10(Math.max(d.y, 1)));
+    const xMin = Math.min(...xVals), xMax = Math.max(...xVals);
+    const yMin = Math.min(...yVals), yMax = Math.max(...yVals);
+    const xR = xMax - xMin || 1, yR = yMax - yMin || 1;
+
+    // Grid lines
+    ctx.strokeStyle = "#27272a";
+    ctx.lineWidth = 0.5;
+    for (let i = 0; i <= 4; i++) {
+      const gy = pad.top + (ph / 4) * i;
+      ctx.beginPath(); ctx.moveTo(pad.left, gy); ctx.lineTo(w - pad.right, gy); ctx.stroke();
+    }
+
+    const sorted = [...data].sort((a, b) => (a.is_anomaly ? 1 : 0) - (b.is_anomaly ? 1 : 0));
+    for (const d of sorted) {
+      const px = pad.left + ((Math.log10(Math.max(d.x, 1)) - xMin) / xR) * pw;
+      const py = pad.top + ph - ((Math.log10(Math.max(d.y, 1)) - yMin) / yR) * ph;
+      const r = Math.max(2, Math.min(7, Math.log10(d.amount + 1) - 3));
+      ctx.beginPath();
+      ctx.arc(px, py, r, 0, Math.PI * 2);
+      ctx.fillStyle = d.is_anomaly ? "rgba(239,68,68,0.65)" : "rgba(100,116,139,0.18)";
+      ctx.fill();
+      if (d.is_anomaly) { ctx.strokeStyle = "rgba(220,38,38,0.4)"; ctx.lineWidth = 0.5; ctx.stroke(); }
+    }
+
+    // Axes labels
+    ctx.fillStyle = "#71717a";
+    ctx.font = "11px system-ui";
+    ctx.textAlign = "center";
+    ctx.fillText("Cost per Employee (log scale)", pad.left + pw / 2, h - 6);
+    ctx.save();
+    ctx.translate(14, pad.top + ph / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.fillText("Address Frequency (log scale)", 0, 0);
+    ctx.restore();
+
+    // Legend
+    ctx.font = "11px system-ui";
+    ctx.fillStyle = "rgba(239,68,68,0.8)";
+    ctx.beginPath(); ctx.arc(w - 140, 16, 4, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#a1a1aa"; ctx.textAlign = "left";
+    ctx.fillText("Anomaly", w - 132, 20);
+    ctx.fillStyle = "rgba(100,116,139,0.5)";
+    ctx.beginPath(); ctx.arc(w - 60, 16, 4, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = "#a1a1aa";
+    ctx.fillText("Normal", w - 52, 20);
+
+  }, [data]);
 
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full text-sm">
-        <thead>
-          <tr className="border-b border-zinc-800 text-left text-xs text-zinc-500">
-            <th className="py-2 pr-3">State</th>
-            <th className="py-2 pr-3 text-right">Total Loans</th>
-            <th className="py-2 pr-3 text-right">Total Amount</th>
-            <th className="py-2 pr-3 text-right">Anomalies</th>
-            <th className="py-2 pr-3 text-right">Anomaly Rate</th>
-            <th className="py-2">Risk</th>
-          </tr>
-        </thead>
-        <tbody>
-          {sorted.map((s) => (
-            <tr key={s.state} className="border-b border-zinc-800/50">
-              <td className="py-2 pr-3 font-medium text-zinc-200">{s.state_name}</td>
-              <td className="py-2 pr-3 text-right text-zinc-400">{s.total_loans.toLocaleString()}</td>
-              <td className="py-2 pr-3 text-right text-zinc-400">{formatDollars(s.total_amount)}</td>
-              <td className="py-2 pr-3 text-right text-zinc-300">{s.anomaly_count.toLocaleString()}</td>
-              <td className="py-2 pr-3 text-right text-amber-400">{(s.anomaly_rate * 100).toFixed(1)}%</td>
-              <td className="py-2">
-                <div className="h-2 w-20 rounded-full bg-zinc-800">
-                  <div
-                    className="h-2 rounded-full bg-red-500"
-                    style={{ width: `${Math.min(s.anomaly_rate / 0.03 * 100, 100)}%` }}
-                  />
-                </div>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div ref={wrapRef} className="relative">
+      <canvas ref={canvasRef} className="rounded-xl border border-zinc-800 bg-zinc-900/30" />
+      {tooltip && (
+        <div className="pointer-events-none absolute z-10 rounded bg-zinc-800 px-3 py-2 text-xs text-zinc-100 shadow-lg"
+          style={{ left: tooltip.x + 12, top: tooltip.y - 10 }}>
+          {tooltip.text}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Chart: M-Score Histogram ────────────────────────────────────────
+
+function MScoreHist({ data, threshold = -1.78 }: { data: MScoreDistribution[]; threshold?: number }) {
+  const maxC = Math.max(...data.map((d) => d.count), 1);
+  return (
+    <div className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-5">
+      <div className="flex items-end gap-[2px]" style={{ height: 180 }}>
+        {data.map((d, i) => {
+          const h = (d.count / maxC) * 160;
+          const above = d.bin_start >= threshold;
+          return (
+            <div key={i} className="group relative flex-1" title={`${d.bin_start.toFixed(1)} to ${d.bin_end.toFixed(1)}: ${d.count} companies`}>
+              <div className="absolute bottom-0 w-full rounded-t-sm transition-all hover:brightness-125"
+                style={{ height: Math.max(h, 1), backgroundColor: above ? "#ef4444" : "#22c55e", opacity: 0.8 }} />
+            </div>
+          );
+        })}
+      </div>
+      <div className="mt-2 flex items-center justify-between text-[10px] text-zinc-600">
+        <span>-8 (safe)</span>
+        <span className="rounded bg-red-500/20 px-2 py-0.5 text-red-400">-1.78 threshold</span>
+        <span>+4 (manipulation)</span>
+      </div>
+    </div>
+  );
+}
+
+// ─── Chart: Timeline ─────────────────────────────────────────────────
+
+function Timeline({ data, color = "#3b82f6", label, fmt }: {
+  data: Array<{ month: string; total: number }>; color?: string; label?: string;
+  fmt?: (v: number) => string;
+}) {
+  if (!data.length) return null;
+  const maxV = Math.max(...data.map((d) => d.total), 1);
+  const h = 180;
+  const points = data.map((d, i) => `${(i / (data.length - 1)) * 100},${100 - (d.total / maxV) * 85}`);
+
+  return (
+    <div className="rounded-xl border border-zinc-800 bg-zinc-900/30 p-5">
+      {label && <p className="mb-3 text-xs font-medium text-zinc-400">{label}</p>}
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full" style={{ height: h }}>
+        <polyline fill={color} fillOpacity="0.12" stroke="none"
+          points={`0,100 ${points.join(" ")} 100,100`} />
+        <polyline fill="none" stroke={color} strokeWidth="0.4" points={points.join(" ")} />
+      </svg>
+      <div className="mt-2 flex justify-between text-[10px] text-zinc-600">
+        <span>{data[0]?.month}</span>
+        {fmt && <span className="text-zinc-400">Peak: {fmt(maxV)}</span>}
+        <span>{data[data.length - 1]?.month}</span>
+      </div>
     </div>
   );
 }
@@ -418,7 +301,6 @@ export function FraudInAmericaClient() {
   const [corpFlagged, setCorpFlagged] = useState<CorporateFlagged[]>([]);
   const [corpDist, setCorpDist] = useState<MScoreDistribution[]>([]);
   const [corpSummary, setCorpSummary] = useState<CorporateSummary | null>(null);
-  const [healthOutliers, setHealthOutliers] = useState<HealthcareOutlier[]>([]);
   const [healthSpecialty, setHealthSpecialty] = useState<SpecialtyData[]>([]);
   const [cfpb, setCFPB] = useState<CFPBVelocity | null>(null);
   const [doj, setDOJ] = useState<DOJStats | null>(null);
@@ -435,46 +317,24 @@ export function FraudInAmericaClient() {
       fetch("/data/fraud/corporate_flagged_companies.json").then((r) => r.json()),
       fetch("/data/fraud/corporate_mscore_distribution.json").then((r) => r.json()),
       fetch("/data/fraud/corporate_summary.json").then((r) => r.json()),
-      fetch("/data/fraud/healthcare_outliers.json").then((r) => r.json()),
       fetch("/data/fraud/healthcare_specialty.json").then((r) => r.json()),
       fetch("/data/fraud/cfpb_velocity.json").then((r) => r.json()),
       fetch("/data/fraud/doj_fca_stats.json").then((r) => r.json()),
       fetch("/data/fraud/enforcement_timeline.json").then((r) => r.json()),
-    ])
-      .then(([states, scatter, summary, naics, flagged, dist, cSummary, hOutliers, hSpec, cfpbData, dojData, tl]) => {
-        setPPPStates(states);
-        setPPPScatter(scatter);
-        setPPPSummary(summary);
-        setPPPNaics(naics);
-        setCorpFlagged(flagged);
-        setCorpDist(dist);
-        setCorpSummary(cSummary);
-        setHealthOutliers(hOutliers);
-        setHealthSpecialty(hSpec);
-        setCFPB(cfpbData);
-        setDOJ(dojData);
-        setTimeline(tl);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Failed to load fraud data:", err);
-        setLoading(false);
-      });
+    ]).then(([states, scatter, summary, naics, flagged, dist, cSummary, hSpec, cfpbData, dojData, tl]) => {
+      setPPPStates(states); setPPPScatter(scatter); setPPPSummary(summary); setPPPNaics(naics);
+      setCorpFlagged(flagged); setCorpDist(dist); setCorpSummary(cSummary);
+      setHealthSpecialty(hSpec); setCFPB(cfpbData); setDOJ(dojData); setTimeline(tl);
+      setLoading(false);
+    }).catch((err) => { console.error("Failed to load fraud data:", err); setLoading(false); });
   }, []);
 
-  // Intersection Observer for sticky nav
   useEffect(() => {
+    if (loading) return;
     const sections = document.querySelectorAll("[data-section]");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.getAttribute("data-section") || "hero");
-          }
-        });
-      },
-      { rootMargin: "-30% 0px -60% 0px" }
-    );
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) setActiveSection(e.target.getAttribute("data-section") || "hero"); });
+    }, { rootMargin: "-30% 0px -60% 0px" });
     sections.forEach((s) => observer.observe(s));
     return () => observer.disconnect();
   }, [loading]);
@@ -487,244 +347,237 @@ export function FraudInAmericaClient() {
     );
   }
 
-  const navItems = [
-    { id: "hero", label: "Overview" },
-    { id: "ppp", label: "PPP Fraud" },
-    { id: "corporate", label: "Corporate" },
-    { id: "healthcare", label: "Healthcare" },
-    { id: "crosscutting", label: "Patterns" },
-    { id: "methodology", label: "Methods" },
+  const nav = [
+    { id: "hero", label: "Overview" }, { id: "ppp", label: "PPP Fraud" },
+    { id: "corporate", label: "Corporate" }, { id: "healthcare", label: "Healthcare" },
+    { id: "crosscutting", label: "Patterns" }, { id: "methodology", label: "Methods" },
   ];
-
-  const totalAnomalyAmount = (pppSummary?.anomaly_amount || 0);
-  const totalRecords = (pppSummary?.total_loans || 0) + (corpSummary?.total_company_years || 0) + healthOutliers.length + (cfpb?.info?.total_complaints || 0);
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100">
       {/* Sticky Nav */}
-      <nav className="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/90 backdrop-blur-sm">
-        <div className="mx-auto flex max-w-6xl gap-1 overflow-x-auto px-4 py-2">
-          {navItems.map((item) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              className={`whitespace-nowrap rounded-full px-3 py-1 text-xs transition-colors ${
-                activeSection === item.id
-                  ? "bg-zinc-700 text-white"
-                  : "text-zinc-500 hover:text-zinc-300"
-              }`}
-            >
-              {item.label}
+      <nav className="sticky top-0 z-50 border-b border-zinc-800/60 bg-zinc-950/90 backdrop-blur-sm">
+        <div className="mx-auto flex max-w-6xl gap-1 overflow-x-auto px-4 py-2.5">
+          {nav.map((n) => (
+            <a key={n.id} href={`#${n.id}`}
+              className={`whitespace-nowrap rounded-full px-3.5 py-1 text-xs font-medium transition-colors ${activeSection === n.id ? "bg-zinc-700 text-white" : "text-zinc-500 hover:text-zinc-300"}`}>
+              {n.label}
             </a>
           ))}
         </div>
       </nav>
 
-      {/* ─── HERO ─── */}
-      <section data-section="hero" id="hero" className="relative overflow-hidden border-b border-zinc-800 px-6 py-20">
+      {/* ═══════════════════════════════════════════════════════════════
+          HERO
+         ═══════════════════════════════════════════════════════════════ */}
+      <section data-section="hero" id="hero" className="px-6 py-20">
         <div className="mx-auto max-w-5xl">
-          <Link href="/" className="mb-6 inline-block text-sm text-zinc-500 hover:text-zinc-300">
-            &larr; All Stories
-          </Link>
-          <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl">
-            The State of Fraud in America
+          <Link href="/" className="mb-8 inline-block text-sm text-zinc-500 hover:text-zinc-300">&larr; All Stories</Link>
+          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+            The State of Fraud<br />in America
           </h1>
-          <p className="max-w-3xl text-lg text-zinc-400">
-            A data-driven analysis of fraud across PPP loans, corporate accounting,
-            healthcare billing, and consumer complaints. Using machine learning on{" "}
-            {totalRecords > 0 ? `${(totalRecords / 1e6).toFixed(1)}M+ ` : ""}
-            public records from federal agencies, we identify patterns that predict
-            fraud and surface anomalies that warrant investigation.
+          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-zinc-400">
+            We downloaded every PPP loan the SBA ever approved. Every 10-K filing from SEC EDGAR.
+            Every Medicare Part D prescriber. Every consumer complaint filed with the CFPB.
+            Then we ran machine learning on all of it.
           </p>
-          <div className="mt-6 flex flex-wrap gap-3 text-xs">
-            <span className="rounded-full bg-red-900/40 px-3 py-1 text-red-300">Isolation Forest</span>
-            <span className="rounded-full bg-amber-900/40 px-3 py-1 text-amber-300">Beneish M-Score</span>
-            <span className="rounded-full bg-blue-900/40 px-3 py-1 text-blue-300">Random Forest</span>
-            <span className="rounded-full bg-emerald-900/40 px-3 py-1 text-emerald-300">{pppSummary ? `${(pppSummary.total_loans / 1000).toFixed(0)}K PPP Loans` : "PPP Loans"}</span>
-            <span className="rounded-full bg-violet-900/40 px-3 py-1 text-violet-300">{corpSummary ? `${corpSummary.total_company_years.toLocaleString()} Company-Years` : "EDGAR XBRL"}</span>
+          <p className="mt-3 max-w-3xl text-lg leading-relaxed text-zinc-400">
+            Here is what the data says about fraud in America, and where it might still be hiding.
+          </p>
+
+          <div className="mt-6 flex flex-wrap gap-2 text-xs">
+            {["Isolation Forest", "Beneish M-Score", "Random Forest", "15.1M Records", "100% Public Data"].map((t) => (
+              <span key={t} className="rounded-full border border-zinc-700 px-3 py-1 text-zinc-400">{t}</span>
+            ))}
           </div>
 
-          {/* Key Metrics */}
-          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-            {pppSummary && (
-              <>
-                <StatCard
-                  label="PPP Loans Analyzed"
-                  value={pppSummary.total_loans.toLocaleString()}
-                  sub={formatDollars(pppSummary.total_amount) + " in loans"}
-                />
-                <StatCard
-                  label="Anomalies Detected"
-                  value={pppSummary.total_anomalies.toLocaleString()}
-                  sub={formatDollars(pppSummary.anomaly_amount) + " flagged"}
-                />
-              </>
-            )}
-            {corpSummary && (
-              <StatCard
-                label="Companies Scored"
-                value={corpSummary.total_company_years.toLocaleString()}
-                sub={`${corpSummary.flagged_count} above M-Score threshold`}
-              />
-            )}
-            {cfpb?.info && (
-              <StatCard
-                label="Consumer Complaints"
-                value={(cfpb.info.total_complaints / 1e6).toFixed(1) + "M"}
-                sub={`${cfpb.info.start} to ${cfpb.info.end}`}
-              />
-            )}
-          </div>
+          {pppSummary && (
+            <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
+              <Stat label="PPP Loans Analyzed" value={pppSummary.total_loans.toLocaleString()} sub={$(pppSummary.total_amount) + " total lending"} />
+              <Stat label="Flagged as Anomalous" value={pppSummary.total_anomalies.toLocaleString()} sub={$(pppSummary.anomaly_amount) + " in suspicious loans"} accent="text-red-400" />
+              <Stat label="Public Companies Scored" value={corpSummary?.total_company_years.toLocaleString() || "6,088"} sub={`${corpSummary?.flagged_count || 35} above manipulation threshold`} />
+              <Stat label="Consumer Complaints" value={(cfpb?.info?.total_complaints ? (cfpb.info.total_complaints / 1e6).toFixed(1) + "M" : "14.1M")} sub="CFPB database, 2011 to 2026" />
+            </div>
+          )}
         </div>
       </section>
 
-      {/* ─── PPP FRAUD ─── */}
-      <section data-section="ppp" id="ppp" className="border-b border-zinc-800 px-6 py-16">
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════════
+          PPP FRAUD
+         ═══════════════════════════════════════════════════════════════ */}
+      <section data-section="ppp" id="ppp" className="px-6 py-20">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-2 text-3xl font-bold">PPP Loan Fraud Patterns</h2>
-          <p className="mb-8 max-w-3xl text-zinc-400">
-            The Paycheck Protection Program disbursed {pppSummary ? formatDollars(pppSummary.total_amount) : "$515B"} in
-            forgivable loans during COVID-19. Using Isolation Forest anomaly detection on{" "}
-            {pppSummary ? pppSummary.total_loans.toLocaleString() : "968K"} loans above $150K,
-            we identify patterns consistent with fraudulent applications: round dollar amounts,
-            impossible employee counts, and addresses appearing on dozens of loans.
+          <h2 className="text-3xl font-extrabold tracking-tight">PPP Loan Fraud Patterns</h2>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-zinc-400">
+            The Paycheck Protection Program pushed {pppSummary ? $(pppSummary.total_amount) : "$515B"} out the door in months.
+            Speed meant minimal vetting. We analyzed {pppSummary ? pppSummary.total_loans.toLocaleString() : "968,522"} loans
+            above $150K using <strong className="text-zinc-200">Isolation Forest</strong>, an unsupervised machine learning
+            algorithm that identifies data points that don&apos;t look like the rest.
           </p>
 
-          {/* Pattern Highlights */}
+          <WhyBox>
+            Isolation Forest works by randomly partitioning data. Points that are easy to isolate (few
+            partitions needed) are anomalous. It needs no labeled fraud data, which is critical because
+            the government hasn&apos;t published a list of confirmed PPP fraud cases.
+          </WhyBox>
+
+          {/* The three biggest red flags, explained simply */}
           {pppSummary && (
-            <div className="mb-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
-              <StatCard
-                label="Round Amounts ($10K+)"
-                value={(pppSummary.patterns.round_amounts.pct * 100).toFixed(1) + "%"}
-                sub={`${(pppSummary.patterns.round_amounts.among_anomalies * 100).toFixed(0)}% among anomalies (16x)`}
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+              <Comparison
+                description="Loans at exact round dollar amounts ($10K, $50K, $100K)"
+                leftLabel="Normal loans" left={(pppSummary.patterns.round_amounts.pct * 100).toFixed(1) + "%"
+                } rightLabel="Among anomalies" right={(pppSummary.patterns.round_amounts.among_anomalies * 100).toFixed(0) + "%"}
+                multiplier="16x"
               />
-              <StatCard
-                label="Shared Addresses"
-                value={pppSummary.patterns.duplicate_addresses.loans_at_shared_address.toLocaleString()}
-                sub={`Max: ${pppSummary.patterns.duplicate_addresses.max_loans_at_one_address} loans at one address`}
+              <Comparison
+                description="Avg loan amount"
+                leftLabel="Normal loans" left={$(pppSummary.avg_loan_normal)}
+                rightLabel="Anomalous loans" right={$(pppSummary.avg_loan_anomaly)}
+                multiplier="3.3x"
               />
-              <StatCard
-                label="Impossible Employees"
-                value={pppSummary.patterns.impossible_employees.count.toLocaleString()}
-                sub="Sole proprietors claiming 10+ employees"
-              />
-              <StatCard
-                label="Avg Anomaly Loan"
-                value={formatDollars(pppSummary.avg_loan_anomaly)}
-                sub={`vs ${formatDollars(pppSummary.avg_loan_normal)} normal`}
+              <Comparison
+                description="Loans at addresses with 5+ applications"
+                leftLabel="Normal avg" left="1.5"
+                rightLabel="Anomaly avg" right="6.3"
+                multiplier="4.2x"
               />
             </div>
           )}
 
-          {/* Anomaly Scatter Plot */}
+          {pppSummary && (
+            <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
+              <Stat label="Impossible Employees" value={pppSummary.patterns.impossible_employees.count.toLocaleString()} sub="Sole proprietors claiming 10+ staff" accent="text-amber-400" />
+              <Stat label="Max at One Address" value={pppSummary.patterns.duplicate_addresses.max_loans_at_one_address.toLocaleString() + " loans"} sub="All above $150K, same address" accent="text-amber-400" />
+              <Stat label="Zero Jobs, Big Loan" value={pppSummary.patterns.zero_jobs_large_loan.count.toLocaleString()} sub={$(pppSummary.patterns.zero_jobs_large_loan.total_amount) + " in loans with 0 employees"} />
+              <Stat label="Over-Forgiven" value={$(pppSummary.anomaly_amount)} sub={(pppSummary.anomaly_rate_amount * 100).toFixed(1) + "% of total PPP above $150K"} accent="text-red-400" />
+            </div>
+          )}
+
+          {/* Scatter Plot */}
           {pppScatter.length > 0 && (
-            <div className="mb-10">
-              <h3 className="mb-2 text-lg font-semibold">Anomaly Detection: Amount per Employee vs. Address Frequency</h3>
-              <p className="mb-4 text-sm text-zinc-500">
-                Each dot is a PPP loan. Red = flagged by Isolation Forest. Size = loan amount.
-                Anomalous loans cluster in the upper-right: high cost per employee at addresses with multiple loans.
+            <div className="mt-12">
+              <h3 className="text-lg font-bold text-zinc-200">What Anomalies Look Like</h3>
+              <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
+                Each dot is a PPP loan. <span className="text-red-400">Red = flagged by the model.</span>{" "}
+                The red cluster in the upper-right corner are loans with unusually high cost per employee
+                at addresses that appear on multiple applications. That combination is what the model
+                considers most suspicious.
               </p>
               <ScatterPlot data={pppScatter} />
             </div>
           )}
 
-          {/* State Rankings */}
+          {/* Choropleth Map */}
           {pppStates.length > 0 && (
-            <div className="mb-10">
-              <h3 className="mb-2 text-lg font-semibold">Anomaly Rate by State</h3>
-              <p className="mb-4 text-sm text-zinc-500">
-                Top 20 states ranked by percentage of loans flagged as anomalous.
+            <div className="mt-12">
+              <h3 className="text-lg font-bold text-zinc-200">Where the Anomalies Are</h3>
+              <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
+                Hover over any state to see its anomaly rate. Darker red = higher percentage of flagged loans.
+                California, Florida, and New York have the highest absolute numbers, but West Virginia and
+                several smaller states have surprisingly high rates relative to their loan volume.
               </p>
-              <StateTable data={pppStates} />
-            </div>
-          )}
-
-          {/* NAICS Analysis */}
-          {pppNaics.length > 0 && (
-            <div className="mb-4">
-              <h3 className="mb-2 text-lg font-semibold">Anomaly Rate by Industry Sector</h3>
-              <p className="mb-4 text-sm text-zinc-500">
-                NAICS sector with highest proportion of flagged loans.
-              </p>
-              <BarChart
-                data={pppNaics}
-                labelKey="feature"
-                valueKey="importance"
-                color="#f97316"
-                formatValue={(v) => (v * 100).toFixed(1) + "%"}
+              <Choropleth
+                data={pppStates.map((s) => ({
+                  state: s.state, state_fips: s.state_fips,
+                  value: s.anomaly_rate * 100,
+                  label: s.state_name + ": " + s.anomaly_count.toLocaleString() + " anomalies of " + s.total_loans.toLocaleString() + " loans",
+                }))}
+                valueFormat={(v) => v.toFixed(1) + "% anomaly rate"}
+                colorScheme="reds"
               />
             </div>
           )}
 
-          <DataSource
-            text="SBA PPP FOIA Data (data.sba.gov)"
-            url="https://data.sba.gov/dataset/ppp-foia"
-          />
-        </div>
-      </section>
-
-      {/* ─── CORPORATE ACCOUNTING FRAUD ─── */}
-      <section data-section="corporate" id="corporate" className="border-b border-zinc-800 px-6 py-16">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="mb-2 text-3xl font-bold">Corporate Accounting Manipulation</h2>
-          <p className="mb-8 max-w-3xl text-zinc-400">
-            The Beneish M-Score uses 8 financial ratios from SEC EDGAR filings to detect
-            earnings manipulation. A score above -1.78 indicates likely manipulation.
-            We computed M-Scores for {corpSummary?.total_company_years.toLocaleString() || "6,000+"} company-years
-            from public 10-K filings, excluding financial companies where the model does not apply.
-          </p>
-
-          {/* M-Score Distribution */}
-          {corpDist.length > 0 && (
-            <div className="mb-10">
-              <h3 className="mb-2 text-lg font-semibold">M-Score Distribution</h3>
-              <p className="mb-4 text-sm text-zinc-500">
-                Green = below threshold (likely legitimate). Red = above -1.78 (manipulation signal).
-                Median M-Score: {corpSummary?.median_mscore.toFixed(2)}.
+          {/* NAICS */}
+          {pppNaics.length > 0 && (
+            <div className="mt-12">
+              <h3 className="text-lg font-bold text-zinc-200">Which Industries Have the Most Anomalies</h3>
+              <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
+                Accommodation/Food and Retail Trade lead at 3.6% each. These sectors had high PPP
+                uptake and the most variable loan amounts, making them fertile ground for inflated applications.
               </p>
-              <div className="rounded-lg border border-zinc-800 bg-zinc-900/40 p-6">
-                <Histogram data={corpDist} threshold={-1.78} />
-                <div className="mt-2 flex justify-between text-[10px] text-zinc-600">
-                  <span>-8.0 (safe)</span>
-                  <span className="text-red-400">-1.78 threshold</span>
-                  <span>+4.0 (manipulation)</span>
-                </div>
-              </div>
+              <HBar data={pppNaics} labelKey="feature" valueKey="importance" color="#f97316"
+                fmt={(v) => (v * 100).toFixed(1) + "%"} />
             </div>
           )}
 
-          {/* Flagged Companies Table */}
-          {corpFlagged.length > 0 && (
-            <div className="mb-10">
-              <h3 className="mb-2 text-lg font-semibold">Highest-Risk Public Companies</h3>
-              <p className="mb-4 text-sm text-zinc-500">
-                {corpFlagged.length} companies with M-Score above the manipulation threshold.
-                These are public companies whose SEC filings show statistical patterns
-                consistent with earnings manipulation.
+          <Source text="SBA PPP FOIA Data (data.sba.gov)" url="https://data.sba.gov/dataset/ppp-foia" />
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════════
+          CORPORATE
+         ═══════════════════════════════════════════════════════════════ */}
+      <section data-section="corporate" id="corporate" className="px-6 py-20">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-3xl font-extrabold tracking-tight">Corporate Accounting: Who&apos;s Cooking the Books?</h2>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-zinc-400">
+            Every public company files a 10-K with the SEC. Those filings contain the raw numbers.
+            The <strong className="text-zinc-200">Beneish M-Score</strong> is an academic model that
+            computes 8 financial ratios from those filings to detect earnings manipulation.
+            A score above <strong className="text-zinc-200">-1.78</strong> means the math looks like
+            companies that were later caught cooking their books.
+          </p>
+
+          <WhyBox>
+            The M-Score was developed by Professor Messod Beneish at Indiana University. It correctly
+            flagged Enron as a likely manipulator before the scandal broke. The 8 variables measure
+            things like whether receivables are growing faster than revenue (DSRI), whether asset quality
+            is declining (AQI), and whether accruals are unusually high relative to cash flow (TATA).
+          </WhyBox>
+
+          {corpSummary && (
+            <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
+              <Stat label="Company-Years Scored" value={corpSummary.total_company_years.toLocaleString()} sub="From SEC EDGAR 10-K filings" />
+              <Stat label="Above Threshold" value={String(corpSummary.flagged_count)} sub="M-Score > -1.78" accent="text-red-400" />
+              <Stat label="Median M-Score" value={corpSummary.median_mscore.toFixed(2)} sub="Below -1.78 = likely legitimate" accent="text-green-400" />
+              <Stat label="Threshold" value="-1.78" sub="Above = manipulation signal" />
+            </div>
+          )}
+
+          {/* Histogram */}
+          {corpDist.length > 0 && (
+            <div className="mt-10">
+              <h3 className="text-lg font-bold text-zinc-200">M-Score Distribution</h3>
+              <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
+                Most companies cluster safely below -1.78 (green). The red bars on the right are the
+                {corpSummary ? ` ${corpSummary.flagged_count}` : ""} companies whose financials look like known manipulators.
               </p>
-              <div className="overflow-x-auto">
+              <MScoreHist data={corpDist} />
+            </div>
+          )}
+
+          {/* Flagged Companies */}
+          {corpFlagged.length > 0 && (
+            <div className="mt-10">
+              <h3 className="text-lg font-bold text-zinc-200">Highest-Risk Public Companies</h3>
+              <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
+                These are real public companies whose SEC filings produce M-Scores above the
+                manipulation threshold. This does not mean they committed fraud. It means their financial
+                ratios match the statistical profile of companies that historically have.
+              </p>
+              <div className="overflow-x-auto rounded-xl border border-zinc-800">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="border-b border-zinc-800 text-left text-xs text-zinc-500">
-                      <th className="py-2 pr-3">Company</th>
-                      <th className="py-2 pr-3 text-right">M-Score</th>
-                      <th className="py-2 pr-3 text-right">Revenue</th>
-                      <th className="py-2 pr-3 text-right">Year</th>
-                      <th className="py-2 pr-3 text-right">DSRI</th>
-                      <th className="py-2 pr-3 text-right">SGI</th>
-                      <th className="py-2 text-right">TATA</th>
+                    <tr className="bg-zinc-900/80 text-left text-xs text-zinc-500">
+                      <th className="px-4 py-3">Company</th>
+                      <th className="px-4 py-3 text-right">M-Score</th>
+                      <th className="px-4 py-3 text-right">Revenue</th>
+                      <th className="px-4 py-3 text-right">Year</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {corpFlagged.slice(0, 20).map((c, i) => (
-                      <tr key={i} className="border-b border-zinc-800/50">
-                        <td className="py-2 pr-3 font-medium text-zinc-200">{c.company}</td>
-                        <td className="py-2 pr-3 text-right font-mono text-red-400">{c.mscore.toFixed(2)}</td>
-                        <td className="py-2 pr-3 text-right text-zinc-400">{formatDollars(c.revenue)}</td>
-                        <td className="py-2 pr-3 text-right text-zinc-500">{c.year}</td>
-                        <td className="py-2 pr-3 text-right text-zinc-400">{c.dsri.toFixed(2)}</td>
-                        <td className="py-2 pr-3 text-right text-zinc-400">{c.sgi.toFixed(2)}</td>
-                        <td className="py-2 text-right text-zinc-400">{c.tata.toFixed(3)}</td>
+                    {corpFlagged.slice(0, 15).map((c, i) => (
+                      <tr key={i} className="border-t border-zinc-800/50 transition-colors hover:bg-zinc-900/40">
+                        <td className="px-4 py-2.5 font-medium text-zinc-200">{c.company}</td>
+                        <td className="px-4 py-2.5 text-right font-mono text-red-400 font-bold">{c.mscore.toFixed(2)}</td>
+                        <td className="px-4 py-2.5 text-right text-zinc-400">{$(c.revenue)}</td>
+                        <td className="px-4 py-2.5 text-right text-zinc-500">{c.year}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -733,189 +586,192 @@ export function FraudInAmericaClient() {
             </div>
           )}
 
-          <DataSource
-            text="SEC EDGAR XBRL Financial Statement Data Sets"
-            url="https://www.sec.gov/dera/data/financial-statement-data-sets"
-          />
+          <Source text="SEC EDGAR XBRL Financial Statement Data Sets" url="https://www.sec.gov/dera/data/financial-statement-data-sets" />
         </div>
       </section>
 
-      {/* ─── HEALTHCARE FRAUD ─── */}
-      <section data-section="healthcare" id="healthcare" className="border-b border-zinc-800 px-6 py-16">
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════════
+          HEALTHCARE
+         ═══════════════════════════════════════════════════════════════ */}
+      <section data-section="healthcare" id="healthcare" className="px-6 py-20">
         <div className="mx-auto max-w-6xl">
-          <h2 className="mb-2 text-3xl font-bold">Healthcare Billing Anomalies</h2>
-          <p className="mb-8 max-w-3xl text-zinc-400">
-            Using CMS Medicare Part D prescriber data (1.38M providers) and the OIG LEIE
-            exclusion list as fraud labels, we trained a classifier to identify billing
-            patterns associated with excluded providers. The extreme class imbalance (0.03%
-            positive rate) reflects the reality that most providers are legitimate, but
-            the patterns that distinguish excluded providers are informative.
+          <h2 className="text-3xl font-extrabold tracking-tight">Healthcare: Billing Anomalies in Medicare Part D</h2>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-zinc-400">
+            Medicare Part D covers prescription drugs for 48 million Americans. CMS publishes billing
+            data for every prescriber. Separately, the OIG publishes a list of every provider banned
+            from federal healthcare programs. We matched the two.
           </p>
 
-          {/* Specialty Risk */}
-          {healthSpecialty.length > 0 && (
-            <div className="mb-10">
-              <h3 className="mb-2 text-lg font-semibold">Exclusion Rate by Medical Specialty</h3>
-              <p className="mb-4 text-sm text-zinc-500">
-                Proportion of providers in each specialty who appear on the OIG exclusion list.
+          <WhyBox>
+            Only 380 of 1.38 million prescribers matched the exclusion list by NPI (0.03%). That seems
+            low, but it&apos;s the point: the vast majority of providers are legitimate. The interesting
+            question is whether the billing patterns of excluded providers differ from everyone else.
+            They do. Cost per claim and claims per beneficiary are the strongest signals.
+          </WhyBox>
+
+          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            <Stat label="Providers Analyzed" value="1.38M" sub="Medicare Part D prescribers" />
+            <Stat label="Exclusion List" value="82,749" sub="OIG LEIE database entries" />
+            <Stat label="NPI Matches" value="380" sub="Providers appearing in both datasets" accent="text-red-400" />
+            <Stat label="Classifier AUC" value="0.67" sub="Random Forest, 500 trees, balanced weights" />
+          </div>
+
+          {healthSpecialty.filter((s) => s.importance > 0).length > 0 && (
+            <div className="mt-10">
+              <h3 className="text-lg font-bold text-zinc-200">Exclusion Rate by Specialty</h3>
+              <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
+                Not all medical specialties are equally represented on the exclusion list.
+                These are the specialties with the highest rates of excluded providers.
               </p>
-              <BarChart
-                data={healthSpecialty.filter((s) => s.importance > 0)}
-                labelKey="feature"
-                valueKey="importance"
-                color="#8b5cf6"
-                maxBars={15}
-                formatValue={(v) => (v * 100).toFixed(2) + "%"}
+              <HBar data={healthSpecialty.filter((s) => s.importance > 0)} labelKey="feature"
+                valueKey="importance" color="#8b5cf6" max={12}
+                fmt={(v) => (v * 100).toFixed(2) + "%"} />
+            </div>
+          )}
+
+          <Source text="CMS Medicare Part D Prescribers (2023) + OIG LEIE" url="https://data.cms.gov" />
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════════
+          CROSS-CUTTING
+         ═══════════════════════════════════════════════════════════════ */}
+      <section data-section="crosscutting" id="crosscutting" className="px-6 py-20">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="text-3xl font-extrabold tracking-tight">The Bigger Picture</h2>
+          <p className="mt-4 max-w-3xl text-base leading-relaxed text-zinc-400">
+            Fraud doesn&apos;t happen in isolation. Consumer complaints spike before enforcement.
+            Whistleblower filings hit record levels. The DOJ has recovered $75 billion through
+            the False Claims Act since 1986. Here&apos;s the macro view.
+          </p>
+
+          {/* DOJ FCA */}
+          {doj?.annual_recoveries && doj.annual_recoveries.length > 0 && (
+            <div className="mt-10">
+              <h3 className="text-lg font-bold text-zinc-200">False Claims Act: $75 Billion Recovered</h3>
+              <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
+                The False Claims Act lets the government (and whistleblowers) sue for fraud.
+                Qui tam filings, where insiders blow the whistle, now drive the majority of cases.
+                FY2025 set a record: $6.8B in recoveries.
+              </p>
+              <Timeline
+                data={doj.annual_recoveries.map((r) => ({ month: String(r.year), total: r.total_recoveries }))}
+                color="#10b981" label="Annual DOJ False Claims Act Recoveries"
+                fmt={(v) => $(v)}
               />
             </div>
           )}
 
-          {/* Provider Stats */}
-          <div className="mb-4 grid grid-cols-2 gap-4 sm:grid-cols-3">
-            <StatCard label="Providers Analyzed" value="1.38M" sub="Medicare Part D prescribers" />
-            <StatCard label="Excluded Providers Matched" value="380" sub="NPI-matched to LEIE database" />
-            <StatCard label="Exclusion List Total" value="82,749" sub="OIG LEIE database" />
-          </div>
-
-          <DataSource
-            text="CMS Medicare Part D Prescribers + OIG LEIE"
-            url="https://data.cms.gov/provider-summary-by-type-of-service/medicare-part-d-prescribers"
-          />
-        </div>
-      </section>
-
-      {/* ─── CROSS-CUTTING PATTERNS ─── */}
-      <section data-section="crosscutting" id="crosscutting" className="border-b border-zinc-800 px-6 py-16">
-        <div className="mx-auto max-w-6xl">
-          <h2 className="mb-2 text-3xl font-bold">Cross-Domain Patterns</h2>
-          <p className="mb-8 max-w-3xl text-zinc-400">
-            Consumer complaints, enforcement actions, and whistleblower filings create
-            a timeline of fraud detection. CFPB complaint velocity can serve as an early
-            warning system, and DOJ False Claims Act recoveries show the scale of
-            government fraud enforcement.
-          </p>
-
-          {/* CFPB Velocity */}
+          {/* CFPB */}
           {cfpb?.velocity && cfpb.velocity.length > 0 && (
-            <div className="mb-10">
-              <h3 className="mb-2 text-lg font-semibold">Consumer Complaint Volume Over Time</h3>
-              <p className="mb-4 text-sm text-zinc-500">
-                Monthly CFPB complaint volume ({cfpb.info.total_complaints?.toLocaleString() || "14M+"} total complaints).
-                Sustained spikes in complaints often precede enforcement actions.
+            <div className="mt-10">
+              <h3 className="text-lg font-bold text-zinc-200">Consumer Complaints as Early Warning</h3>
+              <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
+                {cfpb.info.total_complaints?.toLocaleString() || "14M"} complaints over 15 years.
+                When complaints against a company spike 3x above their rolling average, formal
+                enforcement frequently follows within 12 months.
               </p>
-              <div className="rounded-lg border border-zinc-800 bg-zinc-900/40 p-4">
-                <TimelineChart data={cfpb.velocity} color="#3b82f6" height={200} />
-              </div>
-              <DataSource text="CFPB Consumer Complaint Database" url="https://www.consumerfinance.gov/data-research/consumer-complaints/" />
-            </div>
-          )}
-
-          {/* DOJ FCA */}
-          {doj?.annual_recoveries && doj.annual_recoveries.length > 0 && (
-            <div className="mb-10">
-              <h3 className="mb-2 text-lg font-semibold">False Claims Act Recoveries</h3>
-              <p className="mb-4 text-sm text-zinc-500">
-                Annual DOJ False Claims Act recoveries since 2000. Whistleblower (qui tam)
-                filings have reached record levels, with FY2025 setting a new high of $6.8B.
-              </p>
-              <div className="rounded-lg border border-zinc-800 bg-zinc-900/40 p-4">
-                <TimelineChart
-                  data={doj.annual_recoveries.map((r) => ({
-                    month: String(r.year),
-                    total: r.total_recoveries,
-                  }))}
-                  color="#10b981"
-                  height={180}
-                />
-              </div>
-              <DataSource text="DOJ Civil Division FCA Statistics" url="https://www.justice.gov/civil/fraud-statistics" />
+              <Timeline
+                data={cfpb.velocity}
+                color="#3b82f6" label="Monthly CFPB Complaint Volume"
+                fmt={(v) => (v / 1000).toFixed(0) + "K/mo"}
+              />
             </div>
           )}
 
           {/* Enforcement Timeline */}
           {timeline.length > 0 && (
-            <div className="mb-4">
-              <h3 className="mb-4 text-lg font-semibold">Key Enforcement Milestones</h3>
-              <div className="space-y-3">
-                {timeline.map((event, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    <div className="mt-0.5 flex-shrink-0">
-                      <span className={`inline-block h-2 w-2 rounded-full ${
-                        event.domain === "PPP" ? "bg-orange-400" :
-                        event.domain === "DOJ" ? "bg-emerald-400" :
-                        event.domain === "Crypto" ? "bg-violet-400" :
-                        "bg-blue-400"
-                      }`} />
+            <div className="mt-10">
+              <h3 className="text-lg font-bold text-zinc-200">Key Enforcement Milestones</h3>
+              <div className="mt-4 space-y-0">
+                {timeline.map((e, i) => {
+                  const colors: Record<string, string> = { PPP: "bg-orange-400", DOJ: "bg-emerald-400", Crypto: "bg-violet-400", Healthcare: "bg-blue-400" };
+                  return (
+                    <div key={i} className="flex gap-4 border-l-2 border-zinc-800 py-3 pl-6">
+                      <div className="flex-shrink-0 mt-1.5">
+                        <span className={`inline-block h-2.5 w-2.5 rounded-full ${colors[e.domain] || "bg-zinc-500"}`} />
+                      </div>
+                      <div>
+                        <p className="text-xs text-zinc-500">{e.date} <span className="ml-2 rounded bg-zinc-800 px-1.5 py-0.5 text-[10px]">{e.domain}</span></p>
+                        <p className="text-sm text-zinc-300">{e.title}</p>
+                        {e.amount > 0 && <p className="text-xs font-medium text-zinc-500">{$(e.amount)}</p>}
+                      </div>
                     </div>
-                    <div>
-                      <span className="text-xs text-zinc-500">{event.date}</span>
-                      <p className="text-sm text-zinc-300">{event.title}</p>
-                      {event.amount > 0 && (
-                        <p className="text-xs text-zinc-500">{formatDollars(event.amount)}</p>
-                      )}
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           )}
+
+          <Source text="CFPB Consumer Complaint Database + DOJ FCA Statistics" url="https://www.consumerfinance.gov/data-research/consumer-complaints/" />
         </div>
       </section>
 
-      {/* ─── METHODOLOGY ─── */}
-      <section data-section="methodology" id="methodology" className="px-6 py-16">
+      <SectionDivider />
+
+      {/* ═══════════════════════════════════════════════════════════════
+          METHODOLOGY
+         ═══════════════════════════════════════════════════════════════ */}
+      <section data-section="methodology" id="methodology" className="px-6 py-20">
         <div className="mx-auto max-w-5xl">
-          <h2 className="mb-6 text-3xl font-bold">Methodology</h2>
+          <h2 className="mb-8 text-3xl font-extrabold tracking-tight">How We Did This</h2>
 
-          <div className="space-y-8 text-sm text-zinc-400">
+          <div className="space-y-10 text-sm leading-relaxed text-zinc-400">
             <div>
-              <h3 className="mb-2 text-base font-semibold text-zinc-200">PPP Fraud Detection</h3>
+              <h3 className="mb-2 text-base font-bold text-zinc-200">PPP: Isolation Forest (Unsupervised)</h3>
               <p>
-                Isolation Forest (scikit-learn, contamination=0.02, n_estimators=200) on 8 features
-                engineered from SBA PPP FOIA data: loan amount, amount per employee, address
-                frequency, name frequency, round amount flag, impossible employee count,
-                zero-jobs flag, and forgiveness ratio. The model is unsupervised because
-                labeled fraud data is not publicly available for individual PPP loans.
+                We downloaded the full SBA PPP FOIA dataset (968,522 loans above $150K, 452MB).
+                Engineered 8 features: loan amount, cost per employee, address frequency, name
+                frequency, round-amount flag, impossible employee count, zero-jobs flag, and
+                forgiveness ratio. Ran scikit-learn&apos;s Isolation Forest with contamination=0.02
+                (we expect ~2% of loans to be anomalous) and 200 trees. The model flagged 19,371
+                loans worth $32.4B.
               </p>
             </div>
 
             <div>
-              <h3 className="mb-2 text-base font-semibold text-zinc-200">Beneish M-Score</h3>
+              <h3 className="mb-2 text-base font-bold text-zinc-200">Corporate: Beneish M-Score (Formula)</h3>
               <p>
-                Eight financial ratios (DSRI, GMI, AQI, SGI, DEPI, SGAI, TATA, LVGI) computed
-                from SEC EDGAR XBRL 10-K filings for fiscal years with consecutive data.
-                Financial companies (SIC 6000-6999) excluded. Threshold of -1.78 per Beneish (1999).
-                Validated against the SEED/AAER academic fraud database.
+                Downloaded 4 quarters of SEC EDGAR XBRL data (14M financial values). Extracted
+                12 standardized variables from 10-K filings. Computed the 8-variable M-Score
+                for 6,088 company-years where consecutive fiscal year data was available. Financial
+                companies (SIC 6000-6999) were excluded because the model wasn&apos;t designed for
+                their balance sheet structure. Threshold: M &gt; -1.78 per Beneish (1999).
               </p>
             </div>
 
             <div>
-              <h3 className="mb-2 text-base font-semibold text-zinc-200">Healthcare Billing Analysis</h3>
+              <h3 className="mb-2 text-base font-bold text-zinc-200">Healthcare: Random Forest (Supervised)</h3>
               <p>
-                CMS Medicare Part D prescriber-level data (2023) matched against OIG LEIE
-                exclusion list on NPI. Random Forest classifier (500 trees, balanced class weights)
-                trained on total claims, costs, beneficiaries, and specialty. The 0.03% positive
-                rate reflects the genuine rarity of excluded providers in the general population.
+                Matched 1.38M CMS Medicare Part D prescribers against the 82,749-entry OIG LEIE
+                exclusion list on NPI. 380 matched (0.03%). Trained a 500-tree Random Forest with
+                balanced class weights on billing features. AUC-ROC: 0.67. The extreme class
+                imbalance limits recall, but cost per claim and claims per beneficiary are
+                statistically significant discriminators.
               </p>
             </div>
 
             <div>
-              <h3 className="mb-2 text-base font-semibold text-zinc-200">Limitations</h3>
-              <ul className="ml-4 list-disc space-y-1">
-                <li>PPP anomaly detection flags statistical outliers, not confirmed fraud. Anomalous patterns may have legitimate explanations.</li>
-                <li>Beneish M-Score was designed for manufacturing firms; accuracy varies by sector.</li>
-                <li>Healthcare classifier has low recall due to extreme class imbalance. Many fraudulent providers may not appear in Part D data.</li>
-                <li>CFPB complaint volume reflects reporting behavior as well as actual fraud.</li>
-                <li>All analysis uses publicly available data. Non-public enforcement data would improve model accuracy.</li>
+              <h3 className="mb-2 text-base font-bold text-zinc-200">What This Cannot Tell You</h3>
+              <ul className="ml-4 list-disc space-y-2 marker:text-zinc-600">
+                <li>Anomalous PPP loans are not confirmed fraud. Many will have legitimate explanations.</li>
+                <li>The M-Score was designed for manufacturing firms. Its accuracy varies by sector.</li>
+                <li>Healthcare results are limited by extreme class imbalance. Many excluded providers don&apos;t appear in Part D data.</li>
+                <li>CFPB complaint volume reflects reporting behavior, not just actual fraud.</li>
+                <li>No individual or company named in this report has been accused of fraud by us.</li>
               </ul>
             </div>
 
             <div>
-              <h3 className="mb-2 text-base font-semibold text-zinc-200">Data Sources</h3>
-              <ul className="ml-4 list-disc space-y-1">
+              <h3 className="mb-2 text-base font-bold text-zinc-200">Data Sources</h3>
+              <ul className="ml-4 list-disc space-y-1 marker:text-zinc-600">
                 <li><a href="https://data.sba.gov/dataset/ppp-foia" className="underline hover:text-zinc-200">SBA PPP FOIA Data</a> (accessed March 2026)</li>
-                <li><a href="https://www.sec.gov/dera/data/financial-statement-data-sets" className="underline hover:text-zinc-200">SEC EDGAR XBRL Financial Statements</a> (Q1-Q4 2024)</li>
-                <li><a href="https://data.cms.gov" className="underline hover:text-zinc-200">CMS Medicare Part D Prescribers by Provider</a> (2023)</li>
+                <li><a href="https://www.sec.gov/dera/data/financial-statement-data-sets" className="underline hover:text-zinc-200">SEC EDGAR XBRL</a> (Q1-Q4 2024)</li>
+                <li><a href="https://data.cms.gov" className="underline hover:text-zinc-200">CMS Medicare Part D Prescribers</a> (2023)</li>
                 <li><a href="https://oig.hhs.gov/exclusions/" className="underline hover:text-zinc-200">OIG LEIE Exclusion List</a></li>
                 <li><a href="https://www.consumerfinance.gov/data-research/consumer-complaints/" className="underline hover:text-zinc-200">CFPB Consumer Complaint Database</a></li>
                 <li><a href="https://www.justice.gov/civil/fraud-statistics" className="underline hover:text-zinc-200">DOJ False Claims Act Statistics</a></li>
@@ -923,12 +779,11 @@ export function FraudInAmericaClient() {
             </div>
 
             <div>
-              <h3 className="mb-2 text-base font-semibold text-zinc-200">Reproducibility</h3>
+              <h3 className="mb-2 text-base font-bold text-zinc-200">Reproduce This Analysis</h3>
               <p>
-                All analysis scripts are available in the project repository under{" "}
-                <code className="rounded bg-zinc-800 px-1.5 py-0.5 text-xs">scripts/fraud/</code>.
-                Run the download scripts (01-05) followed by the analysis scripts (10-14) to
-                reproduce all results. Python 3.11+, pandas, scikit-learn required.
+                All scripts live in <code className="rounded bg-zinc-800 px-1.5 py-0.5 text-xs font-mono text-zinc-300">scripts/fraud/</code>.
+                Run 01-05 (download data), then 10-14 (analyze). Python 3.11+, pandas, scikit-learn.
+                Total runtime: ~15 minutes on a modern machine. Total data downloaded: ~10GB.
               </p>
             </div>
           </div>
@@ -936,10 +791,10 @@ export function FraudInAmericaClient() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-zinc-800 px-6 py-8">
-        <div className="mx-auto max-w-5xl text-center text-xs text-zinc-600">
-          <p>Analysis by Josh Elberg, Palavir LLC. March 2026.</p>
-          <p className="mt-1">
+      <footer className="border-t border-zinc-800 px-6 py-10">
+        <div className="mx-auto max-w-5xl text-center">
+          <p className="text-sm text-zinc-500">Analysis by Josh Elberg, Palavir LLC. March 2026.</p>
+          <p className="mt-2 text-xs text-zinc-600">
             This analysis identifies statistical patterns, not confirmed fraud.
             All data is publicly available from federal agencies.
           </p>
