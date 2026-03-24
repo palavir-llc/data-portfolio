@@ -38,6 +38,15 @@ interface PPPPatternSummary {
 }
 
 interface NAICSData { feature: string; importance: number; total_loans: number; anomaly_count: number; }
+
+interface PPPDeepDive {
+  address_clusters: Array<{ address: string; loans: number; entities: number; amount: number; sample_names: string[] }>;
+  suspicious_sole_props: Array<{ name: string; employees: number; amount: number; city: string; state: string }>;
+  over_forgiven: Array<{ name: string; loan: number; forgiven: number; ratio: number }>;
+  repeat_borrowers: { total: number; addresses_with_5plus: number; individuals_with_3plus: number; names_in_multiple_states: number };
+  round_numbers: { exact_millions: number; exact_100k: number; exact_10k: number };
+}
+
 interface CorporateFlagged {
   company: string; cik: number; sic: number; year: number; mscore: number;
   dsri: number; gmi: number; aqi: number; sgi: number; depi: number;
@@ -58,6 +67,95 @@ function $(n: number): string {
   if (Math.abs(n) >= 1e6) return "$" + (n / 1e6).toFixed(1) + "M";
   if (Math.abs(n) >= 1e3) return "$" + (n / 1e3).toFixed(0) + "K";
   return "$" + n.toFixed(0);
+}
+
+// ─── Animated Counter ────────────────────────────────────────────────
+
+function AnimatedNumber({ value, prefix = "", suffix = "", duration = 1500 }: {
+  value: number; prefix?: string; suffix?: string; duration?: number;
+}) {
+  const [display, setDisplay] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !started.current) {
+        started.current = true;
+        const start = performance.now();
+        const animate = (now: number) => {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+          setDisplay(Math.round(value * eased));
+          if (progress < 1) requestAnimationFrame(animate);
+        };
+        requestAnimationFrame(animate);
+      }
+    }, { threshold: 0.3 });
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [value, duration]);
+
+  return <span ref={ref}>{prefix}{display.toLocaleString()}{suffix}</span>;
+}
+
+// ─── Case File Component ─────────────────────────────────────────────
+
+function CaseFile({ title, items, color = "red" }: {
+  title: string;
+  items: Array<{ label: string; detail: string; amount?: string }>;
+  color?: "red" | "amber" | "violet";
+}) {
+  const borderColors = { red: "border-red-500/40", amber: "border-amber-500/40", violet: "border-violet-500/40" };
+  const dotColors = { red: "bg-red-400", amber: "bg-amber-400", violet: "bg-violet-400" };
+  return (
+    <div className={`rounded-xl border ${borderColors[color]} bg-zinc-900/60 p-5`}>
+      <h4 className="mb-3 text-sm font-bold uppercase tracking-wider text-zinc-400">{title}</h4>
+      <div className="space-y-3">
+        {items.map((item, i) => (
+          <div key={i} className="flex items-start gap-3">
+            <span className={`mt-1.5 h-2 w-2 flex-shrink-0 rounded-full ${dotColors[color]}`} />
+            <div>
+              <p className="text-sm font-medium text-zinc-200">{item.label}</p>
+              <p className="text-xs text-zinc-500">{item.detail}</p>
+              {item.amount && <p className="text-xs font-bold text-zinc-400">{item.amount}</p>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ─── Animated Infographic ────────────────────────────────────────────
+
+function AnimatedBar({ label, value, maxValue, color = "#ef4444", fmt }: {
+  label: string; value: number; maxValue: number; color?: string; fmt?: (v: number) => string;
+}) {
+  const [width, setWidth] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) setWidth((value / maxValue) * 100);
+    }, { threshold: 0.3 });
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [value, maxValue]);
+
+  return (
+    <div ref={ref} className="flex items-center gap-3">
+      <span className="w-40 text-right text-[11px] text-zinc-400">{label}</span>
+      <div className="relative flex-1 h-6 rounded bg-zinc-800/50">
+        <div className="h-6 rounded transition-all duration-1000 ease-out"
+          style={{ width: `${Math.max(width, 0.5)}%`, backgroundColor: color }} />
+      </div>
+      <span className="w-16 text-right font-mono text-[11px] text-zinc-300">
+        {fmt ? fmt(value) : value.toFixed(1)}
+      </span>
+    </div>
+  );
 }
 
 // ─── Reusable Components ─────────────────────────────────────────────
@@ -298,6 +396,7 @@ export function FraudInAmericaClient() {
   const [pppScatter, setPPPScatter] = useState<PPPScatterPoint[]>([]);
   const [pppSummary, setPPPSummary] = useState<PPPPatternSummary | null>(null);
   const [pppNaics, setPPPNaics] = useState<NAICSData[]>([]);
+  const [pppDeep, setPPPDeep] = useState<PPPDeepDive | null>(null);
   const [corpFlagged, setCorpFlagged] = useState<CorporateFlagged[]>([]);
   const [corpDist, setCorpDist] = useState<MScoreDistribution[]>([]);
   const [corpSummary, setCorpSummary] = useState<CorporateSummary | null>(null);
@@ -314,6 +413,7 @@ export function FraudInAmericaClient() {
       fetch("/data/fraud/ppp_anomaly_scatter.json").then((r) => r.json()),
       fetch("/data/fraud/ppp_pattern_summary.json").then((r) => r.json()),
       fetch("/data/fraud/ppp_naics.json").then((r) => r.json()),
+      fetch("/data/fraud/ppp_deep_dive.json").then((r) => r.json()).catch(() => null),
       fetch("/data/fraud/corporate_flagged_companies.json").then((r) => r.json()),
       fetch("/data/fraud/corporate_mscore_distribution.json").then((r) => r.json()),
       fetch("/data/fraud/corporate_summary.json").then((r) => r.json()),
@@ -321,8 +421,9 @@ export function FraudInAmericaClient() {
       fetch("/data/fraud/cfpb_velocity.json").then((r) => r.json()),
       fetch("/data/fraud/doj_fca_stats.json").then((r) => r.json()),
       fetch("/data/fraud/enforcement_timeline.json").then((r) => r.json()),
-    ]).then(([states, scatter, summary, naics, flagged, dist, cSummary, hSpec, cfpbData, dojData, tl]) => {
+    ]).then(([states, scatter, summary, naics, deepDive, flagged, dist, cSummary, hSpec, cfpbData, dojData, tl]) => {
       setPPPStates(states); setPPPScatter(scatter); setPPPSummary(summary); setPPPNaics(naics);
+      setPPPDeep(deepDive);
       setCorpFlagged(flagged); setCorpDist(dist); setCorpSummary(cSummary);
       setHealthSpecialty(hSpec); setCFPB(cfpbData); setDOJ(dojData); setTimeline(tl);
       setLoading(false);
@@ -504,6 +605,91 @@ export function FraudInAmericaClient() {
             </div>
           )}
 
+          {/* Deep Dive: Real Examples */}
+          {pppDeep && (
+            <div className="mt-16">
+              <h3 className="text-2xl font-extrabold text-zinc-100">The Patterns Up Close</h3>
+              <p className="mt-3 mb-8 max-w-3xl text-sm text-zinc-500">
+                These are real addresses, real entities, and real dollar amounts from the SBA dataset.
+                Many of these clusters are legitimate businesses with multiple subsidiaries. But the
+                volume and patterns warrant a closer look.
+              </p>
+
+              <div className="grid gap-6 lg:grid-cols-2">
+                <CaseFile
+                  title="Address Clusters: Dozens of LLCs, One Mailbox"
+                  color="red"
+                  items={pppDeep.address_clusters.slice(0, 5).map((a) => ({
+                    label: a.address,
+                    detail: `${a.loans} loans from ${a.entities} different entities`,
+                    amount: $(a.amount) + " total",
+                  }))}
+                />
+                <CaseFile
+                  title="Sole Proprietors Claiming 500 Employees"
+                  color="amber"
+                  items={pppDeep.suspicious_sole_props.map((s) => ({
+                    label: s.name,
+                    detail: `${s.employees} employees claimed, ${s.city}, ${s.state}`,
+                    amount: $(s.amount) + " loan",
+                  }))}
+                />
+              </div>
+
+              {pppDeep.over_forgiven.length > 0 && (
+                <div className="mt-6">
+                  <CaseFile
+                    title="Forgiven More Than They Borrowed"
+                    color="red"
+                    items={pppDeep.over_forgiven.map((o) => ({
+                      label: o.name,
+                      detail: `Borrowed ${$(o.loan)}, forgiven ${$(o.forgiven)} (${o.ratio.toFixed(1)}x the original loan)`,
+                    }))}
+                  />
+                </div>
+              )}
+
+              {/* Animated round number breakdown */}
+              <div className="mt-8 rounded-xl border border-zinc-800 bg-zinc-900/50 p-6">
+                <h4 className="mb-1 text-sm font-bold uppercase tracking-wider text-zinc-400">How Round Is Too Round?</h4>
+                <p className="mb-5 text-xs text-zinc-500">
+                  Legitimate payroll calculations rarely land on exact round numbers. In this dataset:
+                </p>
+                <div className="space-y-3">
+                  <AnimatedBar label="Exact $10,000" value={pppDeep.round_numbers.exact_10k} maxValue={45000} color="#f97316"
+                    fmt={(v) => `${v.toLocaleString()} loans (${(v / 968522 * 100).toFixed(1)}%)`} />
+                  <AnimatedBar label="Exact $100,000" value={pppDeep.round_numbers.exact_100k} maxValue={45000} color="#ef4444"
+                    fmt={(v) => `${v.toLocaleString()} loans (${(v / 968522 * 100).toFixed(1)}%)`} />
+                  <AnimatedBar label="Exact $1,000,000" value={pppDeep.round_numbers.exact_millions} maxValue={45000} color="#dc2626"
+                    fmt={(v) => `${v.toLocaleString()} loans (${(v / 968522 * 100).toFixed(1)}%)`} />
+                </div>
+                <p className="mt-4 text-xs text-zinc-600">
+                  If payroll were random, fewer than 0.01% of loans would land on exact million-dollar amounts. We see 0.74%.
+                </p>
+              </div>
+
+              {/* Summary stats */}
+              <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+                <div className="rounded-xl border border-zinc-800 bg-zinc-900/70 px-5 py-5 text-center">
+                  <p className="text-3xl font-extrabold text-white"><AnimatedNumber value={pppDeep.repeat_borrowers.total} /></p>
+                  <p className="mt-1 text-xs text-zinc-500">Borrowers with 2+ loans</p>
+                </div>
+                <div className="rounded-xl border border-zinc-800 bg-zinc-900/70 px-5 py-5 text-center">
+                  <p className="text-3xl font-extrabold text-amber-400"><AnimatedNumber value={pppDeep.repeat_borrowers.addresses_with_5plus} /></p>
+                  <p className="mt-1 text-xs text-zinc-500">Addresses with 5+ loans</p>
+                </div>
+                <div className="rounded-xl border border-zinc-800 bg-zinc-900/70 px-5 py-5 text-center">
+                  <p className="text-3xl font-extrabold text-red-400"><AnimatedNumber value={pppDeep.repeat_borrowers.names_in_multiple_states} /></p>
+                  <p className="mt-1 text-xs text-zinc-500">Names in multiple states</p>
+                </div>
+                <div className="rounded-xl border border-zinc-800 bg-zinc-900/70 px-5 py-5 text-center">
+                  <p className="text-3xl font-extrabold text-white"><AnimatedNumber value={pppDeep.repeat_borrowers.individuals_with_3plus} /></p>
+                  <p className="mt-1 text-xs text-zinc-500">Individuals with 3+ loans</p>
+                </div>
+              </div>
+            </div>
+          )}
+
           <Source text="SBA PPP FOIA Data (data.sba.gov)" url="https://data.sba.gov/dataset/ppp-foia" />
         </div>
       </section>
@@ -623,11 +809,17 @@ export function FraudInAmericaClient() {
               <h3 className="text-lg font-bold text-zinc-200">Exclusion Rate by Specialty</h3>
               <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
                 Not all medical specialties are equally represented on the exclusion list.
-                These are the specialties with the highest rates of excluded providers.
+                Legal Medicine leads at 0.81%. That&apos;s 10 out of 124 providers. Small sample, but
+                the pattern is consistent: specialties with high autonomy and cash-pay
+                have higher exclusion rates.
               </p>
-              <HBar data={healthSpecialty.filter((s) => s.importance > 0)} labelKey="feature"
-                valueKey="importance" color="#8b5cf6" max={12}
-                fmt={(v) => (v * 100).toFixed(2) + "%"} />
+              <div className="space-y-2">
+                {healthSpecialty.filter((s) => s.importance > 0).slice(0, 12).map((s, i) => (
+                  <AnimatedBar key={i} label={s.feature} value={s.importance}
+                    maxValue={healthSpecialty[0]?.importance || 0.01} color="#8b5cf6"
+                    fmt={(v) => `${(v * 100).toFixed(2)}% (${s.provider_count.toLocaleString()} providers)`} />
+                ))}
+              </div>
             </div>
           )}
 

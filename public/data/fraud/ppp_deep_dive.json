@@ -1,0 +1,137 @@
+{
+  "address_clusters": [
+    {
+      "address": "11410 Common Oaks Dr, Raleigh, NC",
+      "loans": 51,
+      "entities": 43,
+      "amount": 21379611,
+      "sample_names": [
+        "Concord Dayton Hotel II LLC",
+        "Concord Sierra NLI WPB Hotel LLC"
+      ]
+    },
+    {
+      "address": "1140 Reservoir Ave, Cranston, RI",
+      "loans": 50,
+      "entities": 48,
+      "amount": 39178126,
+      "sample_names": [
+        "Procaccianti Companies Inc.",
+        "TPG KC MO I LLC"
+      ]
+    },
+    {
+      "address": "7 Pearl Ct, Allendale, NJ",
+      "loans": 48,
+      "entities": 41,
+      "amount": 65964209,
+      "sample_names": [
+        "Apple Food Service of NJ LLC",
+        "Doherty Apple Florida LLC",
+        "Doherty Breads LLC"
+      ]
+    },
+    {
+      "address": "830 W Trailcreek Dr, Peoria, IL",
+      "loans": 42,
+      "entities": 41,
+      "amount": 16740960,
+      "sample_names": [
+        "Petersen Management Company LLC",
+        "Petersen Health Properties LLC"
+      ]
+    },
+    {
+      "address": "14504 Hertz Quail Springs Pkwy, Oklahoma City, OK",
+      "loans": 38,
+      "entities": 37,
+      "amount": 25320715,
+      "sample_names": [
+        "Bricktown Brewery Restaurants LLC",
+        "Jimmy's Egg LLC"
+      ]
+    },
+    {
+      "address": "206 Terminal Dr, Plainview, NY",
+      "loans": 36,
+      "entities": 25,
+      "amount": 18588990,
+      "sample_names": [
+        "iMobile of CA LLC",
+        "iMobile of NY LLC"
+      ]
+    },
+    {
+      "address": "807 Dorsey Street, Gainesville, GA",
+      "loans": 36,
+      "entities": 36,
+      "amount": 32501960,
+      "sample_names": [
+        "Kids2 Inc.",
+        "Culpepper & Associates Security Services"
+      ]
+    }
+  ],
+  "suspicious_sole_props": [
+    {
+      "name": "EMMANUEL THELUSME",
+      "employees": 500,
+      "amount": 10000000,
+      "city": "Brooklyn",
+      "state": "NY",
+      "type": "Sole Proprietorship"
+    },
+    {
+      "name": "MALLIK A DURBAR",
+      "employees": 500,
+      "amount": 10000000,
+      "city": "Corona",
+      "state": "NY",
+      "type": "Sole Proprietorship"
+    },
+    {
+      "name": "PATRICIO ALDACO",
+      "employees": 500,
+      "amount": 995457,
+      "city": "unknown",
+      "state": "CA",
+      "type": "Sole Proprietorship"
+    },
+    {
+      "name": "HARRY SMITH",
+      "employees": 500,
+      "amount": 1368800,
+      "city": "unknown",
+      "state": "IN",
+      "type": "Sole Proprietorship"
+    }
+  ],
+  "over_forgiven": [
+    {
+      "name": "KUDU DYNAMICS LLC",
+      "loan": 1102700,
+      "forgiven": 2232232,
+      "ratio": 2.0
+    },
+    {
+      "name": "CB FLOORING, LLC",
+      "loan": 2985815,
+      "forgiven": 5838738,
+      "ratio": 2.0
+    }
+  ],
+  "repeat_borrowers": {
+    "total": 108913,
+    "addresses_with_5plus": 2111,
+    "individuals_with_3plus": 200,
+    "names_in_multiple_states": 5658
+  },
+  "round_numbers": {
+    "exact_millions": 7171,
+    "exact_100k": 15272,
+    "exact_10k": 40845,
+    "exact_millions_pct": 0.74,
+    "exact_100k_pct": 1.58,
+    "exact_10k_pct": 4.22
+  }
+}
