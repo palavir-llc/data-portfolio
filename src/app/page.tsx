@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Data Stories | Josh Elberg",
   description:
     "Interactive explorations at the intersection of machine learning and data visualization. Real public datasets, real ML, creative ways to see the world.",
+  alternates: { canonical: "https://portfolio.palavir.co" },
   openGraph: {
     title: "Data Stories | Josh Elberg",
     description: "Interactive explorations at the intersection of machine learning and data visualization.",
@@ -19,6 +20,28 @@ export const metadata: Metadata = {
 };
 
 const projects = [
+  {
+    slug: "fraud-in-america",
+    title: "The State of Fraud in America",
+    subtitle: "968K loans. 6,088 companies. 1.38M providers.",
+    description:
+      "Multi-domain fraud analysis using Isolation Forest on PPP loans, Beneish M-Score on SEC EDGAR filings, Random Forest on Medicare billing data, and CFPB complaint velocity as an early warning system. Real public data, real ML, real findings.",
+    techniques: [
+      "Isolation Forest",
+      "Beneish M-Score",
+      "Random Forest Classifier",
+      "Complaint Velocity Detection",
+    ],
+    vizTypes: [
+      "Anomaly Scatter",
+      "M-Score Histogram",
+      "State Risk Table",
+      "Timeline Charts",
+    ],
+    dataSources: ["SBA PPP FOIA", "SEC EDGAR XBRL", "CMS Medicare", "CFPB", "OIG LEIE"],
+    color: "from-red-500 to-amber-500",
+    status: "live" as const,
+  },
   {
     slug: "hospital-quality",
     title: "Hospital Quality Survival Landscape",
@@ -84,28 +107,6 @@ const projects = [
     dataSources: ["USASpending.gov", "Census Bureau"],
     color: "from-emerald-500 to-cyan-500",
     status: "coming-soon" as const,
-  },
-  {
-    slug: "fraud-in-america",
-    title: "The State of Fraud in America",
-    subtitle: "968K loans. 6,088 companies. 1.38M providers.",
-    description:
-      "Multi-domain fraud analysis using Isolation Forest on PPP loans, Beneish M-Score on SEC EDGAR filings, Random Forest on Medicare billing data, and CFPB complaint velocity as an early warning system. Real public data, real ML, real findings.",
-    techniques: [
-      "Isolation Forest",
-      "Beneish M-Score",
-      "Random Forest Classifier",
-      "Complaint Velocity Detection",
-    ],
-    vizTypes: [
-      "Anomaly Scatter",
-      "M-Score Histogram",
-      "State Risk Table",
-      "Timeline Charts",
-    ],
-    dataSources: ["SBA PPP FOIA", "SEC EDGAR XBRL", "CMS Medicare", "CFPB", "OIG LEIE"],
-    color: "from-red-500 to-amber-500",
-    status: "live" as const,
   },
 ];
 
