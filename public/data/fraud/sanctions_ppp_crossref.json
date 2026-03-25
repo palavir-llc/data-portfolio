@@ -122,5 +122,7 @@
       "anomaly": false
     }
   ],
-  "note": "Matched by exact organization name. May include coincidental name matches."
+  "note": "Matched by exact organization name. May include coincidental name matches.",
+  "caveat": "Name-only matching with no EIN, address, or officer verification. High false positive risk for common business names. These matches require independent verification before any conclusions can be drawn.",
+  "false_positive_estimate": "Unknown but likely high. Generic names like Alliance Medical Group may match hundreds of unrelated entities."
 }

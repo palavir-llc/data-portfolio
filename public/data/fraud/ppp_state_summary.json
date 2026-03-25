@@ -567,9 +567,10 @@
     "anomaly_count": 1,
     "anomaly_amount": 1000000.0,
     "anomaly_rate": 0.0122,
-    "anomalies_per_100k": 100000.0,
-    "loans_per_capita": 82.0,
-    "avg_loan": 439465.51
+    "anomalies_per_100k": 0,
+    "loans_per_capita": 0,
+    "avg_loan": 439465.51,
+    "note": "Territory population data unavailable, per-capita values excluded"
   },
   {
     "state": "MS",
@@ -684,9 +685,10 @@
     "anomaly_count": 3,
     "anomaly_amount": 3717027.5,
     "anomaly_rate": 0.0068,
-    "anomalies_per_100k": 300000.0,
-    "loans_per_capita": 443.0,
-    "avg_loan": 452282.96
+    "anomalies_per_100k": 0,
+    "loans_per_capita": 0,
+    "avg_loan": 452282.96,
+    "note": "Territory population data unavailable, per-capita values excluded"
   },
   {
     "state": "AR",
@@ -710,9 +712,10 @@
     "anomaly_count": 1,
     "anomaly_amount": 3593500.0,
     "anomaly_rate": 0.0034,
-    "anomalies_per_100k": 100000.0,
-    "loans_per_capita": 290.0,
-    "avg_loan": 387867.8
+    "anomalies_per_100k": 0,
+    "loans_per_capita": 0,
+    "avg_loan": 387867.8,
+    "note": "Territory population data unavailable, per-capita values excluded"
   },
   {
     "state": "AS",
@@ -723,8 +726,9 @@
     "anomaly_count": 0,
     "anomaly_amount": 0.0,
     "anomaly_rate": 0.0,
-    "anomalies_per_100k": 0.0,
-    "loans_per_capita": 20.0,
-    "avg_loan": 281854.62
+    "anomalies_per_100k": 0,
+    "loans_per_capita": 0,
+    "avg_loan": 281854.62,
+    "note": "Territory population data unavailable, per-capita values excluded"
   }
 ]

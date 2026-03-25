@@ -74,7 +74,7 @@
   ],
   "suspicious_sole_props": [
     {
-      "name": "EMMANUEL THELUSME",
+      "name": "Borrower A",
       "employees": 500,
       "amount": 10000000,
       "city": "Brooklyn",
@@ -82,7 +82,7 @@
       "type": "Sole Proprietorship"
     },
     {
-      "name": "MALLIK A DURBAR",
+      "name": "Borrower B",
       "employees": 500,
       "amount": 10000000,
       "city": "Corona",
@@ -90,7 +90,7 @@
       "type": "Sole Proprietorship"
     },
     {
-      "name": "PATRICIO ALDACO",
+      "name": "Borrower C",
       "employees": 500,
       "amount": 995457,
       "city": "unknown",
@@ -98,7 +98,7 @@
       "type": "Sole Proprietorship"
     },
     {
-      "name": "HARRY SMITH",
+      "name": "Borrower D",
       "employees": 500,
       "amount": 1368800,
       "city": "unknown",

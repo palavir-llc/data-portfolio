@@ -809,11 +809,11 @@ export function FraudInAmericaClient() {
             Then we ran machine learning on all of it.
           </p>
           <p className="mt-3 max-w-3xl text-lg leading-relaxed text-zinc-400">
-            Here is what the data says about fraud in America, and where it might still be hiding.
+            Here is what the data shows about anomaly patterns across federal programs, and where investigators might look next.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-2 text-xs">
-            {["Isolation Forest", "Beneish M-Score", "Random Forest", "15.1M Records", "100% Public Data"].map((t) => (
+            {["Isolation Forest", "Beneish M-Score", "Random Forest", "2.4M Records Analyzed", "100% Public Data"].map((t) => (
               <span key={t} className="rounded-full border border-zinc-700 px-3 py-1 text-zinc-400">{t}</span>
             ))}
           </div>
@@ -854,7 +854,7 @@ export function FraudInAmericaClient() {
          ═══════════════════════════════════════════════════════════════ */}
       <section data-section="ppp" id="ppp" className="px-6 py-20">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-3xl font-extrabold tracking-tight">PPP Loan Fraud Patterns</h2>
+          <h2 className="text-3xl font-extrabold tracking-tight">PPP Loan Anomaly Patterns</h2>
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-zinc-400">
             The Paycheck Protection Program pushed {pppSummary ? $(pppSummary.total_amount) : "$515B"} out the door in months.
             Speed meant minimal vetting. We analyzed {pppSummary ? pppSummary.total_loans.toLocaleString() : "968,522"} loans
@@ -970,11 +970,11 @@ export function FraudInAmericaClient() {
                   }))}
                 />
                 <CaseFile
-                  title="Sole Proprietors Claiming 500 Employees"
+                  title="Sole Proprietors Reporting 500 Employees"
                   color="amber"
-                  items={pppDeep.suspicious_sole_props.map((s) => ({
-                    label: s.name,
-                    detail: `${s.employees} employees claimed, ${s.city}, ${s.state}`,
+                  items={pppDeep.suspicious_sole_props.map((s, idx: number) => ({
+                    label: `Borrower ${String.fromCharCode(65 + idx)}`,
+                    detail: `${s.employees} employees reported, ${s.state}. Note: sole proprietors can legally employ W-2 workers.`,
                     amount: $(s.amount) + " loan",
                   }))}
                 />
@@ -1037,7 +1037,7 @@ export function FraudInAmericaClient() {
           {/* Lender Analysis + Temporal */}
           {pppAnalysis && (
             <div className="mt-16">
-              <h3 className="text-2xl font-extrabold text-zinc-100">When and How the Fraud Happened</h3>
+              <h3 className="text-2xl font-extrabold text-zinc-100">When Anomaly Rates Spiked</h3>
 
               {/* Temporal: anomaly rate by month */}
               {pppAnalysis.temporal.length > 0 && (
@@ -1046,7 +1046,7 @@ export function FraudInAmericaClient() {
                   <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
                     The first wave (April 2020) had lower anomaly rates because legitimate businesses
                     applied immediately. Later months show higher rates as the program attracted
-                    more fraudulent applications. By June 2021, nearly 8% of remaining loans were flagged.
+                    more anomalous applications. By June 2021, nearly 8% of remaining loans were flagged.
                   </p>
                   <div className="overflow-x-auto rounded-xl border border-zinc-800">
                     <table className="w-full text-sm">
@@ -1084,9 +1084,9 @@ export function FraudInAmericaClient() {
                     </table>
                   </div>
                   <WhyBox>
-                    The pattern is clear: the longer the program ran, the higher the fraud rate.
+                    The pattern is clear: the longer the program ran, the higher the anomaly rate.
                     April 2020 saw 548,000 loans at 1.6% anomalous. By May-June 2021, the rate
-                    hit 6-8%. Fraudsters had months to study the system and refine their applications.
+                    hit 6-8%. Later months also had smaller volumes, which can inflate anomaly rates in density-based models.
                   </WhyBox>
                 </div>
               )}
@@ -1114,13 +1114,13 @@ export function FraudInAmericaClient() {
               {pppAnalysis.business_age.length > 0 && (
                 <div className="mt-10 grid gap-4 sm:grid-cols-2">
                   <Comparison
-                    description="Business age and fraud risk"
+                    description="Business age and anomaly risk"
                     leftLabel="Established (2+ yrs)" left={(pppAnalysis.business_age.find(a => a.age.includes("Existing"))?.anomaly_rate || 0.02) * 100 + "%"}
                     rightLabel="Startups" right={(pppAnalysis.business_age.find(a => a.age.includes("Startup"))?.anomaly_rate || 0.035) * 100 + "%"}
                     multiplier="1.7x"
                   />
                   <Comparison
-                    description="Disclosure and fraud risk"
+                    description="Disclosure and anomaly risk"
                     leftLabel="Answered age question" left="2.0%"
                     rightLabel="Did not answer" right={(pppAnalysis.business_age.find(a => a.age.includes("Unanswered"))?.anomaly_rate || 0.022) * 100 + "%"}
                     multiplier="1.1x"
@@ -1133,7 +1133,7 @@ export function FraudInAmericaClient() {
           {/* Timelapse */}
           {timelapse.length > 0 && (
             <div className="mt-16">
-              <h3 className="text-2xl font-extrabold text-zinc-100">Watch Fraud Spread: Month by Month</h3>
+              <h3 className="text-2xl font-extrabold text-zinc-100">Watch Anomalies Spread: Month by Month</h3>
               <p className="mt-3 mb-4 max-w-2xl text-sm text-zinc-500">
                 Cumulative PPP anomalies by state over time. Press play to watch the pattern
                 build from April 2020 through mid-2021.
@@ -1329,7 +1329,7 @@ export function FraudInAmericaClient() {
          ═══════════════════════════════════════════════════════════════ */}
       <section data-section="corporate" id="corporate" className="px-6 py-20">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-3xl font-extrabold tracking-tight">Corporate Accounting: Who&apos;s Cooking the Books?</h2>
+          <h2 className="text-3xl font-extrabold tracking-tight">Corporate Accounting: What the Numbers Show</h2>
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-zinc-400">
             Every public company files a 10-K with the SEC. Those filings contain the raw
             financial numbers. We downloaded all of them and ran a formula called the{" "}
@@ -1479,12 +1479,13 @@ export function FraudInAmericaClient() {
                             c.validation === "confirmed_concern" ? "text-amber-400" :
                             c.validation === "false_positive" ? "text-green-400" :
                             "text-zinc-500"
+                          /* Labels updated to avoid legal conclusions */
                           }`}>
-                            {c.validation === "confirmed_fraud_risk" ? "Confirmed risk" :
-                             c.validation === "confirmed_manipulation" ? "Manipulation confirmed" :
-                             c.validation === "confirmed_concern" ? "Concern confirmed" :
+                            {c.validation === "confirmed_fraud_risk" ? "Elevated concern" :
+                             c.validation === "confirmed_manipulation" ? "Investigation reported" :
+                             c.validation === "confirmed_concern" ? "Under review" :
                              c.validation === "false_positive" ? "Likely legitimate" :
-                             c.validation === "watch" ? "Watch list" : ""}
+                             c.validation === "watch" ? "Monitoring" : ""}
                           </p>
                         )}
                       </div>
@@ -1630,7 +1631,7 @@ export function FraudInAmericaClient() {
             <Stat label="Providers Analyzed" value="1.38M" sub="Medicare Part D prescribers" />
             <Stat label="Exclusion List" value="82,749" sub="OIG LEIE database entries" />
             <Stat label="NPI Matches" value="380" sub="Providers appearing in both datasets" accent="text-red-400" />
-            <Stat label="Classifier AUC" value="0.67" sub="Random Forest, 500 trees, balanced weights" />
+            <Stat label="Classifier AUC" value="0.67" sub="Weak model (barely above random). Feature directions informative, predictions unreliable." accent="text-amber-400" />
           </div>
 
           {healthSpecialty.filter((s) => s.importance > 0).length > 0 && (
@@ -1743,7 +1744,7 @@ export function FraudInAmericaClient() {
           <p className="mt-4 max-w-3xl text-base leading-relaxed text-zinc-400">
             PPP was bipartisan. The CARES Act passed 96-0 in the Senate. Both the Trump
             and Biden administrations oversaw disbursement. But do state-level political
-            differences correlate with fraud patterns? We matched every state&apos;s anomaly
+            differences correlate with anomaly patterns? We matched every state&apos;s anomaly
             rate against its governor&apos;s party, state government trifecta status, and 2020
             presidential vote.
           </p>
@@ -1779,7 +1780,7 @@ export function FraudInAmericaClient() {
                 but this reflects where businesses are concentrated, not governance quality.
                 California and New York alone account for a large share of the gap. When you
                 control for population and business density, the political correlation largely
-                disappears. <strong>Business structure predicts fraud far better than politics.</strong>
+                disappears. <strong>Business structure predicts anomaly rates far better than politics.</strong>
               </WhyBox>
 
               <p className="mt-2 text-xs text-zinc-600">
@@ -1794,7 +1795,7 @@ export function FraudInAmericaClient() {
             <div className="mt-16">
               <h3 className="text-2xl font-extrabold text-zinc-100">The Real Predictor: Business Structure</h3>
               <p className="mt-3 mb-6 max-w-2xl text-sm text-zinc-500">
-                Forget party affiliation. The strongest fraud predictor in the PPP data is
+                Forget party affiliation. The strongest anomaly predictor in the PPP data is
                 how a business is structured. Entities with no employees to verify, no corporate
                 structure to audit, and no paper trail had anomaly rates <strong className="text-zinc-300">7 to 15 times higher</strong> than
                 corporations.
@@ -1949,8 +1950,8 @@ export function FraudInAmericaClient() {
 
               {/* Sanctioned Entities */}
               <div className="rounded-xl border border-red-500/20 bg-red-500/5 p-6">
-                <h4 className="text-base font-bold text-red-400">Sanctioned Entities Got PPP Funds</h4>
-                <p className="mt-1 text-[11px] text-zinc-500 mb-4">OpenSanctions database (81K US entities) vs PPP borrowers</p>
+                <h4 className="text-base font-bold text-amber-400">Name Matches: Sanctions Lists and PPP</h4>
+                <p className="mt-1 text-[11px] text-zinc-500 mb-4">OpenSanctions database (81K US entities) vs PPP borrowers. Name-only matching; no EIN or address verification. High false positive risk.</p>
                 <div className="space-y-3">
                   <div className="flex justify-between"><span className="text-sm text-zinc-400">Sanctioned orgs matched to PPP</span><span className="text-lg font-bold text-red-400">145</span></div>
                   <div className="flex justify-between"><span className="text-sm text-zinc-400">Total PPP funds received</span><span className="text-sm font-bold text-red-400">$112.7M</span></div>
@@ -1964,7 +1965,7 @@ export function FraudInAmericaClient() {
 
               {/* Failed Banks */}
               <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-6">
-                <h4 className="text-base font-bold text-amber-400">Signature Bank: The Canary</h4>
+                <h4 className="text-base font-bold text-amber-400">Signature Bank: Higher Anomaly Rate</h4>
                 <p className="mt-1 text-[11px] text-zinc-500 mb-4">FDIC failed bank list vs PPP originating lenders</p>
                 <div className="space-y-3">
                   <div className="flex justify-between"><span className="text-sm text-zinc-400">Signature Bank PPP loans</span><span className="text-lg font-bold text-zinc-200">4,392</span></div>
@@ -2222,7 +2223,7 @@ export function FraudInAmericaClient() {
 
           {/* Lender Pipelines */}
           <div className="mt-10">
-            <h3 className="text-lg font-bold text-zinc-200">Lender Fraud Pipelines</h3>
+            <h3 className="text-lg font-bold text-zinc-200">High-Anomaly Lender Pathways</h3>
             <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
               Certain lender + business type combinations had anomaly rates 40-78%.
               These aren&apos;t random. They&apos;re specific institutional pathways.
@@ -2329,13 +2330,14 @@ export function FraudInAmericaClient() {
 
           <div className="mt-10 space-y-8">
             <div className="rounded-xl border border-red-500/20 bg-red-500/5 p-6">
-              <h3 className="text-lg font-bold text-red-400">1. PPP fraud was systematic, not random</h3>
+              <h3 className="text-lg font-bold text-red-400">1. PPP anomaly patterns were systematic, not random</h3>
               <p className="mt-2 text-sm text-zinc-400">
-                19,371 loans worth $32.4 billion show patterns that don&apos;t occur naturally:
-                round dollar amounts 16x more common, addresses hosting 50+ separate LLCs,
-                sole proprietors claiming 500 employees. The fraud rate climbed from 1.6% to
-                7.8% as the program ran longer, meaning it was learned behavior. Lenders with
-                weak vetting approved anomalous loans at rates 30x higher than careful ones.
+                Our model flagged 19,371 loans worth $32.4 billion with patterns that are
+                statistically unusual: round dollar amounts overrepresented, addresses hosting
+                dozens of separate LLCs, sole proprietors reporting 500 employees. The anomaly
+                rate increased as the program matured. Certain lenders approved anomalous
+                loans at rates far above the national average. Note: the model was set to flag
+                approximately 2% of loans (contamination parameter). The actual fraud rate is unknown.
               </p>
             </div>
 
@@ -2346,7 +2348,8 @@ export function FraudInAmericaClient() {
                 zero forgiveness (vs 2.3% normal). That 8x gap in non-forgiveness means the SBA
                 did flag many suspicious loans. But the math is clear: 72% of $32.4B in
                 anomalous loans was still forgiven. That&apos;s roughly $23 billion in potentially
-                fraudulent loans that passed through the system.
+                anomalous loans that were nonetheless forgiven. The actual proportion
+                that were fraudulent vs. legitimately unusual is unknown.
               </p>
             </div>
 
@@ -2401,11 +2404,17 @@ export function FraudInAmericaClient() {
               <h3 className="mb-2 text-base font-bold text-zinc-200">PPP: Isolation Forest (Unsupervised)</h3>
               <p>
                 We downloaded the full SBA PPP FOIA dataset (968,522 loans above $150K, 452MB).
-                Engineered 8 features: loan amount, cost per employee, address frequency, name
-                frequency, round-amount flag, impossible employee count, zero-jobs flag, and
-                forgiveness ratio. Ran scikit-learn&apos;s Isolation Forest with contamination=0.02
-                (we expect ~2% of loans to be anomalous) and 200 trees. The model flagged 19,371
-                loans worth $32.4B.
+                This excludes ~10.8M smaller loans. Engineered 8 features: loan amount, cost
+                per employee, address frequency, name frequency, round-amount flag, employee
+                count flag, zero-jobs flag, and forgiveness ratio. Ran scikit-learn&apos;s
+                Isolation Forest with contamination=0.02 and 200 trees. <strong className="text-amber-400">Important:
+                the contamination parameter tells the model to flag approximately 2% of loans.
+                The 19,371 count and $32.4B amount are a direct consequence of this parameter
+                choice, not an independent measurement of fraud prevalence.</strong> At 1%
+                contamination, the amount would be roughly half; at 3%, roughly 50% more.
+                The actual fraud rate among flagged loans is unknown. Note: round amounts are
+                both a model input feature and a reported finding, making the &quot;16x&quot;
+                comparison partially circular.
               </p>
             </div>
 
@@ -2501,6 +2510,10 @@ export function FraudInAmericaClient() {
       <footer className="border-t border-zinc-800 px-6 py-10">
         <div className="mx-auto max-w-5xl text-center">
           <p className="text-sm text-zinc-500">Analysis by Josh Elberg, Palavir LLC. March 2026.</p>
+          <p className="mt-1 text-xs text-zinc-600">
+            Disclosure: The author has no financial interest in any company named in this report,
+            no short positions, and no consulting relationships with fraud investigation firms.
+          </p>
           <p className="mt-2 text-xs text-zinc-600">
             This analysis identifies statistical patterns, not confirmed fraud.
             All data is publicly available from federal agencies.
