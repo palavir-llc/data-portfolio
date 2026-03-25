@@ -257,7 +257,7 @@ export default function Home() {
             </p>
             <div className="flex gap-6 text-sm text-zinc-500">
               <a
-                href="https://linkedin.com/in/joshelberg"
+                href="https://linkedin.com/in/joshuaelberg"
                 className="hover:text-white transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"

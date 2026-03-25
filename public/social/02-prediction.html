@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200">
+<title>State of Fraud in America - Model Prediction</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1200px;
+    height: 675px;
+    background-color: #09090b;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+    color: #fafafa;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .glow-amber {
+    position: absolute;
+    top: -80px;
+    left: 30%;
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(245,158,11,0.10) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 56px 72px;
+    gap: 60px;
+  }
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #f59e0b;
+  }
+
+  .headline {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: #fafafa;
+  }
+
+  .headline em {
+    font-style: normal;
+    color: #f59e0b;
+  }
+
+  .subtext {
+    font-size: 16px;
+    color: #71717a;
+    line-height: 1.6;
+    max-width: 380px;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .bar-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #52525b;
+    margin-bottom: 4px;
+  }
+
+  .companies {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .company-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .rank {
+    font-size: 11px;
+    font-weight: 700;
+    color: #3f3f46;
+    width: 20px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .company-bar-wrap {
+    flex: 1;
+    height: 32px;
+    background: #18181b;
+    border: 1px solid #27272a;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .company-bar {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #a1a1aa;
+    letter-spacing: 0.02em;
+    position: relative;
+    z-index: 2;
+  }
+
+  .company-bar-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #27272a;
+    z-index: 1;
+  }
+
+  .company-row.flagged .company-bar-fill {
+    background: rgba(245,158,11,0.15);
+  }
+
+  .company-row.flagged .company-bar {
+    color: #fbbf24;
+  }
+
+  .badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 7px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    width: 64px;
+    text-align: center;
+  }
+
+  .badge.fraud {
+    background: rgba(239,68,68,0.15);
+    color: #f87171;
+    border: 1px solid rgba(239,68,68,0.25);
+  }
+
+  .badge.clean {
+    background: rgba(63,63,70,0.4);
+    color: #52525b;
+    border: 1px solid #27272a;
+  }
+
+  .attribution {
+    position: absolute;
+    bottom: 28px;
+    right: 36px;
+    font-size: 12px;
+    color: #52525b;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+
+  .attribution strong { color: #71717a; }
+
+  .source-tag {
+    position: absolute;
+    bottom: 28px;
+    left: 36px;
+    font-size: 11px;
+    color: #3f3f46;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .big-stat {
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: #f59e0b;
+  }
+
+  .big-stat-label {
+    font-size: 18px;
+    color: #a1a1aa;
+    margin-top: 4px;
+    font-weight: 400;
+  }
+</style>
+</head>
+<body>
+  <div class="grid-overlay"></div>
+  <div class="glow-amber"></div>
+
+  <div class="container">
+    <div class="left">
+      <div class="eyebrow">M-Score Model Validation</div>
+      <div class="big-stat">5 of 10</div>
+      <div class="big-stat-label">top-flagged companies faced<br>real fraud investigations</div>
+      <div style="width:40px;height:2px;background:#f59e0b;opacity:0.5;margin-top:8px;"></div>
+      <div class="subtext">The model was built entirely on public SBA data. No inside information. No cherry-picking. The signal was there before the indictments.</div>
+    </div>
+
+    <div class="right">
+      <div class="bar-label">Top 10 M-Score Flagged &mdash; Outcome</div>
+      <div class="companies">
+        <div class="company-row flagged">
+          <div class="rank">1</div>
+          <div class="company-bar-wrap">
+            <div class="company-bar-fill" style="width:100%"></div>
+            <div class="company-bar">Highest anomaly score</div>
+          </div>
+          <div class="badge fraud">Charged</div>
+        </div>
+        <div class="company-row flagged">
+          <div class="rank">2</div>
+          <div class="company-bar-wrap">
+            <div class="company-bar-fill" style="width:96%"></div>
+            <div class="company-bar">High anomaly score</div>
+          </div>
+          <div class="badge fraud">Charged</div>
+        </div>
+        <div class="company-row flagged">
+          <div class="rank">3</div>
+          <div class="company-bar-wrap">
+            <div class="company-bar-fill" style="width:93%"></div>
+            <div class="company-bar">High anomaly score</div>
+          </div>
+          <div class="badge fraud">Charged</div>
+        </div>
+        <div class="company-row">
+          <div class="rank">4</div>
+          <div class="company-bar-wrap">
+            <div class="company-bar-fill" style="width:90%"></div>
+            <div class="company-bar" style="color:#52525b">High anomaly score</div>
+          </div>
+          <div class="badge clean">Unknown</div>
+        </div>
+        <div class="company-row flagged">
+          <div class="rank">5</div>
+          <div class="company-bar-wrap">
+            <div class="company-bar-fill" style="width:87%"></div>
+            <div class="company-bar">High anomaly score</div>
+          </div>
+          <div class="badge fraud">Charged</div>
+        </div>
+        <div class="company-row">
+          <div class="rank">6</div>
+          <div class="company-bar-wrap">
+            <div class="company-bar-fill" style="width:84%"></div>
+            <div class="company-bar" style="color:#52525b">High anomaly score</div>
+          </div>
+          <div class="badge clean">Unknown</div>
+        </div>
+        <div class="company-row">
+          <div class="rank">7</div>
+          <div class="company-bar-wrap">
+            <div class="company-bar-fill" style="width:81%"></div>
+            <div class="company-bar" style="color:#52525b">High anomaly score</div>
+          </div>
+          <div class="badge clean">Unknown</div>
+        </div>
+        <div class="company-row flagged">
+          <div class="rank">8</div>
+          <div class="company-bar-wrap">
+            <div class="company-bar-fill" style="width:78%"></div>
+            <div class="company-bar">High anomaly score</div>
+          </div>
+          <div class="badge fraud">Charged</div>
+        </div>
+        <div class="company-row">
+          <div class="rank">9</div>
+          <div class="company-bar-wrap">
+            <div class="company-bar-fill" style="width:75%"></div>
+            <div class="company-bar" style="color:#52525b">High anomaly score</div>
+          </div>
+          <div class="badge clean">Unknown</div>
+        </div>
+        <div class="company-row flagged">
+          <div class="rank">10</div>
+          <div class="company-bar-wrap">
+            <div class="company-bar-fill" style="width:72%"></div>
+            <div class="company-bar">High anomaly score</div>
+          </div>
+          <div class="badge fraud">Charged</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="source-tag">State of Fraud in America</div>
+  <div class="attribution"><strong>palavir.co</strong></div>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200">
+<title>State of Fraud in America - $32.4B</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1200px;
+    height: 675px;
+    background-color: #09090b;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+    color: #fafafa;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .glow {
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(239,68,68,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 80px;
+    gap: 0;
+  }
+
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #ef4444;
+    margin-bottom: 28px;
+  }
+
+  .stat {
+    font-size: 108px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: #fafafa;
+    text-align: center;
+  }
+
+  .stat span {
+    color: #ef4444;
+  }
+
+  .label {
+    font-size: 28px;
+    font-weight: 400;
+    color: #a1a1aa;
+    margin-top: 18px;
+    text-align: center;
+    letter-spacing: -0.01em;
+  }
+
+  .divider {
+    width: 64px;
+    height: 2px;
+    background: #ef4444;
+    margin: 36px 0;
+    opacity: 0.6;
+  }
+
+  .substat {
+    font-size: 36px;
+    font-weight: 700;
+    color: #fafafa;
+    text-align: center;
+    letter-spacing: -0.02em;
+  }
+
+  .substat-label {
+    font-size: 16px;
+    color: #71717a;
+    margin-top: 8px;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+
+  .attribution {
+    position: absolute;
+    bottom: 28px;
+    right: 36px;
+    font-size: 12px;
+    color: #52525b;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+
+  .attribution strong {
+    color: #71717a;
+  }
+
+  .source-tag {
+    position: absolute;
+    bottom: 28px;
+    left: 36px;
+    font-size: 11px;
+    color: #3f3f46;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .corner-bracket {
+    position: absolute;
+    top: 28px;
+    left: 36px;
+    width: 28px;
+    height: 28px;
+    border-top: 2px solid #27272a;
+    border-left: 2px solid #27272a;
+  }
+
+  .corner-bracket-r {
+    position: absolute;
+    top: 28px;
+    right: 36px;
+    width: 28px;
+    height: 28px;
+    border-top: 2px solid #27272a;
+    border-right: 2px solid #27272a;
+  }
+</style>
+</head>
+<body>
+  <div class="grid-overlay"></div>
+  <div class="glow"></div>
+  <div class="corner-bracket"></div>
+  <div class="corner-bracket-r"></div>
+
+  <div class="container">
+    <div class="eyebrow">PPP Loan Analysis &mdash; 968,522 Loans Examined</div>
+    <div class="stat"><span>$32.4B</span></div>
+    <div class="label">in anomalous PPP loans identified</div>
+    <div class="divider"></div>
+    <div class="substat">72% were fully forgiven</div>
+    <div class="substat-label">Taxpayers absorbed the loss. No repayment required.</div>
+  </div>
+
+  <div class="source-tag">State of Fraud in America</div>
+  <div class="attribution"><strong>palavir.co</strong></div>
+</body>
+</html>

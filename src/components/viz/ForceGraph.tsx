@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useRef, useEffect, useState } from "react";
@@ -137,7 +138,7 @@ export function ForceGraph({
         d3.select(this).attr("fill-opacity", 0.8).attr("stroke-width", 1);
         setTooltip(null);
       })
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+       
       .call(d3.drag<any, GraphNode>()
         .on("start", (event, d: any) => {
           if (!event.active) simulation.alphaTarget(0.3).restart();

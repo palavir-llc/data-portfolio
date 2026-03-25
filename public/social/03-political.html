@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200">
+<title>State of Fraud in America - Political Finding</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1200px;
+    height: 675px;
+    background-color: #09090b;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+    color: #fafafa;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .glow {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(99,102,241,0.09) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 52px 80px;
+    gap: 0;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #6366f1;
+    margin-bottom: 32px;
+  }
+
+  .headline {
+    font-size: 54px;
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: #fafafa;
+    max-width: 900px;
+  }
+
+  .headline .highlight {
+    color: #818cf8;
+  }
+
+  .divider {
+    width: 48px;
+    height: 2px;
+    background: #6366f1;
+    opacity: 0.5;
+    margin: 36px 0;
+  }
+
+  .comparison {
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .factor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 220px;
+  }
+
+  .factor-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #52525b;
+  }
+
+  .factor-bar-wrap {
+    width: 100%;
+    background: #18181b;
+    border: 1px solid #27272a;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .factor-bar {
+    height: 12px;
+    border-radius: 6px;
+  }
+
+  .factor-multiplier {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .factor-description {
+    font-size: 13px;
+    color: #71717a;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .vs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 52px;
+  }
+
+  .vs-text {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #3f3f46;
+    text-transform: uppercase;
+  }
+
+  .finding-note {
+    margin-top: 32px;
+    font-size: 15px;
+    color: #52525b;
+    max-width: 700px;
+    line-height: 1.6;
+  }
+
+  .finding-note strong {
+    color: #71717a;
+  }
+
+  .attribution {
+    position: absolute;
+    bottom: 28px;
+    right: 36px;
+    font-size: 12px;
+    color: #52525b;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+
+  .attribution strong { color: #71717a; }
+
+  .source-tag {
+    position: absolute;
+    bottom: 28px;
+    left: 36px;
+    font-size: 11px;
+    color: #3f3f46;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+  <div class="grid-overlay"></div>
+  <div class="glow"></div>
+
+  <div class="container">
+    <div class="eyebrow">2020 &rarr; 2024 Flipped States Analysis &mdash; 6 States Examined</div>
+    <div class="headline">Business structure predicts anomaly rates<br><span class="highlight">7&ndash;15x more</span> than political affiliation</div>
+    <div class="divider"></div>
+
+    <div class="comparison">
+      <div class="factor">
+        <div class="factor-label">Business Structure</div>
+        <div class="factor-bar-wrap">
+          <div class="factor-bar" style="width:100%;background:linear-gradient(90deg,#6366f1,#818cf8);height:14px;"></div>
+        </div>
+        <div class="factor-multiplier" style="color:#818cf8">7&ndash;15x</div>
+        <div class="factor-description">Sole prop, LLC, or corp structure drives anomaly prediction</div>
+      </div>
+
+      <div class="vs">
+        <div class="vs-text">vs</div>
+      </div>
+
+      <div class="factor">
+        <div class="factor-label">Political Shift</div>
+        <div class="factor-bar-wrap">
+          <div class="factor-bar" style="width:9%;background:#27272a;height:14px;border-radius:6px;"></div>
+        </div>
+        <div class="factor-multiplier" style="color:#3f3f46">~1x</div>
+        <div class="factor-description">Flipped states had near-average anomaly rates across the board</div>
+      </div>
+    </div>
+
+    <div class="finding-note">
+      Fraud wasn't a red-state or blue-state problem. It was a <strong>documentation and verification</strong> problem.
+    </div>
+  </div>
+
+  <div class="source-tag">State of Fraud in America</div>
+  <div class="attribution"><strong>palavir.co</strong></div>
+</body>
+</html>

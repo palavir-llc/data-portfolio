@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200">
+<title>State of Fraud in America - Enforcement Clock</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1200px;
+    height: 675px;
+    background-color: #09090b;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+    color: #fafafa;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .glow {
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(239,68,68,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    padding: 56px 72px;
+    gap: 64px;
+  }
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #ef4444;
+  }
+
+  .headline {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #fafafa;
+  }
+
+  .headline .number {
+    color: #ef4444;
+  }
+
+  .tagline {
+    font-size: 18px;
+    color: #71717a;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  .tagline strong {
+    color: #a1a1aa;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: center;
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .timeline-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #52525b;
+    margin-bottom: 14px;
+  }
+
+  .year-track {
+    position: relative;
+    height: 48px;
+    background: #18181b;
+    border: 1px solid #27272a;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .year-fill-done {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+    width: 58%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 14px;
+  }
+
+  .year-fill-done span {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 0.06em;
+  }
+
+  .year-fill-remaining {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 42%;
+    display: flex;
+    align-items: center;
+    padding-left: 14px;
+  }
+
+  .year-fill-remaining span {
+    font-size: 12px;
+    font-weight: 600;
+    color: #52525b;
+    letter-spacing: 0.06em;
+  }
+
+  .year-markers {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    padding: 0 2px;
+  }
+
+  .year-marker {
+    font-size: 11px;
+    color: #3f3f46;
+    letter-spacing: 0.05em;
+  }
+
+  .year-marker.active {
+    color: #71717a;
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .stat-box {
+    background: #18181b;
+    border: 1px solid #27272a;
+    border-radius: 6px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat-box .value {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .stat-box .desc {
+    font-size: 12px;
+    color: #52525b;
+    line-height: 1.4;
+  }
+
+  .stat-box.red .value { color: #ef4444; }
+  .stat-box.zinc .value { color: #71717a; }
+
+  .attribution {
+    position: absolute;
+    bottom: 28px;
+    right: 36px;
+    font-size: 12px;
+    color: #52525b;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+
+  .attribution strong { color: #71717a; }
+
+  .source-tag {
+    position: absolute;
+    bottom: 28px;
+    left: 36px;
+    font-size: 11px;
+    color: #3f3f46;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+  <div class="grid-overlay"></div>
+  <div class="glow"></div>
+
+  <div class="container">
+    <div class="left">
+      <div class="eyebrow">PPP Fraud &mdash; Enforcement Timeline</div>
+      <div class="headline">
+        <span class="number">3,000+</span> charged.<br>
+        Statute expires<br>
+        2030.
+      </div>
+      <div class="tagline">
+        Enforcement is <strong>halfway done</strong>. The window is closing. <strong>$32.4B</strong> in anomalous loans, and most cases haven't been filed.
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="timeline">
+        <div class="timeline-label">Enforcement window: 2020 &rarr; 2030</div>
+        <div class="year-track">
+          <div class="year-fill-done">
+            <span>2020 &mdash; 2025</span>
+          </div>
+          <div class="year-fill-remaining">
+            <span>2026 &mdash; 2030</span>
+          </div>
+        </div>
+        <div class="year-markers">
+          <span class="year-marker">2020<br>Loans issued</span>
+          <span class="year-marker active">2025<br>Now</span>
+          <span class="year-marker">2030<br>Deadline</span>
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-box red">
+          <div class="value">3,000+</div>
+          <div class="desc">defendants charged to date</div>
+        </div>
+        <div class="stat-box zinc">
+          <div class="value">19,371</div>
+          <div class="desc">loans flagged as anomalous</div>
+        </div>
+        <div class="stat-box zinc">
+          <div class="value">5 yrs</div>
+          <div class="desc">remaining in statute window</div>
+        </div>
+        <div class="stat-box red">
+          <div class="value">72%</div>
+          <div class="desc">of flagged loans already forgiven</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="source-tag">State of Fraud in America</div>
+  <div class="attribution"><strong>palavir.co</strong></div>
+</body>
+</html>

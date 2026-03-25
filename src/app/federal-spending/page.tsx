@@ -22,5 +22,29 @@ export const metadata: Metadata = {
 };
 
 export default function FederalSpendingPage() {
-  return <FederalSpendingClient />;
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "The Anatomy of $700B",
+    description: "Network analysis of federal contract spending reveals community structure among agencies and recipients, with anomaly detection flagging unusual awards.",
+    author: { "@type": "Person", name: "Josh Elberg" },
+    publisher: { "@type": "Organization", name: "Palavir LLC" },
+    datePublished: "2026-03-24",
+    url: "https://portfolio.palavir.co/federal-spending",
+  };
+  const datasetSchema = {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name: "Federal Spending Network Analysis",
+    description: "433-node agency-recipient network analyzed with Louvain community detection and Isolation Forest anomaly detection.",
+    creator: { "@type": "Organization", name: "Palavir LLC" },
+    license: "https://creativecommons.org/licenses/by/4.0/",
+  };
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetSchema) }} />
+      <FederalSpendingClient />
+    </>
+  );
 }
