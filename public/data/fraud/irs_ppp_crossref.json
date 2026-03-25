@@ -243,5 +243,6 @@
       "ppp_to_revenue": 0.17,
       "anomaly": false
     }
-  ]
+  ],
+  "limitation": "IRS BMF extract does not include revenue data for all organizations. Revenue=0 may indicate data not available, not zero revenue. Revenue comparisons should be verified against actual 990 filings on ProPublica Nonprofit Explorer."
 }

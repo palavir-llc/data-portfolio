@@ -4,7 +4,8 @@
     "total_eidl_amount": 0,
     "avg_eidl": 0,
     "double_dippers": 113836,
-    "source": "SBA COVID-19 EIDL FOIA (data.sba.gov/dataset/covid-19-eidl)"
+    "source": "SBA COVID-19 EIDL FOIA (data.sba.gov/dataset/covid-19-eidl)",
+    "data_quality_note": "EIDL loan amounts could not be reliably extracted from the SBA FOIA data due to column format issues. Name matching is valid but dollar amounts are unreliable. The 113,836 double-dipper count is based on exact name matching which may include coincidental matches for common business names."
   },
   "top_double_dippers": [
     {

@@ -1,0 +1,65 @@
+{
+  "description": "Benfords Law analysis of PPP loan first-digit distribution. Benfords Law states that in naturally occurring datasets, the digit 1 appears as the leading digit ~30.1% of the time, 2 appears ~17.6%, etc. Significant deviations may indicate data manipulation.",
+  "source": "SBA PPP FOIA CurrentApprovalAmount field",
+  "total_loans": 968524,
+  "distribution": [
+    {
+      "digit": 1,
+      "observed_pct": 32.28,
+      "expected_pct": 30.1,
+      "deviation": 2.18
+    },
+    {
+      "digit": 2,
+      "observed_pct": 28.34,
+      "expected_pct": 17.61,
+      "deviation": 10.73
+    },
+    {
+      "digit": 3,
+      "observed_pct": 14.16,
+      "expected_pct": 12.49,
+      "deviation": 1.67
+    },
+    {
+      "digit": 4,
+      "observed_pct": 8.58,
+      "expected_pct": 9.69,
+      "deviation": -1.11
+    },
+    {
+      "digit": 5,
+      "observed_pct": 5.61,
+      "expected_pct": 7.92,
+      "deviation": -2.31
+    },
+    {
+      "digit": 6,
+      "observed_pct": 3.97,
+      "expected_pct": 6.69,
+      "deviation": -2.72
+    },
+    {
+      "digit": 7,
+      "observed_pct": 2.97,
+      "expected_pct": 5.8,
+      "deviation": -2.83
+    },
+    {
+      "digit": 8,
+      "observed_pct": 2.27,
+      "expected_pct": 5.12,
+      "deviation": -2.85
+    },
+    {
+      "digit": 9,
+      "observed_pct": 1.81,
+      "expected_pct": 4.58,
+      "deviation": -2.77
+    }
+  ],
+  "chi_square": 130283.0,
+  "p_value": 0.0,
+  "significant": true,
+  "interpretation": "PPP loan amounts show statistically significant deviation from Benfords Law, which is expected for any capped program (0M max) with standardized calculation methods (2.5x payroll). The deviation alone does not prove fraud but is consistent with systematic rounding."
+}

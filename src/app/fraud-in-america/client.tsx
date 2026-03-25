@@ -2441,6 +2441,29 @@ export function FraudInAmericaClient() {
             </div>
 
             <div>
+              <h3 className="mb-2 text-base font-bold text-zinc-200">Benford&apos;s Law Validation</h3>
+              <p>
+                Benford&apos;s Law predicts that in naturally occurring datasets, the digit 1
+                appears as the leading digit ~30.1% of the time, 2 ~17.6%, etc. PPP loan amounts
+                show a statistically significant deviation (chi-square p &lt; 0.001), with digit 2
+                overrepresented at 28.3% (expected: 17.6%). This is largely explained by the
+                PPP calculation formula (2.5x monthly payroll), which mathematically produces
+                more amounts starting with 2. The deviation alone does not prove fraud but is
+                consistent with the structural characteristics of the program. Anomalous loans
+                deviate more than normal loans (17.5% max deviation vs 10.6%).
+              </p>
+
+              <h3 className="mb-2 text-base font-bold text-zinc-200">DOJ Prosecution Context</h3>
+              <p>
+                As of early 2026, DOJ has charged 3,000+ defendants in PPP fraud cases, with
+                2,000+ convicted or pled guilty. The largest single scheme (Feeding Our Future, MN)
+                involved $250M. PRAC identified $5.4B disbursed to 69,323 potentially fraudulent
+                SSNs, and estimated that pre-award data vetting could have prevented $79B in
+                potentially fraudulent payments across all pandemic programs. We have not yet
+                validated our model&apos;s flagged loans against DOJ&apos;s published prosecution
+                list, which is a significant limitation.
+              </p>
+
               <h3 className="mb-2 text-base font-bold text-zinc-200">What This Cannot Tell You</h3>
               <ul className="ml-4 list-disc space-y-2 marker:text-zinc-600">
                 <li>Anomalous PPP loans are not confirmed fraud. Many will have legitimate explanations.</li>

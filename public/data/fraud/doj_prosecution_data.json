@@ -1,0 +1,49 @@
+{
+  "source": "DOJ Fraud Section + PRAC (pandemicoversight.gov)",
+  "total_defendants_charged": "3,000+",
+  "total_convicted_or_pled": "2,000+",
+  "total_amount_charged": "2,000,000,000+",
+  "statute_of_limitations": "10 years (extended from 5)",
+  "key_cases": [
+    {
+      "amount": 65000000,
+      "description": "Lender service provider co-founder, 10yr sentence (Dec 2025)",
+      "state": "Multiple"
+    },
+    {
+      "amount": 55000000,
+      "description": "Illinois businessman, 6yr sentence (Jan 2026)",
+      "state": "IL"
+    },
+    {
+      "amount": 11000000,
+      "description": "Nevada man, 15yr sentence (Aug 2025)",
+      "state": "NV"
+    },
+    {
+      "amount": 250000000,
+      "description": "Feeding Our Future (MN), 90+ charged, largest pandemic fraud scheme",
+      "state": "MN"
+    },
+    {
+      "amount": 9600000,
+      "description": "Carl Torjagbo, convicted of bank fraud and wire fraud (Jul 2025)",
+      "state": "GA"
+    }
+  ],
+  "enforcement_stats": {
+    "fraud_section_defendants": 200,
+    "fraud_section_cases": 130,
+    "seized_cash": 78000000,
+    "mdfl_defendants": 109,
+    "mdfl_guilty": 74,
+    "ndms_fca_judgments": 150
+  },
+  "prac_findings": {
+    "fraudulent_ssns": 69323,
+    "fraudulent_ssn_amount": 5400000000,
+    "pre_award_vetting_could_have_prevented": 79000000000,
+    "source": "PRAC Fraud Prevention Alert"
+  },
+  "note": "Published DOJ prosecution data. Individual case details from DOJ press releases. PRAC findings from official fraud alerts."
+}
