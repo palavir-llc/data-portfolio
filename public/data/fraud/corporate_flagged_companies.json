@@ -34,7 +34,9 @@
     "driver_contribution": 73.95,
     "news_summary": "Securities class action filed 2022 (SDNY) for misleading statements about Ublituximab/Umbralisib clinical trials. Company withdrew BLA after survival data showed problems. However, the 83.9x M-Score is driven by legitimate BRIUMVI drug launch revenue, not manipulation. FY2025 showed strong execution and raised 2026 guidance.",
     "current_status": "Likely false positive. Thriving company, real drug revenue.",
-    "validation": "false_positive"
+    "validation": "false_positive",
+    "company_response": "Company has stated BRIUMVI revenue growth is from legitimate drug commercialization. FY2025 results showed continued strong performance.",
+    "growth_caveat": "The Beneish M-Score was calibrated on mature manufacturing companies. Pre-revenue companies transitioning to first commercial revenue (e.g., biotech drug launches) will almost always exceed the -1.78 threshold due to extreme Sales Growth Index values. This does not indicate manipulation for growth-stage companies."
   },
   {
     "cik": 1842566,
@@ -71,7 +73,8 @@
     "driver_contribution": 13.18,
     "news_summary": "Active securities fraud investigations by Levi & Korsinsky and Pomerantz LLP (late 2024). Triggered by Q3 2024 earnings miss: reported $2.9M revenue vs. $4.8M consensus. Stock fell 22.87% in one day. TATA score of 2.816 means reported earnings far exceed cash flow.",
     "current_status": "Under active investigation. Pre-lawsuit stage.",
-    "validation": "under_review"
+    "validation": "under_review",
+    "company_response": "The investigations are in pre-lawsuit stage. The company has not been formally charged with any wrongdoing."
   },
   {
     "cik": 1787306,
@@ -108,7 +111,9 @@
     "driver_contribution": 13.53,
     "news_summary": "No fraud or investigation found. FY2025 showed 90%+ YoY revenue growth from ZORYVE dermatology launches. Cash position $221.3M. The 16.2x sales growth is legitimate new product revenue.",
     "current_status": "Likely false positive. Healthy growth-stage biotech.",
-    "validation": "false_positive"
+    "validation": "false_positive",
+    "company_response": "Company reports 90%+ YoY revenue growth from ZORYVE dermatology launches. Cash position $221.3M as of Dec 2025.",
+    "growth_caveat": "The Beneish M-Score was calibrated on mature manufacturing companies. Pre-revenue companies transitioning to first commercial revenue (e.g., biotech drug launches) will almost always exceed the -1.78 threshold due to extreme Sales Growth Index values. This does not indicate manipulation for growth-stage companies."
   },
   {
     "cik": 1828673,
@@ -182,7 +187,8 @@
     "driver_contribution": 5.4,
     "news_summary": "Actively delisted from Nasdaq. Trading suspended March 18, 2026. Going concern: $4M cash vs. $61M debt, $209.9M accumulated deficit. CFO departed August 2025 \"without cause.\" Being acquired by Agero for $5.50/share. Shareholder investigations into whether board breached fiduciary duties in merger.",
     "current_status": "DELISTED March 2026. Going concern. CFO departed.",
-    "validation": "elevated_concern"
+    "validation": "elevated_concern",
+    "company_response": "Company is being acquired by Agero for $5.50/share. Management has not responded to M-Score characterization."
   },
   {
     "cik": 1819438,
@@ -219,7 +225,9 @@
     "driver_contribution": 6.63,
     "news_summary": "Securities fraud class action (2023, Oregon) after Grizzly Research alleged fabricated partnership with ESI in Australia. Revenue collapsed from $6.3M (2024) to $1.6M (2025). Accumulated deficit $845.8M. Only $0.8M unrestricted cash mid-2025. Selling products below cost. Bankruptcy probability estimated ~26%.",
     "current_status": "Going concern. Revenue collapse. Near-bankruptcy.",
-    "validation": "elevated_concern"
+    "validation": "elevated_concern",
+    "company_response": "Company has called the Grizzly Research allegations meritless. The securities class action is ongoing.",
+    "growth_caveat": "The Beneish M-Score was calibrated on mature manufacturing companies. Pre-revenue companies transitioning to first commercial revenue (e.g., biotech drug launches) will almost always exceed the -1.78 threshold due to extreme Sales Growth Index values. This does not indicate manipulation for growth-stage companies."
   },
   {
     "cik": 1828318,
@@ -256,7 +264,8 @@
     "driver_contribution": 3.07,
     "news_summary": "Two waves of securities fraud class actions. First (2023): \"automated\" manufacturing lines actually required massive manual intervention; machines rated 550 batteries/hour produced ~100. Second (2024-2025): battery samples shipped to Honor failed specifications. Active investigations by Block & Leviton, Pomerantz, Bragar Eagel & Squire.",
     "current_status": "Active fraud investigation. Manufacturing misrepresentations.",
-    "validation": "elevated_concern"
+    "validation": "elevated_concern",
+    "company_response": "Company has not publicly responded to the securities fraud investigations."
   },
   {
     "cik": 1720893,
@@ -293,7 +302,8 @@
     "driver_contribution": 5.22,
     "news_summary": "Clinical trial principal investigator fabricated email correspondence provided to FDA. Failed to follow informed consent protocols. Stock fell 63.8% in one day (June 29, 2023). Faced Nasdaq delisting TWICE: bid price (regained via reverse split Feb 2025) and market value (regained Sept 2025). Going concern. Closed $8M offering March 2026 to stay funded.",
     "current_status": "Fabricated FDA data. Delisted twice, regained twice. Going concern.",
-    "validation": "elevated_concern"
+    "validation": "elevated_concern",
+    "company_response": "The clinical trial data fabrication was attributed to an external principal investigator, not company management."
   },
   {
     "cik": 1098972,
@@ -437,7 +447,8 @@
     "driver_contribution": 2.69,
     "news_summary": "CONFIRMED multi-year financial restatement. Audit committee independent investigation (March 2022) found material weaknesses in internal controls. FY2019, FY2020, and interim periods 2019-2021 ALL restated for revenue recognition errors (FOB destination terms) and inventory cost expensing. Filed Form 8-K declaring non-reliance on prior financials.",
     "current_status": "6 restatements confirmed. Material weakness in controls. M-Score validated.",
-    "validation": "investigation_reported"
+    "validation": "investigation_reported",
+    "company_response": "Company completed its restatement process and has been filing normally since FY2023."
   },
   {
     "cik": 1438943,
@@ -501,7 +512,8 @@
     "insider_transaction_count": 702,
     "primary_driver": "SGI",
     "driver_explanation": "Revenue grew abnormally fast year-over-year. High sales growth is the #1 predictor in the Beneish model because companies faking revenue show sudden spikes.",
-    "driver_contribution": 3.9
+    "driver_contribution": 3.9,
+    "growth_caveat": "The Beneish M-Score was calibrated on mature manufacturing companies. Pre-revenue companies transitioning to first commercial revenue (e.g., biotech drug launches) will almost always exceed the -1.78 threshold due to extreme Sales Growth Index values. This does not indicate manipulation for growth-stage companies."
   },
   {
     "cik": 1600983,
@@ -536,6 +548,7 @@
     "driver_contribution": 1.44,
     "news_summary": "Severe financial distress. Revenue declining (down 6.6% to $11M), negative free cash flow $24M, accounting loss $31M, only $3.94M cash. Faced Nasdaq delisting 2023 for market value. Executed 1-for-50 reverse stock split September 2024. Filed amended 10-K/A for FY2024.",
     "current_status": "Financial distress. Reverse split. 3 amended filings.",
-    "validation": "under_review"
+    "validation": "under_review",
+    "company_response": "Company regained Nasdaq compliance after reverse stock split. No fraud has been alleged."
   }
 ]

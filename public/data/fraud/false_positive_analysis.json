@@ -1,0 +1,153 @@
+{
+  "total_networks": 20,
+  "classification": {
+    "likely_legitimate": 0,
+    "business_park": 2,
+    "requires_investigation": 10,
+    "management_company": 8
+  },
+  "estimated_false_positive_rate": 0.5,
+  "detail": {
+    "likely_legitimate": [],
+    "business_park": [
+      {
+        "address": "807 DORSEY STREET",
+        "city": "GAINESVILLE",
+        "state": "GA",
+        "entities": 36,
+        "anomalies": 36,
+        "total_loans": 36,
+        "amount": 32501960,
+        "reason": "13 different industries at one address (multi-tenant building)",
+        "dominant_word": "MANAGEMENT"
+      },
+      {
+        "address": "200 EXECUTIVE BLVD",
+        "city": "SOUTHINGTON",
+        "state": "CT",
+        "entities": 30,
+        "anomalies": 30,
+        "total_loans": 30,
+        "amount": 17887172,
+        "reason": "17 different industries at one address (multi-tenant building)",
+        "dominant_word": "ELECTRICAL"
+      }
+    ],
+    "requires_investigation": [
+      {
+        "address": "1445 5TH ST",
+        "city": "Santa Monica",
+        "state": "CA",
+        "entities": 35,
+        "anomalies": 49,
+        "total_loans": 49,
+        "amount": 12486832,
+        "reason": "100% anomalous with 35 entities",
+        "dominant_word": "ALISAL"
+      },
+      {
+        "address": "2390 TOWER DR",
+        "city": "Monroe",
+        "state": "LA",
+        "entities": 48,
+        "anomalies": 49,
+        "total_loans": 49,
+        "amount": 13684503,
+        "reason": "100% anomalous with 48 entities",
+        "dominant_word": "HOSPITALITY"
+      },
+      {
+        "address": "830 W TRAILCREEK DR",
+        "city": "PEORIA",
+        "state": "IL",
+        "entities": 41,
+        "anomalies": 42,
+        "total_loans": 42,
+        "amount": 16740960,
+        "reason": "100% anomalous with 41 entities",
+        "dominant_word": "PETERSEN"
+      },
+      {
+        "address": "731 N MAIN ST",
+        "city": "SIKESTON",
+        "state": "MO",
+        "entities": 35,
+        "anomalies": 35,
+        "total_loans": 35,
+        "amount": 10979652,
+        "reason": "100% anomalous with 35 entities",
+        "dominant_word": "CENTER"
+      },
+      {
+        "address": "1829 UNION ST",
+        "city": "SAN FRANCISCO",
+        "state": "CA",
+        "entities": 26,
+        "anomalies": 31,
+        "total_loans": 31,
+        "amount": 9400069,
+        "reason": "100% anomalous with 26 entities",
+        "dominant_word": "DELA"
+      }
+    ],
+    "management_company": [
+      {
+        "address": "11410 COMMON OAKS DR",
+        "city": "Raleigh",
+        "state": "NC",
+        "entities": 43,
+        "anomalies": 51,
+        "total_loans": 51,
+        "amount": 21379611,
+        "reason": "Common operator (CONCORD in 31/51 entities)",
+        "dominant_word": "CONCORD"
+      },
+      {
+        "address": "7 PEARL CT",
+        "city": "ALLENDALE",
+        "state": "NJ",
+        "entities": 41,
+        "anomalies": 42,
+        "total_loans": 48,
+        "amount": 65964209,
+        "reason": "Common operator (APPLE in 27/48 entities)",
+        "dominant_word": "APPLE"
+      },
+      {
+        "address": "133 N JEFFERSON STREET FLOOR 4",
+        "city": "CHICAGO",
+        "state": "IL",
+        "entities": 28,
+        "anomalies": 28,
+        "total_loans": 28,
+        "amount": 16785700,
+        "reason": "Common operator (LESSEE in 22/28 entities)",
+        "dominant_word": "LESSEE"
+      },
+      {
+        "address": "1375 REMINGTON RD STE E",
+        "city": "Schaumburg",
+        "state": "IL",
+        "entities": 16,
+        "anomalies": 28,
+        "total_loans": 28,
+        "amount": 8547894,
+        "reason": "Common operator (PROMINENCE in 15/28 entities)",
+        "dominant_word": "PROMINENCE"
+      },
+      {
+        "address": "4655 W CHASE AVE",
+        "city": "Lincolnwood",
+        "state": "IL",
+        "entities": 26,
+        "anomalies": 26,
+        "total_loans": 26,
+        "amount": 16459803,
+        "reason": "Common operator (CARE in 16/26 entities)",
+        "dominant_word": "CARE"
+      }
+    ]
+  },
+  "methodology": "Classified by: (1) name root analysis (>40% shared = management company), (2) NAICS diversity (>8 = business park), (3) anomaly rate + entity count for investigation candidates.",
+  "conclusion": "Of 20 address networks flagged by the model, approximately 50% appear to be legitimate holding companies, franchise operators, or multi-tenant buildings. 10 networks have patterns that warrant further investigation."
+}

@@ -62,6 +62,7 @@ interface CorporateFlagged {
   restatement_filings?: number; recent_8k_count?: number; insider_transaction_count?: number;
   primary_driver?: string; driver_explanation?: string; driver_contribution?: number;
   news_summary?: string; current_status?: string; validation?: string;
+  company_response?: string; growth_caveat?: string;
 }
 interface MScoreDistribution { bin_start: number; bin_end: number; count: number; flagged: boolean; }
 interface CorporateSummary { total_companies: number; total_company_years: number; flagged_count: number; flagged_pct: number; median_mscore: number; threshold: number; }
@@ -1506,11 +1507,24 @@ export function FraudInAmericaClient() {
                     {/* News context */}
                     {c.news_summary && (
                       <div className="mt-3 rounded-lg bg-zinc-800/30 border border-zinc-700/50 px-4 py-3">
-                        <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 mb-1">What we found</p>
+                        <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 mb-1">Public record</p>
                         <p className="text-xs text-zinc-400 leading-relaxed">{c.news_summary}</p>
                         {c.current_status && (
                           <p className="mt-1.5 text-[10px] font-medium text-amber-400">{c.current_status}</p>
                         )}
+                      </div>
+                    )}
+                    {/* Company response (right of reply) */}
+                    {c.company_response && (
+                      <div className="mt-2 rounded-lg bg-blue-500/5 border border-blue-500/20 px-4 py-2">
+                        <p className="text-[10px] font-bold uppercase tracking-wider text-blue-400 mb-1">Company context</p>
+                        <p className="text-xs text-zinc-400">{c.company_response}</p>
+                      </div>
+                    )}
+                    {/* Growth company caveat */}
+                    {c.growth_caveat && (
+                      <div className="mt-2 rounded-lg bg-green-500/5 border border-green-500/20 px-4 py-2">
+                        <p className="text-[10px] text-green-400">{c.growth_caveat}</p>
                       </div>
                     )}
                     <div className="mt-3 flex flex-wrap gap-3 text-[10px] text-zinc-500">
@@ -2122,11 +2136,20 @@ export function FraudInAmericaClient() {
           {entityNets?.entity_networks && (
             <div className="mt-16">
               <h3 className="text-2xl font-extrabold text-zinc-100">Entity Networks: Follow the Addresses</h3>
-              <p className="mt-3 mb-6 max-w-2xl text-sm text-zinc-500">
+              <p className="mt-3 mb-4 max-w-2xl text-sm text-zinc-500">
                 97 addresses had 10+ PPP loans with 5+ flagged as anomalous. Each is verifiable
-                by searching the SBA PPP data for the exact address. The entity names, loan amounts,
-                and forgiveness data are all from the government&apos;s own FOIA release.
+                by searching the SBA PPP data for the exact address.
               </p>
+              <div className="mb-6 rounded-xl border border-amber-500/30 bg-amber-500/5 px-5 py-4">
+                <p className="text-xs font-bold uppercase tracking-wider text-amber-400 mb-1">False Positive Rate: ~50%</p>
+                <p className="text-xs text-zinc-400">
+                  Our classification analysis found that approximately half of flagged address
+                  networks are legitimate holding companies (Concord Hospitality, Doherty Enterprises),
+                  franchise operators, or multi-tenant office buildings. 10 of 20 top networks
+                  have patterns that warrant further investigation. The remainder are normal
+                  corporate structures where multiple LLCs at one address is standard practice.
+                </p>
+              </div>
               <div className="space-y-4">
                 {entityNets.entity_networks.slice(0, 6).map((n: any, i: number) => (
                   <div key={i} className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5">
