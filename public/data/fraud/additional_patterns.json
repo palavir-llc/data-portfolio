@@ -1,0 +1,196 @@
+{
+  "state_ratios": [
+    {
+      "state": "DC",
+      "median_per_employee": 14762,
+      "avg_loan": 572833,
+      "avg_jobs": 46
+    },
+    {
+      "state": "AK",
+      "median_per_employee": 13435,
+      "avg_loan": 502405,
+      "avg_jobs": 41
+    },
+    {
+      "state": "MA",
+      "median_per_employee": 13046,
+      "avg_loan": 542364,
+      "avg_jobs": 47
+    },
+    {
+      "state": "NJ",
+      "median_per_employee": 12981,
+      "avg_loan": 535646,
+      "avg_jobs": 49
+    },
+    {
+      "state": "CT",
+      "median_per_employee": 12694,
+      "avg_loan": 517298,
+      "avg_jobs": 47
+    },
+    {
+      "state": "WA",
+      "median_per_employee": 12604,
+      "avg_loan": 534660,
+      "avg_jobs": 48
+    },
+    {
+      "state": "NY",
+      "median_per_employee": 12597,
+      "avg_loan": 566710,
+      "avg_jobs": 53
+    },
+    {
+      "state": "ND",
+      "median_per_employee": 12535,
+      "avg_loan": 541244,
+      "avg_jobs": 47
+    },
+    {
+      "state": "WY",
+      "median_per_employee": 12393,
+      "avg_loan": 459147,
+      "avg_jobs": 41
+    },
+    {
+      "state": "IL",
+      "median_per_employee": 12273,
+      "avg_loan": 568506,
+      "avg_jobs": 52
+    },
+    {
+      "state": "CA",
+      "median_per_employee": 12181,
+      "avg_loan": 531699,
+      "avg_jobs": 51
+    },
+    {
+      "state": "CO",
+      "median_per_employee": 12143,
+      "avg_loan": 507887,
+      "avg_jobs": 47
+    },
+    {
+      "state": "MD",
+      "median_per_employee": 12083,
+      "avg_loan": 533167,
+      "avg_jobs": 50
+    },
+    {
+      "state": "PA",
+      "median_per_employee": 11989,
+      "avg_loan": 554097,
+      "avg_jobs": 52
+    },
+    {
+      "state": "OR",
+      "median_per_employee": 11953,
+      "avg_loan": 505557,
+      "avg_jobs": 48
+    }
+  ],
+  "common_amounts": [
+    {
+      "amount": 150000,
+      "count": 6690,
+      "anomalous": 747
+    },
+    {
+      "amount": 2000000,
+      "count": 5842,
+      "anomalous": 2980
+    },
+    {
+      "amount": 200000,
+      "count": 2531,
+      "anomalous": 387
+    },
+    {
+      "amount": 250000,
+      "count": 2447,
+      "anomalous": 407
+    },
+    {
+      "amount": 175000,
+      "count": 1713,
+      "anomalous": 22
+    },
+    {
+      "amount": 300000,
+      "count": 1409,
+      "anomalous": 245
+    },
+    {
+      "amount": 162500,
+      "count": 1234,
+      "anomalous": 15
+    },
+    {
+      "amount": 225000,
+      "count": 1141,
+      "anomalous": 13
+    },
+    {
+      "amount": 187500,
+      "count": 1071,
+      "anomalous": 17
+    },
+    {
+      "amount": 350000,
+      "count": 998,
+      "anomalous": 174
+    },
+    {
+      "amount": 180000,
+      "count": 956,
+      "anomalous": 137
+    },
+    {
+      "amount": 160000,
+      "count": 912,
+      "anomalous": 91
+    },
+    {
+      "amount": 500000,
+      "count": 878,
+      "anomalous": 141
+    },
+    {
+      "amount": 275000,
+      "count": 801,
+      "anomalous": 6
+    },
+    {
+      "amount": 400000,
+      "count": 797,
+      "anomalous": 119
+    },
+    {
+      "amount": 155000,
+      "count": 796,
+      "anomalous": 7
+    },
+    {
+      "amount": 170000,
+      "count": 795,
+      "anomalous": 77
+    },
+    {
+      "amount": 210000,
+      "count": 711,
+      "anomalous": 93
+    },
+    {
+      "amount": 10000000,
+      "count": 707,
+      "anomalous": 691
+    },
+    {
+      "amount": 375000,
+      "count": 685,
+      "anomalous": 8
+    }
+  ]
+}
