@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -217,7 +218,7 @@ export function Timeline({ data, color = "#3b82f6", label, fmt }: {
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export function HBar({ data, labelKey, valueKey, color = "#f97316", max = 15, fmt }: {
   data: any[]; labelKey: string; valueKey: string; color?: string; max?: number;
   fmt?: (v: number) => string;

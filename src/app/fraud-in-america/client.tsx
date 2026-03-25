@@ -205,7 +205,7 @@ function CompanyDatabase({ data }: { data: DBEntry[] }) {
     const pct = Math.min(Math.abs(value) / max * 100, 100);
     return (
       <div className="flex items-center gap-2">
-        <span className="w-10 text-right text-[10px] text-zinc-500">{label}</span>
+        <span className="w-10 text-right text-[10px] text-zinc-400">{label}</span>
         <div className="h-3 flex-1 rounded bg-zinc-800">
           <div className="h-3 rounded transition-all" style={{ width: `${pct}%`, backgroundColor: danger ? "#ef4444" : "#3b82f6" }} />
         </div>
@@ -248,11 +248,16 @@ function CompanyDatabase({ data }: { data: DBEntry[] }) {
             </tr>
           </thead>
           <tbody>
+            {paged.length === 0 && (
+              <tr><td colSpan={7} className="px-3 py-8 text-center text-zinc-500 text-sm">No matching companies found.</td></tr>
+            )}
             {paged.map((c, i) => (
               <>
                 <tr key={c.cik} className="border-t border-zinc-800/40 cursor-pointer transition-colors hover:bg-zinc-900/40"
-                  onClick={() => setExpanded(expanded === c.cik ? null : c.cik)}>
-                  <td className="px-3 py-2 text-zinc-600">{expanded === c.cik ? "v" : ">"}</td>
+                  tabIndex={0} role="button" aria-expanded={expanded === c.cik}
+                  onClick={() => setExpanded(expanded === c.cik ? null : c.cik)}
+                  onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setExpanded(expanded === c.cik ? null : c.cik); } }}>
+                  <td className="px-3 py-2 text-zinc-500">{expanded === c.cik ? "v" : ">"}</td>
                   <td className="px-3 py-2 font-medium text-zinc-200">{c.company}</td>
                   <td className="px-3 py-2">
                     {c.ticker ? <span className="rounded bg-zinc-800 px-1.5 py-0.5 text-[10px] font-mono text-blue-400">{c.ticker}</span> : <span className="text-zinc-700">--</span>}
@@ -269,18 +274,18 @@ function CompanyDatabase({ data }: { data: DBEntry[] }) {
                     <td colSpan={7} className="px-6 py-4">
                       <div className="grid gap-4 sm:grid-cols-2">
                         <div>
-                          <p className="mb-2 text-xs font-bold text-zinc-400">M-Score Components <span className="font-normal text-zinc-600">(1.0 = normal, higher = elevated)</span></p>
+                          <p className="mb-2 text-xs font-bold text-zinc-400">M-Score Components <span className="font-normal text-zinc-500">(1.0 = normal, higher = elevated)</span></p>
                           <div className="space-y-1.5">
                             <MiniBar label="DSRI" value={c.dsri} max={10} danger={c.dsri > 1.5} />
-                            <p className="text-[9px] text-zinc-600 ml-12 -mt-1">Receivables Index: are customers paying slower?</p>
+                            <p className="text-[9px] text-zinc-400 ml-12 -mt-1">Receivables Index: are customers paying slower?</p>
                             <MiniBar label="GMI" value={c.gmi} max={10} danger={c.gmi > 1.5} />
-                            <p className="text-[9px] text-zinc-600 ml-12 -mt-1">Gross Margin: are profit margins shrinking?</p>
+                            <p className="text-[9px] text-zinc-400 ml-12 -mt-1">Gross Margin: are profit margins shrinking?</p>
                             <MiniBar label="AQI" value={c.aqi} max={10} danger={c.aqi > 1.5} />
-                            <p className="text-[9px] text-zinc-600 ml-12 -mt-1">Asset Quality: turning costs into &quot;assets&quot;?</p>
+                            <p className="text-[9px] text-zinc-400 ml-12 -mt-1">Asset Quality: turning costs into &quot;assets&quot;?</p>
                             <MiniBar label="SGI" value={c.sgi} max={Math.max(c.sgi, 10)} danger={c.sgi > 1.5} />
-                            <p className="text-[9px] text-zinc-600 ml-12 -mt-1">Sales Growth: unusually fast revenue growth?</p>
+                            <p className="text-[9px] text-zinc-400 ml-12 -mt-1">Sales Growth: unusually fast revenue growth?</p>
                             <MiniBar label="TATA" value={c.tata} max={1} danger={c.tata > 0.05} />
-                            <p className="text-[9px] text-zinc-600 ml-12 -mt-1">Accruals: gap between paper profit and cash?</p>
+                            <p className="text-[9px] text-zinc-400 ml-12 -mt-1">Accruals: gap between paper profit and cash?</p>
                           </div>
                         </div>
                         <div>
@@ -379,7 +384,7 @@ function WhyBox({ children }: { children: React.ReactNode }) {
 
 function Source({ text, url }: { text: string; url?: string }) {
   return (
-    <p className="mt-6 text-[11px] text-zinc-600">
+    <p className="mt-6 text-[11px] text-zinc-400">
       Source:{" "}{url ? <a href={url} target="_blank" rel="noopener noreferrer" className="underline hover:text-zinc-400">{text}</a> : text}
     </p>
   );
@@ -391,9 +396,9 @@ function SectionDivider() {
 
 // ─── Chart: Horizontal Bars ──────────────────────────────────────────
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 function HBar({ data, labelKey, valueKey, color = "#f97316", max = 15, fmt }: {
-  data: any[]; labelKey: string; valueKey: string; color?: string; max?: number; fmt?: (v: number) => string;
+  data: any[]; labelKey: string; valueKey: string; color?: string; max?: number; fmt?: (v: number) => string; // eslint-disable-line @typescript-eslint/no-explicit-any
 }) {
   const sorted = [...data].sort((a, b) => b[valueKey] - a[valueKey]).slice(0, max);
   const peak = Math.max(...sorted.map((d) => d[valueKey]), 0.001);
@@ -423,7 +428,7 @@ function HBar({ data, labelKey, valueKey, color = "#f97316", max = 15, fmt }: {
 function ScatterPlot({ data }: { data: PPPScatterPoint[] }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [tip, setTip] = useState<{ x: number; y: number; point: PPPScatterPoint } | null>(null);
+  const [tip, setTip] = useState<{ x: number; y: number; point: PPPScatterPoint; wrapWidth: number } | null>(null);
   const pointsRef = useRef<Array<{ px: number; py: number; d: PPPScatterPoint }>>([]);
 
   useEffect(() => {
@@ -499,7 +504,7 @@ function ScatterPlot({ data }: { data: PPPScatterPoint[] }) {
       if (dist < minDist) { minDist = dist; closest = p; }
     }
     if (closest) {
-      setTip({ x: mx, y: my, point: closest.d });
+      setTip({ x: mx, y: my, point: closest.d, wrapWidth: wrapRef.current?.clientWidth || 600 });
     } else {
       setTip(null);
     }
@@ -511,7 +516,7 @@ function ScatterPlot({ data }: { data: PPPScatterPoint[] }) {
         onMouseMove={handleMouseMove} onMouseLeave={() => setTip(null)} />
       {tip && (
         <div className="pointer-events-none absolute z-50 w-56 rounded-xl border border-zinc-700 bg-zinc-900/95 p-3 shadow-2xl backdrop-blur-sm"
-          style={{ left: Math.min(tip.x + 16, (wrapRef.current?.clientWidth || 600) - 240), top: tip.y - 10 }}>
+          style={{ left: Math.min(tip.x + 16, (tip.wrapWidth || 600) - 240), top: tip.y - 10 }}>
           <div className="flex items-center justify-between mb-2">
             <span className={`rounded-full px-2 py-0.5 text-[10px] font-bold ${tip.point.is_anomaly ? "bg-red-500/20 text-red-400" : "bg-zinc-700 text-zinc-400"}`}>
               {tip.point.is_anomaly ? "ANOMALY" : "Normal"}
@@ -519,19 +524,19 @@ function ScatterPlot({ data }: { data: PPPScatterPoint[] }) {
             <span className="text-xs text-zinc-500">{tip.point.state}</span>
           </div>
           <p className="text-sm font-bold text-white">{$(tip.point.amount)}</p>
-          <p className="text-[10px] text-zinc-500 mb-2">Loan amount</p>
+          <p className="text-[10px] text-zinc-400 mb-2">Loan amount</p>
           {/* Mini bar indicators */}
           <div className="space-y-1.5">
             <div>
-              <div className="flex justify-between text-[10px] text-zinc-500"><span>$/Employee</span><span>{$(tip.point.x)}</span></div>
+              <div className="flex justify-between text-[10px] text-zinc-400"><span>$/Employee</span><span>{$(tip.point.x)}</span></div>
               <div className="h-1.5 rounded bg-zinc-800"><div className="h-1.5 rounded bg-amber-500" style={{ width: `${Math.min(Math.log10(Math.max(tip.point.x, 1)) / 6 * 100, 100)}%` }} /></div>
             </div>
             <div>
-              <div className="flex justify-between text-[10px] text-zinc-500"><span>Addr. Freq</span><span>{tip.point.y.toFixed(0)}x</span></div>
+              <div className="flex justify-between text-[10px] text-zinc-400"><span>Addr. Freq</span><span>{tip.point.y.toFixed(0)}x</span></div>
               <div className="h-1.5 rounded bg-zinc-800"><div className="h-1.5 rounded bg-blue-500" style={{ width: `${Math.min(tip.point.y / 50 * 100, 100)}%` }} /></div>
             </div>
           </div>
-          <p className="mt-2 text-[10px] text-zinc-600">Jobs reported: {tip.point.jobs} | NAICS: {tip.point.naics}</p>
+          <p className="mt-2 text-[10px] text-zinc-400">Jobs reported: {tip.point.jobs} | NAICS: {tip.point.naics}</p>
         </div>
       )}
     </div>
@@ -552,8 +557,8 @@ function MScoreHist({ data, threshold = -1.78 }: { data: MScoreDistribution[]; t
       <div className="mb-6 flex items-center gap-6">
         <div className="flex-1">
           <div className="h-4 rounded-full bg-zinc-800 overflow-hidden flex">
-            <div className="h-4 bg-green-500/70 transition-all duration-1000" style={{ width: `${(totalBelow / total) * 100}%` }} />
-            <div className="h-4 bg-red-500/70 transition-all duration-1000" style={{ width: `${(totalAbove / total) * 100}%` }} />
+            <div className="h-4 bg-green-500/70 transition-all duration-1000" title="Likely clean" style={{ width: `${(totalBelow / total) * 100}%` }} />
+            <div className="h-4 bg-red-500/70 transition-all duration-1000" title="Flagged" style={{ backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(0,0,0,0.15) 3px, rgba(0,0,0,0.15) 6px)", width: `${(totalAbove / total) * 100}%` }} />
           </div>
           <div className="mt-1 flex justify-between text-[10px]">
             <span className="text-green-400">{totalBelow.toLocaleString()} likely clean ({((totalBelow/total)*100).toFixed(1)}%)</span>
@@ -575,7 +580,7 @@ function MScoreHist({ data, threshold = -1.78 }: { data: MScoreDistribution[]; t
             <span className="text-[10px] font-bold text-white">Danger</span>
           </div>
         </div>
-        <div className="mt-1 flex justify-between text-[9px] text-zinc-600">
+        <div className="mt-1 flex justify-between text-[9px] text-zinc-400">
           <span>-8 (very safe)</span>
           <span>-3 (healthy)</span>
           <span>-1.78</span>
@@ -595,7 +600,7 @@ function MScoreHist({ data, threshold = -1.78 }: { data: MScoreDistribution[]; t
           );
         })}
       </div>
-      <p className="mt-3 text-[10px] text-zinc-600">Each bar = a score range. Height = number of companies in that range. Most cluster around -2.5 to -3 (healthy).</p>
+      <p className="mt-3 text-[10px] text-zinc-400">Each bar = a score range. Height = number of companies in that range. Most cluster around -2.5 to -3 (healthy).</p>
     </div>
   );
 }
@@ -654,7 +659,7 @@ function ZipDotMap({ points }: { points: Array<{ lat: number; lng: number; city:
         </div>
       )}
       {/* Legend */}
-      <div className="mt-2 flex gap-4 text-[10px] text-zinc-600">
+      <div className="mt-2 flex gap-4 text-[10px] text-zinc-400">
         <span><span className="inline-block w-2 h-2 bg-red-500 rounded-full mr-1" />95%+ anomaly rate</span>
         <span><span className="inline-block w-2 h-2 bg-amber-500 rounded-full mr-1" />80-95%</span>
         <span><span className="inline-block w-2 h-2 bg-blue-500 rounded-full mr-1" />&lt;80%</span>
@@ -723,7 +728,7 @@ function Timeline({ data, color = "#3b82f6", label, fmt }: {
           </div>
         </div>
       )}
-      <div className="mt-2 flex justify-between text-[10px] text-zinc-600">
+      <div className="mt-2 flex justify-between text-[10px] text-zinc-400">
         <span>{data[0]?.month}</span>
         {fmt && <span className="text-zinc-400">Peak: {fmt(maxV)}</span>}
         <span>{data[data.length - 1]?.month}</span>
@@ -798,7 +803,10 @@ export function FraudInAmericaClient() {
   const [doj, setDOJ] = useState<DOJStats | null>(null);
   const [timeline, setTimeline] = useState<EnforcementEvent[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState("hero");
+  const [tocOpen, setTocOpen] = useState(false);
+  const [scrollPct, setScrollPct] = useState(0);
 
   useEffect(() => {
     Promise.all([
@@ -853,7 +861,7 @@ export function FraudInAmericaClient() {
       setAdditionalPatterns(ap); setCorpHeatmap(ch); setFalsePositive(fp);
       setNameAnomalies(na); setSanctionsData(sanc); setEnhanced(enh); setZipPredictions(zp);
       setLoading(false);
-    }).catch((err) => { console.error("Failed to load fraud data:", err); setLoading(false); });
+    }).catch((err) => { console.error("Failed to load fraud data:", err); setLoadError("Failed to load analysis data. Please refresh the page."); setLoading(false); });
   }, []);
 
   useEffect(() => {
@@ -878,9 +886,44 @@ export function FraudInAmericaClient() {
     return () => clearInterval(interval);
   }, [timelapsePlay, timelapse.length]);
 
+  // Track scroll progress
+  useEffect(() => {
+    function handleScroll() {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      setScrollPct(h > 0 ? (window.scrollY / h) * 100 : 0);
+    }
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const nav = [
+    { id: "hero", label: "Overview", icon: "01" },
+    { id: "ppp", label: "PPP Loan Anomalies", icon: "02", subs: [{ id: "ppp", label: "Pattern Detection" }, { id: "ppp", label: "Scatter Plot & Map" }, { id: "ppp", label: "Timeline & Amounts" }] },
+    { id: "nonprofits", label: "Nonprofits", icon: "03" },
+    { id: "corporate", label: "Corporate M-Score", icon: "04", subs: [{ id: "corporate", label: "Flagged Companies" }, { id: "corporate", label: "Stock Performance" }, { id: "corporate", label: "Sector Heatmap" }] },
+    { id: "healthcare", label: "Healthcare", icon: "05" },
+    { id: "crosscutting", label: "Cross-Cutting Patterns", icon: "06" },
+    { id: "politics", label: "Politics & Structure", icon: "07" },
+    { id: "enforcement", label: "Enforcement & Forecasts", icon: "08", subs: [{ id: "enforcement", label: "Detection Timeline" }, { id: "enforcement", label: "Conviction Pipeline" }, { id: "enforcement", label: "Tipping Points" }, { id: "enforcement", label: "State Forecasts" }] },
+    { id: "conclusions", label: "Conclusions", icon: "09" },
+    { id: "methodology", label: "Methodology", icon: "10" },
+  ];
+
+  if (loadError) {
+    return (
+      <div className="min-h-screen bg-zinc-950 px-6 py-20" role="alert">
+        <div className="mx-auto max-w-xl text-center">
+          <p className="text-2xl font-bold text-red-400 mb-4">Data Load Error</p>
+          <p className="text-zinc-400 mb-6">{loadError}</p>
+          <button onClick={() => window.location.reload()} className="rounded-lg bg-zinc-800 px-6 py-2.5 text-sm font-medium text-zinc-200 hover:bg-zinc-700 transition-colors">Refresh Page</button>
+        </div>
+      </div>
+    );
+  }
+
   if (loading) {
     return (
-      <div className="min-h-screen bg-zinc-950 px-6 py-20">
+      <div className="min-h-screen bg-zinc-950 px-6 py-20" aria-live="polite" aria-busy="true">
         <div className="mx-auto max-w-5xl">
           <div className="h-4 w-24 rounded bg-zinc-800 animate-pulse mb-8" />
           <div className="h-12 w-96 rounded bg-zinc-800 animate-pulse mb-4" />
@@ -899,45 +942,6 @@ export function FraudInAmericaClient() {
       </div>
     );
   }
-
-  const [tocOpen, setTocOpen] = useState(false);
-  const [scrollPct, setScrollPct] = useState(0);
-
-  const nav = [
-    { id: "hero", label: "Overview", icon: "01" },
-    { id: "ppp", label: "PPP Loan Anomalies", icon: "02", subs: [
-      { id: "ppp", label: "Pattern Detection" },
-      { id: "ppp", label: "Scatter Plot & Map" },
-      { id: "ppp", label: "Timeline & Amounts" },
-    ]},
-    { id: "nonprofits", label: "Nonprofits", icon: "03" },
-    { id: "corporate", label: "Corporate M-Score", icon: "04", subs: [
-      { id: "corporate", label: "Flagged Companies" },
-      { id: "corporate", label: "Stock Performance" },
-      { id: "corporate", label: "Sector Heatmap" },
-    ]},
-    { id: "healthcare", label: "Healthcare", icon: "05" },
-    { id: "crosscutting", label: "Cross-Cutting Patterns", icon: "06" },
-    { id: "politics", label: "Politics & Structure", icon: "07" },
-    { id: "enforcement", label: "Enforcement & Forecasts", icon: "08", subs: [
-      { id: "enforcement", label: "Detection Timeline" },
-      { id: "enforcement", label: "Conviction Pipeline" },
-      { id: "enforcement", label: "Tipping Points" },
-      { id: "enforcement", label: "State Forecasts" },
-    ]},
-    { id: "conclusions", label: "Conclusions", icon: "09" },
-    { id: "methodology", label: "Methodology", icon: "10" },
-  ];
-
-  // Track scroll progress
-  useEffect(() => {
-    function handleScroll() {
-      const h = document.documentElement.scrollHeight - window.innerHeight;
-      setScrollPct(h > 0 ? (window.scrollY / h) * 100 : 0);
-    }
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100">
@@ -965,7 +969,7 @@ export function FraudInAmericaClient() {
 
       {/* Table of Contents Overlay */}
       {tocOpen && (
-        <div className="fixed inset-0 z-[55] flex" onClick={() => setTocOpen(false)}>
+        <div className="fixed inset-0 z-[55] flex" role="dialog" aria-modal="true" aria-label="Table of Contents" onClick={() => setTocOpen(false)}>
           <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
           <div className="relative w-full max-w-sm bg-zinc-950 border-r border-zinc-800 p-6 overflow-y-auto"
             onClick={(e) => e.stopPropagation()}>
@@ -978,14 +982,14 @@ export function FraudInAmericaClient() {
                 <div key={n.id}>
                   <a href={`#${n.id}`} onClick={() => setTocOpen(false)}
                     className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors ${activeSection === n.id ? "bg-zinc-800 text-white" : "text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900"}`}>
-                    <span className="flex-shrink-0 w-6 text-center text-[10px] font-mono text-zinc-600">{n.icon}</span>
+                    <span className="flex-shrink-0 w-6 text-center text-[10px] font-mono text-zinc-400">{n.icon}</span>
                     <span>{n.label}</span>
                     {activeSection === n.id && <span className="ml-auto h-1.5 w-1.5 rounded-full bg-red-400" />}
                   </a>
                   {n.subs && activeSection === n.id && (
                     <div className="ml-9 mt-0.5 mb-1 space-y-0.5">
                       {n.subs.map((s, si) => (
-                        <p key={si} className="text-[11px] text-zinc-600 py-0.5">{s.label}</p>
+                        <p key={si} className="text-[11px] text-zinc-400 py-0.5">{s.label}</p>
                       ))}
                     </div>
                   )}
@@ -993,11 +997,11 @@ export function FraudInAmericaClient() {
               ))}
             </div>
             <div className="mt-8 pt-4 border-t border-zinc-800">
-              <p className="text-[10px] text-zinc-600">Reading progress</p>
+              <p className="text-[10px] text-zinc-400">Reading progress</p>
               <div className="mt-2 h-1.5 rounded-full bg-zinc-800">
                 <div className="h-1.5 rounded-full bg-red-500 transition-all" style={{ width: `${scrollPct}%` }} />
               </div>
-              <p className="mt-1 text-[10px] text-zinc-500">{Math.round(scrollPct)}% complete</p>
+              <p className="mt-1 text-[10px] text-zinc-400">{Math.round(scrollPct)}% complete</p>
             </div>
           </div>
         </div>
@@ -1217,7 +1221,7 @@ export function FraudInAmericaClient() {
                   <AnimatedBar label="Exact $1,000,000" value={pppDeep.round_numbers.exact_millions} maxValue={45000} color="#dc2626"
                     fmt={(v) => `${v.toLocaleString()} loans (${(v / 968522 * 100).toFixed(1)}%)`} />
                 </div>
-                <p className="mt-4 text-xs text-zinc-600">
+                <p className="mt-4 text-xs text-zinc-500">
                   If payroll were random, fewer than 0.01% of loans would land on exact million-dollar amounts. We see 0.74%.
                 </p>
                 <p className="mt-2 text-[10px] text-amber-400/70">
@@ -1370,7 +1374,7 @@ export function FraudInAmericaClient() {
                 <Stat label="Cumulative Anomalies" value={timelapse[timelapseFrame]?.total_anomalies?.toLocaleString() || "0"} accent="text-red-400" />
               </div>
               <Choropleth
-                data={(timelapse[timelapseFrame]?.states || []).map((s: any) => ({
+                data={(timelapse[timelapseFrame]?.states || []).map((s: any) => ({ // eslint-disable-line @typescript-eslint/no-explicit-any
                   state: s.state,
                   state_fips: s.fips,
                   value: s.rate * 100,
@@ -1392,19 +1396,19 @@ export function FraudInAmericaClient() {
                 anomaly rates climbed past 7%.
               </p>
               <Timeline
-                data={pppTimeline.map((t: any) => ({ month: t.month, total: t.anomaly_rate * 100 }))}
+                data={pppTimeline.map((t: any) => ({ month: t.month, total: t.anomaly_rate * 100 }))} // eslint-disable-line @typescript-eslint/no-explicit-any
                 color="#ef4444" label="PPP Anomaly Rate by Month (%)"
                 fmt={(v) => v.toFixed(1) + "%"}
               />
               {/* Key event callouts */}
               {enhanced?.timeline_annotations && (
                 <div className="mt-3 flex flex-wrap gap-2">
-                  {enhanced.timeline_annotations.map((a: any, i: number) => {
+                  {enhanced.timeline_annotations.map((a: any, i: number) => { // eslint-disable-line @typescript-eslint/no-explicit-any
                     const colors: Record<string, string> = {
                       program: "border-blue-500/30 text-blue-400", enforcement: "border-red-500/30 text-red-400", data: "border-violet-500/30 text-violet-400"
                     };
                     return (
-                      <span key={i} className={`rounded-full border px-2.5 py-0.5 text-[10px] ${colors[a.type] || "border-zinc-700 text-zinc-500"}`}>
+                      <span key={i} className={`rounded-full border px-2.5 py-0.5 text-[10px] ${colors[a.type] || "border-zinc-700 text-zinc-400"}`}>
                         {a.month}: {a.label}
                       </span>
                     );
@@ -1412,11 +1416,11 @@ export function FraudInAmericaClient() {
                 </div>
               )}
               <div className="mt-4 grid gap-3 sm:grid-cols-4">
-                {pppTimeline.slice(0, 4).map((t: any, i: number) => (
+                {pppTimeline.slice(0, 4).map((t: any, i: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                   <div key={i} className="rounded-lg border border-zinc-800 bg-zinc-900/50 px-3 py-2 text-center">
                     <p className="text-xs font-mono text-zinc-500">{t.month}</p>
                     <p className="text-lg font-bold text-zinc-200">{t.total_loans.toLocaleString()}</p>
-                    <p className="text-[10px] text-zinc-500">loans, {(t.anomaly_rate * 100).toFixed(1)}% anomalous</p>
+                    <p className="text-[10px] text-zinc-400">loans, {(t.anomaly_rate * 100).toFixed(1)}% anomalous</p>
                   </div>
                 ))}
               </div>
@@ -1433,9 +1437,9 @@ export function FraudInAmericaClient() {
               </p>
               <div className="space-y-1.5">
                 {additionalPatterns.common_amounts
-                  .filter((a: any) => a.anomalous > 50)
+                  .filter((a: any) => a.anomalous > 50) // eslint-disable-line @typescript-eslint/no-explicit-any
                   .slice(0, 12)
-                  .map((a: any, i: number) => (
+                  .map((a: any, i: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                     <AnimatedBar key={i}
                       label={$(a.amount)}
                       value={(a.anomalous / a.count) * 100}
@@ -1468,7 +1472,7 @@ export function FraudInAmericaClient() {
                     multiplier="~1x" />
                 )}
               </div>
-              <p className="mt-2 text-[10px] text-zinc-600">
+              <p className="mt-2 text-[10px] text-zinc-400">
                 Second draw loans had a 25% higher anomaly rate. Forgiveness rates for anomalous loans
                 were similar across party lines (70-73%), confirming this was a systemic, not partisan, issue.
               </p>
@@ -1750,7 +1754,7 @@ export function FraudInAmericaClient() {
                               className="rounded bg-zinc-800 px-1.5 py-0.5 text-xs font-mono text-blue-400 hover:text-blue-300">
                               {c.ticker.split(",")[0]}
                             </a>
-                          ) : <span className="text-xs text-zinc-600">N/A</span>}
+                          ) : <span className="text-xs text-zinc-500">N/A</span>}
                         </td>
                         <td className="px-4 py-2.5 text-right font-mono text-red-400 font-bold">{c.mscore.toFixed(2)}</td>
                         <td className="px-4 py-2.5 text-right text-zinc-400">{$(c.revenue)}</td>
@@ -1761,7 +1765,7 @@ export function FraudInAmericaClient() {
                           {(c.restatement_filings || 0) > 0 ? (
                             <span className="font-medium text-red-400">{c.restatement_filings}</span>
                           ) : (
-                            <span className="text-zinc-600">0</span>
+                            <span className="text-zinc-500">0</span>
                           )}
                         </td>
                       </tr>
@@ -1832,7 +1836,7 @@ export function FraudInAmericaClient() {
                     {/* News context */}
                     {c.news_summary && (
                       <div className="mt-3 rounded-lg bg-zinc-800/30 border border-zinc-700/50 px-4 py-3">
-                        <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-500 mb-1">Public record</p>
+                        <p className="text-[10px] font-bold uppercase tracking-wider text-zinc-400 mb-1">Public record</p>
                         <p className="text-xs text-zinc-400 leading-relaxed">{c.news_summary}</p>
                         {c.current_status && (
                           <p className="mt-1.5 text-[10px] font-medium text-amber-400">{c.current_status}</p>
@@ -1852,7 +1856,7 @@ export function FraudInAmericaClient() {
                         <p className="text-[10px] text-green-400">{c.growth_caveat}</p>
                       </div>
                     )}
-                    <div className="mt-3 flex flex-wrap gap-3 text-[10px] text-zinc-500">
+                    <div className="mt-3 flex flex-wrap gap-3 text-[10px] text-zinc-400">
                       {(c.restatement_filings || 0) > 0 && (
                         <span className="rounded bg-red-500/10 px-2 py-0.5 text-red-400">{c.restatement_filings} restatement{(c.restatement_filings || 0) > 1 ? "s" : ""}</span>
                       )}
@@ -1901,7 +1905,7 @@ export function FraudInAmericaClient() {
                 between M-Score flags and price declines does not establish causation.
               </p>
               <div className="grid gap-3 sm:grid-cols-2">
-                {stockPrices.map((s: any, i: number) => (
+                {stockPrices.map((s: any, i: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                   <div key={i} className="rounded-xl border border-zinc-800 bg-zinc-900/50 px-5 py-4">
                     <div className="flex items-center justify-between">
                       <div>
@@ -1917,7 +1921,7 @@ export function FraudInAmericaClient() {
                     {s.weekly_prices?.length > 0 && (
                       <svg viewBox="0 0 100 30" className="mt-2 h-8 w-full" preserveAspectRatio="none">
                         {(() => {
-                          const prices = s.weekly_prices.map((p: any) => p.p);
+                          const prices = s.weekly_prices.map((p: any) => p.p); // eslint-disable-line @typescript-eslint/no-explicit-any
                           const min = Math.min(...prices);
                           const max = Math.max(...prices);
                           const range = max - min || 1;
@@ -1935,7 +1939,7 @@ export function FraudInAmericaClient() {
                         })()}
                       </svg>
                     )}
-                    <div className="mt-1 flex justify-between text-[9px] text-zinc-600">
+                    <div className="mt-1 flex justify-between text-[9px] text-zinc-400">
                       <span>${s.start_price}</span>
                       <span>${s.end_price}</span>
                     </div>
@@ -1990,7 +1994,7 @@ export function FraudInAmericaClient() {
                   </tbody>
                 </table>
               </div>
-              <p className="mt-2 text-[10px] text-zinc-600">
+              <p className="mt-2 text-[10px] text-zinc-400">
                 Values near 1.0 are normal. Above 1.5 = elevated concern. Each cell is the sector average
                 for that M-Score component across all company-years.
               </p>
@@ -2063,12 +2067,12 @@ export function FraudInAmericaClient() {
               </p>
               <div className="space-y-2">
                 {Object.entries(healthcareModel.feature_importance)
-                  .sort(([,a]: any, [,b]: any) => b - a)
-                  .map(([feat, imp]: [string, any], i: number) => (
+                  .sort(([,a]: any, [,b]: any) => b - a) // eslint-disable-line @typescript-eslint/no-explicit-any
+                  .map(([feat, imp]: [string, any], i: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                     <AnimatedBar key={i}
                       label={feat.replace(/_/g, " ")}
                       value={imp * 100}
-                      maxValue={Math.max(...Object.values(healthcareModel.feature_importance).map((v: any) => v * 100))}
+                      maxValue={Math.max(...Object.values(healthcareModel.feature_importance).map((v: any) => v * 100))} // eslint-disable-line @typescript-eslint/no-explicit-any
                       color="#8b5cf6"
                       fmt={(v) => v.toFixed(1) + "% importance"} />
                   ))}
@@ -2082,21 +2086,21 @@ export function FraudInAmericaClient() {
               <h3 className="text-lg font-bold text-zinc-200">Healthcare + PPP Intersection</h3>
               <p className="mt-2 mb-4 max-w-2xl text-sm text-zinc-500">
                 How did healthcare sub-sectors perform in PPP? Home health had the highest anomaly
-                rate at {(healthcarePPP.find((s: any) => s.sector === "Home Health")?.rate * 100 || 2.1).toFixed(1)}%,
+                rate at {(healthcarePPP.find((s) => s.sector === "Home Health")?.rate * 100 || 2.1).toFixed(1)}%,
                 while daycare/childcare was lowest.
               </p>
               <div className="grid gap-3 sm:grid-cols-2">
-                {healthcarePPP.map((s: any, i: number) => (
+                {healthcarePPP.map((s: any, i: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                   <div key={i} className="flex items-center justify-between rounded-lg border border-zinc-800 bg-zinc-900/50 px-4 py-3">
                     <div>
                       <p className="text-sm font-medium text-zinc-200">{s.sector}</p>
-                      <p className="text-[10px] text-zinc-500">{s.loans.toLocaleString()} PPP loans, {$(s.total_amount)}</p>
+                      <p className="text-[10px] text-zinc-400">{s.loans.toLocaleString()} PPP loans, {$(s.total_amount)}</p>
                     </div>
                     <div className="text-right">
                       <p className={`text-sm font-bold ${s.multiplier > 1 ? "text-amber-400" : "text-zinc-400"}`}>
                         {(s.rate * 100).toFixed(1)}%
                       </p>
-                      <p className="text-[10px] text-zinc-500">{s.multiplier}x avg</p>
+                      <p className="text-[10px] text-zinc-400">{s.multiplier}x avg</p>
                     </div>
                   </div>
                 ))}
@@ -2115,13 +2119,13 @@ export function FraudInAmericaClient() {
               </p>
               <div className="space-y-1.5">
                 {healthcareDeep.state_exclusions
-                  .sort((a: any, b: any) => b.rate - a.rate)
+                  .sort((a: any, b: any) => b.rate - a.rate) // eslint-disable-line @typescript-eslint/no-explicit-any
                   .slice(0, 15)
-                  .map((s: any, i: number) => (
+                  .map((s: any, i: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                     <AnimatedBar key={i}
                       label={s.state}
                       value={s.rate * 10000}
-                      maxValue={Math.max(...healthcareDeep.state_exclusions.slice(0, 5).map((x: any) => x.rate * 10000))}
+                      maxValue={Math.max(...healthcareDeep.state_exclusions.slice(0, 5).map((x: any) => x.rate * 10000))} // eslint-disable-line @typescript-eslint/no-explicit-any
                       color={s.rate > 0.0004 ? "#8b5cf6" : "#6b7280"}
                       fmt={(v) => `${(v / 100).toFixed(2)}% (${s.excluded} of ${s.providers.toLocaleString()})`} />
                   ))}
@@ -2194,7 +2198,7 @@ export function FraudInAmericaClient() {
                         <span className={`inline-block h-2.5 w-2.5 rounded-full ${colors[e.domain] || "bg-zinc-500"}`} />
                       </div>
                       <div>
-                        <p className="text-xs text-zinc-500">{e.date} <span className="ml-2 rounded bg-zinc-800 px-1.5 py-0.5 text-[10px]">{e.domain}</span></p>
+                        <p className="text-xs text-zinc-500">{e.date} <span className="ml-2 rounded bg-zinc-800 px-1.5 py-0.5 text-[10px] text-zinc-400">{e.domain}</span></p>
                         <p className="text-sm text-zinc-300">{e.title}</p>
                         {e.amount > 0 && <p className="text-xs font-medium text-zinc-500">{$(e.amount)}</p>}
                       </div>
@@ -2259,7 +2263,7 @@ export function FraudInAmericaClient() {
                 disappears. <strong>Business structure is associated with anomaly rates far more strongly than politics.</strong>
               </WhyBox>
 
-              <p className="mt-2 text-xs text-zinc-600">
+              <p className="mt-2 text-xs text-zinc-500">
                 Federal context: PPP Round 1 (Apr-Aug 2020) under Trump admin, SBA Admin Jovita Carranza.
                 Round 2 (Jan-Jun 2021) under Biden admin, SBA Admin Isabel Guzman (from March).
               </p>
@@ -2294,17 +2298,17 @@ export function FraudInAmericaClient() {
                     <div className="mt-6 rounded-xl border border-zinc-800 bg-zinc-900/50 p-5">
                       <h5 className="text-sm font-bold text-zinc-300 mb-3">Flipped States: Did Anomaly Patterns Predict the Shift?</h5>
                       <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-                        {enhanced.election_2024.flipped_states.map((s: any, i: number) => (
+                        {enhanced.election_2024.flipped_states.map((s: any, i: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                           <div key={i} className="rounded-lg border border-zinc-800 bg-zinc-900/70 px-3 py-2">
                             <p className="text-sm font-medium text-zinc-200">{s.state_name}</p>
-                            <p className="text-[10px] text-zinc-500">
+                            <p className="text-[10px] text-zinc-400">
                               {s.from_2020} &rarr; {s.to_2024} | {(s.anomaly_rate * 100).toFixed(2)}% anomaly rate
                             </p>
-                            <p className="text-[10px] text-zinc-600">{s.total_loans.toLocaleString()} loans, {s.anomaly_count.toLocaleString()} flagged</p>
+                            <p className="text-[10px] text-zinc-400">{s.total_loans.toLocaleString()} loans, {s.anomaly_count.toLocaleString()} flagged</p>
                           </div>
                         ))}
                       </div>
-                      <p className="mt-3 text-[10px] text-zinc-600">
+                      <p className="mt-3 text-[10px] text-zinc-400">
                         The pattern holds across elections: Harris/Biden states show ~1.3x higher anomaly
                         rates than Trump states, but this reflects urban business density, not governance.
                         Flipped states (GA, AZ, NV, PA, MI, WI) had anomaly rates near the national average.
@@ -2329,9 +2333,9 @@ export function FraudInAmericaClient() {
 
               <div className="space-y-2">
                 {sectorDeep.by_business_type
-                  .filter((b: any) => b.loans >= 50)
+                  .filter((b: any) => b.loans >= 50) // eslint-disable-line @typescript-eslint/no-explicit-any
                   .slice(0, 10)
-                  .map((b: any, i: number) => (
+                  .map((b: any, i: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                     <AnimatedBar key={i}
                       label={b.type.length > 32 ? b.type.slice(0, 30) + "..." : b.type}
                       value={b.rate * 100}
@@ -2362,17 +2366,17 @@ export function FraudInAmericaClient() {
                 is hard to independently verify.
               </p>
               <div className="grid gap-3 sm:grid-cols-2">
-                {sectorDeep.by_keyword.slice(0, 8).map((s: any, i: number) => (
+                {sectorDeep.by_keyword.slice(0, 8).map((s: any, i: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                   <div key={i} className="flex items-center justify-between rounded-lg bg-zinc-900/50 border border-zinc-800 px-4 py-3">
                     <div>
                       <p className="text-sm font-medium text-zinc-200">{s.sector}</p>
-                      <p className="text-[10px] text-zinc-500">{s.loans.toLocaleString()} loans</p>
+                      <p className="text-[10px] text-zinc-400">{s.loans.toLocaleString()} loans</p>
                     </div>
                     <div className="text-right">
                       <p className={`text-sm font-bold ${s.multiplier > 1.3 ? "text-red-400" : s.multiplier > 1 ? "text-amber-400" : "text-zinc-400"}`}>
                         {(s.rate * 100).toFixed(1)}%
                       </p>
-                      <p className="text-[10px] text-zinc-500">{s.multiplier}x overall</p>
+                      <p className="text-[10px] text-zinc-400">{s.multiplier}x overall</p>
                     </div>
                   </div>
                 ))}
@@ -2461,13 +2465,13 @@ export function FraudInAmericaClient() {
               {/* EIDL Double-Dipping */}
               <div className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-6">
                 <h4 className="text-base font-bold text-zinc-200">PPP + EIDL Double-Dipping</h4>
-                <p className="mt-1 text-[11px] text-zinc-500 mb-4">3.77M EIDL loans cross-referenced with 968K PPP loans</p>
+                <p className="mt-1 text-[11px] text-zinc-400 mb-4">3.77M EIDL loans cross-referenced with 968K PPP loans</p>
                 <div className="space-y-3">
                   <div className="flex justify-between"><span className="text-sm text-zinc-400">Entities in both programs</span><span className="text-lg font-bold text-amber-400">113,836</span></div>
                   <div className="flex justify-between"><span className="text-sm text-zinc-400">Double-dipper anomaly rate</span><span className="text-sm text-zinc-300">1.92%</span></div>
                   <div className="flex justify-between"><span className="text-sm text-zinc-400">PPP-only anomaly rate</span><span className="text-sm text-zinc-300">2.01%</span></div>
                 </div>
-                <p className="mt-3 text-[10px] text-zinc-600">
+                <p className="mt-3 text-[10px] text-zinc-400">
                   Surprise: double-dippers had a <em>lower</em> anomaly rate. Most were legitimate
                   businesses using every available lifeline. The fraud was in entities that
                   appeared from nowhere, not established businesses accessing multiple programs.
@@ -2477,20 +2481,20 @@ export function FraudInAmericaClient() {
               {/* Sanctioned Entities */}
               <div className="rounded-xl border border-red-500/20 bg-red-500/5 p-6">
                 <h4 className="text-base font-bold text-amber-400">Name Matches: Sanctions Lists and PPP</h4>
-                <p className="mt-1 text-[11px] text-zinc-500 mb-4">
+                <p className="mt-1 text-[11px] text-zinc-400 mb-4">
                   OpenSanctions database (81K US entities) vs PPP borrowers. Name-only matching; no EIN or address verification.
                   {sanctionsData?.false_positive_estimate && <> {sanctionsData.false_positive_estimate}</>}
                 </p>
                 <div className="space-y-3">
                   <div className="flex justify-between"><span className="text-sm text-zinc-400">Sanctioned orgs matched to PPP</span><span className="text-lg font-bold text-red-400">{sanctionsData?.org_matches || 145}</span></div>
                   {sanctionsData?.entities?.length > 0 && (
-                    <p className="mt-2 text-[10px] text-zinc-600">
+                    <p className="mt-2 text-[10px] text-zinc-400">
                       Entity names withheld due to high false positive rate in name-only matching.
                       Full data available in downloadable JSON for independent verification.
                     </p>
                   )}
                 </div>
-                <p className="mt-3 text-[10px] text-zinc-600">
+                <p className="mt-3 text-[10px] text-zinc-400">
                   {sanctionsData?.caveat || "Name matching can produce false positives for common names, but the presence of excluded entities in the PPP program warrants investigation."}
                 </p>
               </div>
@@ -2498,13 +2502,13 @@ export function FraudInAmericaClient() {
               {/* Failed Banks */}
               <div className="rounded-xl border border-amber-500/20 bg-amber-500/5 p-6">
                 <h4 className="text-base font-bold text-amber-400">Signature Bank: Higher Anomaly Rate</h4>
-                <p className="mt-1 text-[11px] text-zinc-500 mb-4">FDIC failed bank list vs PPP originating lenders</p>
+                <p className="mt-1 text-[11px] text-zinc-400 mb-4">FDIC failed bank list vs PPP originating lenders</p>
                 <div className="space-y-3">
                   <div className="flex justify-between"><span className="text-sm text-zinc-400">Signature Bank PPP loans</span><span className="text-lg font-bold text-zinc-200">{verifiedConn?.signature_bank?.total_loans?.toLocaleString() || "4,392"}</span></div>
                   <div className="flex justify-between"><span className="text-sm text-zinc-400">Anomaly rate</span><span className="text-sm font-bold text-red-400">{verifiedConn?.signature_bank ? (verifiedConn.signature_bank.anomaly_rate * 100).toFixed(1) + "%" : "5.3%"}</span></div>
                   <div className="flex justify-between"><span className="text-sm text-zinc-400">vs overall average</span><span className="text-sm text-zinc-400">2.0%</span></div>
                 </div>
-                <p className="mt-3 text-[10px] text-zinc-600">
+                <p className="mt-3 text-[10px] text-zinc-400">
                   {verifiedConn?.signature_bank?.context || "Signature Bank collapsed March 12, 2023 with $110B in assets, the third-largest bank failure in US history."}
                   {verifiedConn?.signature_bank?.note && <> {verifiedConn.signature_bank.note}</>}
                 </p>
@@ -2513,12 +2517,12 @@ export function FraudInAmericaClient() {
               {/* IRS 990 */}
               <div className="rounded-xl border border-blue-500/20 bg-blue-500/5 p-6">
                 <h4 className="text-base font-bold text-blue-400">IRS 990 vs PPP: Revenue Mismatch</h4>
-                <p className="mt-1 text-[11px] text-zinc-500 mb-4">IRS nonprofit filings (Michigan sample) vs PPP loan amounts</p>
+                <p className="mt-1 text-[11px] text-zinc-400 mb-4">IRS nonprofit filings (Michigan sample) vs PPP loan amounts</p>
                 <div className="space-y-3">
                   <div className="flex justify-between"><span className="text-sm text-zinc-400">Nonprofits matched</span><span className="text-lg font-bold text-zinc-200">496</span></div>
                   <div className="flex justify-between"><span className="text-sm text-zinc-400">PPP exceeds annual revenue</span><span className="text-sm font-bold text-amber-400">98</span></div>
                 </div>
-                <p className="mt-3 text-[10px] text-zinc-600">
+                <p className="mt-3 text-[10px] text-zinc-400">
                   Scheurer Healthcare Network: $5.5M PPP loan vs $480K in IRS-reported revenue
                   (11.4x ratio). When a PPP loan is 11 times your annual revenue, the math
                   doesn&apos;t work. Michigan is one state. This pattern likely scales nationally.
@@ -2585,7 +2589,7 @@ export function FraudInAmericaClient() {
               <div className="grid gap-4 lg:grid-cols-2">
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-wider text-green-400 mb-2">Highest forgiveness (anomalous loans)</p>
-                  {verifiedConn.top_100pct_forgiveness_districts.slice(0, 5).map((d: any, i: number) => (
+                  {verifiedConn.top_100pct_forgiveness_districts.slice(0, 5).map((d: any, i: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                     <div key={i} className="flex justify-between py-1 border-b border-zinc-800/30 text-xs">
                       <span className="text-zinc-300">{d.district} ({d.state})</span>
                       <span className="text-green-400 font-bold">{(d.forgiven_pct * 100).toFixed(0)}% of {$(d.total_amount)}</span>
@@ -2594,7 +2598,7 @@ export function FraudInAmericaClient() {
                 </div>
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-wider text-red-400 mb-2">Lowest forgiveness (anomalous loans)</p>
-                  {verifiedConn.lowest_forgiveness_districts.slice(0, 5).map((d: any, i: number) => (
+                  {verifiedConn.lowest_forgiveness_districts.slice(0, 5).map((d: any, i: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                     <div key={i} className="flex justify-between py-1 border-b border-zinc-800/30 text-xs">
                       <span className="text-zinc-300">{d.district} ({d.state})</span>
                       <span className="text-red-400 font-bold">{(d.forgiven_pct * 100).toFixed(0)}% of {$(d.total_amount)}</span>
@@ -2629,7 +2633,7 @@ export function FraudInAmericaClient() {
           {stateRisk?.rankings && (
             <div className="mt-8">
               <Choropleth
-                data={stateRisk.rankings.map((s: any) => ({
+                data={stateRisk.rankings.map((s: any) => ({ // eslint-disable-line @typescript-eslint/no-explicit-any
                   state: s.state,
                   state_fips: s.state_fips,
                   value: s.risk_score,
@@ -2638,7 +2642,7 @@ export function FraudInAmericaClient() {
                 valueFormat={(v) => `Risk score: ${v.toFixed(0)}/100`}
                 colorScheme="oranges"
               />
-              <p className="mt-2 text-[10px] text-zinc-600">
+              <p className="mt-2 text-[10px] text-zinc-400">
                 Sources: SBA PPP FOIA + OIG LEIE + CFPB + Census population data. Methodology in JSON download.
               </p>
             </div>
@@ -2662,7 +2666,7 @@ export function FraudInAmericaClient() {
                     </tr>
                   </thead>
                   <tbody>
-                    {stateRisk.predictions.map((p: any, i: number) => (
+                    {stateRisk.predictions.map((p: any, i: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                       <tr key={i} className="border-t border-zinc-800/40 hover:bg-zinc-900/40">
                         <td className="px-4 py-2.5 font-medium text-zinc-200">{p.state_name}</td>
                         <td className="px-4 py-2.5 text-right">
@@ -2688,7 +2692,7 @@ export function FraudInAmericaClient() {
                 verifiable SBA data by searching borrower names matching the industry keyword.
               </p>
               <div className="space-y-1.5">
-                {industryRisk.industries.slice(0, 20).map((ind: any, i: number) => (
+                {industryRisk.industries.slice(0, 20).map((ind: any, i: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                   <AnimatedBar key={i}
                     label={ind.industry}
                     value={ind.rate * 100}
@@ -2697,7 +2701,7 @@ export function FraudInAmericaClient() {
                     fmt={(v: number) => `${v.toFixed(1)}% (${ind.multiplier}x avg, ${ind.loans.toLocaleString()} loans)`} />
                 ))}
               </div>
-              <p className="mt-3 text-[10px] text-zinc-600">
+              <p className="mt-3 text-[10px] text-zinc-400">
                 Source: SBA PPP FOIA. Industry identified by keyword matching in BorrowerName field.
                 Overall anomaly rate: {((industryRisk.overall_rate || 0.02) * 100).toFixed(2)}%.
               </p>
@@ -2735,7 +2739,7 @@ export function FraudInAmericaClient() {
                 </p>
               </div>
               <div className="space-y-4">
-                {entityNets.entity_networks.slice(0, 6).map((n: any, i: number) => (
+                {entityNets.entity_networks.slice(0, 6).map((n: any, i: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                   <div key={i} className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5">
                     <div className="flex items-start justify-between">
                       <div>
@@ -2744,13 +2748,13 @@ export function FraudInAmericaClient() {
                       </div>
                       <div className="text-right">
                         <p className="text-lg font-extrabold text-red-400">{n.anomalies}/{n.total_loans}</p>
-                        <p className="text-[10px] text-zinc-500">anomalous</p>
+                        <p className="text-[10px] text-zinc-400">anomalous</p>
                       </div>
                     </div>
                     <div className="mt-3 grid grid-cols-3 gap-3 text-center">
-                      <div><p className="text-sm font-bold text-zinc-300">{n.unique_names}</p><p className="text-[10px] text-zinc-600">entities</p></div>
-                      <div><p className="text-sm font-bold text-zinc-300">{$(n.total_amount)}</p><p className="text-[10px] text-zinc-600">total PPP</p></div>
-                      <div><p className="text-sm font-bold text-zinc-300">{$(n.total_forgiven)}</p><p className="text-[10px] text-zinc-600">forgiven</p></div>
+                      <div><p className="text-sm font-bold text-zinc-300">{n.unique_names}</p><p className="text-[10px] text-zinc-400">entities</p></div>
+                      <div><p className="text-sm font-bold text-zinc-300">{$(n.total_amount)}</p><p className="text-[10px] text-zinc-400">total PPP</p></div>
+                      <div><p className="text-sm font-bold text-zinc-300">{$(n.total_forgiven)}</p><p className="text-[10px] text-zinc-400">forgiven</p></div>
                     </div>
                     {n.unique_naics > 5 && (
                       <p className="mt-2 text-[10px] text-amber-400">{n.unique_naics} different industries at one address</p>
@@ -2758,7 +2762,7 @@ export function FraudInAmericaClient() {
                     <details className="mt-3">
                       <summary className="cursor-pointer text-xs text-blue-400 hover:text-blue-300">Show all {n.entities.length} entities (from SBA FOIA public data)</summary>
                       <div className="mt-2 max-h-48 overflow-y-auto rounded bg-zinc-800/50 p-2 text-[10px]">
-                        {n.entities.map((e: any, j: number) => (
+                        {n.entities.map((e: any, j: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                           <div key={j} className="flex justify-between py-0.5 border-b border-zinc-800/30">
                             <span className="text-zinc-300">{e.name}</span>
                             <span className={e.anomaly ? "text-red-400" : "text-zinc-500"}>{$(e.amount)}</span>
@@ -2817,7 +2821,7 @@ export function FraudInAmericaClient() {
                 processing patterns (identical amounts submitted within minutes).
               </p>
             )}
-            <p className="mt-2 text-[10px] text-zinc-600">
+            <p className="mt-2 text-[10px] text-zinc-400">
               Source: SBA PPP FOIA. Anomalous = Isolation Forest flag. Round = CurrentApprovalAmount % 100000 == 0.
               Forgiven = ForgivenessAmount &gt;= 99% of CurrentApprovalAmount. Verifiable from three fields in the SBA dataset.
             </p>
@@ -2831,7 +2835,7 @@ export function FraudInAmericaClient() {
               details. Dot size reflects total loan amount. Verifiable in the SBA PPP FOIA dataset.
             </p>
             {zipPredictions?.zip_predictions && (
-              <ZipDotMap points={zipPredictions.zip_predictions.map((z: any) => ({
+              <ZipDotMap points={zipPredictions.zip_predictions.map((z: any) => ({ // eslint-disable-line @typescript-eslint/no-explicit-any
                 lat: z.lat, lng: z.lng, city: z.city, state: z.state,
                 rate: z.anomaly_rate, loans: z.loans, amount: z.total_amount,
                 composite_risk: z.composite_risk,
@@ -2861,7 +2865,7 @@ export function FraudInAmericaClient() {
                       </tr>
                     </thead>
                     <tbody>
-                      {zipPredictions.zip_predictions.slice(0, 15).map((z: any, i: number) => (
+                      {zipPredictions.zip_predictions.slice(0, 15).map((z: any, i: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                         <tr key={i} className="border-t border-zinc-800/40 hover:bg-zinc-900/40">
                           <td className="px-3 py-2 font-mono text-xs text-zinc-400">{z.zip}</td>
                           <td className="px-3 py-2 text-zinc-300">{z.city}, {z.state}</td>
@@ -2886,7 +2890,7 @@ export function FraudInAmericaClient() {
                     </tbody>
                   </table>
                 </div>
-                <p className="mt-2 text-[10px] text-zinc-600">
+                <p className="mt-2 text-[10px] text-zinc-400">
                   Risk score = 40% ZIP anomaly rate + 20% state risk + 20% rate-vs-state ratio + 20% avg loan size.
                   Source: SBA PPP FOIA + state risk model.
                 </p>
@@ -2898,19 +2902,19 @@ export function FraudInAmericaClient() {
               <div className="mt-8">
                 <h4 className="text-base font-bold text-zinc-200 mb-4">High-Risk States: Known and Predicted ZIP Hotspots</h4>
                 <div className="space-y-3">
-                  {zipPredictions.state_zip_outlook.filter((s: any) => s.known_hotspot_zips > 0).map((s: any, i: number) => (
+                  {zipPredictions.state_zip_outlook.filter((s: any) => s.known_hotspot_zips > 0).map((s: any, i: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                     <div key={i} className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-4">
                       <div className="flex items-center justify-between">
                         <div>
                           <p className="text-sm font-bold text-zinc-200">{s.state_name}</p>
-                          <p className="text-[10px] text-zinc-500">State risk score: {s.risk_score}/100</p>
+                          <p className="text-[10px] text-zinc-400">State risk score: {s.risk_score}/100</p>
                         </div>
                         <span className="text-sm font-bold text-amber-400">{s.known_hotspot_zips} hotspot ZIP{s.known_hotspot_zips > 1 ? "s" : ""}</span>
                       </div>
                       <p className="mt-2 text-xs text-zinc-400">{s.outlook}</p>
                       {s.hotspot_details?.length > 0 && (
                         <div className="mt-2 flex flex-wrap gap-2">
-                          {s.hotspot_details.map((h: any, j: number) => (
+                          {s.hotspot_details.map((h: any, j: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                             <span key={j} className="rounded bg-zinc-800 px-2 py-0.5 text-[10px] font-mono text-zinc-400">
                               {h.zip} ({h.city}) {(h.anomaly_rate * 100).toFixed(0)}%
                             </span>
@@ -2947,7 +2951,7 @@ export function FraudInAmericaClient() {
                   </tr>
                 </thead>
                 <tbody>
-                  {(deeperConn?.lender_type_combos || []).slice(0, 10).map((l: any, i: number) => (
+                  {(deeperConn?.lender_type_combos || []).slice(0, 10).map((l: any, i: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                     <tr key={i} className="border-t border-zinc-800/40">
                       <td className="px-4 py-2 text-zinc-200">{l.lender.length > 35 ? l.lender.slice(0, 33) + "..." : l.lender}</td>
                       <td className="px-4 py-2 text-zinc-400 text-xs">{l.type}</td>
@@ -2958,7 +2962,7 @@ export function FraudInAmericaClient() {
                 </tbody>
               </table>
             </div>
-            <p className="mt-2 text-[10px] text-zinc-600">
+            <p className="mt-2 text-[10px] text-zinc-400">
               Source: SBA PPP FOIA OriginatingLender + BusinessType fields.
             </p>
           </div>
@@ -2977,20 +2981,20 @@ export function FraudInAmericaClient() {
               franchise data is in the downloadable JSON for independent verification.
             </p>
             <div className="grid gap-2 sm:grid-cols-2">
-              {(deeperConn?.franchise_analysis || []).slice(0, 8).map((f: any, i: number) => {
+              {(deeperConn?.franchise_analysis || []).slice(0, 8).map((f: any, i: number) => { // eslint-disable-line @typescript-eslint/no-explicit-any
                 const label = `Franchise ${String.fromCharCode(65 + i)} (${f.loans < 20 ? "small" : f.loans < 50 ? "mid-size" : "large"} chain, ${f.loans} locations)`;
                 return (
                   <div key={i} className="flex items-center justify-between rounded-lg border border-zinc-800 bg-zinc-900/50 px-4 py-3">
                     <div>
                       <p className="text-sm font-medium text-zinc-200">{label}</p>
-                      <p className="text-[10px] text-zinc-500">{f.anomalies} of {f.loans} PPP loans flagged</p>
+                      <p className="text-[10px] text-zinc-400">{f.anomalies} of {f.loans} PPP loans flagged</p>
                     </div>
                     <span className="text-lg font-bold text-amber-400">{(f.rate * 100).toFixed(1)}%</span>
                   </div>
                 );
               })}
             </div>
-            <p className="mt-2 text-[10px] text-zinc-600">
+            <p className="mt-2 text-[10px] text-zinc-400">
               Note: franchise anomaly rates may reflect multi-location filing patterns
               rather than fraud. Franchise operators often have multiple LLCs per location.
               Source: SBA PPP FOIA FranchiseName field.
@@ -3007,7 +3011,7 @@ export function FraudInAmericaClient() {
               more COVID money did not have proportionally more fraud. Fraud was driven by
               business structure and lender behavior, not funding levels.
             </p>
-            <p className="mt-2 text-[10px] text-zinc-600">
+            <p className="mt-2 text-[10px] text-zinc-400">
               Source: USAspending.gov COVID DEFC codes (L-V) + SBA PPP FOIA. Pearson r computed across 50 states + DC + territories.
             </p>
           </div>
@@ -3043,7 +3047,7 @@ export function FraudInAmericaClient() {
                 <div className="relative">
                   <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-zinc-800" />
                   <div className="space-y-0">
-                    {enhanced.detection_lag.map((d: any, i: number) => {
+                    {enhanced.detection_lag.map((d: any, i: number) => { // eslint-disable-line @typescript-eslint/no-explicit-any
                       const colors: Record<string, string> = {
                         program: "bg-blue-400", enforcement: "bg-red-400", legal: "bg-amber-400", data: "bg-violet-400"
                       };
@@ -3058,13 +3062,13 @@ export function FraudInAmericaClient() {
                               <span className="text-xs font-mono text-zinc-500 w-20">{d.date.slice(0, 7)}</span>
                               <span className="text-sm text-zinc-300">{d.event}</span>
                             </div>
-                            <p className="text-[10px] text-zinc-600 ml-[5.5rem]">+{d.months_after} months after launch</p>
+                            <p className="text-[10px] text-zinc-400 ml-[5.5rem]">+{d.months_after} months after launch</p>
                           </div>
                         </div>
                       );
                     })}
                   </div>
-                  <div className="mt-3 flex gap-4 text-[10px] text-zinc-600 ml-8">
+                  <div className="mt-3 flex gap-4 text-[10px] text-zinc-400 ml-8">
                     <span><span className="inline-block w-2 h-2 bg-blue-400 rounded-full mr-1" />Program</span>
                     <span><span className="inline-block w-2 h-2 bg-red-400 rounded-full mr-1" />Enforcement</span>
                     <span><span className="inline-block w-2 h-2 bg-amber-400 rounded-full mr-1" />Legal</span>
@@ -3092,11 +3096,11 @@ export function FraudInAmericaClient() {
                   <div className="mt-8">
                     <h4 className="text-base font-bold text-zinc-200 mb-4">Largest Prosecuted Schemes</h4>
                     <div className="space-y-2">
-                      {enhanced.conviction_pipeline.key_cases.map((c: any, i: number) => (
+                      {enhanced.conviction_pipeline.key_cases.map((c: any, i: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                         <div key={i} className="flex items-center justify-between rounded-lg border border-zinc-800 bg-zinc-900/50 px-4 py-3">
                           <div>
                             <p className="text-sm text-zinc-300">{c.description}</p>
-                            <p className="text-[10px] text-zinc-500">{c.state}</p>
+                            <p className="text-[10px] text-zinc-400">{c.state}</p>
                           </div>
                           <span className="text-lg font-bold text-red-400">{$(c.amount)}</span>
                         </div>
@@ -3111,18 +3115,18 @@ export function FraudInAmericaClient() {
                     <div className="mt-3 grid gap-4 sm:grid-cols-3">
                       <div className="text-center">
                         <p className="text-2xl font-extrabold text-zinc-200">{enhanced.conviction_pipeline.prac.fraudulent_ssns.toLocaleString()}</p>
-                        <p className="text-[10px] text-zinc-500">Potentially fraudulent SSNs identified</p>
+                        <p className="text-[10px] text-zinc-400">Potentially fraudulent SSNs identified</p>
                       </div>
                       <div className="text-center">
                         <p className="text-2xl font-extrabold text-red-400">{$(enhanced.conviction_pipeline.prac.fraudulent_ssn_amount)}</p>
-                        <p className="text-[10px] text-zinc-500">Disbursed to those SSNs</p>
+                        <p className="text-[10px] text-zinc-400">Disbursed to those SSNs</p>
                       </div>
                       <div className="text-center">
                         <p className="text-2xl font-extrabold text-amber-400">{$(enhanced.conviction_pipeline.prac.pre_award_vetting_could_have_prevented)}</p>
-                        <p className="text-[10px] text-zinc-500">Could have been prevented with pre-award vetting</p>
+                        <p className="text-[10px] text-zinc-400">Could have been prevented with pre-award vetting</p>
                       </div>
                     </div>
-                    <p className="mt-3 text-[10px] text-zinc-600">Source: Pandemic Response Accountability Committee (PRAC) Fraud Prevention Alert</p>
+                    <p className="mt-3 text-[10px] text-zinc-400">Source: Pandemic Response Accountability Committee (PRAC) Fraud Prevention Alert</p>
                   </div>
                 )}
               </div>
@@ -3137,7 +3141,7 @@ export function FraudInAmericaClient() {
                   typically trigger different levels of investigation.
                 </p>
                 <div className="space-y-3">
-                  {enhanced.conviction_pipeline.tipping_points.map((tp: any, i: number) => (
+                  {enhanced.conviction_pipeline.tipping_points.map((tp: any, i: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                     <div key={i} className="rounded-xl border border-zinc-800 bg-zinc-900/50 p-5">
                       <div className="flex items-start justify-between gap-4">
                         <div>
@@ -3149,7 +3153,7 @@ export function FraudInAmericaClient() {
                     </div>
                   ))}
                 </div>
-                <p className="mt-4 text-[10px] text-zinc-600">
+                <p className="mt-4 text-[10px] text-zinc-400">
                   These thresholds are estimated from publicly documented enforcement patterns, DOJ press
                   releases, and SBA OIG reports. Actual triggers vary by district and resource availability.
                 </p>
@@ -3176,7 +3180,7 @@ export function FraudInAmericaClient() {
                       </tr>
                     </thead>
                     <tbody>
-                      {enhanced.forecasts.map((f: any, i: number) => (
+                      {enhanced.forecasts.map((f: any, i: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                         <tr key={i} className="border-t border-zinc-800/40">
                           <td className="px-4 py-2 font-medium text-zinc-200">{f.state_name}</td>
                           <td className="px-4 py-2 text-right">
@@ -3226,7 +3230,7 @@ export function FraudInAmericaClient() {
                     right={String(enhanced.hotspot_political.by_party_2020?.D || 0)}
                     multiplier="~1:1" />
                 </div>
-                <p className="mt-3 text-xs text-zinc-600">
+                <p className="mt-3 text-xs text-zinc-500">
                   Anomaly hotspots are evenly distributed across red and blue states, confirming that
                   PPP anomaly patterns were driven by business structure and lender behavior, not politics.
                 </p>
@@ -3388,7 +3392,7 @@ export function FraudInAmericaClient() {
                 <div className="mt-4 mb-4 rounded-xl border border-zinc-800 bg-zinc-900/30 p-4">
                   <p className="text-xs font-bold text-zinc-400 mb-3">First-Digit Distribution: Observed vs Expected</p>
                   <div className="space-y-1">
-                    {benfords.distribution.map((d: any) => (
+                    {benfords.distribution.map((d: any) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                       <div key={d.digit} className="flex items-center gap-2 text-[11px]">
                         <span className="w-6 text-right font-mono text-zinc-400">{d.digit}</span>
                         <div className="flex-1 flex gap-1 items-center">
@@ -3404,7 +3408,7 @@ export function FraudInAmericaClient() {
                       </div>
                     ))}
                   </div>
-                  <div className="mt-2 flex gap-4 text-[10px] text-zinc-600">
+                  <div className="mt-2 flex gap-4 text-[10px] text-zinc-400">
                     <span><span className="inline-block w-3 h-2 bg-blue-500/60 rounded-sm mr-1" />Observed</span>
                     <span><span className="inline-block w-3 h-2 bg-zinc-600/40 border border-dashed border-zinc-500 rounded-sm mr-1" />Expected (Benford)</span>
                   </div>
@@ -3423,7 +3427,7 @@ export function FraudInAmericaClient() {
               </p>
 
               <h3 className="mb-2 text-base font-bold text-zinc-200">What This Cannot Tell You</h3>
-              <ul className="ml-4 list-disc space-y-2 marker:text-zinc-600">
+              <ul className="ml-4 list-disc space-y-2 marker:text-zinc-500">
                 <li>Anomalous PPP loans are not confirmed fraud. Many will have legitimate explanations.</li>
                 <li>The M-Score was designed for manufacturing firms. Its accuracy varies by sector.</li>
                 <li>Healthcare results are limited by extreme class imbalance. Many excluded providers don&apos;t appear in Part D data.</li>
@@ -3434,7 +3438,7 @@ export function FraudInAmericaClient() {
 
             <div>
               <h3 className="mb-2 text-base font-bold text-zinc-200">Data Sources</h3>
-              <ul className="ml-4 list-disc space-y-1 marker:text-zinc-600">
+              <ul className="ml-4 list-disc space-y-1 marker:text-zinc-500">
                 <li><a href="https://data.sba.gov/dataset/ppp-foia" className="underline hover:text-zinc-200">SBA PPP FOIA Data</a> (accessed March 2026)</li>
                 <li><a href="https://www.sec.gov/dera/data/financial-statement-data-sets" className="underline hover:text-zinc-200">SEC EDGAR XBRL</a> (Q1-Q4 2024)</li>
                 <li><a href="https://data.cms.gov" className="underline hover:text-zinc-200">CMS Medicare Part D Prescribers</a> (2023)</li>
@@ -3487,7 +3491,7 @@ export function FraudInAmericaClient() {
               <a key={d.file} href={`/data/fraud/${d.file}`} download title={`Download ${d.label} dataset (${d.file})`}
                 className="rounded-xl border border-zinc-800 bg-zinc-900/50 px-4 py-3 transition-colors hover:border-zinc-600 hover:bg-zinc-900/80 block">
                 <p className="text-sm font-medium text-zinc-200">{d.label}</p>
-                <p className="text-[10px] text-zinc-500">{d.desc}</p>
+                <p className="text-[10px] text-zinc-400">{d.desc}</p>
                 <p className="mt-1 text-[10px] font-mono text-blue-400">{d.file}</p>
               </a>
             ))}
@@ -3498,14 +3502,14 @@ export function FraudInAmericaClient() {
       <footer className="border-t border-zinc-800 px-6 py-10">
         <div className="mx-auto max-w-5xl text-center">
           <p className="text-sm text-zinc-500">Analysis by Josh Elberg, Palavir LLC. March 2026.</p>
-          <p className="mt-1 text-xs text-zinc-600">
+          <p className="mt-1 text-xs text-zinc-500">
             Disclosure: The author has no financial interest in any company named in this report,
             no short positions, and no consulting relationships with fraud investigation firms.
             This analysis has not been shared with law enforcement, prosecutors, regulators,
             investors, or short-sellers prior to publication. It is published as public journalism
             and research, not as part of any legal proceeding or investment recommendation.
           </p>
-          <p className="mt-2 text-xs text-zinc-600">
+          <p className="mt-2 text-xs text-zinc-500">
             This analysis identifies statistical patterns, not confirmed fraud.
             All data is publicly available from federal agencies. No individual or company
             named here has been accused of fraud by this author. Nothing in this report

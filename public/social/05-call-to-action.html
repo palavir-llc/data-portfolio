@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1200">
+<title>State of Fraud in America - Data CTA</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1200px;
+    height: 675px;
+    background-color: #09090b;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+    color: #fafafa;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .glow-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 900px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(20,184,166,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 56px 80px;
+    gap: 0;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #14b8a6;
+    margin-bottom: 32px;
+  }
+
+  .headline {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: #fafafa;
+  }
+
+  .headline .teal { color: #2dd4bf; }
+
+  .divider {
+    width: 48px;
+    height: 2px;
+    background: #14b8a6;
+    opacity: 0.5;
+    margin: 32px 0;
+  }
+
+  .data-pills {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 36px;
+  }
+
+  .pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #18181b;
+    border: 1px solid #27272a;
+    border-radius: 999px;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #a1a1aa;
+    letter-spacing: 0.02em;
+  }
+
+  .pill .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #14b8a6;
+    flex-shrink: 0;
+  }
+
+  .pill .dot.red { background: #ef4444; }
+  .pill .dot.amber { background: #f59e0b; }
+  .pill .dot.indigo { background: #6366f1; }
+  .pill .dot.zinc { background: #52525b; }
+
+  .cta-line {
+    font-size: 20px;
+    color: #71717a;
+    line-height: 1.5;
+    max-width: 700px;
+  }
+
+  .cta-line strong {
+    color: #a1a1aa;
+  }
+
+  .url-block {
+    margin-top: 32px;
+    background: #18181b;
+    border: 1px solid #27272a;
+    border-radius: 8px;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2dd4bf;
+    letter-spacing: 0.04em;
+  }
+
+  .attribution {
+    position: absolute;
+    bottom: 28px;
+    right: 36px;
+    font-size: 12px;
+    color: #52525b;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+
+  .attribution strong { color: #71717a; }
+
+  .source-tag {
+    position: absolute;
+    bottom: 28px;
+    left: 36px;
+    font-size: 11px;
+    color: #3f3f46;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+  <div class="grid-overlay"></div>
+  <div class="glow-center"></div>
+
+  <div class="container">
+    <div class="eyebrow">100% Public Data &mdash; Zero Inside Information</div>
+    <div class="headline">
+      <span class="teal">968K</span> loans.<br>
+      6 federal datasets.<br>
+      All of it is public.
+    </div>
+    <div class="divider"></div>
+
+    <div class="data-pills">
+      <div class="pill"><div class="dot"></div>SBA PPP Full Loan Data</div>
+      <div class="pill"><div class="dot red"></div>DOJ Criminal Complaints</div>
+      <div class="pill"><div class="dot amber"></div>PRAC Watchdog Reports</div>
+      <div class="pill"><div class="dot indigo"></div>IRS Business Registrations</div>
+      <div class="pill"><div class="dot zinc"></div>Census ZIP Codes</div>
+      <div class="pill"><div class="dot"></div>MIT Election Data</div>
+    </div>
+
+    <div class="cta-line">
+      Anyone could have run this analysis. <strong>The patterns were hiding in plain sight.</strong><br>
+      Read the full report and see the methodology.
+    </div>
+
+    <div class="url-block">portfolio.palavir.co/fraud-in-america</div>
+  </div>
+
+  <div class="source-tag">State of Fraud in America</div>
+  <div class="attribution"><strong>palavir.co</strong></div>
+</body>
+</html>

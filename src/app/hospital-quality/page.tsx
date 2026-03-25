@@ -17,10 +17,34 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Hospital Quality Survival Landscape",
-    description: "4,445 US hospitals clustered by 38 quality measures. Random Forest R²=0.90 with SHAP interpretation.",
+    description: "4,445 US hospitals clustered by 38 quality measures. Random Forest R2=0.90 with SHAP interpretation.",
   },
 };
 
 export default function HospitalQualityPage() {
-  return <HospitalQualityClient />;
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: "Hospital Quality Survival Landscape",
+    description: "4,445 US hospitals mapped by quality measures using UMAP dimensionality reduction, K-Means clustering, and feature importance analysis.",
+    author: { "@type": "Person", name: "Josh Elberg" },
+    publisher: { "@type": "Organization", name: "Palavir LLC" },
+    datePublished: "2026-03-24",
+    url: "https://portfolio.palavir.co/hospital-quality",
+  };
+  const datasetSchema = {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name: "Hospital Quality Analysis",
+    description: "4,445 US hospitals clustered by 38 CMS quality measures with Random Forest and SHAP interpretation.",
+    creator: { "@type": "Organization", name: "Palavir LLC" },
+    license: "https://creativecommons.org/licenses/by/4.0/",
+  };
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetSchema) }} />
+      <HospitalQualityClient />
+    </>
+  );
 }
