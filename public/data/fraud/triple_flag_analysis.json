@@ -1,0 +1,151 @@
+{
+  "triple_flagged": {
+    "count": 4512,
+    "total_amount": 13230500000,
+    "total_forgiven": 13377157001,
+    "description": "Loans that are simultaneously anomalous, at exact round amounts (00K+), AND fully forgiven",
+    "top_loans": [
+      {
+        "name": "BODDIE-NOELL ENTERPRISES INC",
+        "amount": 10000000,
+        "city": "ROCKY MOUNT",
+        "state": "NC",
+        "lender": "Truist Bank"
+      },
+      {
+        "name": "US TRINITY ENERGY LABOR SERVICES LLC",
+        "amount": 10000000,
+        "city": "ARGYLE",
+        "state": "TX",
+        "lender": "Bank of America, National Association"
+      },
+      {
+        "name": "LUPE HOLDINGS, LP",
+        "amount": 10000000,
+        "city": "Houston",
+        "state": "TX",
+        "lender": "Citizens Bank, National Association"
+      },
+      {
+        "name": "MUY HAMBURGER PARTNERS, LLC",
+        "amount": 10000000,
+        "city": "SAN ANTONIO",
+        "state": "TX",
+        "lender": "The Huntington National Bank"
+      },
+      {
+        "name": "ICON INFORMATION CONSULTANTS, LP",
+        "amount": 10000000,
+        "city": "Houston",
+        "state": "TX",
+        "lender": "Zions Bank, A Division of"
+      },
+      {
+        "name": "SWH MIMIS CAFE LLC",
+        "amount": 10000000,
+        "city": "RICHARDSON",
+        "state": "TX",
+        "lender": "United Business Bank"
+      },
+      {
+        "name": "TGI FRIDAY'S, INC.",
+        "amount": 10000000,
+        "city": "DALLAS",
+        "state": "TX",
+        "lender": "U.S. Bank, National Association"
+      },
+      {
+        "name": "BURROW GLOBAL, LLC",
+        "amount": 10000000,
+        "city": "HOUSTON",
+        "state": "TX",
+        "lender": "Third Coast Bank"
+      },
+      {
+        "name": "LUXOR STAFFING, INC.",
+        "amount": 10000000,
+        "city": "ARLINGTON",
+        "state": "TX",
+        "lender": "Susser Bank"
+      },
+      {
+        "name": "US WELL SERVICES LLC",
+        "amount": 10000000,
+        "city": "HOUSTON",
+        "state": "TX",
+        "lender": "Bank of America, National Association"
+      },
+      {
+        "name": "HZ OPS HOLDINGS, INC.",
+        "amount": 10000000,
+        "city": "SUGAR LAND",
+        "state": "TX",
+        "lender": "Lake Forest Bank & Trust Company, Nation"
+      },
+      {
+        "name": "HUITT ZOLLARS, INC.",
+        "amount": 10000000,
+        "city": "DALLAS",
+        "state": "TX",
+        "lender": "First Source Federal Credit Union"
+      },
+      {
+        "name": "BLH ACQUISITION CO. LLC",
+        "amount": 10000000,
+        "city": "Addison",
+        "state": "TX",
+        "lender": "JPMorgan Chase Bank, National Associatio"
+      },
+      {
+        "name": "PEI WEI ASIAN DINER, LLC",
+        "amount": 10000000,
+        "city": "IRVING",
+        "state": "TX",
+        "lender": "City National Bank of Florida"
+      },
+      {
+        "name": "BEARCOM GROUP, INC.",
+        "amount": 10000000,
+        "city": "GARLAND",
+        "state": "TX",
+        "lender": "Comerica Bank"
+      },
+      {
+        "name": "EXPANSE ELECTRICAL COMPANY, LLC",
+        "amount": 10000000,
+        "city": "Houston",
+        "state": "TX",
+        "lender": "Bank of America, National Association"
+      },
+      {
+        "name": "GULF INTERSTATE FIELD SERVICES, INC.",
+        "amount": 10000000,
+        "city": "HOUSTON",
+        "state": "TX",
+        "lender": "First Source Federal Credit Union"
+      },
+      {
+        "name": "TRI CITY, INC.",
+        "amount": 10000000,
+        "city": "SUGAR LAND",
+        "state": "TX",
+        "lender": "Wallis Bank"
+      },
+      {
+        "name": "OTB ACQUISITION LLC",
+        "amount": 10000000,
+        "city": "IRVING",
+        "state": "TX",
+        "lender": "Cadence Bank"
+      },
+      {
+        "name": "PUFFER-SWEIVEN LP",
+        "amount": 10000000,
+        "city": "STAFFORD",
+        "state": "TX",
+        "lender": "Fifth Third Bank"
+      }
+    ]
+  },
+  "batch_identical_loans": 854
+}
