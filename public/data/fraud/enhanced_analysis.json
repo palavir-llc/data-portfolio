@@ -1,0 +1,654 @@
+{
+  "election_2024": {
+    "by_presidential_2024": {
+      "Trump": {
+        "states": 31,
+        "loans": 495186,
+        "anomalies": 8763,
+        "rate": 0.017696380753898535
+      },
+      "Harris": {
+        "states": 20,
+        "loans": 469536,
+        "anomalies": 10577,
+        "rate": 0.02252649424112315
+      }
+    },
+    "by_presidential_2020": {
+      "Trump": {
+        "states": 25,
+        "total_loans": 359610,
+        "anomalies": 6513,
+        "rate": 0.0181,
+        "total_amount": 186626715844,
+        "anomaly_amount": 10553160067
+      },
+      "Biden": {
+        "states": 26,
+        "total_loans": 605112,
+        "anomalies": 12827,
+        "rate": 0.0212,
+        "total_amount": 327047790375,
+        "anomaly_amount": 21771202229
+      }
+    },
+    "flipped_states": [
+      {
+        "state": "NV",
+        "state_name": "Nevada",
+        "from_2020": "Biden",
+        "to_2024": "Trump",
+        "anomaly_rate": 0.0231,
+        "total_loans": 8260,
+        "anomaly_count": 191
+      },
+      {
+        "state": "GA",
+        "state_name": "Georgia",
+        "from_2020": "Biden",
+        "to_2024": "Trump",
+        "anomaly_rate": 0.0214,
+        "total_loans": 25834,
+        "anomaly_count": 553
+      },
+      {
+        "state": "PA",
+        "state_name": "Pennsylvania",
+        "from_2020": "Biden",
+        "to_2024": "Trump",
+        "anomaly_rate": 0.0182,
+        "total_loans": 38536,
+        "anomaly_count": 700
+      },
+      {
+        "state": "AZ",
+        "state_name": "Arizona",
+        "from_2020": "Biden",
+        "to_2024": "Trump",
+        "anomaly_rate": 0.0143,
+        "total_loans": 15791,
+        "anomaly_count": 226
+      },
+      {
+        "state": "MI",
+        "state_name": "Michigan",
+        "from_2020": "Biden",
+        "to_2024": "Trump",
+        "anomaly_rate": 0.0138,
+        "total_loans": 29802,
+        "anomaly_count": 412
+      },
+      {
+        "state": "WI",
+        "state_name": "Wisconsin",
+        "from_2020": "Biden",
+        "to_2024": "Trump",
+        "anomaly_rate": 0.0097,
+        "total_loans": 17353,
+        "anomaly_count": 168
+      }
+    ],
+    "note": "PPP was 2020-2021. Correlation with 2024 results tests whether shifting political geography tracks with anomaly patterns."
+  },
+  "detection_lag": [
+    {
+      "event": "PPP launched",
+      "date": "2020-04-03",
+      "months_after": 0,
+      "type": "program"
+    },
+    {
+      "event": "First fraud charges filed (DOJ)",
+      "date": "2020-07-01",
+      "months_after": 3,
+      "type": "enforcement"
+    },
+    {
+      "event": "SBA OIG investigations accelerate",
+      "date": "2020-10-01",
+      "months_after": 6,
+      "type": "enforcement"
+    },
+    {
+      "event": "PPP Round 2 begins",
+      "date": "2021-01-11",
+      "months_after": 9,
+      "type": "program"
+    },
+    {
+      "event": "PRAC cross-agency oversight established",
+      "date": "2021-03-15",
+      "months_after": 11,
+      "type": "enforcement"
+    },
+    {
+      "event": "PPP program closes permanently",
+      "date": "2021-05-31",
+      "months_after": 14,
+      "type": "program"
+    },
+    {
+      "event": "1,000+ defendants charged",
+      "date": "2022-06-01",
+      "months_after": 26,
+      "type": "enforcement"
+    },
+    {
+      "event": "Feeding Our Future indictment ($250M, MN)",
+      "date": "2022-09-20",
+      "months_after": 30,
+      "type": "enforcement"
+    },
+    {
+      "event": "Statute of limitations extended to 10 years",
+      "date": "2023-03-10",
+      "months_after": 35,
+      "type": "legal"
+    },
+    {
+      "event": "2,000+ convicted or pled guilty",
+      "date": "2024-06-01",
+      "months_after": 50,
+      "type": "enforcement"
+    },
+    {
+      "event": "3,000+ total defendants charged",
+      "date": "2025-12-01",
+      "months_after": 68,
+      "type": "enforcement"
+    },
+    {
+      "event": "Statute expires for earliest PPP loans",
+      "date": "2030-04-03",
+      "months_after": 120,
+      "type": "legal"
+    }
+  ],
+  "hotspot_political": {
+    "hotspots": [
+      {
+        "zip": "64116-3822",
+        "city": "N Kansas City",
+        "state": "MO",
+        "loans": 23,
+        "anomalies": 23,
+        "rate": 1,
+        "amount": 5642423,
+        "governor_party_2020": "R",
+        "presidential_2020": "R",
+        "presidential_2024": "Trump"
+      },
+      {
+        "zip": "30326-4228",
+        "city": "Atlanta",
+        "state": "GA",
+        "loans": 20,
+        "anomalies": 20,
+        "rate": 1,
+        "amount": 5690087,
+        "governor_party_2020": "R",
+        "presidential_2020": "D",
+        "presidential_2024": "Trump"
+      },
+      {
+        "zip": "30501-6619",
+        "city": "GAINESVILLE",
+        "state": "GA",
+        "loans": 37,
+        "anomalies": 36,
+        "rate": 0.973,
+        "amount": 33324560,
+        "governor_party_2020": "R",
+        "presidential_2020": "D",
+        "presidential_2024": "Trump"
+      },
+      {
+        "zip": "90401-2401",
+        "city": "Santa Monica",
+        "state": "CA",
+        "loans": 29,
+        "anomalies": 28,
+        "rate": 0.9655,
+        "amount": 7963531,
+        "governor_party_2020": "D",
+        "presidential_2020": "D",
+        "presidential_2024": "Harris"
+      },
+      {
+        "zip": "59102-6453",
+        "city": "BILLINGS",
+        "state": "MT",
+        "loans": 24,
+        "anomalies": 23,
+        "rate": 0.9583,
+        "amount": 8338520,
+        "governor_party_2020": "R",
+        "presidential_2020": "R",
+        "presidential_2024": "Trump"
+      },
+      {
+        "zip": "94563-2538",
+        "city": "ORINDA",
+        "state": "CA",
+        "loans": 21,
+        "anomalies": 20,
+        "rate": 0.9524,
+        "amount": 6827874,
+        "governor_party_2020": "D",
+        "presidential_2020": "D",
+        "presidential_2024": "Harris"
+      },
+      {
+        "zip": "63801-2151",
+        "city": "SIKESTON",
+        "state": "MO",
+        "loans": 35,
+        "anomalies": 33,
+        "rate": 0.9429,
+        "amount": 10910800,
+        "governor_party_2020": "R",
+        "presidential_2020": "R",
+        "presidential_2024": "Trump"
+      },
+      {
+        "zip": "06489-1042",
+        "city": "SOUTHINGTON",
+        "state": "CT",
+        "loans": 32,
+        "anomalies": 30,
+        "rate": 0.9375,
+        "amount": 18460848,
+        "governor_party_2020": "D",
+        "presidential_2020": "D",
+        "presidential_2024": "Harris"
+      },
+      {
+        "zip": "07401-1654",
+        "city": "Allendale",
+        "state": "NJ",
+        "loans": 25,
+        "anomalies": 23,
+        "rate": 0.92,
+        "amount": 25856831,
+        "governor_party_2020": "D",
+        "presidential_2020": "D",
+        "presidential_2024": "Harris"
+      },
+      {
+        "zip": "71201-5760",
+        "city": "Monroe",
+        "state": "LA",
+        "loans": 50,
+        "anomalies": 46,
+        "rate": 0.92,
+        "amount": 13966073,
+        "governor_party_2020": "D",
+        "presidential_2020": "R",
+        "presidential_2024": "Trump"
+      },
+      {
+        "zip": "41042-3311",
+        "city": "FLORENCE",
+        "state": "KY",
+        "loans": 24,
+        "anomalies": 22,
+        "rate": 0.9167,
+        "amount": 5682700,
+        "governor_party_2020": "D",
+        "presidential_2020": "R",
+        "presidential_2024": "Trump"
+      },
+      {
+        "zip": "32073-4527",
+        "city": "ORANGE PARK",
+        "state": "FL",
+        "loans": 23,
+        "anomalies": 21,
+        "rate": 0.913,
+        "amount": 20213684,
+        "governor_party_2020": "R",
+        "presidential_2020": "R",
+        "presidential_2024": "Trump"
+      },
+      {
+        "zip": "61614-1862",
+        "city": "PEORIA",
+        "state": "IL",
+        "loans": 46,
+        "anomalies": 42,
+        "rate": 0.913,
+        "amount": 20093660,
+        "governor_party_2020": "D",
+        "presidential_2020": "D",
+        "presidential_2024": "Harris"
+      },
+      {
+        "zip": "27614-7002",
+        "city": "Raleigh",
+        "state": "NC",
+        "loans": 56,
+        "anomalies": 51,
+        "rate": 0.9107,
+        "amount": 23273655,
+        "governor_party_2020": "D",
+        "presidential_2020": "R",
+        "presidential_2024": "Trump"
+      },
+      {
+        "zip": "64060-7975",
+        "city": "KEARNEY",
+        "state": "MO",
+        "loans": 28,
+        "anomalies": 25,
+        "rate": 0.8929,
+        "amount": 22985300,
+        "governor_party_2020": "R",
+        "presidential_2020": "R",
+        "presidential_2024": "Trump"
+      },
+      {
+        "zip": "60173-4844",
+        "city": "Schaumburg",
+        "state": "IL",
+        "loans": 27,
+        "anomalies": 24,
+        "rate": 0.8889,
+        "amount": 9505719,
+        "governor_party_2020": "D",
+        "presidential_2020": "D",
+        "presidential_2024": "Harris"
+      },
+      {
+        "zip": "04401-7206",
+        "city": "Bangor",
+        "state": "ME",
+        "loans": 31,
+        "anomalies": 27,
+        "rate": 0.871,
+        "amount": 12715377,
+        "governor_party_2020": "D",
+        "presidential_2020": "D",
+        "presidential_2024": "Harris"
+      },
+      {
+        "zip": "56201-2195",
+        "city": "Willmar",
+        "state": "MN",
+        "loans": 30,
+        "anomalies": 26,
+        "rate": 0.8667,
+        "amount": 10216400,
+        "governor_party_2020": "D",
+        "presidential_2020": "D",
+        "presidential_2024": "Harris"
+      },
+      {
+        "zip": "92612-1524",
+        "city": "IRVINE",
+        "state": "CA",
+        "loans": 27,
+        "anomalies": 23,
+        "rate": 0.8519,
+        "amount": 30585801,
+        "governor_party_2020": "D",
+        "presidential_2020": "D",
+        "presidential_2024": "Harris"
+      },
+      {
+        "zip": "92801-2608",
+        "city": "Anaheim",
+        "state": "CA",
+        "loans": 44,
+        "anomalies": 36,
+        "rate": 0.8182,
+        "amount": 11815085,
+        "governor_party_2020": "D",
+        "presidential_2020": "D",
+        "presidential_2024": "Harris"
+      }
+    ],
+    "by_party_2020": {
+      "R": 8,
+      "D": 12
+    },
+    "by_party_2024": {
+      "Trump": 10,
+      "Harris": 10
+    }
+  },
+  "forecasts": [
+    {
+      "state": "WV",
+      "state_name": "West Virginia",
+      "risk_score": 100,
+      "ppp_anomaly_rate": 0.027,
+      "enforcement_outlook": "High priority: expect continued DOJ activity through 2030",
+      "years_remaining": "4.0"
+    },
+    {
+      "state": "FL",
+      "state_name": "Florida",
+      "risk_score": 82.1,
+      "ppp_anomaly_rate": 0.0249,
+      "enforcement_outlook": "High priority: expect continued DOJ activity through 2030",
+      "years_remaining": "4.0"
+    },
+    {
+      "state": "CA",
+      "state_name": "California",
+      "risk_score": 78.4,
+      "ppp_anomaly_rate": 0.0272,
+      "enforcement_outlook": "High priority: expect continued DOJ activity through 2030",
+      "years_remaining": "4.0"
+    },
+    {
+      "state": "RI",
+      "state_name": "Rhode Island",
+      "risk_score": 74.9,
+      "ppp_anomaly_rate": 0.024,
+      "enforcement_outlook": "High priority: expect continued DOJ activity through 2030",
+      "years_remaining": "4.0"
+    },
+    {
+      "state": "MS",
+      "state_name": "Mississippi",
+      "risk_score": 74,
+      "ppp_anomaly_rate": 0.0122,
+      "enforcement_outlook": "High priority: expect continued DOJ activity through 2030",
+      "years_remaining": "4.0"
+    },
+    {
+      "state": "LA",
+      "state_name": "Louisiana",
+      "risk_score": 71,
+      "ppp_anomaly_rate": 0.0188,
+      "enforcement_outlook": "High priority: expect continued DOJ activity through 2030",
+      "years_remaining": "4.0"
+    },
+    {
+      "state": "NY",
+      "state_name": "New York",
+      "risk_score": 64.6,
+      "ppp_anomaly_rate": 0.0263,
+      "enforcement_outlook": "Moderate: active investigations likely, some cases closing",
+      "years_remaining": "4.0"
+    },
+    {
+      "state": "ME",
+      "state_name": "Maine",
+      "risk_score": 60,
+      "ppp_anomaly_rate": 0.0213,
+      "enforcement_outlook": "Moderate: active investigations likely, some cases closing",
+      "years_remaining": "4.0"
+    },
+    {
+      "state": "NV",
+      "state_name": "Nevada",
+      "risk_score": 58,
+      "ppp_anomaly_rate": 0.0231,
+      "enforcement_outlook": "Moderate: active investigations likely, some cases closing",
+      "years_remaining": "4.0"
+    },
+    {
+      "state": "DE",
+      "state_name": "Delaware",
+      "risk_score": 57.9,
+      "ppp_anomaly_rate": 0.019,
+      "enforcement_outlook": "Moderate: active investigations likely, some cases closing",
+      "years_remaining": "4.0"
+    },
+    {
+      "state": "VT",
+      "state_name": "Vermont",
+      "risk_score": 57.4,
+      "ppp_anomaly_rate": 0.0115,
+      "enforcement_outlook": "Moderate: active investigations likely, some cases closing",
+      "years_remaining": "4.0"
+    },
+    {
+      "state": "AK",
+      "state_name": "Alaska",
+      "risk_score": 57,
+      "ppp_anomaly_rate": 0.0158,
+      "enforcement_outlook": "Moderate: active investigations likely, some cases closing",
+      "years_remaining": "4.0"
+    },
+    {
+      "state": "TN",
+      "state_name": "Tennessee",
+      "risk_score": 56.5,
+      "ppp_anomaly_rate": 0.0216,
+      "enforcement_outlook": "Moderate: active investigations likely, some cases closing",
+      "years_remaining": "4.0"
+    },
+    {
+      "state": "OH",
+      "state_name": "Ohio",
+      "risk_score": 55.8,
+      "ppp_anomaly_rate": 0.0163,
+      "enforcement_outlook": "Moderate: active investigations likely, some cases closing",
+      "years_remaining": "4.0"
+    },
+    {
+      "state": "CT",
+      "state_name": "Connecticut",
+      "risk_score": 55,
+      "ppp_anomaly_rate": 0.0235,
+      "enforcement_outlook": "Moderate: active investigations likely, some cases closing",
+      "years_remaining": "4.0"
+    }
+  ],
+  "conviction_pipeline": {
+    "total_charged": "3,000+",
+    "total_convicted": "2,000+",
+    "conviction_rate_estimate": "~67%",
+    "key_cases": [
+      {
+        "amount": 65000000,
+        "description": "Lender service provider co-founder, 10yr sentence (Dec 2025)",
+        "state": "Multiple"
+      },
+      {
+        "amount": 55000000,
+        "description": "Illinois businessman, 6yr sentence (Jan 2026)",
+        "state": "IL"
+      },
+      {
+        "amount": 11000000,
+        "description": "Nevada man, 15yr sentence (Aug 2025)",
+        "state": "NV"
+      },
+      {
+        "amount": 250000000,
+        "description": "Feeding Our Future (MN), 90+ charged, largest pandemic fraud scheme",
+        "state": "MN"
+      },
+      {
+        "amount": 9600000,
+        "description": "Carl Torjagbo, convicted of bank fraud and wire fraud (Jul 2025)",
+        "state": "GA"
+      }
+    ],
+    "enforcement_by_district": {
+      "fraud_section_defendants": 200,
+      "fraud_section_cases": 130,
+      "seized_cash": 78000000,
+      "mdfl_defendants": 109,
+      "mdfl_guilty": 74,
+      "ndms_fca_judgments": 150
+    },
+    "prac": {
+      "fraudulent_ssns": 69323,
+      "fraudulent_ssn_amount": 5400000000,
+      "pre_award_vetting_could_have_prevented": 79000000000,
+      "source": "PRAC Fraud Prevention Alert"
+    },
+    "tipping_points": [
+      {
+        "threshold": "ZIP/district anomaly rate exceeds 5%",
+        "trigger": "OIG geographic audit",
+        "typical_lag": "6-12 months"
+      },
+      {
+        "threshold": "10+ flagged loans at single address",
+        "trigger": "DOJ entity network investigation",
+        "typical_lag": "12-24 months"
+      },
+      {
+        "threshold": "$10M+ anomalous through one lender pathway",
+        "trigger": "SBA + FDIC joint lender review",
+        "typical_lag": "18-36 months"
+      },
+      {
+        "threshold": "PRAC cross-database SSN/EIN match",
+        "trigger": "Automated DOJ Fraud Section referral",
+        "typical_lag": "3-6 months"
+      },
+      {
+        "threshold": "Whistleblower qui tam filing",
+        "trigger": "DOJ Civil Division investigation + FCA suit",
+        "typical_lag": "12-60 months (sealed)"
+      }
+    ],
+    "statute_of_limitations": {
+      "original": "5 years",
+      "extended": "10 years (COVID Fraud Enforcement Act, 2023)",
+      "earliest_expiry": "2030-04-03",
+      "latest_expiry": "2031-05-31",
+      "note": "The 10-year window means enforcement is roughly halfway through. Peak conviction rates typically occur 3-5 years after a fraud wave."
+    }
+  },
+  "timeline_annotations": [
+    {
+      "month": "2020-04",
+      "label": "Round 1 launches",
+      "type": "program"
+    },
+    {
+      "month": "2020-07",
+      "label": "First fraud charges",
+      "type": "enforcement"
+    },
+    {
+      "month": "2020-08",
+      "label": "Round 1 ends",
+      "type": "program"
+    },
+    {
+      "month": "2021-01",
+      "label": "Round 2 (Biden admin)",
+      "type": "program"
+    },
+    {
+      "month": "2021-05",
+      "label": "PPP closes",
+      "type": "program"
+    },
+    {
+      "month": "2021-06",
+      "label": "Peak anomaly rate",
+      "type": "data"
+    }
+  ],
+  "generated": "2026-03-24"
+}

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
@@ -13,6 +14,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://portfolio.palavir.co"),
   title: "Data Stories | Josh Elberg",
   description:
     "Interactive data science explorations combining machine learning, creative visualization, and real-world public datasets.",
@@ -21,6 +23,12 @@ export const metadata: Metadata = {
     description:
       "Interactive data science explorations combining machine learning, creative visualization, and real-world public datasets.",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Data Stories | Josh Elberg",
+    description:
+      "Interactive data science explorations combining machine learning, creative visualization, and real-world public datasets.",
   },
 };
 
@@ -53,6 +61,8 @@ export default function RootLayout({
           }}
         />
         {children}
+        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-8XHCZCKB9Z" />
+        <Script id="ga-init" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-8XHCZCKB9Z')" }} />
       </body>
     </html>
   );

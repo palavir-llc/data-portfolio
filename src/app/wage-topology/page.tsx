@@ -5,11 +5,14 @@ export const metadata: Metadata = {
   title: "The Wage Topology | Data Stories",
   description:
     "UMAP dimensionality reduction of 800+ occupations across 120 skill dimensions reveals hidden structure in the American labor market.",
+  alternates: { canonical: "https://portfolio.palavir.co/wage-topology" },
+  keywords: "wage analysis, UMAP, occupation skills, labor market, dimensionality reduction, BLS OEWS, O*NET",
   openGraph: {
     title: "The Wage Topology",
     description: "UMAP dimensionality reduction of 800+ occupations across 120 skill dimensions reveals hidden structure in the American labor market.",
     type: "article",
     url: "https://portfolio.palavir.co/wage-topology",
+    images: [{ url: "https://portfolio.palavir.co/wage-topology/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
