@@ -1,0 +1,344 @@
+[
+  {
+    "state": "CA",
+    "state_name": "California",
+    "covid_spending": 330537602727.06,
+    "population": 39538223
+  },
+  {
+    "state": "TX",
+    "state_name": "Texas",
+    "covid_spending": 231424797147.91,
+    "population": 29145505
+  },
+  {
+    "state": "NY",
+    "state_name": "New York",
+    "covid_spending": 185240980326.25,
+    "population": 20201249
+  },
+  {
+    "state": "FL",
+    "state_name": "Florida",
+    "covid_spending": 151171270832.8,
+    "population": 21538187
+  },
+  {
+    "state": "IL",
+    "state_name": "Illinois",
+    "covid_spending": 105826937804.84,
+    "population": 12812508
+  },
+  {
+    "state": "PA",
+    "state_name": "Pennsylvania",
+    "covid_spending": 99648791588.75,
+    "population": 13002700
+  },
+  {
+    "state": "VA",
+    "state_name": "Virginia",
+    "covid_spending": 80359978128.65,
+    "population": 8631393
+  },
+  {
+    "state": "GA",
+    "state_name": "Georgia",
+    "covid_spending": 79749479630.46,
+    "population": 10711908
+  },
+  {
+    "state": "OH",
+    "state_name": "Ohio",
+    "covid_spending": 78356223499.15,
+    "population": 11799448
+  },
+  {
+    "state": "MI",
+    "state_name": "Michigan",
+    "covid_spending": 73420011872.65,
+    "population": 10077331
+  },
+  {
+    "state": "MA",
+    "state_name": "Massachusetts",
+    "covid_spending": 72347703397.74,
+    "population": 7029917
+  },
+  {
+    "state": "NJ",
+    "state_name": "New Jersey",
+    "covid_spending": 68718425600.01,
+    "population": 9288994
+  },
+  {
+    "state": "NC",
+    "state_name": "North Carolina",
+    "covid_spending": 65769015118.3,
+    "population": 10439388
+  },
+  {
+    "state": "WA",
+    "state_name": "Washington",
+    "covid_spending": 59691626354.54,
+    "population": 7705281
+  },
+  {
+    "state": "MD",
+    "state_name": "Maryland",
+    "covid_spending": 58588219869.37,
+    "population": 6177224
+  },
+  {
+    "state": "AZ",
+    "state_name": "Arizona",
+    "covid_spending": 55639139592.89,
+    "population": 7151502
+  },
+  {
+    "state": "TN",
+    "state_name": "Tennessee",
+    "covid_spending": 51311266303.78,
+    "population": 6910840
+  },
+  {
+    "state": "CO",
+    "state_name": "Colorado",
+    "covid_spending": 46040130836.22,
+    "population": 5773714
+  },
+  {
+    "state": "LA",
+    "state_name": "Louisiana",
+    "covid_spending": 42952205666.61,
+    "population": 4657757
+  },
+  {
+    "state": "PR",
+    "state_name": "Puerto Rico",
+    "covid_spending": 42846404196.44,
+    "population": 3285874
+  },
+  {
+    "state": "MO",
+    "state_name": "Missouri",
+    "covid_spending": 42743568221.72,
+    "population": 6154913
+  },
+  {
+    "state": "MN",
+    "state_name": "Minnesota",
+    "covid_spending": 41762470839.57,
+    "population": 5706494
+  },
+  {
+    "state": "WI",
+    "state_name": "Wisconsin",
+    "covid_spending": 40933914080.39,
+    "population": 5893718
+  },
+  {
+    "state": "IN",
+    "state_name": "Indiana",
+    "covid_spending": 40123944733.44,
+    "population": 6785528
+  },
+  {
+    "state": "AL",
+    "state_name": "Alabama",
+    "covid_spending": 38961552881.34,
+    "population": 5024279
+  },
+  {
+    "state": "OK",
+    "state_name": "Oklahoma",
+    "covid_spending": 38153324358.19,
+    "population": 3959353
+  },
+  {
+    "state": "SC",
+    "state_name": "South Carolina",
+    "covid_spending": 33870380613.83,
+    "population": 5118425
+  },
+  {
+    "state": "OR",
+    "state_name": "Oregon",
+    "covid_spending": 31349286641.33,
+    "population": 4237256
+  },
+  {
+    "state": "NM",
+    "state_name": "New Mexico",
+    "covid_spending": 30839064235.28,
+    "population": 2117522
+  },
+  {
+    "state": "DC",
+    "state_name": "District Of Columbia",
+    "covid_spending": 30491983177.92,
+    "population": 689545
+  },
+  {
+    "state": "CT",
+    "state_name": "Connecticut",
+    "covid_spending": 30393767996.51,
+    "population": 3605944
+  },
+  {
+    "state": "KY",
+    "state_name": "Kentucky",
+    "covid_spending": 28520189899.69,
+    "population": 4505836
+  },
+  {
+    "state": "NV",
+    "state_name": "Nevada",
+    "covid_spending": 24051614253.8,
+    "population": 3104614
+  },
+  {
+    "state": "MS",
+    "state_name": "Mississippi",
+    "covid_spending": 22671106352.81,
+    "population": 2961279
+  },
+  {
+    "state": "IA",
+    "state_name": "Iowa",
+    "covid_spending": 20653683011.86,
+    "population": 3190369
+  },
+  {
+    "state": "UT",
+    "state_name": "Utah",
+    "covid_spending": 20415566230.23,
+    "population": 3271616
+  },
+  {
+    "state": "KS",
+    "state_name": "Kansas",
+    "covid_spending": 19215633419.95,
+    "population": 2937880
+  },
+  {
+    "state": "AR",
+    "state_name": "Arkansas",
+    "covid_spending": 17233032450.28,
+    "population": 3011524
+  },
+  {
+    "state": "AK",
+    "state_name": "Alaska",
+    "covid_spending": 15589201893.75,
+    "population": 733391
+  },
+  {
+    "state": "NE",
+    "state_name": "Nebraska",
+    "covid_spending": 14994553971.45,
+    "population": 1961504
+  },
+  {
+    "state": "HI",
+    "state_name": "Hawaii",
+    "covid_spending": 14462074106.12,
+    "population": 1455271
+  },
+  {
+    "state": "ID",
+    "state_name": "Idaho",
+    "covid_spending": 13543806929.47,
+    "population": 1839106
+  },
+  {
+    "state": "WV",
+    "state_name": "West Virginia",
+    "covid_spending": 12379867512.68,
+    "population": 1793716
+  },
+  {
+    "state": "RI",
+    "state_name": "Rhode Island",
+    "covid_spending": 11181820310.35,
+    "population": 1097379
+  },
+  {
+    "state": "ME",
+    "state_name": "Maine",
+    "covid_spending": 11144406207.71,
+    "population": 1362359
+  },
+  {
+    "state": "SD",
+    "state_name": "South Dakota",
+    "covid_spending": 10113549195.1,
+    "population": 886667
+  },
+  {
+    "state": "NH",
+    "state_name": "New Hampshire",
+    "covid_spending": 9994264746.53,
+    "population": 1377529
+  },
+  {
+    "state": "ND",
+    "state_name": "North Dakota",
+    "covid_spending": 9267686303.01,
+    "population": 779094
+  },
+  {
+    "state": "DE",
+    "state_name": "Delaware",
+    "covid_spending": 8467656143.85,
+    "population": 989948
+  },
+  {
+    "state": "MT",
+    "state_name": "Montana",
+    "covid_spending": 8327346329.98,
+    "population": 1084225
+  },
+  {
+    "state": "VT",
+    "state_name": "Vermont",
+    "covid_spending": 7063058635.17,
+    "population": 643077
+  },
+  {
+    "state": "WY",
+    "state_name": "Wyoming",
+    "covid_spending": 6602804967.91,
+    "population": 576851
+  },
+  {
+    "state": "GU",
+    "state_name": "Guam",
+    "covid_spending": 3699232539.68,
+    "population": 153836
+  },
+  {
+    "state": "VI",
+    "state_name": "U.S. Virgin Islands",
+    "covid_spending": 2855796237.86,
+    "population": 87146
+  },
+  {
+    "state": "MP",
+    "state_name": "Northern Mariana Islands",
+    "covid_spending": 2112910170.35,
+    "population": 47329
+  },
+  {
+    "state": "AS",
+    "state_name": "American Samoa",
+    "covid_spending": 1207435687.2,
+    "population": 49710
+  },
+  {
+    "state": "",
+    "state_name": null,
+    "covid_spending": 3249373.0,
+    "population": null
+  }
+]
