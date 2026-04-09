@@ -62,7 +62,7 @@ const projects = [
     ],
     dataSources: ["CMS Hospital Compare", "Census ACS", "HRSA AHRF"],
     color: "from-rose-500 to-orange-500",
-    status: "coming-soon" as const,
+    status: "live" as const,
   },
   {
     slug: "wage-topology",
@@ -84,7 +84,7 @@ const projects = [
     ],
     dataSources: ["BLS OEWS", "O*NET", "BLS Employment Projections"],
     color: "from-violet-500 to-blue-500",
-    status: "coming-soon" as const,
+    status: "live" as const,
   },
   {
     slug: "federal-spending",
@@ -106,7 +106,7 @@ const projects = [
     ],
     dataSources: ["USASpending.gov", "Census Bureau"],
     color: "from-emerald-500 to-cyan-500",
-    status: "coming-soon" as const,
+    status: "live" as const,
   },
 ];
 
