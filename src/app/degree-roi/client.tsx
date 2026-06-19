@@ -107,14 +107,14 @@ const GEO_METRICS: Record<
     caption: "Median pay for this degree's occupations, state by state (BLS OEWS).",
   },
   rent: {
-    label: "Cheapest rent",
+    label: "Rent rule",
     field: "rent_burden",
     scheme: "reds",
     higherIsBetter: false,
     transform: (v) => v * 100,
     fmt: (v) => `${v.toFixed(0)}%`,
     caption:
-      "Rent as a share of this degree's typical pay — darker = rent takes a bigger bite (OEWS × Zillow).",
+      "Where this degree's pay keeps rent under your line — green clears it, red is over (OEWS × Zillow).",
   },
 };
 
@@ -661,11 +661,27 @@ export function DegreeRoiClient() {
             {geoOcc && Object.keys(geoSoc).length === 0 && (
               <span className="text-xs text-neutral-600">loading…</span>
             )}
+            {geoMetric === "rent" && (
+              <span className="ml-auto flex items-center gap-2 text-sm">
+                <span className="whitespace-nowrap text-neutral-500">Rent rule: {rentRule}%</span>
+                <input
+                  type="range"
+                  min={20}
+                  max={50}
+                  step={5}
+                  value={rentRule}
+                  onChange={(e) => setRentRule(Number(e.target.value))}
+                  className="h-1 w-28 cursor-pointer accent-purple-500"
+                />
+              </span>
+            )}
           </div>
           <Choropleth
             data={geoData}
             colorScheme={GEO_METRICS[geoMetric].scheme}
             valueFormat={GEO_METRICS[geoMetric].fmt}
+            diverging={geoMetric === "rent"}
+            threshold={geoMetric === "rent" ? rentRule : undefined}
           />
         </section>
       )}
