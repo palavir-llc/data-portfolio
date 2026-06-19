@@ -474,6 +474,23 @@ def build_affordability(oews):
             n_major += 1
     print(f"  affordability shards: {n_major} majors x ~{len(seen)} metros")
 
+    # per-OCCUPATION metro wages so the affordability view can drill into one job
+    soc_set = {fl["soc6"] for fl in flows if fl.get("soc6")}
+    soc_dir = os.path.join(OUT, "by_soc_afford")
+    os.makedirs(soc_dir, exist_ok=True)
+    for old in os.listdir(soc_dir):
+        if old.endswith(".json"):
+            os.remove(os.path.join(soc_dir, old))
+    n_soc = 0
+    for soc in soc_set:
+        out = {str(area): round(wage[(area, soc)]) for area in seen if (area, soc) in wage}
+        if out:
+            with open(os.path.join(soc_dir, f"{soc.replace('-', '')}.json"), "w",
+                      encoding="utf-8") as f:
+                json.dump(out, f, ensure_ascii=False, separators=(",", ":"))
+            n_soc += 1
+    print(f"  affordability occupation shards: {n_soc} occupations")
+
 
 def build_ml(programs):
     """Phase 4 ML analyses: trajectory clusters (attached to programs) + premium."""

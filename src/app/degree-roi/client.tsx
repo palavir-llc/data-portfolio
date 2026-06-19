@@ -126,8 +126,11 @@ export function DegreeRoiClient() {
   const [premium, setPremium] = useState<PremiumData | null>(null);
   const [clusters, setClusters] = useState<ClustersData | null>(null);
   const [affordMetros, setAffordMetros] = useState<AffordMetros | null>(null);
-  const [affordWage, setAffordWage] = useState<Record<string, number>>({});
+  const [affordWage, setAffordWage] = useState<Record<string, number>>({}); // major's mix
+  const [affordOcc, setAffordOcc] = useState<string | null>(null); // selected occupation
+  const [affordSocWage, setAffordSocWage] = useState<Record<string, number>>({});
   const [metroQuery, setMetroQuery] = useState("");
+  const [rentRule, setRentRule] = useState(30); // the "don't spend more than X% on rent" line
   const [taskAi, setTaskAi] = useState<TaskAiData | null>(null);
   const [geo, setGeo] = useState<Record<string, GeoState>>({}); // major's blended mix
   const [geoOcc, setGeoOcc] = useState<string | null>(null); // selected occupation (null = mix)
@@ -184,6 +187,7 @@ export function DegreeRoiClient() {
       setAffordWage(aw);
       setGeo(gj);
       setGeoOcc(null); // reset to the major's mix when the major changes
+      setAffordOcc(null);
       setLoadedCip(cip4);
     });
     return () => {
@@ -206,6 +210,21 @@ export function DegreeRoiClient() {
       active = false;
     };
   }, [geoOcc]);
+
+  // load a single occupation's metro wages for the affordability view
+  useEffect(() => {
+    if (!affordOcc) return;
+    let active = true;
+    fetch(`/data/degree/by_soc_afford/${affordOcc.replace("-", "")}.json`)
+      .then((r) => (r.ok ? r.json() : {}))
+      .catch(() => ({}))
+      .then((d: Record<string, number>) => {
+        if (active) setAffordSocWage(d);
+      });
+    return () => {
+      active = false;
+    };
+  }, [affordOcc]);
 
   const major = index?.majors.find((m) => m.cip4 === cip4) || null;
 
@@ -290,21 +309,31 @@ export function DegreeRoiClient() {
   }, [shard, clusters, cred]);
 
   // affordability: rent burden of this major's typical pay, metro by metro
+  // active wage source: a single occupation if picked, else the major's mix
+  const activeAffordWage = affordOcc ? affordSocWage : affordWage;
+
   const affordRows = useMemo(() => {
     if (!affordMetros) return [];
     const byCbsa = new Map(affordMetros.metros.map((m) => [m.cbsa, m]));
     const q = metroQuery.trim().toLowerCase();
-    const rows = Object.entries(affordWage)
+    const rows = Object.entries(activeAffordWage)
       .map(([cbsa, wage]) => {
         const m = byCbsa.get(Number(cbsa));
-        if (!m) return null;
+        if (!m || !wage) return null;
         return { name: m.name, state: m.state, wage, rent: m.zori_monthly, burden: (m.zori_monthly * 12) / wage };
       })
       .filter((r): r is { name: string; state: string; wage: number; rent: number; burden: number } => !!r);
     return q ? rows.filter((r) => r.name.toLowerCase().includes(q)) : rows;
-  }, [affordMetros, affordWage, metroQuery]);
+  }, [affordMetros, activeAffordWage, metroQuery]);
 
   const affordSorted = useMemo(() => affordRows.slice().sort((a, b) => a.burden - b.burden), [affordRows]);
+
+  // how many metros clear the "spend less than X% on rent" rule
+  const affordCount = useMemo(() => {
+    const total = affordRows.length;
+    const ok = affordRows.filter((r) => r.burden * 100 <= rentRule).length;
+    return { ok, total };
+  }, [affordRows, rentRule]);
 
   // active geography source: a single occupation if picked, else the major's blend
   const activeGeo = geoOcc ? geoSoc : geo;
@@ -647,12 +676,49 @@ export function DegreeRoiClient() {
           <h2 className="mb-1 text-xl font-semibold text-neutral-100">
             Can the paycheck cover the rent?
           </h2>
-          <p className="mb-4 text-sm text-neutral-500">
-            This major&apos;s typical pay (graduate-weighted across its occupations, BLS OEWS
-            metro wages) against current market rent in {affordRows.length} metros. Bars show
-            rent as a share of income — under 30% is the classic affordability line. Rent data{" "}
-            {affordMetros.rent_month}; <span className="text-neutral-400">{affordMetros.attribution}</span>.
+          <p className="mb-4 max-w-3xl text-sm text-neutral-500">
+            The rule of thumb: spend no more than <span className="text-neutral-300">{rentRule}%</span>{" "}
+            of your pay on rent. Below, {affordOcc ? "this occupation" : "this major"}&apos;s typical pay
+            (BLS OEWS metro wages) against current market rent. Green clears the line, amber is tight,
+            red blows past it. Rent {affordMetros.rent_month};{" "}
+            <span className="text-neutral-400">{affordMetros.attribution}</span>.
           </p>
+
+          {/* controls: job, rule slider, metro filter */}
+          <div className="mb-4 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-neutral-500">Job:</span>
+              <select
+                value={affordOcc ?? ""}
+                onChange={(e) => setAffordOcc(e.target.value || null)}
+                className="rounded-md border border-neutral-700 bg-neutral-950 px-3 py-1.5 text-sm text-neutral-200 outline-none focus:border-purple-500"
+              >
+                <option value="">This major&apos;s mix (all jobs)</option>
+                {occFlows.map((f) => (
+                  <option key={f.soc6} value={f.soc6 as string}>
+                    {f.occ?.soc_title ?? f.soc_title ?? f.soc6}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <span className="whitespace-nowrap text-neutral-500">Rent rule: {rentRule}%</span>
+              <input
+                type="range"
+                min={20}
+                max={50}
+                step={5}
+                value={rentRule}
+                onChange={(e) => setRentRule(Number(e.target.value))}
+                className="h-1 w-32 cursor-pointer accent-purple-500"
+              />
+            </div>
+            <div className="rounded-md border border-neutral-800 bg-neutral-900/40 px-3 py-1 text-sm">
+              <span className="font-semibold text-emerald-400">{affordCount.ok}</span>
+              <span className="text-neutral-500"> of {affordCount.total} metros under {rentRule}%</span>
+            </div>
+          </div>
+
           <input
             value={metroQuery}
             onChange={(e) => setMetroQuery(e.target.value)}
@@ -661,8 +727,9 @@ export function DegreeRoiClient() {
           />
           <div className="grid gap-1.5 sm:grid-cols-2">
             {affordSorted.slice(0, 16).map((r) => {
+              const pct = r.burden * 100;
               const color =
-                r.burden < 0.3 ? "bg-emerald-500" : r.burden < 0.4 ? "bg-amber-500" : "bg-rose-500";
+                pct <= rentRule ? "bg-emerald-500" : pct <= rentRule + 10 ? "bg-amber-500" : "bg-rose-500";
               return (
                 <div
                   key={r.name}
@@ -672,12 +739,15 @@ export function DegreeRoiClient() {
                   <div className="hidden text-xs text-neutral-500 sm:block">
                     {fmtUsd(r.wage)} · {fmtUsd(r.rent)}/mo
                   </div>
-                  <div className="h-2 w-20 overflow-hidden rounded-full bg-neutral-800">
-                    <div className={`h-full ${color}`} style={{ width: `${Math.min(100, r.burden * 100)}%` }} />
+                  {/* bar with the rent-rule line marked */}
+                  <div className="relative h-2 w-20 overflow-hidden rounded-full bg-neutral-800">
+                    <div className={`h-full ${color}`} style={{ width: `${Math.min(100, pct)}%` }} />
+                    <div
+                      className="absolute top-0 h-full w-px bg-neutral-400/70"
+                      style={{ left: `${Math.min(100, rentRule)}%` }}
+                    />
                   </div>
-                  <div className="w-9 text-right text-xs text-neutral-300">
-                    {Math.round(r.burden * 100)}%
-                  </div>
+                  <div className="w-9 text-right text-xs text-neutral-300">{Math.round(pct)}%</div>
                 </div>
               );
             })}
