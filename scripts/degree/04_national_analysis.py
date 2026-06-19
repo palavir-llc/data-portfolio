@@ -69,6 +69,15 @@ CRED_LABEL = {"1": "Cert", "2": "Associate", "3": "Bachelor's", "4": "Post-bacc 
               "5": "Master's", "6": "Doctoral", "7": "Professional", "8": "Grad Cert"}
 
 
+def slugify(s, seen, cip4):
+    """URL slug from a major title, deduped (matches the [major] route)."""
+    import re
+    base = re.sub(r"[^a-z0-9]+", "-", s.lower().replace("&", "and")).strip("-")[:60]
+    slug = base if (base and base not in seen) else f"{base}-{cip4.replace('.', '')}"
+    seen.add(slug)
+    return slug
+
+
 def main():
     index = load("programs_index.json")
     occ = {o["soc6"]: o for o in load("occupations.json")}
@@ -99,6 +108,7 @@ def main():
     # --- per-major landscape (Bachelor's-focused, the comparable spine) ---
     cluster_label = {c["id"]: c["label"] for c in clusters["clusters"]}
     landscape = []
+    _slug_seen: set = set()
     all_e5, all_debt, all_payoff = [], [], []
     cred_earn = {}  # cip4 -> {cred: [earns]}
 
@@ -132,6 +142,7 @@ def main():
         dominant = max(kmix, key=kmix.get) if kmix else None
         landscape.append({
             "cip4": cip4,
+            "slug": slugify(major["cip_title"], _slug_seen, cip4),
             "title": major["cip_title"],
             "n_programs": len(b),
             "n_schools": len({p["u"] for p in b}),

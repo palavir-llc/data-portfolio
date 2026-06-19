@@ -145,7 +145,13 @@ export function DegreeRoiClient() {
   const [geoSoc, setGeoSoc] = useState<Record<string, GeoState>>({}); // selected occupation's map
   const [geoMetric, setGeoMetric] = useState<GeoMetricKey>("jobs");
 
-  const [cip4, setCip4] = useState<string>("11.07"); // default: Computer Science
+  // deep link: initial major comes from ?major=… (SSR-safe; default Computer Science).
+  // Major-dependent UI only renders after data loads, so this can't cause a hydration mismatch.
+  const [cip4, setCip4] = useState<string>(() =>
+    typeof window === "undefined"
+      ? "11.07"
+      : new URLSearchParams(window.location.search).get("major") || "11.07",
+  );
   const [cred, setCred] = useState<string>("3"); // Bachelor's
   const [query, setQuery] = useState("");
   const [shard, setShard] = useState<ProgramRec[] | null>(null);
@@ -182,6 +188,15 @@ export function DegreeRoiClient() {
       },
     );
   }, []);
+
+  // keep the URL in sync so any major selection is shareable
+  useEffect(() => {
+    if (!cip4) return;
+    const p = new URLSearchParams();
+    p.set("major", cip4);
+    if (cred) p.set("cred", cred);
+    window.history.replaceState(null, "", `${window.location.pathname}?${p.toString()}${window.location.hash}`);
+  }, [cip4, cred]);
 
   // load the selected major's program + affordability shards on demand
   useEffect(() => {

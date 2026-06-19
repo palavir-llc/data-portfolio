@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
+import Link from "next/link";
 
 interface LMajor {
   cip4: string;
+  slug?: string;
   title: string;
   n_programs: number;
   n_schools: number;
@@ -20,8 +22,20 @@ interface LMajor {
 
 type SortKey = "title" | "earn_5yr" | "debt" | "payoff_yrs" | "ai_beta" | "adjusted_premium" | "n_programs";
 
-const COLS: { key: SortKey; label: string; align: "left" | "right"; fmt: (m: LMajor) => string }[] = [
-  { key: "title", label: "Major", align: "left", fmt: (m) => m.title },
+const COLS: { key: SortKey; label: string; align: "left" | "right"; fmt: (m: LMajor) => ReactNode }[] = [
+  {
+    key: "title",
+    label: "Major",
+    align: "left",
+    fmt: (m) =>
+      m.slug ? (
+        <Link href={`/degree-roi/${m.slug}`} className="text-neutral-200 hover:text-purple-300 hover:underline">
+          {m.title}
+        </Link>
+      ) : (
+        m.title
+      ),
+  },
   { key: "earn_5yr", label: "5-yr pay", align: "right", fmt: (m) => (m.earn_5yr ? `$${m.earn_5yr.toLocaleString()}` : "—") },
   { key: "debt", label: "Debt", align: "right", fmt: (m) => (m.debt ? `$${m.debt.toLocaleString()}` : "—") },
   { key: "payoff_yrs", label: "Payoff", align: "right", fmt: (m) => (m.payoff_yrs != null ? `${m.payoff_yrs} yr` : "—") },
