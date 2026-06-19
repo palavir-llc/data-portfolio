@@ -5,6 +5,8 @@ import Link from "next/link";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { Reveal } from "@/components/Reveal";
 import { QuadrantScatter, type QuadrantPoint } from "@/components/viz/QuadrantScatter";
+import { MajorTable } from "./MajorTable";
+import { Narrative } from "./Narrative";
 
 interface Overview {
   n_programs_shown: number;
@@ -90,6 +92,9 @@ export function Overview() {
         </div>
       </section>
 
+      {/* scrollytelling narrative intro */}
+      <Narrative />
+
       {/* topline animated stats */}
       {ov && (
         <section className="mx-auto max-w-5xl px-5 py-8">
@@ -174,6 +179,9 @@ export function Overview() {
           </div>
         </section>
       )}
+
+      {/* explore-all-majors table */}
+      <MajorTable />
 
       {/* transition into explorer */}
       <section className="mx-auto max-w-5xl px-5 py-12 text-center">
