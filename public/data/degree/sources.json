@@ -70,6 +70,16 @@
       "attribution": "Data Provided by Zillow Group",
       "notes": "Observed market asking rent (smoothed, stock-weighted).",
       "source_key": "zillow_zori"
+    },
+    {
+      "source_key": "bea_rpp",
+      "name": "BEA Regional Price Parities",
+      "publisher": "U.S. Bureau of Economic Analysis",
+      "url": "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+      "vintage": "2024 (by state)",
+      "license": "public domain",
+      "attribution": "U.S. Bureau of Economic Analysis, Regional Price Parities",
+      "notes": "RPP = 100 is the U.S. average; >100 = costlier. Used for real (cost-of-living-adjusted) pay."
     }
   ]
 }

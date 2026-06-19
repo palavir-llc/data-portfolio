@@ -83,7 +83,7 @@ const median = (xs: number[]) =>
 // Geographic map metrics — all intuitive: "where are the jobs / the best pay / the
 // cheapest rent." (Location quotient was dropped: per-capita concentration confused the
 // plain-English question of where the jobs actually are.)
-type GeoMetricKey = "jobs" | "pay" | "rent";
+type GeoMetricKey = "jobs" | "pay" | "real" | "rent";
 const GEO_METRICS: Record<
   GeoMetricKey,
   {
@@ -111,6 +111,15 @@ const GEO_METRICS: Record<
     higherIsBetter: true,
     fmt: (v) => `$${Math.round(v / 1000)}k`,
     caption: "Median pay for this degree's occupations, state by state (BLS OEWS).",
+  },
+  real: {
+    label: "Real pay",
+    field: "wage", // adjusted by cost of living in the geoData memo
+    scheme: "greens",
+    higherIsBetter: true,
+    fmt: (v) => `$${Math.round(v / 1000)}k`,
+    caption:
+      "Pay adjusted for the state's cost of living (BEA price parities) — where the paycheck actually stretches furthest, not just the biggest nominal number.",
   },
   rent: {
     label: "Rent rule",
@@ -145,6 +154,16 @@ export function DegreeRoiClient() {
   const [geoOcc, setGeoOcc] = useState<string | null>(null); // selected occupation (null = mix)
   const [geoSoc, setGeoSoc] = useState<Record<string, GeoState>>({}); // selected occupation's map
   const [geoMetric, setGeoMetric] = useState<GeoMetricKey>("jobs");
+  const [rpp, setRpp] = useState<Record<string, number>>({}); // state cost-of-living index
+  const [copied, setCopied] = useState(false);
+
+  // cost-of-living index (small, loaded once) for the "real pay" map
+  useEffect(() => {
+    fetch("/data/degree/cost_of_living.json")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => setRpp(d?.rpp ?? {}))
+      .catch(() => {});
+  }, []);
 
   // deep link: initial major comes from ?major=… (SSR-safe; default Computer Science).
   // Major-dependent UI only renders after data loads, so this can't cause a hydration mismatch.
@@ -392,13 +411,25 @@ export function DegreeRoiClient() {
   // state-level choropleth data for the selected metric
   const geoData = useMemo(() => {
     const cfg = GEO_METRICS[geoMetric];
-    return Object.values(activeGeo)
-      .filter((g) => g[cfg.field] != null)
-      .map((g) => {
-        const raw = g[cfg.field] as number;
-        return { state: g.name, state_fips: g.fips, value: cfg.transform ? cfg.transform(raw) : raw, label: g.name };
-      });
-  }, [activeGeo, geoMetric]);
+    return Object.entries(activeGeo)
+      .map(([postal, g]) => {
+        let value: number | null = null;
+        if (geoMetric === "real") {
+          // cost-of-living-adjusted pay: nominal wage / (state price level / 100)
+          const r = rpp[postal];
+          value = g.wage != null && r ? g.wage / (r / 100) : null;
+        } else {
+          const raw = g[cfg.field] as number | null;
+          value = raw == null ? null : cfg.transform ? cfg.transform(raw) : raw;
+        }
+        return value == null
+          ? null
+          : { state: g.name, state_fips: g.fips, value, label: g.name };
+      })
+      .filter(
+        (x): x is { state: string; state_fips: string; value: number; label: string } => x != null,
+      );
+  }, [activeGeo, geoMetric, rpp]);
 
   // top states for the active metric (respecting whether higher or lower is "best")
   const geoTop = useMemo(() => {
@@ -452,6 +483,20 @@ export function DegreeRoiClient() {
           enter, what they earn against the debt they carry, how exposed those jobs are to
           AI, and whether the paycheck covers the rent.
         </p>
+        <button
+          onClick={() => {
+            navigator.clipboard?.writeText(window.location.href).then(
+              () => {
+                setCopied(true);
+                window.setTimeout(() => setCopied(false), 1800);
+              },
+              () => {},
+            );
+          }}
+          className="mt-4 inline-flex items-center gap-2 rounded-full border border-neutral-700 px-4 py-1.5 text-sm text-neutral-300 transition hover:border-purple-500 hover:text-purple-200"
+        >
+          {copied ? "✓ Link copied" : "🔗 Share this major"}
+        </button>
       </header>
 
       {/* ---- picker ---- */}

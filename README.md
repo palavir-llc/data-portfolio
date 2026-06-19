@@ -84,6 +84,7 @@ python -m venv .venv
 .venv/Scripts/python scripts/degree/05_geography.py        # per-state job concentration (location quotient) + affordability maps
 .venv/Scripts/python scripts/degree/06_metro_coords.py     # Census CBSA centroids for the metro dot map
 .venv/Scripts/python scripts/degree/07_outcomes.py         # gender pay gap, gainful-employment flag, net-price ROI
+.venv/Scripts/python scripts/degree/08_cost_of_living.py   # BEA Regional Price Parities -> real (COL-adjusted) pay
 .venv/Scripts/python notebooks/build_notebooks.py          # build + execute the downloadable Jupyter notebooks
 
 pnpm dev
