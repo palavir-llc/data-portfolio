@@ -195,8 +195,44 @@ def main():
                 json.dump(_san(out), f, ensure_ascii=False, allow_nan=False, separators=(",", ":"))
             n_major += 1
 
+    # --- per-OCCUPATION state geography, so the map can drill into a single job ---
+    # (lets the frontend offer "this major's mix" OR a specific occupation it leads to.)
+    soc_set = {f["soc6"] for f in flows if f.get("soc6")}
+    soc_dir = os.path.join(OUT, "by_soc_geo")
+    os.makedirs(soc_dir, exist_ok=True)
+    for old in os.listdir(soc_dir):
+        if old.endswith(".json"):
+            os.remove(os.path.join(soc_dir, old))
+
+    n_soc = 0
+    for soc in soc_set:
+        out = {}
+        for postal, (fips, name) in STATES.items():
+            e = emp.get((postal, soc))
+            wv = wage.get((postal, soc))
+            rent = state_rent.get(postal)
+            has_e = e and e == e
+            has_w = wv is not None and wv == wv
+            if not has_e and not has_w:
+                continue
+            rec = {"fips": fips, "name": name,
+                   "jobs_emp": int(e) if has_e else None,
+                   "wage": int(round(wv)) if has_w else None,
+                   "rent": int(round(rent)) if rent == rent and not pd.isna(rent) else None}
+            if has_w and rec["rent"]:
+                rec["rent_burden"] = round(rec["rent"] * 12 / wv, 3)
+            out[postal] = rec
+        tot = sum(v["jobs_emp"] for v in out.values() if v.get("jobs_emp")) or 1
+        for v in out.values():
+            if v.get("jobs_emp"):
+                v["jobs_share"] = round(100 * v["jobs_emp"] / tot, 2)
+        if out:
+            with open(os.path.join(soc_dir, f"{soc.replace('-', '')}.json"), "w", encoding="utf-8") as f:
+                json.dump(_san(out), f, ensure_ascii=False, allow_nan=False, separators=(",", ":"))
+            n_soc += 1
+
     dump({"states": {p: {"fips": f, "name": n} for p, (f, n) in STATES.items()}}, "geo_states.json")
-    print(f"  geography shards: {n_major} majors x up to {len(STATES)} states")
+    print(f"  geography shards: {n_major} majors, {n_soc} occupations x up to {len(STATES)} states")
     # quick sanity print
     samp = json.load(open(os.path.join(shard_dir, "1407.json"), encoding="utf-8")) \
         if os.path.exists(os.path.join(shard_dir, "1407.json")) else {}

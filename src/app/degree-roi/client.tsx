@@ -129,7 +129,9 @@ export function DegreeRoiClient() {
   const [affordWage, setAffordWage] = useState<Record<string, number>>({});
   const [metroQuery, setMetroQuery] = useState("");
   const [taskAi, setTaskAi] = useState<TaskAiData | null>(null);
-  const [geo, setGeo] = useState<Record<string, GeoState>>({});
+  const [geo, setGeo] = useState<Record<string, GeoState>>({}); // major's blended mix
+  const [geoOcc, setGeoOcc] = useState<string | null>(null); // selected occupation (null = mix)
+  const [geoSoc, setGeoSoc] = useState<Record<string, GeoState>>({}); // selected occupation's map
   const [geoMetric, setGeoMetric] = useState<GeoMetricKey>("jobs");
 
   const [cip4, setCip4] = useState<string>("11.07"); // default: Computer Science
@@ -181,6 +183,7 @@ export function DegreeRoiClient() {
       setShard(sh);
       setAffordWage(aw);
       setGeo(gj);
+      setGeoOcc(null); // reset to the major's mix when the major changes
       setLoadedCip(cip4);
     });
     return () => {
@@ -188,6 +191,21 @@ export function DegreeRoiClient() {
     };
   }, [cip4]);
   const loading = loadedCip !== cip4;
+
+  // load a single occupation's geography when one is picked
+  useEffect(() => {
+    if (!geoOcc) return;
+    let active = true;
+    fetch(`/data/degree/by_soc_geo/${geoOcc.replace("-", "")}.json`)
+      .then((r) => (r.ok ? r.json() : {}))
+      .catch(() => ({}))
+      .then((d: Record<string, GeoState>) => {
+        if (active) setGeoSoc(d);
+      });
+    return () => {
+      active = false;
+    };
+  }, [geoOcc]);
 
   const major = index?.majors.find((m) => m.cip4 === cip4) || null;
 
@@ -288,16 +306,19 @@ export function DegreeRoiClient() {
 
   const affordSorted = useMemo(() => affordRows.slice().sort((a, b) => a.burden - b.burden), [affordRows]);
 
+  // active geography source: a single occupation if picked, else the major's blend
+  const activeGeo = geoOcc ? geoSoc : geo;
+
   // state-level choropleth data for the selected metric
   const geoData = useMemo(() => {
     const cfg = GEO_METRICS[geoMetric];
-    return Object.values(geo)
+    return Object.values(activeGeo)
       .filter((g) => g[cfg.field] != null)
       .map((g) => {
         const raw = g[cfg.field] as number;
         return { state: g.name, state_fips: g.fips, value: cfg.transform ? cfg.transform(raw) : raw, label: g.name };
       });
-  }, [geo, geoMetric]);
+  }, [activeGeo, geoMetric]);
 
   // top states for the active metric (respecting whether higher or lower is "best")
   const geoTop = useMemo(() => {
@@ -593,6 +614,24 @@ export function DegreeRoiClient() {
                 </button>
               ))}
             </div>
+          </div>
+          <div className="mb-3 flex flex-wrap items-center gap-2 text-sm">
+            <span className="text-neutral-500">Job:</span>
+            <select
+              value={geoOcc ?? ""}
+              onChange={(e) => setGeoOcc(e.target.value || null)}
+              className="rounded-md border border-neutral-700 bg-neutral-950 px-3 py-1.5 text-sm text-neutral-200 outline-none focus:border-purple-500"
+            >
+              <option value="">This major&apos;s mix (all jobs)</option>
+              {occFlows.map((f) => (
+                <option key={f.soc6} value={f.soc6 as string}>
+                  {f.occ?.soc_title ?? f.soc_title ?? f.soc6}
+                </option>
+              ))}
+            </select>
+            {geoOcc && Object.keys(geoSoc).length === 0 && (
+              <span className="text-xs text-neutral-600">loading…</span>
+            )}
           </div>
           <Choropleth
             data={geoData}
