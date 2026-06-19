@@ -113,7 +113,12 @@ export function Overview() {
       {/* headline findings */}
       {ov && (
         <section className="mx-auto max-w-5xl px-5 py-10">
-          <h2 className="mb-6 text-2xl font-bold text-neutral-100">What the data says</h2>
+          <div className="mb-6 flex flex-wrap items-baseline justify-between gap-3">
+            <h2 className="text-2xl font-bold text-neutral-100">What the data says</h2>
+            <Link href="/degree-roi/findings" className="text-sm text-purple-400 underline hover:text-purple-300">
+              Read the 5 biggest findings →
+            </Link>
+          </div>
           <div className="grid gap-4 md:grid-cols-2">
             {ov.headline_findings.map((f, i) => (
               <Reveal key={i} delay={i * 90}>

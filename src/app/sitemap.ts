@@ -13,6 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     { url: base, lastModified: new Date("2026-06-19"), changeFrequency: "weekly", priority: 1.0 },
     { url: `${base}/degree-roi`, lastModified: new Date("2026-06-19"), changeFrequency: "weekly", priority: 0.9 },
+    { url: `${base}/degree-roi/findings`, lastModified: new Date("2026-06-19"), changeFrequency: "monthly", priority: 0.75 },
     { url: `${base}/fraud-in-america`, lastModified: new Date("2026-03-25"), changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/wage-topology`, lastModified: new Date("2026-03-20"), changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/hospital-quality`, lastModified: new Date("2026-03-20"), changeFrequency: "monthly", priority: 0.7 },
