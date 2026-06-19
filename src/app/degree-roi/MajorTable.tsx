@@ -38,7 +38,7 @@ const COLS: { key: SortKey; label: string; align: "left" | "right"; fmt: (m: LMa
   },
   { key: "earn_5yr", label: "5-yr pay", align: "right", fmt: (m) => (m.earn_5yr ? `$${m.earn_5yr.toLocaleString()}` : "—") },
   { key: "debt", label: "Debt", align: "right", fmt: (m) => (m.debt ? `$${m.debt.toLocaleString()}` : "—") },
-  { key: "payoff_yrs", label: "Payoff", align: "right", fmt: (m) => (m.payoff_yrs != null ? `${m.payoff_yrs} yr` : "—") },
+  { key: "payoff_yrs", label: "Payoff", align: "right", fmt: (m) => (m.payoff_yrs != null ? `${Math.round(m.payoff_yrs * 10) / 10} yr` : "—") },
   { key: "ai_beta", label: "AI exp.", align: "right", fmt: (m) => (m.ai_beta != null ? `${Math.round(m.ai_beta * 100)}%` : "—") },
   { key: "adjusted_premium", label: "Real premium", align: "right", fmt: (m) => (m.adjusted_premium != null ? `${m.adjusted_premium >= 0 ? "+" : "−"}$${Math.abs(m.adjusted_premium).toLocaleString()}` : "—") },
   { key: "n_programs", label: "Schools", align: "right", fmt: (m) => String(m.n_programs) },

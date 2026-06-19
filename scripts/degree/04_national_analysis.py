@@ -151,7 +151,7 @@ def main():
             "growth_pct": round(100 * (med_e5 - median(e1)) / median(e1), 1)
             if e1 and median(e1) else None,
             "debt": med_debt,
-            "payoff_yrs": median(payoff),
+            "payoff_yrs": round(median(payoff), 1) if median(payoff) is not None else None,
             "debt_to_earn": round(med_debt / med_e5, 2) if (med_debt and med_e5) else None,
             "ai_beta": ai_beta,
             "top_occupation": top_occ,

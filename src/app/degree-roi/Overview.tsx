@@ -6,6 +6,7 @@ import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { Reveal } from "@/components/Reveal";
 import { QuadrantScatter, type QuadrantPoint } from "@/components/viz/QuadrantScatter";
 import { MajorTable } from "./MajorTable";
+import { CompareMajors } from "./CompareMajors";
 import { Narrative } from "./Narrative";
 
 interface Overview {
@@ -179,6 +180,9 @@ export function Overview() {
           </div>
         </section>
       )}
+
+      {/* compare two majors */}
+      <CompareMajors />
 
       {/* explore-all-majors table */}
       <MajorTable />
