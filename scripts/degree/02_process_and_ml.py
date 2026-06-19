@@ -30,6 +30,40 @@ sys.path.insert(0, os.path.dirname(__file__))
 from utils.provenance import Manifest, SOURCES  # noqa: E402
 from utils import crosswalks as xw  # noqa: E402
 
+
+def _san(o):
+    """Recursively convert NaN/inf (and numpy scalars) to JSON-safe values.
+
+    NaN/Infinity are NOT valid JSON — emitting them silently produces files that
+    browsers refuse to parse (fetch().json() throws), which breaks the whole page.
+    They are also not real numbers, so per the integrity rule they become null.
+    """
+    if isinstance(o, float):
+        return None if (o != o or o in (float("inf"), float("-inf"))) else o
+    if isinstance(o, dict):
+        return {k: _san(v) for k, v in o.items()}
+    if isinstance(o, (list, tuple)):
+        return [_san(v) for v in o]
+    if isinstance(o, np.floating):
+        f = float(o)
+        return None if (f != f or f in (float("inf"), float("-inf"))) else f
+    if isinstance(o, np.integer):
+        return int(o)
+    return o
+
+
+# Route every json.dump in this module through the sanitizer with allow_nan=False so
+# an invalid number can never silently ship to the frontend again.
+_orig_json_dump = json.dump
+
+
+def _safe_json_dump(obj, fp, **kw):
+    kw.setdefault("allow_nan", False)
+    return _orig_json_dump(_san(obj), fp, **kw)
+
+
+json.dump = _safe_json_dump
+
 ROOT = os.path.join(os.path.dirname(__file__), "..", "..")
 RAW = os.path.join(ROOT, "data", "raw", "degree")
 # App fetches "/data/degree/..." from public/; data/processed mirrors it as the

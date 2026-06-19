@@ -38,6 +38,34 @@ warnings.filterwarnings("ignore")
 sys.path.insert(0, os.path.dirname(__file__))
 from utils import crosswalks as xw  # noqa: E402
 
+
+def _san(o):
+    """Recursively convert NaN/inf (and numpy scalars) to JSON-safe null. NaN/Infinity
+    are invalid JSON and break browser fetch().json()."""
+    if isinstance(o, float):
+        return None if (o != o or o in (float("inf"), float("-inf"))) else o
+    if isinstance(o, dict):
+        return {k: _san(v) for k, v in o.items()}
+    if isinstance(o, (list, tuple)):
+        return [_san(v) for v in o]
+    if isinstance(o, np.floating):
+        f = float(o)
+        return None if (f != f or f in (float("inf"), float("-inf"))) else f
+    if isinstance(o, np.integer):
+        return int(o)
+    return o
+
+
+_orig_json_dump = json.dump
+
+
+def _safe_json_dump(obj, fp, **kw):
+    kw.setdefault("allow_nan", False)
+    return _orig_json_dump(_san(obj), fp, **kw)
+
+
+json.dump = _safe_json_dump
+
 ROOT = os.path.join(os.path.dirname(__file__), "..", "..")
 RAW = os.path.join(ROOT, "data", "raw", "degree")
 OUT = os.path.join(ROOT, "public", "data", "degree")
