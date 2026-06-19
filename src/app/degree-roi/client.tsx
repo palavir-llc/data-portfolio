@@ -458,12 +458,13 @@ export function DegreeRoiClient() {
       <section className="mb-10 rounded-xl border border-neutral-800 bg-neutral-900/40 p-5">
         <div className="grid gap-4 sm:grid-cols-2">
           <div>
-            <label className="mb-1 block text-xs uppercase tracking-wide text-neutral-500">
+            <label className="mb-1 block text-xs uppercase tracking-wide text-neutral-400">
               Major
             </label>
             <input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
+              aria-label="Search majors"
               placeholder="Search majors (e.g. nursing, computer science)…"
               className="w-full rounded-md border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-purple-500"
             />
@@ -480,14 +481,14 @@ export function DegreeRoiClient() {
                   }`}
                 >
                   {m.cip_title}
-                  <span className="ml-2 text-xs text-neutral-500">{m.n_programs} programs</span>
+                  <span className="ml-2 text-xs text-neutral-400">{m.n_programs} programs</span>
                 </button>
               ))}
             </div>
           </div>
 
           <div>
-            <label className="mb-1 block text-xs uppercase tracking-wide text-neutral-500">
+            <label className="mb-1 block text-xs uppercase tracking-wide text-neutral-400">
               Credential
             </label>
             <div className="flex flex-wrap gap-2">
@@ -510,7 +511,7 @@ export function DegreeRoiClient() {
                 <span className="text-neutral-200">{major.cip_title}</span> — showing{" "}
                 {stats.n} schools with reported earnings
                 {stats.suppressed > 0 && (
-                  <span className="text-neutral-500">
+                  <span className="text-neutral-400">
                     {" "}
                     ({stats.suppressed} more were privacy-suppressed by the source and are not shown)
                   </span>
@@ -542,15 +543,15 @@ export function DegreeRoiClient() {
         <h2 className="mb-1 text-xl font-semibold text-neutral-100">
           What it pays vs. what it costs
         </h2>
-        <p className="mb-4 text-sm text-neutral-500">
+        <p className="mb-4 text-sm text-neutral-400">
           Every dot is a school offering this major. Right is better pay; lower is less
           debt. Colour shows how fast the debt pays off. Source: U.S. Dept. of Education
           College Scorecard, Field of Study (5-year earnings; Title&nbsp;IV completers).
         </p>
         {loading ? (
-          <p className="text-neutral-500">Loading programs…</p>
+          <p className="text-neutral-400">Loading programs…</p>
         ) : programs.length === 0 ? (
-          <p className="text-neutral-500">
+          <p className="text-neutral-400">
             No schools report earnings for this major at this credential level.
           </p>
         ) : (
@@ -562,7 +563,7 @@ export function DegreeRoiClient() {
       {credLadder.length > 1 && (
         <section className="mb-12">
           <h2 className="mb-1 text-xl font-semibold text-neutral-100">Does a higher degree pay off?</h2>
-          <p className="mb-4 max-w-3xl text-sm text-neutral-500">
+          <p className="mb-4 max-w-3xl text-sm text-neutral-400">
             Median 5-year earnings by credential level for this field. More school usually means
             more pay — but how much more varies enormously by field (and this ignores the extra debt
             and years).
@@ -584,7 +585,7 @@ export function DegreeRoiClient() {
                         {fmtUsd(s.median)}
                       </div>
                     </div>
-                    <div className="w-24 shrink-0 text-right text-xs text-neutral-500">
+                    <div className="w-24 shrink-0 text-right text-xs text-neutral-400">
                       {s.cr !== "3" && base ? (
                         <span className={lift >= 0 ? "text-emerald-400" : "text-rose-400"}>
                           {lift >= 0 ? "+" : "−"}
@@ -606,14 +607,14 @@ export function DegreeRoiClient() {
       {majorOut && (
         <section className="mb-12">
           <h2 className="mb-1 text-xl font-semibold text-neutral-100">The fine print on outcomes</h2>
-          <p className="mb-4 max-w-3xl text-sm text-neutral-500">
+          <p className="mb-4 max-w-3xl text-sm text-neutral-400">
             Three things the headline number hides — the pay gap between men and women in this field,
             whether the debt is sustainable, and the real net cost.
           </p>
           <div className="grid gap-4 sm:grid-cols-3">
             {majorOut.earn_male != null && majorOut.earn_female != null && (
               <div className="rounded-xl border border-neutral-800 bg-neutral-900/40 p-4">
-                <div className="text-xs uppercase tracking-wide text-neutral-500">Pay gap by gender</div>
+                <div className="text-xs uppercase tracking-wide text-neutral-400">Pay gap by gender</div>
                 <div className="mt-1 text-2xl font-bold text-neutral-100">
                   {majorOut.gender_gap_pct}%
                 </div>
@@ -628,21 +629,21 @@ export function DegreeRoiClient() {
             )}
             {majorOut.ge_fail_rate != null && (
               <div className="rounded-xl border border-neutral-800 bg-neutral-900/40 p-4">
-                <div className="text-xs uppercase tracking-wide text-neutral-500">Debt sustainability</div>
+                <div className="text-xs uppercase tracking-wide text-neutral-400">Debt sustainability</div>
                 <div className={`mt-1 text-2xl font-bold ${majorOut.ge_fail_rate > 25 ? "text-rose-400" : majorOut.ge_fail_rate > 5 ? "text-amber-400" : "text-emerald-400"}`}>
                   {majorOut.ge_fail_rate}%
                 </div>
-                <div className="mt-2 text-xs text-neutral-500">
+                <div className="mt-2 text-xs text-neutral-400">
                   of programs would fail the federal debt-to-earnings test (loan payment &gt; 8% of pay).
                 </div>
               </div>
             )}
             <div className="rounded-xl border border-neutral-800 bg-neutral-900/40 p-4">
-              <div className="text-xs uppercase tracking-wide text-neutral-500">Net price &amp; payback</div>
+              <div className="text-xs uppercase tracking-wide text-neutral-400">Net price &amp; payback</div>
               <div className="mt-1 text-2xl font-bold text-purple-300">
                 {majorOut.net_price != null ? `${fmtUsd(majorOut.net_price)}/yr` : "—"}
               </div>
-              <div className="mt-2 text-xs text-neutral-500">
+              <div className="mt-2 text-xs text-neutral-400">
                 {majorOut.net_price_payoff != null
                   ? `~${majorOut.net_price_payoff} yrs to recoup the true cost at 10% of pay`
                   : "Net-price data unavailable for this field."}
@@ -655,7 +656,7 @@ export function DegreeRoiClient() {
       {/* ---- where it leads + AI ---- */}
       <section className="mb-12">
         <h2 className="mb-1 text-xl font-semibold text-neutral-100">Where this degree leads</h2>
-        <p className="mb-4 text-sm text-neutral-500">
+        <p className="mb-4 text-sm text-neutral-400">
           The occupations graduates of this field most commonly enter, weighted by{" "}
           {occFlows[0]?.weight_method?.startsWith("oews")
             ? "occupational employment size"
@@ -669,7 +670,7 @@ export function DegreeRoiClient() {
         </p>
         <div className="space-y-2">
           {occFlows.length === 0 && (
-            <p className="text-neutral-500">No occupation mapping available for this major.</p>
+            <p className="text-neutral-400">No occupation mapping available for this major.</p>
           )}
           {occFlows.map((f) => {
             const beta = f.occ?.ai_beta;
@@ -685,7 +686,7 @@ export function DegreeRoiClient() {
                   <div className="text-sm text-neutral-200">
                     {f.occ?.soc_title ?? f.soc_title ?? f.soc6}
                   </div>
-                  <div className="text-xs text-neutral-500">
+                  <div className="text-xs text-neutral-400">
                     {f.occ?.wage_ref_annual
                       ? `${fmtUsd(f.occ.wage_ref_annual)} avg · `
                       : ""}
@@ -717,7 +718,7 @@ export function DegreeRoiClient() {
           <h2 className="mb-1 text-xl font-semibold text-neutral-100">
             Three ways to measure AI exposure — do they agree?
           </h2>
-          <p className="mb-4 max-w-3xl text-sm text-neutral-500">
+          <p className="mb-4 max-w-3xl text-sm text-neutral-400">
             Two published exposure measures (Eloundou β, AIOE) plus a third I derived
             independently from the <em>text</em> of O*NET task statements using{" "}
             {taskAi.embedding_backend?.startsWith("sentence-transformers")
@@ -734,7 +735,7 @@ export function DegreeRoiClient() {
               ["AIOE ↔ text embedding", taskAi.correlations.aioe_vs_embedding],
             ].map(([label, v]) => (
               <div key={label as string} className="rounded-lg border border-neutral-800 bg-neutral-900/40 px-4 py-2">
-                <div className="text-xs text-neutral-500">{label as string}</div>
+                <div className="text-xs text-neutral-400">{label as string}</div>
                 <div className="text-lg font-bold text-purple-300">
                   ρ = {v == null ? "—" : (v as number).toFixed(2)}
                 </div>
@@ -759,7 +760,7 @@ export function DegreeRoiClient() {
           <div className="mb-3 flex flex-wrap items-end justify-between gap-3">
             <div>
               <h2 className="text-xl font-semibold text-neutral-100">This degree across the country</h2>
-              <p className="mt-1 max-w-2xl text-sm text-neutral-500">
+              <p className="mt-1 max-w-2xl text-sm text-neutral-400">
                 {GEO_METRICS[geoMetric].caption}
                 {geoTop.length > 0 && (
                   <>
@@ -790,8 +791,9 @@ export function DegreeRoiClient() {
             </div>
           </div>
           <div className="mb-3 flex flex-wrap items-center gap-2 text-sm">
-            <span className="text-neutral-500">Job:</span>
+            <span className="text-neutral-400">Job:</span>
             <select
+              aria-label="Choose a job to show on the map"
               value={geoOcc ?? ""}
               onChange={(e) => setGeoOcc(e.target.value || null)}
               className="rounded-md border border-neutral-700 bg-neutral-950 px-3 py-1.5 text-sm text-neutral-200 outline-none focus:border-purple-500"
@@ -804,13 +806,14 @@ export function DegreeRoiClient() {
               ))}
             </select>
             {geoOcc && Object.keys(geoSoc).length === 0 && (
-              <span className="text-xs text-neutral-600">loading…</span>
+              <span className="text-xs text-neutral-400">loading…</span>
             )}
             {geoMetric === "rent" && (
               <span className="ml-auto flex items-center gap-2 text-sm">
-                <span className="whitespace-nowrap text-neutral-500">Rent rule: {rentRule}%</span>
+                <span className="whitespace-nowrap text-neutral-400">Rent rule: {rentRule}%</span>
                 <input
                   type="range"
+                  aria-label="Rent rule: maximum percent of pay on rent"
                   min={20}
                   max={50}
                   step={5}
@@ -837,7 +840,7 @@ export function DegreeRoiClient() {
           <h2 className="mb-1 text-xl font-semibold text-neutral-100">
             Can the paycheck cover the rent?
           </h2>
-          <p className="mb-4 max-w-3xl text-sm text-neutral-500">
+          <p className="mb-4 max-w-3xl text-sm text-neutral-400">
             The rule of thumb: spend no more than <span className="text-neutral-300">{rentRule}%</span>{" "}
             of your pay on rent. Below, {affordOcc ? "this occupation" : "this major"}&apos;s typical pay
             (BLS OEWS metro wages) against current market rent. Green clears the line, amber is tight,
@@ -848,8 +851,9 @@ export function DegreeRoiClient() {
           {/* controls: job, rule slider, metro filter */}
           <div className="mb-4 flex flex-wrap items-center gap-x-6 gap-y-3">
             <div className="flex items-center gap-2 text-sm">
-              <span className="text-neutral-500">Job:</span>
+              <span className="text-neutral-400">Job:</span>
               <select
+                aria-label="Choose a job for affordability"
                 value={affordOcc ?? ""}
                 onChange={(e) => setAffordOcc(e.target.value || null)}
                 className="rounded-md border border-neutral-700 bg-neutral-950 px-3 py-1.5 text-sm text-neutral-200 outline-none focus:border-purple-500"
@@ -863,9 +867,10 @@ export function DegreeRoiClient() {
               </select>
             </div>
             <div className="flex items-center gap-3 text-sm">
-              <span className="whitespace-nowrap text-neutral-500">Rent rule: {rentRule}%</span>
+              <span className="whitespace-nowrap text-neutral-400">Rent rule: {rentRule}%</span>
               <input
                 type="range"
+                aria-label="Rent rule: maximum percent of pay on rent"
                 min={20}
                 max={50}
                 step={5}
@@ -876,7 +881,7 @@ export function DegreeRoiClient() {
             </div>
             <div className="rounded-md border border-neutral-800 bg-neutral-900/40 px-3 py-1 text-sm">
               <span className="font-semibold text-emerald-400">{affordCount.ok}</span>
-              <span className="text-neutral-500"> of {affordCount.total} metros under {rentRule}%</span>
+              <span className="text-neutral-400"> of {affordCount.total} metros under {rentRule}%</span>
             </div>
           </div>
 
@@ -884,6 +889,7 @@ export function DegreeRoiClient() {
             <input
               value={metroQuery}
               onChange={(e) => setMetroQuery(e.target.value)}
+              aria-label="Filter metros"
               placeholder="Filter metros (e.g. Austin, Denver)…"
               className="w-full max-w-sm rounded-md border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-purple-500"
             />
@@ -918,7 +924,7 @@ export function DegreeRoiClient() {
                   className="flex items-center gap-3 rounded-lg border border-neutral-800 bg-neutral-900/40 px-3 py-2"
                 >
                   <div className="flex-1 truncate text-sm text-neutral-200">{r.name}</div>
-                  <div className="hidden text-xs text-neutral-500 sm:block">
+                  <div className="hidden text-xs text-neutral-400 sm:block">
                     {fmtUsd(r.wage)} · {fmtUsd(r.rent)}/mo
                   </div>
                   {/* bar with the rent-rule line marked */}
@@ -936,7 +942,7 @@ export function DegreeRoiClient() {
           </div>
           )}
           {affordView === "bars" && affordSorted.length === 0 && (
-            <p className="text-sm text-neutral-500">No metros match that filter.</p>
+            <p className="text-sm text-neutral-400">No metros match that filter.</p>
           )}
         </section>
       )}
@@ -949,14 +955,14 @@ export function DegreeRoiClient() {
               <h2 className="text-lg font-semibold text-neutral-100">
                 Is it the major — or who gets in?
               </h2>
-              <p className="mt-1 mb-4 text-sm text-neutral-500">
+              <p className="mt-1 mb-4 text-sm text-neutral-400">
                 The raw earnings edge vs. the edge that <em>survives</em> adjusting for
                 institution selectivity, price, completion and region. A modelled estimate
                 (observational, not causal), not a source figure.
               </p>
               <PremiumBar label="Raw premium" value={majorPremium.raw_premium} />
               <PremiumBar label="Selection-adjusted" value={majorPremium.adjusted_premium} adjusted />
-              <p className="mt-3 text-xs text-neutral-500">
+              <p className="mt-3 text-xs text-neutral-400">
                 vs. the all-majors average of {fmtUsd(premium.model.grand_mean_earn_5yr)}.{" "}
                 {majorPremium.adjusted_premium < majorPremium.raw_premium - 3000
                   ? "Much of the edge reflects who enrolls."
@@ -971,7 +977,7 @@ export function DegreeRoiClient() {
           {clusterMix.length > 0 && clusters && (
             <div className="rounded-xl border border-neutral-800 bg-neutral-900/40 p-5">
               <h2 className="text-lg font-semibold text-neutral-100">Earnings trajectory mix</h2>
-              <p className="mt-1 mb-4 text-sm text-neutral-500">
+              <p className="mt-1 mb-4 text-sm text-neutral-400">
                 K-Means grouping of programs by the <em>shape</em> of early-career earnings
                 (1→5 years). A lens over real earnings; silhouette&nbsp;{clusters.silhouette}.
               </p>
@@ -983,7 +989,7 @@ export function DegreeRoiClient() {
                     </div>
                     <div className="flex-1">
                       <div className="text-sm text-neutral-200">{c.label}</div>
-                      <div className="text-xs text-neutral-500">
+                      <div className="text-xs text-neutral-400">
                         {fmtUsd(c.median_earn_1yr)} → {fmtUsd(c.median_earn_5yr)} (+
                         {c.median_growth_pct}%)
                       </div>
@@ -1019,7 +1025,7 @@ export function DegreeRoiClient() {
       <section className="mb-8 rounded-xl border border-neutral-800 bg-neutral-900/40 p-5">
         <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2">
           <h2 className="text-lg font-semibold text-neutral-100">Sources, method &amp; downloads</h2>
-          {dataDate && <span className="text-xs text-neutral-500">Data refreshed {dataDate}</span>}
+          {dataDate && <span className="text-xs text-neutral-400">Data refreshed {dataDate}</span>}
         </div>
         <p className="mb-5 text-sm text-neutral-400">
           Only real, source-traceable numbers are shown. Privacy-suppressed cells are left
@@ -1062,7 +1068,7 @@ export function DegreeRoiClient() {
                 </li>
               ))}
             </ul>
-            <p className="mt-2 text-xs text-neutral-600">All ~2,200 JSON files ship in the repo.</p>
+            <p className="mt-2 text-xs text-neutral-400">All ~2,200 JSON files ship in the repo.</p>
           </div>
           <div className="rounded-lg border border-neutral-800 bg-neutral-950/40 p-4">
             <h3 className="mb-2 text-sm font-semibold text-neutral-200">Pipeline &amp; code</h3>
@@ -1078,7 +1084,7 @@ export function DegreeRoiClient() {
                 </a>
               </li>
             </ul>
-            <p className="mt-2 text-xs text-neutral-600">Download → run → reproduce every number.</p>
+            <p className="mt-2 text-xs text-neutral-400">Download → run → reproduce every number.</p>
           </div>
         </div>
 
@@ -1086,10 +1092,10 @@ export function DegreeRoiClient() {
         <ul className="space-y-2 text-sm">
           {sources.map((s) => (
             <li key={s.source_key} className="text-neutral-400">
-              <a href={s.url} className="text-purple-400 hover:text-purple-300" target="_blank" rel="noreferrer">
+              <a href={s.url} className="text-purple-400 underline hover:text-purple-300" target="_blank" rel="noreferrer">
                 {s.name}
               </a>{" "}
-              — {s.publisher}. <span className="text-neutral-500">{s.vintage}. {s.license}. {s.attribution}.</span>
+              — {s.publisher}. <span className="text-neutral-400">{s.vintage}. {s.license}. {s.attribution}.</span>
             </li>
           ))}
         </ul>
@@ -1135,11 +1141,11 @@ function Stat({
 }) {
   return (
     <div className="rounded-xl border border-neutral-800 bg-neutral-900/40 p-4">
-      <div className="text-xs uppercase tracking-wide text-neutral-500">{label}</div>
+      <div className="text-xs uppercase tracking-wide text-neutral-400">{label}</div>
       <div className={`mt-1 text-2xl font-bold ${accent ? "text-purple-300" : "text-neutral-100"}`}>
         {value}
       </div>
-      {hint && <div className="text-[11px] text-neutral-600">{hint}</div>}
+      {hint && <div className="text-[11px] text-neutral-400">{hint}</div>}
     </div>
   );
 }

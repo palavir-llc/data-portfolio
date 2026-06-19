@@ -81,7 +81,7 @@ export function MajorTable() {
   return (
     <section className="mx-auto max-w-5xl px-5 py-10">
       <h2 className="text-2xl font-bold text-neutral-100">Explore every major</h2>
-      <p className="mt-1 mb-4 text-sm text-neutral-500">
+      <p className="mt-1 mb-4 text-sm text-neutral-400">
         All {majors.length} Bachelor&apos;s majors with reported earnings. Click a column to sort;
         search to filter. &ldquo;Real premium&rdquo; is the earnings edge that survives adjusting for
         who enrolls.
@@ -89,6 +89,7 @@ export function MajorTable() {
       <input
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        aria-label="Search majors"
         placeholder="Search majors…"
         className="mb-3 w-full max-w-sm rounded-md border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-purple-500"
       />
@@ -128,7 +129,7 @@ export function MajorTable() {
           </tbody>
         </table>
       </div>
-      {rows.length === 0 && <p className="mt-3 text-sm text-neutral-500">No majors match that search.</p>}
+      {rows.length === 0 && <p className="mt-3 text-sm text-neutral-400">No majors match that search.</p>}
     </section>
   );
 }

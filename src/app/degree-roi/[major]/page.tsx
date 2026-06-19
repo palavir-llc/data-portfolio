@@ -35,9 +35,9 @@ export async function generateMetadata({
 function Stat({ label, value, sub, accent }: { label: string; value: string; sub?: string; accent?: boolean }) {
   return (
     <div className="rounded-xl border border-neutral-800 bg-neutral-900/40 p-4">
-      <div className="text-xs uppercase tracking-wide text-neutral-500">{label}</div>
+      <div className="text-xs uppercase tracking-wide text-neutral-400">{label}</div>
       <div className={`mt-1 text-2xl font-bold ${accent ? "text-purple-300" : "text-neutral-100"}`}>{value}</div>
-      {sub && <div className="text-[11px] text-neutral-600">{sub}</div>}
+      {sub && <div className="text-[11px] text-neutral-400">{sub}</div>}
     </div>
   );
 }
@@ -99,7 +99,7 @@ export default async function MajorPage({ params }: { params: Promise<{ major: s
         </Link>
       </div>
 
-      <p className="mt-8 text-xs text-neutral-600">
+      <p className="mt-8 text-xs text-neutral-400">
         Data: U.S. Dept. of Education College Scorecard, BLS OEWS, O*NET, AI-exposure measures
         (Eloundou/AIOE), Zillow. Earnings reflect federally-aided graduates; see the full story for
         methodology and limitations.

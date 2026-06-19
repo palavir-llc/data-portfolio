@@ -132,7 +132,7 @@ export function Overview() {
         <section className="mx-auto max-w-5xl px-5 py-10">
           <Reveal>
             <h2 className="text-2xl font-bold text-neutral-100">The pay–AI map of every major</h2>
-            <p className="mb-5 mt-1 max-w-3xl text-sm text-neutral-500">
+            <p className="mb-5 mt-1 max-w-3xl text-sm text-neutral-400">
               Each dot is a Bachelor&apos;s major, placed by what graduates earn (across) and how
               exposed their jobs are to generative AI (up). The top-right{" "}
               <span className="text-rose-400">danger zone</span> is the uncomfortable one: well paid{" "}
@@ -191,7 +191,7 @@ export function Overview() {
       <section className="mx-auto max-w-5xl px-5 py-12 text-center">
         <Reveal>
           <h2 className="text-2xl font-bold text-neutral-100">Now find yours</h2>
-          <p className="mx-auto mt-2 max-w-xl text-sm text-neutral-500">
+          <p className="mx-auto mt-2 max-w-xl text-sm text-neutral-400">
             Pick a school and major below to trace it the whole way through — the jobs, the payoff,
             the AI exposure, and whether the pay covers the rent where you want to live.
           </p>
@@ -209,7 +209,7 @@ function Topline({ label, value, prefix = "", suffix = "" }: { label: string; va
         <AnimatedCounter value={value} />
         {suffix}
       </div>
-      <div className="mt-1 text-[11px] uppercase tracking-wide text-neutral-500">{label}</div>
+      <div className="mt-1 text-[11px] uppercase tracking-wide text-neutral-400">{label}</div>
     </div>
   );
 }
@@ -226,7 +226,7 @@ function Leaderboard({
     <Reveal>
       <div className="rounded-xl border border-neutral-800 bg-neutral-900/40 p-5">
         <h3 className="text-lg font-semibold text-neutral-100">{title}</h3>
-        <p className="mb-4 text-xs text-neutral-500">{sub}</p>
+        <p className="mb-4 text-xs text-neutral-400">{sub}</p>
         <div className="space-y-2.5">
           {items.map((it, i) => (
             <div key={it.label + i}>

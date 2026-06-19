@@ -31,6 +31,7 @@ const METRICS: { label: string; key: keyof Row; fmt: (v: number) => string; high
 function MajorPicker({ rows, value, set }: { rows: Row[]; value: string; set: (v: string) => void }) {
   return (
     <select
+      aria-label="Choose a major to compare"
       value={value}
       onChange={(e) => set(e.target.value)}
       className="w-full rounded-md border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm text-neutral-200 outline-none focus:border-purple-500"
@@ -78,7 +79,7 @@ export function CompareMajors() {
   return (
     <section className="mx-auto max-w-5xl px-5 py-10">
       <h2 className="text-2xl font-bold text-neutral-100">Compare two majors</h2>
-      <p className="mb-5 mt-1 text-sm text-neutral-500">
+      <p className="mb-5 mt-1 text-sm text-neutral-400">
         Put any two fields head to head. The better outcome on each row is highlighted.
       </p>
       <div className="overflow-hidden rounded-xl border border-neutral-800">
