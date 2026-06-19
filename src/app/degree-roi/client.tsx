@@ -311,6 +311,27 @@ export function DegreeRoiClient() {
   }, [shard, clusters, cred]);
 
   // affordability: rent burden of this major's typical pay, metro by metro
+  // credential ladder: median 5-yr earnings by degree level for this major (from the
+  // shard, which holds every credential level — not just the Bachelor's we chart above).
+  const credLadder = useMemo(() => {
+    if (!shard || !index) return [];
+    const byCred = new Map<string, number[]>();
+    for (const p of shard) {
+      if (p.e5 != null) {
+        if (!byCred.has(p.cr)) byCred.set(p.cr, []);
+        byCred.get(p.cr)!.push(p.e5);
+      }
+    }
+    return ["1", "2", "3", "4", "5", "6", "7", "8"]
+      .filter((c) => (byCred.get(c)?.length ?? 0) >= 3)
+      .map((c) => ({
+        cr: c,
+        label: index.credlevels[c] ?? `Level ${c}`,
+        median: median(byCred.get(c)!) as number,
+        n: byCred.get(c)!.length,
+      }));
+  }, [shard, index]);
+
   // active wage source: a single occupation if picked, else the major's mix
   const activeAffordWage = affordOcc ? affordSocWage : affordWage;
 
@@ -508,6 +529,50 @@ export function DegreeRoiClient() {
           <RoiScatter data={programs} highlightId={hovered} onHover={setHovered} />
         )}
       </section>
+
+      {/* ---- credential ladder ---- */}
+      {credLadder.length > 1 && (
+        <section className="mb-12">
+          <h2 className="mb-1 text-xl font-semibold text-neutral-100">Does a higher degree pay off?</h2>
+          <p className="mb-4 max-w-3xl text-sm text-neutral-500">
+            Median 5-year earnings by credential level for this field. More school usually means
+            more pay — but how much more varies enormously by field (and this ignores the extra debt
+            and years).
+          </p>
+          <div className="space-y-2">
+            {(() => {
+              const max = Math.max(...credLadder.map((s) => s.median));
+              const base = credLadder.find((s) => s.cr === "3")?.median ?? credLadder[0].median;
+              return credLadder.map((s) => {
+                const lift = s.median - base;
+                return (
+                  <div key={s.cr} className="flex items-center gap-3">
+                    <div className="w-36 shrink-0 text-sm text-neutral-300">{s.label}</div>
+                    <div className="relative h-6 flex-1 overflow-hidden rounded bg-neutral-800/60">
+                      <div
+                        className="flex h-full items-center rounded bg-gradient-to-r from-purple-600 to-fuchsia-500 pl-2 text-xs font-medium text-white"
+                        style={{ width: `${Math.max(12, (s.median / max) * 100)}%` }}
+                      >
+                        {fmtUsd(s.median)}
+                      </div>
+                    </div>
+                    <div className="w-24 shrink-0 text-right text-xs text-neutral-500">
+                      {s.cr !== "3" && base ? (
+                        <span className={lift >= 0 ? "text-emerald-400" : "text-rose-400"}>
+                          {lift >= 0 ? "+" : "−"}
+                          {fmtUsd(Math.abs(lift))}
+                        </span>
+                      ) : (
+                        "baseline"
+                      )}
+                    </div>
+                  </div>
+                );
+              });
+            })()}
+          </div>
+        </section>
+      )}
 
       {/* ---- where it leads + AI ---- */}
       <section className="mb-12">
