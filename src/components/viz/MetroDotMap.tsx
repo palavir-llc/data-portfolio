@@ -4,6 +4,7 @@
 import { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import * as topojson from "topojson-client";
+import { escapeHtml } from "@/lib/html";
 
 interface MetroPoint {
   cbsa: number;
@@ -92,7 +93,7 @@ export function MetroDotMap({ wageByCbsa, rule, width = 860, height = 520 }: Met
         setTip({
           x: mx,
           y: my,
-          html: `<strong>${p.name}</strong><br/>rent $${p.rent.toLocaleString()}/mo${
+          html: `<strong>${escapeHtml(p.name)}</strong><br/>rent $${p.rent.toLocaleString()}/mo${
             wage ? `<br/>pay $${wage.toLocaleString()} · ${burden}% on rent` : "<br/>no wage data here"
           }`,
         });

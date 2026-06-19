@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { promises as fs } from "fs";
 import path from "path";
+import { jsonLd } from "@/lib/html";
 
 export const metadata: Metadata = {
   title: "5 things we learned about whether your degree is worth it | Data Stories",
@@ -103,7 +104,7 @@ export default async function FindingsPage() {
 
   return (
     <main className="mx-auto max-w-3xl px-5 py-12 text-neutral-200">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(articleSchema) }} />
       <Link href="/degree-roi" className="text-sm text-purple-400 hover:text-purple-300">
         ← Where Your Degree Takes You
       </Link>

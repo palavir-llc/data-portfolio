@@ -1,6 +1,7 @@
 import { FraudInAmericaClient } from "./client";
 import type { Metadata } from "next";
 import Script from "next/script";
+import { jsonLd } from "@/lib/html";
 
 export const metadata: Metadata = {
   title: "The State of Fraud in America | Data Stories",
@@ -59,8 +60,8 @@ const datasetSchema = {
 export default function FraudInAmericaPage() {
   return (
     <>
-      <Script id="article-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-      <Script id="dataset-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetSchema) }} />
+      <Script id="article-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(articleSchema) }} />
+      <Script id="dataset-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(datasetSchema) }} />
       <FraudInAmericaClient />
     </>
   );

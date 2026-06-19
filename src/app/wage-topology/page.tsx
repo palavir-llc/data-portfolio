@@ -1,5 +1,6 @@
 import { WageTopologyClient } from "./client";
 import type { Metadata } from "next";
+import { jsonLd } from "@/lib/html";
 
 export const metadata: Metadata = {
   title: "The Wage Topology | Data Stories",
@@ -42,8 +43,8 @@ export default function WageTopologyPage() {
   };
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(datasetSchema) }} />
       <WageTopologyClient />
     </>
   );

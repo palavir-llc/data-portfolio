@@ -1,6 +1,7 @@
 import { DegreeRoiClient } from "./client";
 import { Overview } from "./Overview";
 import type { Metadata } from "next";
+import { jsonLd } from "@/lib/html";
 
 export const metadata: Metadata = {
   title: "Where Your Degree Takes You | Data Stories",
@@ -47,8 +48,8 @@ export default function DegreeRoiPage() {
   };
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(datasetSchema) }} />
       <Overview />
       <DegreeRoiClient />
     </>

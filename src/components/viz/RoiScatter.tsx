@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import * as d3 from "d3";
+import { escapeHtml } from "@/lib/html";
 
 export interface RoiPoint {
   id: string;
@@ -103,7 +104,7 @@ export function RoiScatter({
         setTooltip({
           x: mx,
           y: my,
-          html: `<strong>${d.label}</strong><br/>5yr earnings: $${d.earn.toLocaleString()}<br/>${
+          html: `<strong>${escapeHtml(d.label)}</strong><br/>5yr earnings: $${d.earn.toLocaleString()}<br/>${
             d.debt != null ? `Debt: $${d.debt.toLocaleString()}<br/>` : "Debt: not reported<br/>"
           }${d.payoff != null ? `~${d.payoff} yrs to pay off` : ""}`,
         });

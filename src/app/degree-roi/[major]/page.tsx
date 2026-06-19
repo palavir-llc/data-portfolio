@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getMajors, getMajorBySlug } from "./data";
+import { jsonLd } from "@/lib/html";
 
 export const dynamicParams = false;
 
@@ -62,7 +63,7 @@ export default async function MajorPage({ params }: { params: Promise<{ major: s
 
   return (
     <main className="mx-auto max-w-4xl px-5 py-12 text-neutral-200">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(articleSchema) }} />
       <Link href="/degree-roi" className="text-sm text-purple-400 hover:text-purple-300">
         ← Where Your Degree Takes You
       </Link>

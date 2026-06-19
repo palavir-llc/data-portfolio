@@ -1,5 +1,6 @@
 import { HospitalQualityClient } from "./client";
 import type { Metadata } from "next";
+import { jsonLd } from "@/lib/html";
 
 export const metadata: Metadata = {
   title: "Hospital Quality Survival Landscape | Data Stories",
@@ -42,8 +43,8 @@ export default function HospitalQualityPage() {
   };
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(datasetSchema) }} />
       <HospitalQualityClient />
     </>
   );
