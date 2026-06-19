@@ -17,7 +17,7 @@ source-traceable figure; privacy-suppressed cells are shown as missing, never im
 
 **ML:** Selection-Adjusted Premium (residualization), K-Means Earnings-Trajectory Clusters, Task→AI Sentence Embeddings (all-MiniLM-L6-v2) + PCA, CIP→SOC Weighting, national landscape + cross-major correlations
 **Viz:** Animated landing (count-up stats, scroll-reveal), Pay–AI Quadrant, ranking leaderboards, US choropleth maps (job concentration + affordability), ROI Scatter, Degree→Job flows, AI-Exposure Bars + reconciliation map, Affordability Bars
-**Data:** College Scorecard, BLS OEWS, NCES CIP→SOC, O*NET, Eloundou/AIOE AI exposure, Zillow ZORI
+**Data:** College Scorecard, BLS OEWS, NCES CIP→SOC, O*NET, Eloundou/AIOE AI exposure, Zillow ZORI, BEA Regional Price Parities, BLS Employment Projections (10-yr job-growth outlook, via Projections Central), Census ACS PUMS (empirical field-of-degree → occupation flows)
 **Route:** `/degree-roi`
 
 ### 1. Hospital Quality Survival Landscape
@@ -85,6 +85,8 @@ python -m venv .venv
 .venv/Scripts/python scripts/degree/06_metro_coords.py     # Census CBSA centroids for the metro dot map
 .venv/Scripts/python scripts/degree/07_outcomes.py         # gender pay gap, gainful-employment flag, net-price ROI
 .venv/Scripts/python scripts/degree/08_cost_of_living.py   # BEA Regional Price Parities -> real (COL-adjusted) pay
+.venv/Scripts/python scripts/degree/09_job_outlook.py      # BLS 10-year occupational job-growth outlook (via Projections Central)
+.venv/Scripts/python scripts/degree/10_acs_flows.py        # ACS PUMS empirical field-of-degree -> occupation flows
 .venv/Scripts/python notebooks/build_notebooks.py          # build + execute the downloadable Jupyter notebooks
 
 pnpm dev

@@ -80,6 +80,26 @@
       "license": "public domain",
       "attribution": "U.S. Bureau of Economic Analysis, Regional Price Parities",
       "notes": "RPP = 100 is the U.S. average; >100 = costlier. Used for real (cost-of-living-adjusted) pay."
+    },
+    {
+      "source_key": "bls_ep_projcentral",
+      "name": "BLS Employment Projections (10-year occupational outlook)",
+      "publisher": "U.S. Bureau of Labor Statistics, via Projections Central (Projections Managing Partnership of state LMI agencies)",
+      "url": "https://projectionscentral.org/longterm",
+      "vintage": "2024–2034",
+      "license": "public domain",
+      "attribution": "U.S. Bureau of Labor Statistics, Employment Projections; national series redistributed by Projections Central.",
+      "notes": "10-year projected employment change and average annual openings by detailed occupation (SOC). A projection, not a guarantee; openings include both growth and replacement needs."
+    },
+    {
+      "source_key": "acs_pums_flows",
+      "name": "ACS PUMS empirical field-of-degree → occupation flows",
+      "publisher": "U.S. Census Bureau, American Community Survey (1-Year PUMS)",
+      "url": "https://www.census.gov/programs-surveys/acs/microdata.html",
+      "vintage": "2023 (1-Year PUMS)",
+      "license": "public domain",
+      "attribution": "U.S. Census Bureau, American Community Survey Public Use Microdata Sample; occupation mapping via the Census 2018 Occupation Code List.",
+      "notes": "Empirical share of employed bachelor's-degree holders in each field (FOD1P) by occupation (OCCP->SOC), weighted by PWGTP. Cells from fewer than 10 sampled persons are suppressed; fields under 50 are omitted. An independent check on the modeled CIP->SOC crosswalk, not a replacement for it."
     }
   ]
 }

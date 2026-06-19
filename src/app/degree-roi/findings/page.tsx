@@ -22,11 +22,14 @@ async function read(name: string): Promise<any> {
 const usd = (n: number | null | undefined) => (n == null ? "—" : `$${Math.round(n).toLocaleString()}`);
 
 export default async function FindingsPage() {
-  const [ov, rank, out, prem] = await Promise.all([
+  const [ov, rank, out, prem, land, outlook, acs] = await Promise.all([
     read("national_overview.json"),
     read("rankings.json"),
     read("major_outcomes.json").catch(() => ({ majors: [], global: {} })),
     read("premium.json").catch(() => ({ majors: [] })),
+    read("major_landscape.json").catch(() => ({ majors: [] })),
+    read("job_outlook.json").catch(() => null),
+    read("acs_flows.json").catch(() => null),
   ]);
 
   const top = rank.highest_earning?.[0];
@@ -41,6 +44,16 @@ export default async function FindingsPage() {
   const wideGap = (out.majors ?? [])
     .filter((m: any) => m.gender_gap_pct != null && m.n >= 20)
     .sort((a: any, b: any) => b.gender_gap_pct - a.gender_gap_pct)[0];
+
+  // job-growth outlook: brightest and dimmest major futures (BLS, weighted over each major's jobs)
+  const titleByCip: Record<string, string> = Object.fromEntries(
+    (land.majors ?? []).map((m: any) => [m.cip4, m.title]),
+  );
+  const outlookRows = Object.entries(outlook?.by_cip ?? {})
+    .map(([cip, v]: [string, any]) => ({ cip, title: titleByCip[cip], ...v }))
+    .filter((r) => r.title && r.growth_wt != null && r.coverage >= 0.6);
+  const bright = [...outlookRows].sort((a, b) => b.growth_wt - a.growth_wt)[0];
+  const dim = [...outlookRows].sort((a, b) => a.growth_wt - b.growth_wt)[0];
 
   const findings = [
     {
@@ -68,6 +81,15 @@ export default async function FindingsPage() {
       title: "The gender pay gap persists inside the same field.",
       body: `Even comparing men and women who studied the same thing, the median field shows an ${ov.global?.median_gender_gap_pct ?? 8}% gap in 5-year earnings${wideGap ? `, widening to ${wideGap.gender_gap_pct}% in fields like ${wideGap.title.split(",")[0]}` : ""}. Same major, same credential — different outcome.`,
     },
+    ...(bright && dim
+      ? [
+          {
+            n: "06",
+            title: "Two degrees, opposite job-market futures.",
+            body: `Pay is only half the story — the other half is whether the jobs will still be there. Using BLS ${outlook.vintage} projections weighted over each major's occupations, the jobs that ${bright.title.split(",")[0]} graduates enter are projected to grow ${bright.growth_wt > 0 ? "+" : ""}${bright.growth_wt}% over ten years, while those for ${dim.title.split(",")[0]} are projected to ${dim.growth_wt >= 0 ? `grow just +${dim.growth_wt}%` : `shrink ${dim.growth_wt}%`}. Same diploma timeline, very different headroom.`,
+          },
+        ]
+      : []),
   ];
 
   const articleSchema = {
@@ -86,7 +108,7 @@ export default async function FindingsPage() {
         ← Where Your Degree Takes You
       </Link>
       <h1 className="mt-6 bg-gradient-to-r from-purple-400 to-fuchsia-400 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
-        5 things we learned
+        {findings.length} things we learned
       </h1>
       <p className="mt-4 text-lg text-neutral-400">
         We joined {ov.n_programs_shown?.toLocaleString()} College Scorecard programs to the
@@ -110,10 +132,21 @@ export default async function FindingsPage() {
           The spine is the U.S. Dept. of Education&apos;s College Scorecard (program-level earnings and
           debt). We map each major to its occupations via the NCES CIP→SOC crosswalk, weighted by
           employment; attach wages and AI-exposure measures (O*NET, Eloundou, AIOE); and join metro
-          wages (BLS OEWS) to rents (Zillow). Every number is a real, published figure — privacy-
-          suppressed cells are left out, never imputed — and the analysis is reproducible from the
-          committed data.
+          wages (BLS OEWS) to rents (Zillow), and add each occupation&apos;s 10-year BLS growth
+          outlook. Every number is a real, published figure — privacy-suppressed cells are left out,
+          never imputed — and the analysis is reproducible from the committed data.
         </p>
+        {acs?.n_majors_matched > 0 && (
+          <p className="mt-3 text-sm leading-relaxed text-neutral-400">
+            <span className="text-neutral-300">We show the modeled crosswalk against reality.</span>{" "}
+            For {acs.n_majors_matched} fields we could match by name, we add an independent empirical
+            view from Census ACS microdata ({acs.vintage}) — the occupations real graduates of that
+            field actually report, by share. The two are built from entirely separate data (ACS never
+            feeds the model), so they sometimes diverge: the model weights occupations by their total
+            size, while ACS reflects where graduates actually land. Showing both — rather than hiding
+            the disagreement behind a single number — is the honest way to present a lossy CIP→SOC map.
+          </p>
+        )}
         <div className="mt-4 flex flex-wrap gap-4 text-sm">
           <Link href="/degree-roi" className="text-purple-400 underline hover:text-purple-300">
             Explore the full study →
