@@ -74,6 +74,50 @@ const fmtUsd = (n: number | null | undefined) =>
 const median = (xs: number[]) =>
   xs.length ? xs.slice().sort((a, b) => a - b)[Math.floor(xs.length / 2)] : null;
 
+// Geographic map metrics — all intuitive: "where are the jobs / the best pay / the
+// cheapest rent." (Location quotient was dropped: per-capita concentration confused the
+// plain-English question of where the jobs actually are.)
+type GeoMetricKey = "jobs" | "pay" | "rent";
+const GEO_METRICS: Record<
+  GeoMetricKey,
+  {
+    label: string;
+    field: keyof GeoState;
+    scheme: "blues" | "greens" | "oranges" | "reds";
+    higherIsBetter: boolean;
+    transform?: (v: number) => number;
+    fmt: (v: number) => string;
+    caption: string;
+  }
+> = {
+  jobs: {
+    label: "Most jobs",
+    field: "jobs_share",
+    scheme: "blues",
+    higherIsBetter: true,
+    fmt: (v) => `${v.toFixed(0)}%`,
+    caption: "Share of this degree's jobs in each state — where the work actually is (BLS OEWS).",
+  },
+  pay: {
+    label: "Highest pay",
+    field: "wage",
+    scheme: "greens",
+    higherIsBetter: true,
+    fmt: (v) => `$${Math.round(v / 1000)}k`,
+    caption: "Median pay for this degree's occupations, state by state (BLS OEWS).",
+  },
+  rent: {
+    label: "Cheapest rent",
+    field: "rent_burden",
+    scheme: "reds",
+    higherIsBetter: false,
+    transform: (v) => v * 100,
+    fmt: (v) => `${v.toFixed(0)}%`,
+    caption:
+      "Rent as a share of this degree's typical pay — darker = rent takes a bigger bite (OEWS × Zillow).",
+  },
+};
+
 export function DegreeRoiClient() {
   const [index, setIndex] = useState<IndexData | null>(null);
   const [occ, setOcc] = useState<Record<string, Occupation>>({});
@@ -86,7 +130,7 @@ export function DegreeRoiClient() {
   const [metroQuery, setMetroQuery] = useState("");
   const [taskAi, setTaskAi] = useState<TaskAiData | null>(null);
   const [geo, setGeo] = useState<Record<string, GeoState>>({});
-  const [geoMetric, setGeoMetric] = useState<"jobs" | "afford">("jobs");
+  const [geoMetric, setGeoMetric] = useState<GeoMetricKey>("jobs");
 
   const [cip4, setCip4] = useState<string>("11.07"); // default: Computer Science
   const [cred, setCred] = useState<string>("3"); // Bachelor's
@@ -246,25 +290,23 @@ export function DegreeRoiClient() {
 
   // state-level choropleth data for the selected metric
   const geoData = useMemo(() => {
-    const rows = Object.values(geo);
-    if (geoMetric === "jobs") {
-      return rows
-        .filter((g) => g.concentration != null)
-        .map((g) => ({ state: g.name, state_fips: g.fips, value: g.concentration as number, label: g.name }));
-    }
-    return rows
-      .filter((g) => g.rent_burden != null)
-      .map((g) => ({ state: g.name, state_fips: g.fips, value: (g.rent_burden as number) * 100, label: g.name }));
+    const cfg = GEO_METRICS[geoMetric];
+    return Object.values(geo)
+      .filter((g) => g[cfg.field] != null)
+      .map((g) => {
+        const raw = g[cfg.field] as number;
+        return { state: g.name, state_fips: g.fips, value: cfg.transform ? cfg.transform(raw) : raw, label: g.name };
+      });
   }, [geo, geoMetric]);
 
-  const geoTop = useMemo(
-    () =>
-      Object.values(geo)
-        .filter((g) => g.concentration != null)
-        .sort((a, b) => (b.concentration as number) - (a.concentration as number))
-        .slice(0, 3),
-    [geo],
-  );
+  // top states for the active metric (respecting whether higher or lower is "best")
+  const geoTop = useMemo(() => {
+    const cfg = GEO_METRICS[geoMetric];
+    return geoData
+      .slice()
+      .sort((a, b) => (cfg.higherIsBetter ? b.value - a.value : a.value - b.value))
+      .slice(0, 3);
+  }, [geoData, geoMetric]);
 
   // AI-exposure reconciliation scatter: occupations colored by exposure band,
   // this major's occupations enlarged.
@@ -521,29 +563,23 @@ export function DegreeRoiClient() {
         <section className="mb-12">
           <div className="mb-3 flex flex-wrap items-end justify-between gap-3">
             <div>
-              <h2 className="text-xl font-semibold text-neutral-100">Where this degree lives on the map</h2>
+              <h2 className="text-xl font-semibold text-neutral-100">This degree across the country</h2>
               <p className="mt-1 max-w-2xl text-sm text-neutral-500">
-                {geoMetric === "jobs" ? (
+                {GEO_METRICS[geoMetric].caption}
+                {geoTop.length > 0 && (
                   <>
-                    Where the jobs this degree leads to are most <em>concentrated</em> — location
-                    quotient from BLS OEWS (above 1.0× = more common than the national average).
-                    {geoTop.length > 0 && (
-                      <> Strongest in{" "}
-                        <span className="text-neutral-300">
-                          {geoTop.map((g) => `${g.name} (${g.concentration}×)`).join(", ")}
-                        </span>.
-                      </>
-                    )}
+                    {" "}Top:{" "}
+                    <span className="text-neutral-300">
+                      {geoTop.map((g) => `${g.label} (${GEO_METRICS[geoMetric].fmt(g.value)})`).join(", ")}
+                    </span>
+                    .
                   </>
-                ) : (
-                  <>Rent burden by state — this major&apos;s graduate-weighted pay against median
-                    market rent (BLS OEWS × Zillow). Lighter is more affordable.{" "}
-                    <span className="text-neutral-400">Data Provided by Zillow Group.</span></>
                 )}
+                {geoMetric === "rent" && <span className="text-neutral-400"> Data Provided by Zillow Group.</span>}
               </p>
             </div>
             <div className="flex shrink-0 gap-2">
-              {([["jobs", "Where the jobs are"], ["afford", "Where you can afford"]] as const).map(([k, lbl]) => (
+              {(Object.keys(GEO_METRICS) as GeoMetricKey[]).map((k) => (
                 <button
                   key={k}
                   onClick={() => setGeoMetric(k)}
@@ -553,15 +589,15 @@ export function DegreeRoiClient() {
                       : "border-neutral-700 text-neutral-400 hover:border-neutral-500"
                   }`}
                 >
-                  {lbl}
+                  {GEO_METRICS[k].label}
                 </button>
               ))}
             </div>
           </div>
           <Choropleth
             data={geoData}
-            colorScheme={geoMetric === "jobs" ? "blues" : "oranges"}
-            valueFormat={(v) => (geoMetric === "jobs" ? `${v.toFixed(1)}×` : `${v.toFixed(0)}%`)}
+            colorScheme={GEO_METRICS[geoMetric].scheme}
+            valueFormat={GEO_METRICS[geoMetric].fmt}
           />
         </section>
       )}
