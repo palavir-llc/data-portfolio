@@ -155,6 +155,7 @@ export function DegreeRoiClient() {
   const [geoSoc, setGeoSoc] = useState<Record<string, GeoState>>({}); // selected occupation's map
   const [geoMetric, setGeoMetric] = useState<GeoMetricKey>("jobs");
   const [rpp, setRpp] = useState<Record<string, number>>({}); // state cost-of-living index
+  const [copied, setCopied] = useState(false);
 
   // cost-of-living index (small, loaded once) for the "real pay" map
   useEffect(() => {
@@ -482,6 +483,20 @@ export function DegreeRoiClient() {
           enter, what they earn against the debt they carry, how exposed those jobs are to
           AI, and whether the paycheck covers the rent.
         </p>
+        <button
+          onClick={() => {
+            navigator.clipboard?.writeText(window.location.href).then(
+              () => {
+                setCopied(true);
+                window.setTimeout(() => setCopied(false), 1800);
+              },
+              () => {},
+            );
+          }}
+          className="mt-4 inline-flex items-center gap-2 rounded-full border border-neutral-700 px-4 py-1.5 text-sm text-neutral-300 transition hover:border-purple-500 hover:text-purple-200"
+        >
+          {copied ? "✓ Link copied" : "🔗 Share this major"}
+        </button>
       </header>
 
       {/* ---- picker ---- */}
