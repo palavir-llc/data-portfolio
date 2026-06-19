@@ -16,7 +16,7 @@ reconcile three independent AI-exposure signals. **Every displayed number is a r
 source-traceable figure; privacy-suppressed cells are shown as missing, never imputed.**
 
 **ML:** Selection-Adjusted Premium (residualization), K-Means Earnings-Trajectory Clusters, Task→AI Sentence Embeddings (all-MiniLM-L6-v2) + PCA, CIP→SOC Weighting, national landscape + cross-major correlations
-**Viz:** Animated landing (count-up stats, scroll-reveal), Pay–AI Quadrant, ranking leaderboards, ROI Scatter, Degree→Job flows, AI-Exposure Bars + reconciliation map, Affordability Bars
+**Viz:** Animated landing (count-up stats, scroll-reveal), Pay–AI Quadrant, ranking leaderboards, US choropleth maps (job concentration + affordability), ROI Scatter, Degree→Job flows, AI-Exposure Bars + reconciliation map, Affordability Bars
 **Data:** College Scorecard, BLS OEWS, NCES CIP→SOC, O*NET, Eloundou/AIOE AI exposure, Zillow ZORI
 **Route:** `/degree-roi`
 
@@ -78,6 +78,7 @@ python -m venv .venv
 .venv/Scripts/python scripts/degree/02_process_and_ml.py    # ROI, CIP→SOC flows, clusters, premium, affordability
 .venv/Scripts/python scripts/degree/03_task_embeddings.py   # O*NET task sentence-embeddings + AI-exposure reconciliation
 .venv/Scripts/python scripts/degree/04_national_analysis.py # national topline, field-of-study landscape, rankings, correlations
+.venv/Scripts/python scripts/degree/05_geography.py        # per-state job concentration (location quotient) + affordability maps
 
 pnpm dev
 ```

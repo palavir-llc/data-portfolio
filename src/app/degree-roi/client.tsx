@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { RoiScatter, type RoiPoint } from "@/components/viz/RoiScatter";
 import { UmapScatter } from "@/components/viz/UmapScatter";
+import { Choropleth } from "@/components/viz/Choropleth";
 
 // ---- data shapes (match scripts/degree/02_process_and_ml.py outputs) ----
 interface Major {
@@ -62,6 +63,11 @@ interface TaskAiData {
   correlations: Record<string, number | null>;
   occupations: TaskAiOcc[];
 }
+interface GeoState {
+  fips: string; name: string;
+  concentration: number | null; jobs_emp: number | null; jobs_share?: number;
+  wage: number | null; rent: number | null; rent_burden?: number;
+}
 
 const fmtUsd = (n: number | null | undefined) =>
   n == null ? "—" : `$${Math.round(n).toLocaleString()}`;
@@ -79,6 +85,8 @@ export function DegreeRoiClient() {
   const [affordWage, setAffordWage] = useState<Record<string, number>>({});
   const [metroQuery, setMetroQuery] = useState("");
   const [taskAi, setTaskAi] = useState<TaskAiData | null>(null);
+  const [geo, setGeo] = useState<Record<string, GeoState>>({});
+  const [geoMetric, setGeoMetric] = useState<"jobs" | "afford">("jobs");
 
   const [cip4, setCip4] = useState<string>("11.07"); // default: Computer Science
   const [cred, setCred] = useState<string>("3"); // Bachelor's
@@ -123,10 +131,12 @@ export function DegreeRoiClient() {
     Promise.all([
       fetch(`/data/degree/by_cip/${key}.json`).then((r) => (r.ok ? r.json() : [])).catch(() => []),
       fetch(`/data/degree/by_cip_afford/${key}.json`).then((r) => (r.ok ? r.json() : {})).catch(() => ({})),
-    ]).then(([sh, aw]: [ProgramRec[], Record<string, number>]) => {
+      fetch(`/data/degree/by_cip_geo/${key}.json`).then((r) => (r.ok ? r.json() : {})).catch(() => ({})),
+    ]).then(([sh, aw, gj]: [ProgramRec[], Record<string, number>, Record<string, GeoState>]) => {
       if (!active) return;
       setShard(sh);
       setAffordWage(aw);
+      setGeo(gj);
       setLoadedCip(cip4);
     });
     return () => {
@@ -233,6 +243,28 @@ export function DegreeRoiClient() {
   }, [affordMetros, affordWage, metroQuery]);
 
   const affordSorted = useMemo(() => affordRows.slice().sort((a, b) => a.burden - b.burden), [affordRows]);
+
+  // state-level choropleth data for the selected metric
+  const geoData = useMemo(() => {
+    const rows = Object.values(geo);
+    if (geoMetric === "jobs") {
+      return rows
+        .filter((g) => g.concentration != null)
+        .map((g) => ({ state: g.name, state_fips: g.fips, value: g.concentration as number, label: g.name }));
+    }
+    return rows
+      .filter((g) => g.rent_burden != null)
+      .map((g) => ({ state: g.name, state_fips: g.fips, value: (g.rent_burden as number) * 100, label: g.name }));
+  }, [geo, geoMetric]);
+
+  const geoTop = useMemo(
+    () =>
+      Object.values(geo)
+        .filter((g) => g.concentration != null)
+        .sort((a, b) => (b.concentration as number) - (a.concentration as number))
+        .slice(0, 3),
+    [geo],
+  );
 
   // AI-exposure reconciliation scatter: occupations colored by exposure band,
   // this major's occupations enlarged.
@@ -481,6 +513,56 @@ export function DegreeRoiClient() {
               clusterLabels={{ 0: "Low exposure", 1: "Some", 2: "High", 3: "Very high" }}
             />
           </div>
+        </section>
+      )}
+
+      {/* ---- geography ---- */}
+      {geoData.length > 0 && (
+        <section className="mb-12">
+          <div className="mb-3 flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <h2 className="text-xl font-semibold text-neutral-100">Where this degree lives on the map</h2>
+              <p className="mt-1 max-w-2xl text-sm text-neutral-500">
+                {geoMetric === "jobs" ? (
+                  <>
+                    Where the jobs this degree leads to are most <em>concentrated</em> — location
+                    quotient from BLS OEWS (above 1.0× = more common than the national average).
+                    {geoTop.length > 0 && (
+                      <> Strongest in{" "}
+                        <span className="text-neutral-300">
+                          {geoTop.map((g) => `${g.name} (${g.concentration}×)`).join(", ")}
+                        </span>.
+                      </>
+                    )}
+                  </>
+                ) : (
+                  <>Rent burden by state — this major&apos;s graduate-weighted pay against median
+                    market rent (BLS OEWS × Zillow). Lighter is more affordable.{" "}
+                    <span className="text-neutral-400">Data Provided by Zillow Group.</span></>
+                )}
+              </p>
+            </div>
+            <div className="flex shrink-0 gap-2">
+              {([["jobs", "Where the jobs are"], ["afford", "Where you can afford"]] as const).map(([k, lbl]) => (
+                <button
+                  key={k}
+                  onClick={() => setGeoMetric(k)}
+                  className={`rounded-md border px-3 py-1.5 text-sm ${
+                    geoMetric === k
+                      ? "border-purple-500 bg-purple-950/50 text-purple-200"
+                      : "border-neutral-700 text-neutral-400 hover:border-neutral-500"
+                  }`}
+                >
+                  {lbl}
+                </button>
+              ))}
+            </div>
+          </div>
+          <Choropleth
+            data={geoData}
+            colorScheme={geoMetric === "jobs" ? "blues" : "oranges"}
+            valueFormat={(v) => (geoMetric === "jobs" ? `${v.toFixed(1)}×` : `${v.toFixed(0)}%`)}
+          />
         </section>
       )}
 
