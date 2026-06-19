@@ -1,0 +1,75 @@
+{
+  "generated": "2026-06-19",
+  "sources": [
+    {
+      "name": "AI Occupational Exposure (AIOE)",
+      "publisher": "Felten, Raj & Seamans",
+      "url": "https://github.com/AIOE-Data/AIOE",
+      "vintage": "2021 (+ generative-AI variants)",
+      "license": "citation requested (no formal license)",
+      "attribution": "Felten, Raj & Seamans, AI Occupational Exposure (AIOE)",
+      "notes": "Secondary comparison measure. Static snapshot.",
+      "source_key": "ai_exposure_aioe"
+    },
+    {
+      "name": "GPTs are GPTs — Occupational AI Exposure",
+      "publisher": "Eloundou, Manning, Mishkin & Rock (Science, 2024) / OpenAI",
+      "url": "https://github.com/openai/GPTs-are-GPTs",
+      "vintage": "2023 (GPT-4 era)",
+      "license": "MIT",
+      "attribution": "Eloundou et al., 'GPTs are GPTs' (2024)",
+      "notes": "alpha/beta/gamma exposure measures. Task overlap, NOT a job-loss forecast.",
+      "source_key": "ai_exposure_eloundou"
+    },
+    {
+      "name": "BLS OEWS — Metropolitan Areas",
+      "publisher": "U.S. Bureau of Labor Statistics",
+      "url": "https://www.bls.gov/oes/tables.htm",
+      "vintage": "May 2024",
+      "license": "public domain",
+      "attribution": "U.S. Bureau of Labor Statistics, Occupational Employment and Wage Statistics",
+      "notes": "Metro-occupation cells with <10 estimated employment are suppressed.",
+      "source_key": "bls_oews_metro"
+    },
+    {
+      "name": "CIP 2020 → SOC 2018 Crosswalk",
+      "publisher": "NCES / U.S. Census Bureau",
+      "url": "https://nces.ed.gov/ipeds/cipcode/resources.aspx",
+      "vintage": "CIP 2020 to SOC 2018",
+      "license": "public domain",
+      "attribution": "NCES Classification of Instructional Programs (CIP) 2020",
+      "notes": "Many-to-many mapping; carries no native graduate weights.",
+      "source_key": "cip_soc_crosswalk"
+    },
+    {
+      "name": "College Scorecard — Field of Study",
+      "publisher": "U.S. Department of Education",
+      "url": "https://collegescorecard.ed.gov/data/",
+      "vintage": "Most Recent Cohorts (Field of Study), June 2024 release",
+      "license": "public domain (17 U.S.C. §105)",
+      "attribution": "U.S. Department of Education, College Scorecard",
+      "notes": "Earnings cover federally-aided (Title IV) completers only. Reported at 1 and 5 years post-completion. 5yr cohort observed in 2020-21.",
+      "source_key": "college_scorecard_fos"
+    },
+    {
+      "name": "College Scorecard — Institution",
+      "publisher": "U.S. Department of Education",
+      "url": "https://collegescorecard.ed.gov/data/",
+      "vintage": "Most Recent Cohorts (Institution), 2024",
+      "license": "public domain (17 U.S.C. §105)",
+      "attribution": "U.S. Department of Education, College Scorecard",
+      "notes": "Net price by income, admission rate, completion at the institution level.",
+      "source_key": "college_scorecard_inst"
+    },
+    {
+      "name": "Zillow Observed Rent Index (ZORI)",
+      "publisher": "Zillow",
+      "url": "https://www.zillow.com/research/data/",
+      "vintage": "monthly, latest available",
+      "license": "free for public use with mandatory attribution",
+      "attribution": "Data Provided by Zillow Group",
+      "notes": "Observed market asking rent (smoothed, stock-weighted).",
+      "source_key": "zillow_zori"
+    }
+  ]
+}

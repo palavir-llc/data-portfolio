@@ -17,6 +17,10 @@ interface ChoroplethProps {
   colorScheme?: "reds" | "blues" | "greens" | "oranges";
   valueFormat?: (v: number) => string;
   title?: string;
+  // Optional pass/fail coloring around a threshold: values at/below render green,
+  // above render red (diverging). Used for the "clears the rent rule?" view.
+  diverging?: boolean;
+  threshold?: number;
 }
 
 export function Choropleth({
@@ -26,6 +30,8 @@ export function Choropleth({
   colorScheme = "reds",
   valueFormat = (v) => v.toFixed(1) + "%",
   title,
+  diverging = false,
+  threshold,
 }: ChoroplethProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
@@ -56,10 +62,21 @@ export function Choropleth({
       oranges: d3.schemeOranges as any,
     };
 
-    const color = d3
+    const minVal = d3.min(values) || 0;
+    const useDiverging = diverging && threshold != null;
+
+    const seqColor = d3
       .scaleQuantize<string>()
       .domain([0, maxVal])
       .range((schemes[colorScheme]?.[7] || d3.schemeReds[7]) as string[]);
+
+    // diverging green(below threshold)->red(above), centered on the threshold
+    const divColor = d3
+      .scaleDiverging<string>()
+      .domain([Math.min(minVal, threshold ?? 0), threshold ?? 0, Math.max(maxVal, threshold ?? 0)])
+      .interpolator((t) => d3.interpolateRdYlGn(1 - t));
+
+    const colorOf = (v: number) => (useDiverging ? divColor(v) : seqColor(v));
 
     const path = d3.geoPath(
       d3.geoAlbersUsa().fitSize([width, height - 40], topojson.feature(geo, geo.objects.states) as any)
@@ -77,7 +94,7 @@ export function Choropleth({
       .attr("fill", (d: any) => {
         const fips = String(d.id).padStart(2, "0");
         const row = stateMap.get(fips);
-        return row ? color(row.value) : "#1e293b";
+        return row ? colorOf(row.value) : "#1e293b";
       })
       .attr("stroke", "#334155")
       .attr("stroke-width", 0.5)
@@ -133,24 +150,37 @@ export function Choropleth({
     const legendH = 10;
     const legendX = width - legendW - 20;
     const legendY = height - 30;
-    const legendScale = d3.scaleLinear().domain([0, maxVal]).range([0, legendW]);
+    const legendDomain = useDiverging ? [minVal, maxVal] : [0, maxVal];
+    const legendScale = d3.scaleLinear().domain(legendDomain).range([0, legendW]);
     const legendAxis = d3.axisBottom(legendScale).ticks(4).tickFormat((d) => valueFormat(d as number));
 
     const defs = svg.append("defs");
     const gradient = defs.append("linearGradient").attr("id", "legend-gradient");
-    const colorRange = (schemes[colorScheme]?.[7] || d3.schemeReds[7]) as string[];
-    colorRange.forEach((c: string, i: number) => {
-      gradient
-        .append("stop")
-        .attr("offset", `${(i / (colorRange.length - 1)) * 100}%`)
-        .attr("stop-color", c);
-    });
+    if (useDiverging) {
+      // sample the diverging scale across the legend domain
+      const steps = 10;
+      for (let i = 0; i <= steps; i++) {
+        const v = minVal + (i / steps) * (maxVal - minVal);
+        gradient.append("stop").attr("offset", `${(i / steps) * 100}%`).attr("stop-color", divColor(v));
+      }
+    } else {
+      const colorRange = (schemes[colorScheme]?.[7] || d3.schemeReds[7]) as string[];
+      colorRange.forEach((c: string, i: number) => {
+        gradient.append("stop").attr("offset", `${(i / (colorRange.length - 1)) * 100}%`).attr("stop-color", c);
+      });
+    }
 
     const lg = svg.append("g").attr("transform", `translate(${legendX},${legendY})`);
     lg.append("rect")
       .attr("width", legendW)
       .attr("height", legendH)
       .style("fill", "url(#legend-gradient)");
+    // mark the threshold line on the legend when diverging
+    if (useDiverging && threshold != null && threshold >= legendDomain[0] && threshold <= legendDomain[1]) {
+      const tx = legendScale(threshold);
+      lg.append("line").attr("x1", tx).attr("x2", tx).attr("y1", -2).attr("y2", legendH + 2)
+        .attr("stroke", "#e5e7eb").attr("stroke-width", 1.5);
+    }
     lg.append("g")
       .attr("transform", `translate(0,${legendH})`)
       .call(legendAxis)
@@ -158,7 +188,7 @@ export function Choropleth({
       .attr("fill", "#94a3b8")
       .attr("font-size", "9px");
     lg.selectAll(".domain, .tick line").attr("stroke", "#475569");
-  }, [geo, data, width, height, colorScheme, valueFormat]);
+  }, [geo, data, width, height, colorScheme, valueFormat, diverging, threshold]);
 
   return (
     <div className="relative">

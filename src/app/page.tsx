@@ -21,6 +21,28 @@ export const metadata: Metadata = {
 
 const projects = [
   {
+    slug: "degree-roi",
+    title: "Where Your Degree Takes You",
+    subtitle: "63K programs. The job, the payoff, the AI risk, the rent.",
+    description:
+      "Pick a school and major and follow it all the way through: the occupations graduates actually enter, what they earn versus the debt they carry, how exposed those jobs are to generative AI, and whether the paycheck covers the rent. Real program-level federal data joined occupation by occupation — every number traceable to its source.",
+    techniques: [
+      "CIP→SOC Crosswalk Weighting",
+      "Selection-Adjusted Premium",
+      "Earnings-Trajectory Clustering",
+      "Task→AI Embedding Reconciliation",
+    ],
+    vizTypes: [
+      "ROI Scatter",
+      "Degree→Job Flows",
+      "AI Exposure + Reconciliation",
+      "Affordability Bars",
+    ],
+    dataSources: ["College Scorecard", "BLS OEWS", "O*NET", "AI Exposure (Eloundou/AIOE)", "Zillow ZORI"],
+    color: "from-purple-500 to-fuchsia-500",
+    status: "live" as const,
+  },
+  {
     slug: "fraud-in-america",
     title: "The State of Fraud in America",
     subtitle: "968K loans. 6,088 companies. 1.38M providers.",
