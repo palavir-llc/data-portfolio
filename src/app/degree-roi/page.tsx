@@ -1,4 +1,5 @@
 import { DegreeRoiClient } from "./client";
+import { Overview } from "./Overview";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -48,6 +49,7 @@ export default function DegreeRoiPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetSchema) }} />
+      <Overview />
       <DegreeRoiClient />
     </>
   );

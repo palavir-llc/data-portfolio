@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import Link from "next/link";
 import { RoiScatter, type RoiPoint } from "@/components/viz/RoiScatter";
 import { UmapScatter } from "@/components/viz/UmapScatter";
 
@@ -267,20 +266,16 @@ export function DegreeRoiClient() {
   const credOptions = major?.credlevels ?? ["3"];
 
   return (
-    <main className="mx-auto max-w-5xl px-5 py-12 text-neutral-200">
-      <Link href="/" className="text-sm text-purple-400 hover:text-purple-300">
-        ← Data Stories
-      </Link>
-
-      <header className="mt-6 mb-10">
-        <h1 className="bg-gradient-to-r from-purple-400 to-fuchsia-400 bg-clip-text text-4xl font-bold text-transparent sm:text-5xl">
+    <main id="explorer" className="mx-auto max-w-5xl scroll-mt-6 px-5 py-12 text-neutral-200">
+      <header className="mb-10 border-t border-neutral-800 pt-10">
+        <p className="text-sm font-medium uppercase tracking-widest text-purple-400">The explorer</p>
+        <h2 className="mt-2 bg-gradient-to-r from-purple-400 to-fuchsia-400 bg-clip-text text-3xl font-bold text-transparent sm:text-4xl">
           Where Your Degree Takes You
-        </h1>
-        <p className="mt-4 max-w-2xl text-lg text-neutral-400">
+        </h2>
+        <p className="mt-3 max-w-2xl text-base text-neutral-400">
           Pick a major and a school. Follow it all the way through — the jobs graduates
           enter, what they earn against the debt they carry, how exposed those jobs are to
-          AI, and whether the paycheck covers the rent. Every number is a real, published
-          figure; nothing is generated.
+          AI, and whether the paycheck covers the rent.
         </p>
       </header>
 
