@@ -64,6 +64,11 @@ interface TaskAiData {
   correlations: Record<string, number | null>;
   occupations: TaskAiOcc[];
 }
+interface MajorOutcome {
+  cip4: string; title: string; n: number; earn_5yr: number;
+  earn_male: number | null; earn_female: number | null; gender_gap_pct: number | null;
+  ge_fail_rate: number | null; net_price: number | null; net_price_payoff: number | null;
+}
 interface GeoState {
   fips: string; name: string;
   concentration: number | null; jobs_emp: number | null; jobs_share?: number;
@@ -134,6 +139,7 @@ export function DegreeRoiClient() {
   const [rentRule, setRentRule] = useState(30); // the "don't spend more than X% on rent" line
   const [affordView, setAffordView] = useState<"bars" | "map">("bars");
   const [taskAi, setTaskAi] = useState<TaskAiData | null>(null);
+  const [outcomes, setOutcomes] = useState<Record<string, MajorOutcome>>({});
   const [geo, setGeo] = useState<Record<string, GeoState>>({}); // major's blended mix
   const [geoOcc, setGeoOcc] = useState<string | null>(null); // selected occupation (null = mix)
   const [geoSoc, setGeoSoc] = useState<Record<string, GeoState>>({}); // selected occupation's map
@@ -157,10 +163,12 @@ export function DegreeRoiClient() {
       fetch("/data/degree/trajectory_clusters.json").then((r) => (r.ok ? r.json() : null)),
       fetch("/data/degree/affordability_metros.json").then((r) => (r.ok ? r.json() : null)),
       fetch("/data/degree/task_ai_map.json").then((r) => (r.ok ? r.json() : null)),
+      fetch("/data/degree/major_outcomes.json").then((r) => (r.ok ? r.json() : null)),
     ]).then(
-      ([idx, occs, fl, src, prem, clus, afm, tai]: [
-        IndexData, Occupation[], Flow[], { sources: Source[] },
-        PremiumData | null, ClustersData | null, AffordMetros | null, TaskAiData | null,
+      ([idx, occs, fl, src, prem, clus, afm, tai, out]: [
+        IndexData, Occupation[], Flow[], { sources: Source[] }, PremiumData | null,
+        ClustersData | null, AffordMetros | null, TaskAiData | null,
+        { majors: MajorOutcome[] } | null,
       ]) => {
         setIndex(idx);
         setOcc(Object.fromEntries(occs.map((o) => [o.soc6, o])));
@@ -170,6 +178,7 @@ export function DegreeRoiClient() {
         setClusters(clus);
         setAffordMetros(afm);
         setTaskAi(tai);
+        setOutcomes(Object.fromEntries((out?.majors ?? []).map((m) => [m.cip4, m])));
       },
     );
   }, []);
@@ -331,6 +340,8 @@ export function DegreeRoiClient() {
         n: byCred.get(c)!.length,
       }));
   }, [shard, index]);
+
+  const majorOut = outcomes[cip4] ?? null;
 
   // active wage source: a single occupation if picked, else the major's mix
   const activeAffordWage = affordOcc ? affordSocWage : affordWage;
@@ -570,6 +581,56 @@ export function DegreeRoiClient() {
                 );
               });
             })()}
+          </div>
+        </section>
+      )}
+
+      {/* ---- outcomes: gender gap, gainful employment, net price ---- */}
+      {majorOut && (
+        <section className="mb-12">
+          <h2 className="mb-1 text-xl font-semibold text-neutral-100">The fine print on outcomes</h2>
+          <p className="mb-4 max-w-3xl text-sm text-neutral-500">
+            Three things the headline number hides — the pay gap between men and women in this field,
+            whether the debt is sustainable, and the real net cost.
+          </p>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {majorOut.earn_male != null && majorOut.earn_female != null && (
+              <div className="rounded-xl border border-neutral-800 bg-neutral-900/40 p-4">
+                <div className="text-xs uppercase tracking-wide text-neutral-500">Pay gap by gender</div>
+                <div className="mt-1 text-2xl font-bold text-neutral-100">
+                  {majorOut.gender_gap_pct}%
+                </div>
+                <div className="mt-2 space-y-1 text-xs text-neutral-400">
+                  <div className="flex justify-between"><span>Men</span><span>{fmtUsd(majorOut.earn_male)}</span></div>
+                  <div className="flex justify-between"><span>Women</span><span>{fmtUsd(majorOut.earn_female)}</span></div>
+                </div>
+                <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-neutral-800">
+                  <div className="h-full rounded-full bg-amber-500" style={{ width: `${Math.min(100, Math.abs(majorOut.gender_gap_pct ?? 0) * 3)}%` }} />
+                </div>
+              </div>
+            )}
+            {majorOut.ge_fail_rate != null && (
+              <div className="rounded-xl border border-neutral-800 bg-neutral-900/40 p-4">
+                <div className="text-xs uppercase tracking-wide text-neutral-500">Debt sustainability</div>
+                <div className={`mt-1 text-2xl font-bold ${majorOut.ge_fail_rate > 25 ? "text-rose-400" : majorOut.ge_fail_rate > 5 ? "text-amber-400" : "text-emerald-400"}`}>
+                  {majorOut.ge_fail_rate}%
+                </div>
+                <div className="mt-2 text-xs text-neutral-500">
+                  of programs would fail the federal debt-to-earnings test (loan payment &gt; 8% of pay).
+                </div>
+              </div>
+            )}
+            <div className="rounded-xl border border-neutral-800 bg-neutral-900/40 p-4">
+              <div className="text-xs uppercase tracking-wide text-neutral-500">Net price &amp; payback</div>
+              <div className="mt-1 text-2xl font-bold text-purple-300">
+                {majorOut.net_price != null ? `${fmtUsd(majorOut.net_price)}/yr` : "—"}
+              </div>
+              <div className="mt-2 text-xs text-neutral-500">
+                {majorOut.net_price_payoff != null
+                  ? `~${majorOut.net_price_payoff} yrs to recoup the true cost at 10% of pay`
+                  : "Net-price data unavailable for this field."}
+              </div>
+            </div>
           </div>
         </section>
       )}
