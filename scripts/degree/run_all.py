@@ -24,6 +24,7 @@ STEPS = [
     ("scripts/degree/05_geography.py", "Per-state job concentration + affordability"),
     ("scripts/degree/06_metro_coords.py", "Census CBSA centroids for the metro dot map"),
     ("scripts/degree/07_outcomes.py", "Gender pay gap, gainful-employment flag, net-price ROI"),
+    ("scripts/degree/08_cost_of_living.py", "BEA Regional Price Parities for real (COL-adjusted) pay"),
     ("notebooks/build_notebooks.py", "Build + execute the downloadable Jupyter notebooks"),
 ]
 
