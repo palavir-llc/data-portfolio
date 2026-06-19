@@ -829,22 +829,78 @@ export function DegreeRoiClient() {
         </section>
       )}
 
-      {/* ---- sources / honesty ---- */}
+      {/* ---- sources, methodology & downloads ---- */}
       <section className="mb-8 rounded-xl border border-neutral-800 bg-neutral-900/40 p-5">
-        <h2 className="mb-3 text-lg font-semibold text-neutral-100">Sources &amp; method</h2>
-        <p className="mb-4 text-sm text-neutral-400">
+        <h2 className="mb-3 text-lg font-semibold text-neutral-100">Sources, method &amp; downloads</h2>
+        <p className="mb-5 text-sm text-neutral-400">
           Only real, source-traceable numbers are shown. Privacy-suppressed cells are left
           out, never estimated. Earnings reflect federally-aided completers and a multi-year
           cohort lag; “years to pay off” assumes 10% of earnings goes to debt — a disclosed
-          formula, not a prediction.
+          formula, not a prediction. Everything below is reproducible end to end.
         </p>
+
+        {/* downloads */}
+        <div className="mb-5 grid gap-4 sm:grid-cols-3">
+          <div className="rounded-lg border border-neutral-800 bg-neutral-950/40 p-4">
+            <h3 className="mb-2 text-sm font-semibold text-neutral-200">Jupyter notebooks</h3>
+            <ul className="space-y-1.5 text-sm">
+              {[
+                ["01_methodology_and_roi.ipynb", "Methodology & ROI"],
+                ["02_jobs_ai_premium.ipynb", "Jobs, AI & the premium"],
+                ["03_geography_affordability.ipynb", "Geography & affordability"],
+              ].map(([file, label]) => (
+                <li key={file}>
+                  <a href={`/notebooks/${file}`} download className="text-purple-400 hover:text-purple-300">
+                    ↓ {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-lg border border-neutral-800 bg-neutral-950/40 p-4">
+            <h3 className="mb-2 text-sm font-semibold text-neutral-200">Processed datasets</h3>
+            <ul className="space-y-1.5 text-sm">
+              {[
+                ["major_landscape.json", "Field-of-study landscape"],
+                ["occupations.json", "Occupations + AI exposure"],
+                ["national_overview.json", "National topline"],
+                ["sources.json", "Source citations"],
+              ].map(([file, label]) => (
+                <li key={file}>
+                  <a href={`/data/degree/${file}`} download className="text-purple-400 hover:text-purple-300">
+                    ↓ {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-2 text-xs text-neutral-600">All ~2,200 JSON files ship in the repo.</p>
+          </div>
+          <div className="rounded-lg border border-neutral-800 bg-neutral-950/40 p-4">
+            <h3 className="mb-2 text-sm font-semibold text-neutral-200">Pipeline &amp; code</h3>
+            <ul className="space-y-1.5 text-sm">
+              <li>
+                <a href="https://github.com/palavir-llc/data-portfolio/tree/main/scripts/degree" className="text-purple-400 hover:text-purple-300" target="_blank" rel="noreferrer">
+                  ↗ Python pipeline (scripts/degree)
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/palavir-llc/data-portfolio" className="text-purple-400 hover:text-purple-300" target="_blank" rel="noreferrer">
+                  ↗ Full source on GitHub
+                </a>
+              </li>
+            </ul>
+            <p className="mt-2 text-xs text-neutral-600">Download → run → reproduce every number.</p>
+          </div>
+        </div>
+
+        <h3 className="mb-2 text-sm font-semibold text-neutral-200">Data sources</h3>
         <ul className="space-y-2 text-sm">
           {sources.map((s) => (
             <li key={s.source_key} className="text-neutral-400">
               <a href={s.url} className="text-purple-400 hover:text-purple-300" target="_blank" rel="noreferrer">
                 {s.name}
               </a>{" "}
-              — {s.publisher}. <span className="text-neutral-500">{s.vintage}. {s.attribution}.</span>
+              — {s.publisher}. <span className="text-neutral-500">{s.vintage}. {s.license}. {s.attribution}.</span>
             </li>
           ))}
         </ul>
