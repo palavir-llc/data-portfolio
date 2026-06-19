@@ -20,6 +20,8 @@ export interface MajorPage {
   earn_female: number | null;
   ge_fail_rate: number | null;
   net_price: number | null;
+  job_growth_pct: number | null;
+  outlook_vintage: string | null;
 }
 
 function slugify(s: string): string {
@@ -40,13 +42,15 @@ async function readJson(name: string): Promise<any> {
 
 export async function getMajors(): Promise<MajorPage[]> {
   if (cache) return cache;
-  const [land, out] = await Promise.all([
+  const [land, out, outlook] = await Promise.all([
     readJson("major_landscape.json"),
     readJson("major_outcomes.json").catch(() => ({ majors: [] })),
+    readJson("job_outlook.json").catch(() => ({ by_cip: {}, vintage: null })),
   ]);
   const outByCip: Record<string, any> = Object.fromEntries(
     (out.majors ?? []).map((m: any) => [m.cip4, m]),
   );
+  const olByCip: Record<string, any> = outlook.by_cip ?? {};
   const seen = new Set<string>();
   cache = (land.majors as any[]).map((m) => {
     // prefer the pipeline-generated slug (single source of truth); fall back if absent
@@ -75,6 +79,9 @@ export async function getMajors(): Promise<MajorPage[]> {
       earn_female: o.earn_female ?? null,
       ge_fail_rate: o.ge_fail_rate ?? null,
       net_price: o.net_price ?? null,
+      job_growth_pct:
+        (olByCip[m.cip4]?.coverage ?? 0) >= 0.5 ? olByCip[m.cip4]?.growth_wt ?? null : null,
+      outlook_vintage: outlook.vintage ?? null,
     };
   });
   return cache;

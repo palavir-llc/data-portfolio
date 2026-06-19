@@ -22,7 +22,11 @@ export async function generateMetadata({
   if (!m) return { title: "Major not found | Data Stories" };
   const desc = `${m.title}: graduates earn a median ${usd(m.earn_5yr)} five years out on ${usd(
     m.debt,
-  )} of debt${m.payoff_yrs != null ? `, paying it off in about ${m.payoff_yrs} years` : ""}. Jobs, AI exposure, and affordability — real federal data.`;
+  )} of debt${m.payoff_yrs != null ? `, paying it off in about ${m.payoff_yrs} years` : ""}.${
+    m.job_growth_pct != null
+      ? ` Its jobs are projected to ${m.job_growth_pct >= 0 ? "grow" : "shrink"} ${Math.abs(m.job_growth_pct)}% over 10 years (BLS).`
+      : ""
+  } Jobs, AI exposure, and affordability — real federal data.`;
   return {
     title: `Is a ${m.title} degree worth it? | Data Stories`,
     description: desc,
@@ -80,8 +84,9 @@ export default async function MajorPage({ params }: { params: Promise<{ major: s
         <Stat label="AI task exposure" value={m.ai_beta != null ? `${Math.round(m.ai_beta * 100)}%` : "—"} sub="GPT-4-era overlap" />
       </div>
 
-      {(m.earn_male != null || m.net_price != null || m.adjusted_premium != null) && (
+      {(m.earn_male != null || m.net_price != null || m.adjusted_premium != null || m.job_growth_pct != null) && (
         <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
+          {m.job_growth_pct != null && <Stat label="10-yr job growth" value={`${m.job_growth_pct > 0 ? "+" : ""}${m.job_growth_pct}%`} sub={m.outlook_vintage ? `BLS ${m.outlook_vintage}` : "BLS projection"} />}
           {m.gender_gap_pct != null && <Stat label="Gender pay gap" value={`${m.gender_gap_pct}%`} sub={`${usd(m.earn_male)} vs ${usd(m.earn_female)}`} />}
           {m.net_price != null && <Stat label="Net price" value={`${usd(m.net_price)}/yr`} />}
           {m.ge_fail_rate != null && <Stat label="Debt-test failures" value={`${m.ge_fail_rate}%`} sub="of programs" />}

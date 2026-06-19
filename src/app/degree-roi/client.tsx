@@ -69,6 +69,27 @@ interface MajorOutcome {
   earn_male: number | null; earn_female: number | null; gender_gap_pct: number | null;
   ge_fail_rate: number | null; net_price: number | null; net_price_payoff: number | null;
 }
+interface OutlookSoc {
+  growth_pct: number | null; annual_openings: number | null;
+  base_emp: number | null; proj_emp: number | null;
+}
+interface OutlookCip { growth_wt: number | null; coverage: number; n_soc: number }
+interface OutlookData {
+  vintage: string; base_year: string | null; proj_year: string | null;
+  attribution: string; note: string; n_soc: number;
+  by_soc: Record<string, OutlookSoc>; by_cip: Record<string, OutlookCip>;
+}
+interface AcsTopOcc { soc6: string; soc_title: string | null; share: number; n: number }
+interface AcsCip {
+  fod1p: string; field: string; n_sampled: number;
+  acs_top: AcsTopOcc[]; modeled_top_soc: string | null; agrees_with_modeled: boolean;
+}
+interface AcsFlowsData {
+  vintage: string; attribution: string; note: string; min_cell_n: number;
+  n_fields: number; n_majors_matched: number;
+  crosswalk_agreement_rate: number | null; crosswalk_agreement_n: number;
+  by_cip: Record<string, AcsCip>;
+}
 interface GeoState {
   fips: string; name: string;
   concentration: number | null; jobs_emp: number | null; jobs_share?: number;
@@ -155,6 +176,8 @@ export function DegreeRoiClient() {
   const [geoSoc, setGeoSoc] = useState<Record<string, GeoState>>({}); // selected occupation's map
   const [geoMetric, setGeoMetric] = useState<GeoMetricKey>("jobs");
   const [rpp, setRpp] = useState<Record<string, number>>({}); // state cost-of-living index
+  const [outlook, setOutlook] = useState<OutlookData | null>(null); // BLS 10-yr job outlook
+  const [acsFlows, setAcsFlows] = useState<AcsFlowsData | null>(null); // ACS empirical flows
   const [copied, setCopied] = useState(false);
 
   // cost-of-living index (small, loaded once) for the "real pay" map
@@ -162,6 +185,18 @@ export function DegreeRoiClient() {
     fetch("/data/degree/cost_of_living.json")
       .then((r) => (r.ok ? r.json() : null))
       .then((d) => setRpp(d?.rpp ?? {}))
+      .catch(() => {});
+  }, []);
+
+  // BLS 10-year job outlook + ACS empirical major→job flows (small, loaded once)
+  useEffect(() => {
+    fetch("/data/degree/job_outlook.json")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => setOutlook(d))
+      .catch(() => {});
+    fetch("/data/degree/acs_flows.json")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => setAcsFlows(d))
       .catch(() => {});
   }, []);
 
@@ -333,6 +368,10 @@ export function DegreeRoiClient() {
     }
     return wsum > 0 ? beta / wsum : null;
   }, [occFlows]);
+
+  // BLS 10-yr outlook for this major (weighted over its occupations) and per-occupation lookup
+  const majorOutlook = outlook?.by_cip[cip4] ?? null;
+  const majorAcs = acsFlows?.by_cip[cip4] ?? null;
 
   // selection-adjusted premium for the selected major (Bachelor's-level analysis)
   const majorPremium = useMemo(
@@ -569,7 +608,7 @@ export function DegreeRoiClient() {
       </section>
 
       {/* ---- headline stats ---- */}
-      <section className="mb-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+      <section className="mb-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
         <Stat label="Median 5-yr earnings" value={fmtUsd(stats.medEarn)} accent />
         <Stat label="Median debt" value={fmtUsd(stats.medDebt)} />
         <Stat
@@ -580,6 +619,15 @@ export function DegreeRoiClient() {
           label="AI exposure of these jobs"
           value={aiSummary != null ? `${Math.round(aiSummary * 100)}%` : "—"}
           hint="of tasks, AI + tools"
+        />
+        <Stat
+          label="10-yr job-growth outlook"
+          value={
+            majorOutlook?.growth_wt != null && majorOutlook.coverage >= 0.5
+              ? `${majorOutlook.growth_wt > 0 ? "+" : ""}${majorOutlook.growth_wt}%`
+              : "—"
+          }
+          hint={outlook ? `BLS ${outlook.vintage} projection` : undefined}
         />
       </section>
 
@@ -719,6 +767,8 @@ export function DegreeRoiClient() {
           )}
           {occFlows.map((f) => {
             const beta = f.occ?.ai_beta;
+            const ol = f.soc6 ? outlook?.by_soc[f.soc6] : undefined;
+            const g = ol?.growth_pct ?? null;
             return (
               <div
                 key={f.soc6}
@@ -736,6 +786,18 @@ export function DegreeRoiClient() {
                       ? `${fmtUsd(f.occ.wage_ref_annual)} avg · `
                       : ""}
                     SOC {f.soc6}
+                    {g != null && (
+                      <span
+                        className={g >= 0 ? "text-emerald-400" : "text-rose-400"}
+                        title={`BLS projected 10-year employment change${
+                          ol?.annual_openings ? `; ~${ol.annual_openings.toLocaleString()} openings/yr` : ""
+                        }`}
+                      >
+                        {" · "}
+                        {g >= 0 ? "▲" : "▼"} {g > 0 ? "+" : ""}
+                        {g}% 10-yr
+                      </span>
+                    )}
                   </div>
                 </div>
                 {beta != null && (
@@ -755,6 +817,46 @@ export function DegreeRoiClient() {
             );
           })}
         </div>
+
+        {/* ACS reality check: where graduates of this field actually work */}
+        {majorAcs && majorAcs.acs_top.length > 0 && (
+          <div className="mt-5 rounded-xl border border-sky-900/50 bg-sky-950/20 p-4">
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 className="text-sm font-semibold text-sky-200">
+                Reality check: where graduates actually work
+              </h3>
+              <span className="text-xs text-neutral-500">
+                ACS {acsFlows?.vintage} · field “{majorAcs.field}” · {majorAcs.n_sampled.toLocaleString()} sampled
+              </span>
+            </div>
+            <p className="mt-1 mb-3 text-xs text-neutral-400">
+              The crosswalk above is <span className="text-neutral-300">modeled</span> — it weights
+              occupations by how large they are. This is the{" "}
+              <span className="text-neutral-300">independent, empirical</span> picture from Census
+              microdata: the occupations employed graduates of this field actually report, by share.
+              The two are built from entirely separate data, so comparing them is an honest reality
+              check rather than a circular one.
+            </p>
+            <div className="space-y-1.5">
+              {majorAcs.acs_top.map((t) => (
+                <div key={t.soc6} className="flex items-center gap-3">
+                  <div className="w-12 text-right font-mono text-xs text-sky-300">
+                    {Math.round(t.share * 100)}%
+                  </div>
+                  <div className="h-2 flex-1 overflow-hidden rounded-full bg-neutral-800">
+                    <div
+                      className="h-full rounded-full bg-sky-500/70"
+                      style={{ width: `${Math.min(100, Math.round(t.share * 100))}%` }}
+                    />
+                  </div>
+                  <div className="w-56 truncate text-xs text-neutral-300" title={t.soc_title ?? t.soc6}>
+                    {t.soc_title ?? t.soc6}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </section>
 
       {/* ---- AI-exposure reconciliation ---- */}

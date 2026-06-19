@@ -25,6 +25,8 @@ STEPS = [
     ("scripts/degree/06_metro_coords.py", "Census CBSA centroids for the metro dot map"),
     ("scripts/degree/07_outcomes.py", "Gender pay gap, gainful-employment flag, net-price ROI"),
     ("scripts/degree/08_cost_of_living.py", "BEA Regional Price Parities for real (COL-adjusted) pay"),
+    ("scripts/degree/09_job_outlook.py", "BLS 10-year occupational job-growth outlook (via Projections Central)"),
+    ("scripts/degree/10_acs_flows.py", "ACS PUMS empirical field-of-degree -> occupation flows"),
     ("notebooks/build_notebooks.py", "Build + execute the downloadable Jupyter notebooks"),
 ]
 
