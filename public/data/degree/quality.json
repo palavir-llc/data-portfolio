@@ -1,8 +1,9 @@
 {
   "programs": {
     "fos_total_rows": 227980,
-    "programs_kept": 63617,
-    "earnings_suppressed_rows": 169448
+    "programs_kept": 62406,
+    "earnings_suppressed_rows": 169448,
+    "dropped_no_unitid": 1211
   },
   "cip_soc_coverage": {
     "program_cips": 356,

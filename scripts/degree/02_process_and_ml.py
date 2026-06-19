@@ -225,11 +225,13 @@ def build_programs():
     path = os.path.join(RAW, "Most-Recent-Cohorts-Field-of-Study.csv")
     keep = ["UNITID", "INSTNM", "CIPCODE", "CIPDESC", "CREDLEV",
             "EARN_MDN_1YR", "EARN_MDN_5YR", "DEBT_ALL_STGP_EVAL_MDN"]
-    df = pd.read_csv(path, usecols=keep, dtype=str)
+    # keep_default_na=False so the literal string "NA" in UNITID (defunct schools) is not
+    # coerced to NaN -> "nan", which would collapse ~778 closed schools into one identity.
+    df = pd.read_csv(path, usecols=keep, dtype=str, keep_default_na=False)
     used_sources.add("college_scorecard_fos")
     total_rows = len(df)
 
-    programs, n_suppressed_earn, n_kept = [], 0, 0
+    programs, n_suppressed_earn, n_kept, n_no_unitid = [], 0, 0, 0
     for r in df.itertuples(index=False):
         earn1, s1 = _num(r.EARN_MDN_1YR)
         earn5, s5 = _num(r.EARN_MDN_5YR)
@@ -238,6 +240,12 @@ def build_programs():
             n_suppressed_earn += 1
         # Keep programs with at least one observed earnings figure (others counted, not shown).
         if earn1 is None and earn5 is None:
+            continue
+        # Drop programs with no stable institution id (defunct schools with UNITID "NA"):
+        # they share the same blank id, so they cannot be uniquely or correctly attributed.
+        unitid = str(r.UNITID).strip()
+        if unitid in ("", "NA"):
+            n_no_unitid += 1
             continue
         cip4 = xw.normalize_cip(r.CIPCODE)
         years = round(debt / (ROI_INCOME_SHARE * earn5), 1) if (debt and earn5) else None
@@ -259,9 +267,10 @@ def build_programs():
         n_kept += 1
 
     print(f"  programs: {n_kept} kept (with observed earnings) of {total_rows} rows; "
-          f"{n_suppressed_earn} earnings-suppressed")
+          f"{n_suppressed_earn} earnings-suppressed; {n_no_unitid} dropped (no UNITID)")
     return programs, {"fos_total_rows": total_rows, "programs_kept": n_kept,
-                      "earnings_suppressed_rows": n_suppressed_earn}
+                      "earnings_suppressed_rows": n_suppressed_earn,
+                      "dropped_no_unitid": n_no_unitid}
 
 
 def _write_program_shards(programs):
@@ -419,23 +428,30 @@ def build_affordability(oews):
     z["city"] = z["RegionName"].str.split(",").str[0].str.strip().str.lower()
     used_sources.add("zillow_zori")
 
-    # OEWS principal-city/state -> CBSA(AREA) key
-    geo = oews[["AREA", "AREA_TITLE", "PRIM_STATE"]].drop_duplicates().copy()
-    geo["city"] = geo["AREA_TITLE"].str.split(",").str[0].str.split("-").str[0].str.strip().str.lower()
-    geo_key = {(r.city, r.PRIM_STATE): int(r.AREA) for r in geo.itertuples(index=False)}
+    # Robust metro join (recovers multi-state metros like Washington, DC)
+    metro_idx = xw.oews_metro_index(oews)
+    n_oews_metros = len({a for cands in metro_idx.values() for a, _ in cands})
 
     seen, mlist = set(), []
+    z_total = len(z)
     for r in z.itertuples(index=False):
-        area = geo_key.get((r.city, r.StateName))
+        area = xw.match_metro(metro_idx, r.RegionName, r.StateName)
         if area is None or area in seen:
             continue  # unmatched metro: skipped, not faked
         seen.add(area)
         mlist.append({"cbsa": area, "name": r.RegionName, "state": r.StateName,
                       "zori_monthly": round(float(r.zori))})
+    coverage = {
+        "zillow_metros": z_total, "oews_metros": n_oews_metros, "matched": len(mlist),
+        "note": "Metros are matched to a CBSA only when OEWS publishes wages for them; "
+                "the rest are omitted, not estimated. OEWS covers far fewer metros than "
+                "Zillow, so unmatched metros mostly have no OEWS wage data at all.",
+    }
     with open(os.path.join(OUT, "affordability_metros.json"), "w", encoding="utf-8") as f:
         json.dump({"rent_month": latest, "attribution": "Data Provided by Zillow Group",
-                   "metros": mlist}, f, ensure_ascii=False)
-    print(f"  metros matched to rents: {len(mlist)}")
+                   "coverage": coverage, "metros": mlist}, f, ensure_ascii=False)
+    print(f"  metros matched to rents: {len(mlist)} of {z_total} Zillow metros "
+          f"(OEWS publishes {n_oews_metros})")
 
     # SOC x CBSA median wage lookup (only matched metros)
     om = oews[oews["AREA"].isin(seen)].dropna(subset=["soc6", "A_MEDIAN"])

@@ -120,11 +120,22 @@ def main():
         denom = ns / nat_total
         return round((e / st) / denom, 2) if denom else None
 
-    # state median rent from Zillow metros
+    # state median rent from Zillow metros, mapped to the metro's OEWS primary state so
+    # multi-state metros (e.g. Washington DC, labeled "VA" by Zillow) land in the right
+    # state rather than being mis-bucketed or dropped.
     z = pd.read_csv(os.path.join(RAW, "zillow_metro_zori.csv"))
-    z = z[z["RegionType"] == "msa"]
+    z = z[z["RegionType"] == "msa"].copy()
     month = [c for c in z.columns if c[:2] in ("19", "20")][-1]
-    state_rent = z.dropna(subset=[month]).groupby("StateName")[month].median()
+    z = z.dropna(subset=[month]).rename(columns={month: "zori"})
+    metro_idx = xw.oews_metro_index(o)
+    area_state = {int(r.AREA): str(r.PRIM_STATE)
+                  for r in o[["AREA", "PRIM_STATE"]].drop_duplicates().itertuples(index=False)}
+    rent_by_state: dict = {}
+    for r in z.itertuples(index=False):
+        area = xw.match_metro(metro_idx, r.RegionName, r.StateName)
+        st = area_state.get(area, r.StateName) if area else r.StateName
+        rent_by_state.setdefault(st, []).append(float(r.zori))
+    state_rent = pd.Series({s: float(np.median(v)) for s, v in rent_by_state.items() if v})
 
     # Geography reflects the occupations a degree directly trains for. The CIP->SOC
     # crosswalk attaches generic catch-alls — Management (11-xxxx) and Postsecondary

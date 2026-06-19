@@ -132,6 +132,44 @@ def build_weighted_flows(
     return flows
 
 
+def oews_metro_index(oews) -> dict:
+    """Index OEWS metros by principal city -> list of (cbsa_code, {states}).
+
+    The states set is parsed from the AREA_TITLE suffix (e.g. "Washington-Arlington-
+    Alexandria, DC-VA-MD-WV" -> {DC,VA,MD,WV}) plus PRIM_STATE, so a multi-state metro
+    matches a rent source that labels it under any of its states. This recovers metros
+    like Washington, DC that a naive (city, prim_state) join drops.
+    """
+    geo = oews[["AREA", "AREA_TITLE", "PRIM_STATE"]].drop_duplicates()
+    idx: dict = {}
+    for r in geo.itertuples(index=False):
+        title = str(r.AREA_TITLE)
+        city = title.split(",")[0].split("-")[0].strip().lower()
+        states = set()
+        if "," in title:
+            states = {s.strip().upper() for s in title.split(",")[1].split("-")}
+        states.add(str(r.PRIM_STATE).upper())
+        idx.setdefault(city, []).append((int(r.AREA), states))
+    return idx
+
+
+def match_metro(idx: dict, region_name, state) -> int | None:
+    """Match a rent-source metro (RegionName like 'Washington, DC', state) to a CBSA.
+
+    Prefer a candidate whose state set contains the source state; fall back only when the
+    principal-city name is unambiguous (single candidate). Returns the CBSA code or None
+    (unmatched metros are skipped by callers, never faked)."""
+    city = str(region_name).split(",")[0].strip().lower()
+    cands = idx.get(city)
+    if not cands:
+        return None
+    st = str(state).upper()
+    for area, states in cands:
+        if st in states:
+            return area
+    return cands[0][0] if len(cands) == 1 else None
+
+
 def coverage_report(programs_cips: set, flow_cips: set) -> dict:
     """Summarize how many distinct CIPs in the program data have a SOC mapping."""
     mapped = programs_cips & flow_cips
