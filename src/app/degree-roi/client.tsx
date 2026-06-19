@@ -918,6 +918,25 @@ export function DegreeRoiClient() {
         </section>
       )}
 
+      {/* ---- limitations ---- */}
+      <section className="mb-8 rounded-xl border border-amber-900/40 bg-amber-950/10 p-5">
+        <h2 className="mb-3 text-lg font-semibold text-amber-200/90">What this can and can&apos;t tell you</h2>
+        <ul className="grid gap-2.5 text-sm text-neutral-400 sm:grid-cols-2">
+          {[
+            ["Earnings are Title-IV only.", "They cover federally-aided graduates (those who took loans/grants) — wealthier non-borrowers are excluded, which can bias a program's figures."],
+            ["The numbers describe past graduates.", "5-year earnings are 2014–16 cohorts measured in 2020–21 — a defensible comparison, not a forecast of what you'll earn."],
+            ["A major isn't one job.", "Degree→occupation flows are weighted by employment (disclosed per row), not observed individual outcomes. Geography drops generic catch-all occupations to stay meaningful."],
+            ["AI exposure ≠ job loss.", "It's GPT-4-era (2023) task overlap from published measures — how much could be assisted, not a prediction that the job disappears."],
+            ["The premium is observational.", "The selection-adjusted edge controls for who enrolls, but it is correlational, not causal proof that the major caused the earnings."],
+            ["Rent and pay are medians.", "Affordability uses metro-median rent vs. graduate-weighted pay; OEWS covers fewer metros than Zillow, so unmatched metros are omitted, never estimated."],
+          ].map(([head, body]) => (
+            <li key={head} className="rounded-lg border border-neutral-800/60 bg-neutral-900/30 p-3">
+              <span className="font-medium text-neutral-200">{head}</span> {body}
+            </li>
+          ))}
+        </ul>
+      </section>
+
       {/* ---- sources, methodology & downloads ---- */}
       <section className="mb-8 rounded-xl border border-neutral-800 bg-neutral-900/40 p-5">
         <h2 className="mb-3 text-lg font-semibold text-neutral-100">Sources, method &amp; downloads</h2>
