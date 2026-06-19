@@ -1,0 +1,17 @@
+{
+  "programs": {
+    "fos_total_rows": 227980,
+    "programs_kept": 63617,
+    "earnings_suppressed_rows": 169448
+  },
+  "cip_soc_coverage": {
+    "program_cips": 356,
+    "mapped_cips": 355,
+    "unmapped_cips": 1,
+    "pct_cips_mapped": 99.7,
+    "unmapped_examples": [
+      "51.16"
+    ]
+  },
+  "integrity_rule": "Only real, source-traceable numbers are displayed. Suppressed source cells are null (never 0, never imputed for display)."
+}

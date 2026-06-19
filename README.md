@@ -4,6 +4,22 @@ Interactive data science explorations combining machine learning, creative visua
 
 ## Projects
 
+### Where Your Degree Takes You
+*Pick a school and major — see the job, the payoff, the AI risk, and the rent.*
+
+Joins program-level College Scorecard ROI to the occupations graduates enter (NCES
+CIP→SOC crosswalk, weighted by occupational employment), the generative-AI exposure of
+those jobs (published Eloundou and AIOE measures), and metro affordability (BLS OEWS
+wages vs. Zillow rents). A selection-adjusted earnings premium separates "the major pays"
+from "selective schools admit high earners," and sentence-embeddings of O*NET tasks
+reconcile three independent AI-exposure signals. **Every displayed number is a real,
+source-traceable figure; privacy-suppressed cells are shown as missing, never imputed.**
+
+**ML:** Selection-Adjusted Premium (residualization), K-Means Earnings-Trajectory Clusters, Task→AI Sentence Embeddings + UMAP, CIP→SOC Weighting
+**Viz:** ROI Scatter, Degree→Job flows, AI-Exposure Bars, Affordability Bars
+**Data:** College Scorecard, BLS OEWS, NCES CIP→SOC, O*NET, Eloundou/AIOE AI exposure, Zillow ZORI
+**Route:** `/degree-roi`
+
 ### 1. Hospital Quality Survival Landscape
 *Is your ZIP code your destiny when it comes to hospital quality?*
 
@@ -56,6 +72,12 @@ python -m venv .venv
 .venv/Scripts/python scripts/spending/01_download.py
 .venv/Scripts/python scripts/spending/02_process_and_ml.py
 
+# Where Your Degree Takes You (College Scorecard + OEWS + O*NET + AI exposure + Zillow)
+.venv/Scripts/pip install -r scripts/degree/requirements.txt
+.venv/Scripts/python scripts/degree/01_download.py          # public sources + provenance manifest
+.venv/Scripts/python scripts/degree/02_process_and_ml.py    # ROI, CIP→SOC flows, clusters, premium, affordability
+.venv/Scripts/python scripts/degree/03_task_embeddings.py   # O*NET task LSA + AI-exposure reconciliation
+
 pnpm dev
 ```
 
@@ -64,11 +86,13 @@ pnpm dev
 ```
 data-portfolio/
 ├── src/app/                    # Next.js pages
+│   ├── degree-roi/             # Where Your Degree Takes You
 │   ├── hospital-quality/       # Hospital quality exploration
 │   ├── wage-topology/          # Wage landscape exploration
 │   └── federal-spending/       # Federal spending exploration
 ├── src/components/viz/         # Reusable D3/deck.gl components
 ├── scripts/                    # Python ML pipelines
+│   ├── degree/                 # College Scorecard + OEWS + O*NET + AI exposure + Zillow
 │   ├── hospital/               # CMS + Census data + ML
 │   ├── wages/                  # BLS + O*NET data + ML
 │   └── spending/               # USASpending data + ML
