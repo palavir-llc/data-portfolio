@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import * as d3 from "d3";
+import { escapeHtml } from "@/lib/html";
 
 export interface QuadrantPoint {
   cip4: string;
@@ -133,7 +134,7 @@ export function QuadrantScatter({
         const [mx, my] = d3.pointer(e, ref.current);
         setTip({
           x: mx, y: my,
-          html: `<strong>${d.title}</strong><br/>$${d.earn.toLocaleString()} · AI ${Math.round(d.ai * 100)}%`,
+          html: `<strong>${escapeHtml(d.title)}</strong><br/>$${d.earn.toLocaleString()} · AI ${Math.round(d.ai * 100)}%`,
         });
       })
       .on("mouseleave", () => setTip(null));
