@@ -59,6 +59,7 @@ interface TaskAiOcc {
 }
 interface TaskAiData {
   method: string;
+  embedding_backend: string;
   correlations: Record<string, number | null>;
   occupations: TaskAiOcc[];
 }
@@ -454,10 +455,13 @@ export function DegreeRoiClient() {
           </h2>
           <p className="mb-4 max-w-3xl text-sm text-neutral-500">
             Two published exposure measures (Eloundou β, AIOE) plus a third I derived
-            independently from the <em>text</em> of O*NET task statements (TF-IDF + latent
-            semantic analysis). If they agree, the signal is robust rather than an artifact of
-            one method. They do: each occupation below is placed by its task profile and
-            colored by exposure; this major&apos;s occupations are enlarged.
+            independently from the <em>text</em> of O*NET task statements using{" "}
+            {taskAi.embedding_backend?.startsWith("sentence-transformers")
+              ? "sentence embeddings (all-MiniLM-L6-v2)"
+              : "TF-IDF + latent semantic analysis"}
+            . If they agree, the signal is robust rather than an artifact of one method. They
+            do: each occupation below is placed by its task profile and colored by exposure;
+            this major&apos;s occupations are enlarged.
           </p>
           <div className="mb-4 flex flex-wrap gap-3">
             {[

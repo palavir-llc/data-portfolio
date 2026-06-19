@@ -15,7 +15,7 @@ from "selective schools admit high earners," and sentence-embeddings of O*NET ta
 reconcile three independent AI-exposure signals. **Every displayed number is a real,
 source-traceable figure; privacy-suppressed cells are shown as missing, never imputed.**
 
-**ML:** Selection-Adjusted Premium (residualization), K-Means Earnings-Trajectory Clusters, Task→AI Sentence Embeddings + UMAP, CIP→SOC Weighting
+**ML:** Selection-Adjusted Premium (residualization), K-Means Earnings-Trajectory Clusters, Task→AI Sentence Embeddings (all-MiniLM-L6-v2) + PCA, CIP→SOC Weighting
 **Viz:** ROI Scatter, Degree→Job flows, AI-Exposure Bars, Affordability Bars
 **Data:** College Scorecard, BLS OEWS, NCES CIP→SOC, O*NET, Eloundou/AIOE AI exposure, Zillow ZORI
 **Route:** `/degree-roi`
@@ -76,7 +76,7 @@ python -m venv .venv
 .venv/Scripts/pip install -r scripts/degree/requirements.txt
 .venv/Scripts/python scripts/degree/01_download.py          # public sources + provenance manifest
 .venv/Scripts/python scripts/degree/02_process_and_ml.py    # ROI, CIP→SOC flows, clusters, premium, affordability
-.venv/Scripts/python scripts/degree/03_task_embeddings.py   # O*NET task LSA + AI-exposure reconciliation
+.venv/Scripts/python scripts/degree/03_task_embeddings.py   # O*NET task sentence-embeddings + AI-exposure reconciliation
 
 pnpm dev
 ```

@@ -1,9 +1,8 @@
 """
-Phase 3 — O*NET task embeddings and AI-exposure reconciliation (lightweight LSA).
+Phase 3 — O*NET task embeddings and AI-exposure reconciliation.
 
 Distinguishes this story from the existing Wage Topology (which embeds numeric O*NET
-skill vectors): here we work from the TEXT of each O*NET task statement. We build a
-TF-IDF + Latent Semantic Analysis (truncated-SVD) embedding of every task, pool to an
+skill vectors): here we embed the TEXT of each O*NET task statement, pool to an
 occupation task-profile, and derive an embedding-based AI-affinity from the semantic
 similarity of an occupation's tasks to language-model-automatable work vs. physical /
 manual work.
@@ -11,15 +10,19 @@ manual work.
 We then RECONCILE three independent signals of AI exposure per occupation:
   - Eloundou "GPTs are GPTs" beta   (published, GPT-4 era)
   - AIOE (Felten/Raj/Seamans)       (published)
-  - our LSA-based affinity           (derived here, clearly labelled)
-and report how well they agree (Spearman rank correlation). A 2-D PCA projection gives
-an occupation map.
+  - our embedding-based affinity     (derived here, clearly labelled)
+and report how well they agree (Spearman rank correlation). A 2-D PCA projection of the
+occupation profiles gives an occupation map.
 
-LSA (not a transformer) keeps this torch-free and runs anywhere; it is a classic,
-defensible NLP technique. The published exposure numbers are shown as-is; the embedding
-score is labelled a derived estimate. Task overlap, NOT a job-loss forecast.
+Embedding backend (auto-selected):
+  - PREFERRED: sentence-transformers (all-MiniLM-L6-v2) — true contextual embeddings.
+  - FALLBACK:  TF-IDF + Latent Semantic Analysis (truncated SVD) — torch-free, runs
+               anywhere; a classic, defensible NLP technique used when transformers
+               aren't installed.
+The chosen backend is recorded in the output so the method is always transparent.
 
-Run AFTER 02_process_and_ml.py.
+Published exposure numbers are shown as-is; the embedding score is labelled a derived
+estimate. Task overlap, NOT a job-loss forecast. Run AFTER 02_process_and_ml.py.
 """
 
 import os
@@ -28,9 +31,8 @@ import json
 import warnings
 import numpy as np
 import pandas as pd
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.decomposition import TruncatedSVD, PCA
 from sklearn.preprocessing import normalize
+from sklearn.decomposition import PCA
 
 warnings.filterwarnings("ignore")
 sys.path.insert(0, os.path.dirname(__file__))
@@ -88,15 +90,50 @@ def load_tasks():
     return df
 
 
+def embed_transformer(texts, anchors):
+    """Contextual sentence embeddings via all-MiniLM-L6-v2 (preferred)."""
+    from sentence_transformers import SentenceTransformer
+
+    model = SentenceTransformer("all-MiniLM-L6-v2")
+    vecs = model.encode(texts, batch_size=256, normalize_embeddings=True, show_progress_bar=False)
+    anchor_vecs = model.encode(anchors, normalize_embeddings=True)
+    return np.asarray(vecs), np.asarray(anchor_vecs), "sentence-transformers/all-MiniLM-L6-v2"
+
+
+def embed_lsa(texts, anchors):
+    """TF-IDF + Latent Semantic Analysis fallback (torch-free)."""
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    from sklearn.decomposition import TruncatedSVD
+
+    vec = TfidfVectorizer(stop_words="english", ngram_range=(1, 2), min_df=3, max_features=20000)
+    X = vec.fit_transform(texts)
+    svd = TruncatedSVD(n_components=120, random_state=42)
+    vecs = normalize(svd.fit_transform(X))
+    anchor_vecs = normalize(svd.transform(vec.transform(anchors)))
+    return vecs, anchor_vecs, "tfidf+lsa(svd-120)"
+
+
 def main():
     occ = pd.DataFrame(json.load(open(os.path.join(OUT, "occupations.json"), encoding="utf-8")))
     tasks = load_tasks()
-    print(f"TF-IDF + LSA over {len(tasks)} O*NET tasks, {tasks['soc6'].nunique()} occupations...")
 
-    vec = TfidfVectorizer(stop_words="english", ngram_range=(1, 2), min_df=3, max_features=20000)
-    X = vec.fit_transform(tasks["task"].tolist())
-    svd = TruncatedSVD(n_components=120, random_state=42)
-    task_vecs = normalize(svd.fit_transform(X))
+    anchors = AI_REFS + MANUAL_REFS
+    try:
+        import sentence_transformers  # noqa: F401
+        backend_fn = embed_transformer
+        print(f"Embedding {len(tasks)} O*NET tasks with sentence-transformers "
+              f"(all-MiniLM-L6-v2) over {tasks['soc6'].nunique()} occupations...")
+    except ImportError:
+        backend_fn = embed_lsa
+        print(f"sentence-transformers unavailable; falling back to TF-IDF + LSA over "
+              f"{len(tasks)} O*NET tasks...")
+
+    task_vecs, anchor_vecs, backend = backend_fn(tasks["task"].tolist(), anchors)
+    print(f"  embedding backend: {backend}")
+
+    n_ai = len(AI_REFS)
+    ai_c = normalize(anchor_vecs[:n_ai].mean(axis=0, keepdims=True))
+    man_c = normalize(anchor_vecs[n_ai:].mean(axis=0, keepdims=True))
 
     # occupation task-profile = normalized mean of its task vectors
     soc_ids, profiles = [], []
@@ -105,9 +142,6 @@ def main():
         profiles.append(task_vecs[list(idx)].mean(axis=0))
     profiles = normalize(np.vstack(profiles))
 
-    # AI-affinity axis from reference anchors (same TF-IDF + LSA space)
-    ai_c = normalize(svd.transform(vec.transform(AI_REFS)).mean(axis=0, keepdims=True))
-    man_c = normalize(svd.transform(vec.transform(MANUAL_REFS)).mean(axis=0, keepdims=True))
     raw = (profiles @ ai_c.T - profiles @ man_c.T).ravel()
     embed_score = (raw - raw.min()) / (raw.max() - raw.min())
 
@@ -130,12 +164,15 @@ def main():
             return v
         return None if pd.isna(v) else (round(float(v), 4) if isinstance(v, float) else v)
 
+    method = (
+        f"{backend} embeddings of O*NET task statements, pooled per occupation; "
+        "AI-affinity = similarity to language-automatable vs manual task anchors. Embedding "
+        "score is a derived estimate; Eloundou/AIOE are published measures (GPT-4 era, 2023). "
+        "Task overlap, not a job-loss forecast."
+    )
     out = {
-        "method": "TF-IDF + Latent Semantic Analysis (truncated SVD) of O*NET task "
-                  "statements, pooled per occupation; AI-affinity = similarity to "
-                  "language-automatable vs manual task anchors. Embedding score is a derived "
-                  "estimate; Eloundou/AIOE are published measures (GPT-4 era, 2023). Task "
-                  "overlap, not a job-loss forecast.",
+        "method": method,
+        "embedding_backend": backend,
         "correlations": correlations,
         "n_occupations": int(len(merged)),
         "occupations": [{k: clean(v) for k, v in r.items()} for r in merged.to_dict("records")],
@@ -144,7 +181,7 @@ def main():
         os.makedirs(path, exist_ok=True)
         with open(os.path.join(path, "task_ai_map.json"), "w", encoding="utf-8") as f:
             json.dump(out, f, ensure_ascii=False)
-    print(f"Wrote task_ai_map.json ({len(merged)} occupations).")
+    print(f"Wrote task_ai_map.json ({len(merged)} occupations, backend={backend}).")
 
 
 if __name__ == "__main__":
