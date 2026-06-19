@@ -129,6 +129,7 @@ export function DegreeRoiClient() {
   const [occ, setOcc] = useState<Record<string, Occupation>>({});
   const [flows, setFlows] = useState<Flow[]>([]);
   const [sources, setSources] = useState<Source[]>([]);
+  const [dataDate, setDataDate] = useState<string>("");
   const [premium, setPremium] = useState<PremiumData | null>(null);
   const [clusters, setClusters] = useState<ClustersData | null>(null);
   const [affordMetros, setAffordMetros] = useState<AffordMetros | null>(null);
@@ -180,6 +181,7 @@ export function DegreeRoiClient() {
         setOcc(Object.fromEntries(occs.map((o) => [o.soc6, o])));
         setFlows(fl);
         setSources(src.sources);
+        setDataDate((src as { generated?: string }).generated ?? "");
         setPremium(prem);
         setClusters(clus);
         setAffordMetros(afm);
@@ -1015,7 +1017,10 @@ export function DegreeRoiClient() {
 
       {/* ---- sources, methodology & downloads ---- */}
       <section className="mb-8 rounded-xl border border-neutral-800 bg-neutral-900/40 p-5">
-        <h2 className="mb-3 text-lg font-semibold text-neutral-100">Sources, method &amp; downloads</h2>
+        <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2">
+          <h2 className="text-lg font-semibold text-neutral-100">Sources, method &amp; downloads</h2>
+          {dataDate && <span className="text-xs text-neutral-500">Data refreshed {dataDate}</span>}
+        </div>
         <p className="mb-5 text-sm text-neutral-400">
           Only real, source-traceable numbers are shown. Privacy-suppressed cells are left
           out, never estimated. Earnings reflect federally-aided completers and a multi-year

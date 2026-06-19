@@ -73,7 +73,10 @@ python -m venv .venv
 .venv/Scripts/python scripts/spending/02_process_and_ml.py
 
 # Where Your Degree Takes You (College Scorecard + OEWS + O*NET + AI exposure + Zillow)
+# One-command refresh of the whole degree-roi pipeline:
 .venv/Scripts/pip install -r scripts/degree/requirements.txt
+.venv/Scripts/python scripts/degree/run_all.py          # runs every step below in order
+# ...or run the steps individually:
 .venv/Scripts/python scripts/degree/01_download.py          # public sources + provenance manifest
 .venv/Scripts/python scripts/degree/02_process_and_ml.py    # ROI, CIP→SOC flows, clusters, premium, affordability
 .venv/Scripts/python scripts/degree/03_task_embeddings.py   # O*NET task sentence-embeddings + AI-exposure reconciliation
