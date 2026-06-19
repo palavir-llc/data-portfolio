@@ -79,6 +79,8 @@ python -m venv .venv
 .venv/Scripts/python scripts/degree/03_task_embeddings.py   # O*NET task sentence-embeddings + AI-exposure reconciliation
 .venv/Scripts/python scripts/degree/04_national_analysis.py # national topline, field-of-study landscape, rankings, correlations
 .venv/Scripts/python scripts/degree/05_geography.py        # per-state job concentration (location quotient) + affordability maps
+.venv/Scripts/python scripts/degree/06_metro_coords.py     # Census CBSA centroids for the metro dot map
+.venv/Scripts/python notebooks/build_notebooks.py          # build + execute the downloadable Jupyter notebooks
 
 pnpm dev
 ```

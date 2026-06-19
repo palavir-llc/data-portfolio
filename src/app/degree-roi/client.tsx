@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { RoiScatter, type RoiPoint } from "@/components/viz/RoiScatter";
 import { UmapScatter } from "@/components/viz/UmapScatter";
 import { Choropleth } from "@/components/viz/Choropleth";
+import { MetroDotMap } from "@/components/viz/MetroDotMap";
 
 // ---- data shapes (match scripts/degree/02_process_and_ml.py outputs) ----
 interface Major {
@@ -131,6 +132,7 @@ export function DegreeRoiClient() {
   const [affordSocWage, setAffordSocWage] = useState<Record<string, number>>({});
   const [metroQuery, setMetroQuery] = useState("");
   const [rentRule, setRentRule] = useState(30); // the "don't spend more than X% on rent" line
+  const [affordView, setAffordView] = useState<"bars" | "map">("bars");
   const [taskAi, setTaskAi] = useState<TaskAiData | null>(null);
   const [geo, setGeo] = useState<Record<string, GeoState>>({}); // major's blended mix
   const [geoOcc, setGeoOcc] = useState<string | null>(null); // selected occupation (null = mix)
@@ -735,12 +737,33 @@ export function DegreeRoiClient() {
             </div>
           </div>
 
-          <input
-            value={metroQuery}
-            onChange={(e) => setMetroQuery(e.target.value)}
-            placeholder="Filter metros (e.g. Austin, Denver)…"
-            className="mb-4 w-full max-w-sm rounded-md border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-purple-500"
-          />
+          <div className="mb-4 flex flex-wrap items-center gap-3">
+            <input
+              value={metroQuery}
+              onChange={(e) => setMetroQuery(e.target.value)}
+              placeholder="Filter metros (e.g. Austin, Denver)…"
+              className="w-full max-w-sm rounded-md border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-purple-500"
+            />
+            <div className="flex gap-2">
+              {(["bars", "map"] as const).map((v) => (
+                <button
+                  key={v}
+                  onClick={() => setAffordView(v)}
+                  className={`rounded-md border px-3 py-1.5 text-sm capitalize ${
+                    affordView === v
+                      ? "border-purple-500 bg-purple-950/50 text-purple-200"
+                      : "border-neutral-700 text-neutral-400 hover:border-neutral-500"
+                  }`}
+                >
+                  {v}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {affordView === "map" ? (
+            <MetroDotMap wageByCbsa={activeAffordWage} rule={rentRule} />
+          ) : (
           <div className="grid gap-1.5 sm:grid-cols-2">
             {affordSorted.slice(0, 16).map((r) => {
               const pct = r.burden * 100;
@@ -768,7 +791,8 @@ export function DegreeRoiClient() {
               );
             })}
           </div>
-          {affordSorted.length === 0 && (
+          )}
+          {affordView === "bars" && affordSorted.length === 0 && (
             <p className="text-sm text-neutral-500">No metros match that filter.</p>
           )}
         </section>
