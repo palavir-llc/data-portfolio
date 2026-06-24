@@ -23,9 +23,9 @@ const projects = [
   {
     slug: "degree-roi",
     title: "Where Your Degree Takes You",
-    subtitle: "63K programs. The job, the payoff, the AI risk, the rent.",
+    subtitle: "62K programs. The job, the payoff, the AI risk, the rent.",
     description:
-      "Pick a school and major and follow it all the way through: the occupations graduates actually enter, what they earn versus the debt they carry, how exposed those jobs are to generative AI, and whether the paycheck covers the rent. Real program-level federal data joined occupation by occupation — every number traceable to its source.",
+      "Pick a school and major and follow it all the way through: the occupations graduates actually enter, what they earn versus the debt they carry, how exposed those jobs are to generative AI, and whether the paycheck covers the rent. Real program-level federal data joined occupation by occupation. Every number traceable to its source.",
     techniques: [
       "CIP→SOC Crosswalk Weighting",
       "Selection-Adjusted Premium",

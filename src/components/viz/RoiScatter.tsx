@@ -24,7 +24,7 @@ interface RoiScatterProps {
 /**
  * Earnings (x) vs debt (y) scatter for every school offering a major. Each dot is a
  * real College Scorecard program; points whose earnings were privacy-suppressed are
- * never invented — they are reported separately, not plotted. Colour encodes the
+ * never invented. They are reported separately, not plotted. Colour encodes the
  * (disclosed-formula) years-to-pay-off-debt.
  */
 export function RoiScatter({

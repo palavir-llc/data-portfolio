@@ -27,7 +27,7 @@ export async function generateMetadata({
     m.job_growth_pct != null
       ? ` Its jobs are projected to ${m.job_growth_pct >= 0 ? "grow" : "shrink"} ${Math.abs(m.job_growth_pct)}% over 10 years (BLS).`
       : ""
-  } Jobs, AI exposure, and affordability — real federal data.`;
+  } See where graduates work, their AI exposure, and whether the pay covers the rent.`;
   return {
     title: `Is a ${m.title} degree worth it? | Data Stories`,
     description: desc,
@@ -73,9 +73,15 @@ export default async function MajorPage({ params }: { params: Promise<{ major: s
       <p className="mt-4 max-w-2xl text-lg text-neutral-400">
         Across {m.n_schools.toLocaleString()} schools, graduates of {m.title} earn a median{" "}
         <span className="text-neutral-200">{usd(m.earn_5yr)}</span> five years out on{" "}
-        <span className="text-neutral-200">{usd(m.debt)}</span> of debt
-        {m.top_occupation ? ` — most often working as ${m.top_occupation}.` : "."} Every figure is a
-        real, published federal number.
+        <span className="text-neutral-200">{usd(m.debt)}</span> of debt.
+        {m.top_occupation_empirical && m.top_occupation
+          ? ` Most go on to work as ${m.top_occupation}${
+              m.top_occupation_share != null
+                ? ` (${Math.round(m.top_occupation_share * 100)}% of them, per Census ACS)`
+                : ""
+            }.`
+          : ""}{" "}
+        These earnings and debt figures come from the U.S. Dept. of Education.
       </p>
 
       <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">

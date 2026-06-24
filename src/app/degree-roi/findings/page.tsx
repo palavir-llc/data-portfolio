@@ -8,7 +8,7 @@ import { jsonLd } from "@/lib/html";
 export const metadata: Metadata = {
   title: "5 things we learned about whether your degree is worth it | Data Stories",
   description:
-    "The biggest findings from joining 63,000 college programs to jobs, AI exposure, and rents: more debt doesn't buy more pay, the best-paid fields are the most AI-exposed, and the premium is often about who gets in.",
+    "The biggest findings from joining 62,000+ college programs to jobs, AI exposure, and rents: more debt doesn't buy more pay, the best-paid fields are the most AI-exposed, and the premium is often about who gets in.",
   alternates: { canonical: "https://portfolio.palavir.co/degree-roi/findings" },
   openGraph: {
     title: "5 things we learned about whether your degree is worth it",
@@ -60,34 +60,34 @@ export default async function FindingsPage() {
     {
       n: "01",
       title: "More debt doesn't buy more pay.",
-      body: `Across ${ov.n_majors} Bachelor's majors, the correlation between how much debt a field carries and what its graduates earn is just r = ${ov.correlations.debt_vs_earnings} — essentially zero. The lever that decides your earning power is the field you choose, not the price tag. ${top?.title?.split(",")[0]} graduates out-earn ${bottom?.title?.split(",")[0]} graduates by ${usd(top?.earn_5yr - bottom?.earn_5yr)} five years out, on roughly the same debt.`,
+      body: `Across ${ov.n_majors} Bachelor's majors, the correlation between how much debt a field carries and what its graduates earn is just r = ${ov.correlations.debt_vs_earnings}, essentially zero. The lever that decides your earning power is the field you choose, not the price tag. ${top?.title?.split(",")[0]} graduates out-earn ${bottom?.title?.split(",")[0]} graduates by ${usd(top?.earn_5yr - bottom?.earn_5yr)} five years out, on roughly the same debt.`,
     },
     {
       n: "02",
       title: "The best-paid fields are often the most exposed to AI.",
-      body: `Plot every major by pay and by how much of its work generative AI could already do, and the uncomfortable cluster is the top-right "danger zone" — well paid and highly exposed. ${danger.join(", ")} all land there. (This is task overlap from GPT-4-era measures — what could be assisted, not a prediction that the job disappears.)`,
+      body: `Plot every major by pay and by how much of its work generative AI could already do, and the uncomfortable cluster is the top-right "danger zone": well paid and highly exposed. ${danger.join(", ")} all land there. (This is task overlap from GPT-4-era measures, what could be assisted, not a prediction that the job disappears.)`,
     },
     {
       n: "03",
       title: "The 'premium' is often about who gets in, not the major.",
-      body: `A major's raw earnings edge mixes the field's value with the fact that selective schools admit higher earners. Adjust for who enrolls and ${cs ? `Computer Science keeps almost all of its edge (+${usd(cs.raw_premium)} raw → +${usd(cs.adjusted_premium)} adjusted)` : "some fields hold their edge"}, while ${collapse ? `${collapse.cip_title.split(",")[0]}'s +${usd(collapse.raw_premium)} edge nearly vanishes to +${usd(collapse.adjusted_premium)}` : "others collapse"}. It's an observational adjustment, not causal proof — but it separates signal from selection.`,
+      body: `A major's raw earnings edge mixes the field's value with the fact that selective schools admit higher earners. Adjust for who enrolls and ${cs ? `Computer Science keeps almost all of its edge (+${usd(cs.raw_premium)} raw → +${usd(cs.adjusted_premium)} adjusted)` : "some fields hold their edge"}, while ${collapse ? `${collapse.cip_title.split(",")[0]}'s +${usd(collapse.raw_premium)} edge nearly vanishes to +${usd(collapse.adjusted_premium)}` : "others collapse"}. It's an observational adjustment, not causal proof, but it separates signal from selection.`,
     },
     {
       n: "04",
       title: "Where you live decides whether the pay is enough.",
-      body: `The same degree's paycheck is comfortable in one metro and a stretch in another. We pit graduate-weighted pay against market rent across ~370 metros: a tech salary clears the 30%-of-income rule almost everywhere, but coastal and Hawaii metros flip it into a stretch. Geography is the variable the headline salary hides.`,
+      body: `The same degree's paycheck is comfortable in one metro and a stretch in another. We pit graduate-weighted pay against market rent across 379 metros: a tech salary clears the 30%-of-income rule almost everywhere, but coastal and Hawaii metros flip it into a stretch. Geography is the variable the headline salary hides.`,
     },
     {
       n: "05",
       title: "The gender pay gap persists inside the same field.",
-      body: `Even comparing men and women who studied the same thing, the median field shows an ${ov.global?.median_gender_gap_pct ?? 8}% gap in 5-year earnings${wideGap ? `, widening to ${wideGap.gender_gap_pct}% in fields like ${wideGap.title.split(",")[0]}` : ""}. Same major, same credential — different outcome.`,
+      body: `Even comparing men and women who studied the same thing, the median field shows an ${out.global?.median_gender_gap_pct ?? 8.4}% gap in 5-year earnings${wideGap ? `, widening to ${wideGap.gender_gap_pct}% in fields like ${wideGap.title.split(",")[0]}` : ""}. Same major, same credential, different outcome.`,
     },
     ...(bright && dim
       ? [
           {
             n: "06",
             title: "Two degrees, opposite job-market futures.",
-            body: `Pay is only half the story — the other half is whether the jobs will still be there. Using BLS ${outlook.vintage} projections weighted over each major's occupations, the jobs that ${bright.title.split(",")[0]} graduates enter are projected to grow ${bright.growth_wt > 0 ? "+" : ""}${bright.growth_wt}% over ten years, while those for ${dim.title.split(",")[0]} are projected to ${dim.growth_wt >= 0 ? `grow just +${dim.growth_wt}%` : `shrink ${dim.growth_wt}%`}. Same diploma timeline, very different headroom.`,
+            body: `Pay is only half the story. The other half is whether the jobs will still be there. Using BLS ${outlook.vintage} projections weighted over each major's occupations, the jobs that ${bright.title.split(",")[0]} graduates enter are projected to grow ${bright.growth_wt > 0 ? "+" : ""}${bright.growth_wt}% over ten years, while those for ${dim.title.split(",")[0]} are projected to ${dim.growth_wt >= 0 ? `grow just +${dim.growth_wt}%` : `shrink ${dim.growth_wt}%`}. Same diploma timeline, very different headroom.`,
           },
         ]
       : []),
@@ -134,18 +134,21 @@ export default async function FindingsPage() {
           debt). We map each major to its occupations via the NCES CIP→SOC crosswalk, weighted by
           employment; attach wages and AI-exposure measures (O*NET, Eloundou, AIOE); and join metro
           wages (BLS OEWS) to rents (Zillow), and add each occupation&apos;s 10-year BLS growth
-          outlook. Every number is a real, published figure — privacy-suppressed cells are left out,
-          never imputed — and the analysis is reproducible from the committed data.
+          outlook. Earnings, debt, wages, and the growth outlook are real, published figures
+          (privacy-suppressed cells are left out, never imputed); the major-to-occupation mapping is
+          modeled, and we check it against reality below. The analysis is reproducible from the
+          committed data.
         </p>
         {acs?.n_majors_matched > 0 && (
           <p className="mt-3 text-sm leading-relaxed text-neutral-400">
             <span className="text-neutral-300">We show the modeled crosswalk against reality.</span>{" "}
             For {acs.n_majors_matched} fields we could match by name, we add an independent empirical
-            view from Census ACS microdata ({acs.vintage}) — the occupations real graduates of that
+            view from Census ACS microdata ({acs.vintage}): the occupations real graduates of that
             field actually report, by share. The two are built from entirely separate data (ACS never
-            feeds the model), so they sometimes diverge: the model weights occupations by their total
-            size, while ACS reflects where graduates actually land. Showing both — rather than hiding
-            the disagreement behind a single number — is the honest way to present a lossy CIP→SOC map.
+            feeds the model), and they agree on the single most common occupation only about{" "}
+            {Math.round((acs.crosswalk_agreement_rate ?? 0) * 100)}% of the time: the model weights
+            occupations by their total size, while ACS reflects where graduates actually land. Showing both, rather than hiding
+            the disagreement behind a single number, is the honest way to present a lossy CIP→SOC map.
           </p>
         )}
         <div className="mt-4 flex flex-wrap gap-4 text-sm">

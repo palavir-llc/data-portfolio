@@ -25,7 +25,7 @@ interface MetroDotMapProps {
 /**
  * Metro-level dot map: every metro placed at its real lat/lng (Census centroids),
  * the dot colored by whether the selection's pay keeps rent under the rule (green) or
- * not (red), and sized by rent level. d3 geoAlbersUsa projection — reliable, no WebGL.
+ * not (red), and sized by rent level. d3 geoAlbersUsa projection: reliable, no WebGL.
  */
 export function MetroDotMap({ wageByCbsa, rule, width = 860, height = 520 }: MetroDotMapProps) {
   const ref = useRef<SVGSVGElement>(null);

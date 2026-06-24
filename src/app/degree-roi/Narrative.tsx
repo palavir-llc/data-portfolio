@@ -13,7 +13,7 @@ const fmt = (n: number) => `$${Math.round(n).toLocaleString()}`;
 
 /**
  * A compact scrollytelling intro: a sticky panel cycles through the four questions the
- * story answers as the reader scrolls past four steps. Uses IntersectionObserver — no
+ * story answers as the reader scrolls past four steps. Uses IntersectionObserver, no
  * scrollytelling library.
  */
 export function Narrative() {
@@ -47,7 +47,7 @@ export function Narrative() {
   const steps = [
     {
       q: "Where does it lead?",
-      body: `A major isn't a job — it's a spray of them. We trace each of ${ov?.n_majors ?? 226} fields to the ${ov?.n_occupations ?? 800}+ occupations its graduates actually enter.`,
+      body: `A major isn't a job; it's a spray of them. We trace each of ${ov?.n_majors ?? 226} fields to the ${ov?.n_occupations ?? 800}+ occupations its graduates actually enter.`,
       stat: `${ov?.n_majors ?? 226} majors`,
       sub: "→ the jobs they become",
       color: "from-purple-400 to-fuchsia-400",
@@ -55,7 +55,7 @@ export function Narrative() {
     {
       q: "What does it pay?",
       body: "Five years out, against the debt it took to get there. Some degrees pay it back in two years; some never quite do.",
-      stat: ov ? fmt(ov.median_earn_5yr) : "$58,198",
+      stat: ov ? fmt(ov.median_earn_5yr) : "$58,298",
       sub: ov ? `median 5-yr pay · ${fmt(ov.median_debt)} debt` : "median 5-yr pay",
       color: "from-emerald-400 to-teal-400",
     },
@@ -69,7 +69,7 @@ export function Narrative() {
     {
       q: "Can you afford the life?",
       body: "A six-figure salary in one city is a stretch in another. We put the paycheck against the rent, metro by metro.",
-      stat: "370 metros",
+      stat: "379 metros",
       sub: "pay vs. rent, your 30% rule",
       color: "from-sky-400 to-indigo-400",
     },

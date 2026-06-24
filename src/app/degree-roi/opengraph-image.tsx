@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
-export const alt = "Where Your Degree Takes You — the job, the payoff, the AI risk, and the rent";
+export const alt = "Where Your Degree Takes You: the job, the payoff, the AI risk, and the rent";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -55,7 +54,7 @@ export default function Image() {
             maxWidth: "900px",
           }}
         >
-          63,000 college programs — the job, the payoff, the AI risk, and the rent
+          62,000+ college programs: the job, the payoff, the AI risk, and the rent
         </div>
         <div style={{ display: "flex", flexDirection: "row", gap: "16px", marginTop: "40px" }}>
           {["College Scorecard", "BLS OEWS", "O*NET", "AI Exposure", "Zillow"].map((tag) => (

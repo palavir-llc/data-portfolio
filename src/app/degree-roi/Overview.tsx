@@ -78,9 +78,9 @@ export function Overview() {
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-400">
             We followed{" "}
             <span className="text-neutral-200">
-              {ov ? <AnimatedCounter value={ov.n_programs_shown} /> : "63,000"}
+              {ov ? <AnimatedCounter value={ov.n_programs_shown} /> : "62,000+"}
             </span>{" "}
-            real college programs all the way through — to the jobs graduates enter, what they earn
+            real college programs all the way through, to the jobs graduates enter, what they earn
             against the debt they carry, how exposed those jobs are to AI, and whether the paycheck
             covers the rent. Every number is a real, published figure. Nothing is generated.
           </p>
@@ -136,14 +136,14 @@ export function Overview() {
       {quad.length > 0 && ov && (
         <section className="mx-auto max-w-5xl px-5 py-10">
           <Reveal>
-            <h2 className="text-2xl font-bold text-neutral-100">The pay–AI map of every major</h2>
+            <h2 className="text-2xl font-bold text-neutral-100">The pay vs AI map of every major</h2>
             <p className="mb-5 mt-1 max-w-3xl text-sm text-neutral-400">
               Each dot is a Bachelor&apos;s major, placed by what graduates earn (across) and how
               exposed their jobs are to generative AI (up). The top-right{" "}
               <span className="text-rose-400">danger zone</span> is the uncomfortable one: well paid{" "}
-              <em>and</em> highly exposed — where many computing and tech fields land. Debt-vs-earnings
+              <em>and</em> highly exposed, where many computing and tech fields land. Debt-vs-earnings
               correlation across majors is just{" "}
-              <span className="text-neutral-300">r = {ov.correlations.debt_vs_earnings}</span> — taking
+              <span className="text-neutral-300">r = {ov.correlations.debt_vs_earnings}</span>: taking
               on more debt does not buy more pay.
             </p>
             <div className="rounded-xl border border-neutral-800 bg-neutral-900/30 p-3">
@@ -197,7 +197,7 @@ export function Overview() {
         <Reveal>
           <h2 className="text-2xl font-bold text-neutral-100">Now find yours</h2>
           <p className="mx-auto mt-2 max-w-xl text-sm text-neutral-400">
-            Pick a school and major below to trace it the whole way through — the jobs, the payoff,
+            Pick a school and major below to trace it the whole way through: the jobs, the payoff,
             the AI exposure, and whether the pay covers the rent where you want to live.
           </p>
         </Reveal>

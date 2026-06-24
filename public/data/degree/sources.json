@@ -22,6 +22,16 @@
       "source_key": "ai_exposure_eloundou"
     },
     {
+      "name": "O*NET Database",
+      "publisher": "U.S. Department of Labor, Employment & Training Administration",
+      "url": "https://www.onetcenter.org/database.html",
+      "vintage": "O*NET 28.x",
+      "license": "public domain (courtesy attribution requested)",
+      "attribution": "O*NET Database, U.S. Department of Labor/Employment & Training Administration",
+      "notes": "Occupational task statements underlying the GPT-era task-exposure measure.",
+      "source_key": "onet"
+    },
+    {
       "name": "BLS OEWS — Metropolitan Areas",
       "publisher": "U.S. Bureau of Labor Statistics",
       "url": "https://www.bls.gov/oes/tables.htm",

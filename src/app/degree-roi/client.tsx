@@ -101,7 +101,7 @@ const fmtUsd = (n: number | null | undefined) =>
 const median = (xs: number[]) =>
   xs.length ? xs.slice().sort((a, b) => a - b)[Math.floor(xs.length / 2)] : null;
 
-// Geographic map metrics — all intuitive: "where are the jobs / the best pay / the
+// Geographic map metrics, all intuitive: "where are the jobs / the best pay / the
 // cheapest rent." (Location quotient was dropped: per-capita concentration confused the
 // plain-English question of where the jobs actually are.)
 type GeoMetricKey = "jobs" | "pay" | "real" | "rent";
@@ -123,7 +123,7 @@ const GEO_METRICS: Record<
     scheme: "blues",
     higherIsBetter: true,
     fmt: (v) => `${v.toFixed(0)}%`,
-    caption: "Share of this degree's jobs in each state — where the work actually is (BLS OEWS).",
+    caption: "Share of this degree's jobs in each state: where the work actually is (BLS OEWS).",
   },
   pay: {
     label: "Highest pay",
@@ -140,7 +140,7 @@ const GEO_METRICS: Record<
     higherIsBetter: true,
     fmt: (v) => `$${Math.round(v / 1000)}k`,
     caption:
-      "Pay adjusted for the state's cost of living (BEA price parities) — where the paycheck actually stretches furthest, not just the biggest nominal number.",
+      "Pay adjusted for the state's cost of living (BEA price parities): where the paycheck actually stretches furthest, not just the biggest nominal number.",
   },
   rent: {
     label: "Rent rule",
@@ -150,7 +150,7 @@ const GEO_METRICS: Record<
     transform: (v) => v * 100,
     fmt: (v) => `${v.toFixed(0)}%`,
     caption:
-      "Where this degree's pay keeps rent under your line — green clears it, red is over (OEWS × Zillow).",
+      "Where this degree's pay keeps rent under your line. Green clears it, red is over (OEWS × Zillow).",
   },
 };
 
@@ -216,10 +216,10 @@ export function DegreeRoiClient() {
   // load static data once
   useEffect(() => {
     Promise.all([
-      fetch("/data/degree/programs_index.json").then((r) => r.json()),
-      fetch("/data/degree/occupations.json").then((r) => r.json()),
-      fetch("/data/degree/degree_occupation_flows.json").then((r) => r.json()),
-      fetch("/data/degree/sources.json").then((r) => r.json()),
+      fetch("/data/degree/programs_index.json").then((r) => (r.ok ? r.json() : Promise.reject(new Error("programs_index")))),
+      fetch("/data/degree/occupations.json").then((r) => (r.ok ? r.json() : Promise.reject(new Error("occupations")))),
+      fetch("/data/degree/degree_occupation_flows.json").then((r) => (r.ok ? r.json() : Promise.reject(new Error("degree_occupation_flows")))),
+      fetch("/data/degree/sources.json").then((r) => (r.ok ? r.json() : Promise.reject(new Error("sources")))),
       fetch("/data/degree/premium.json").then((r) => (r.ok ? r.json() : null)),
       fetch("/data/degree/trajectory_clusters.json").then((r) => (r.ok ? r.json() : null)),
       fetch("/data/degree/affordability_metros.json").then((r) => (r.ok ? r.json() : null)),
@@ -242,7 +242,7 @@ export function DegreeRoiClient() {
         setTaskAi(tai);
         setOutcomes(Object.fromEntries((out?.majors ?? []).map((m) => [m.cip4, m])));
       },
-    );
+    ).catch((e) => console.error("degree data load failed", e));
   }, []);
 
   // keep the URL in sync so any major selection is shareable
@@ -396,7 +396,7 @@ export function DegreeRoiClient() {
 
   // affordability: rent burden of this major's typical pay, metro by metro
   // credential ladder: median 5-yr earnings by degree level for this major (from the
-  // shard, which holds every credential level — not just the Bachelor's we chart above).
+  // shard, which holds every credential level, not just the Bachelor's we chart above).
   const credLadder = useMemo(() => {
     if (!shard || !index) return [];
     const byCred = new Map<string, number[]>();
@@ -499,7 +499,7 @@ export function DegreeRoiClient() {
           cluster: band,
           size: mine ? 9 : 3,
           label: o.soc_title ?? o.soc6,
-          tooltip: `${o.soc_title ?? o.soc6}${mine ? " — this major" : ""}\nLSA affinity ${Math.round(
+          tooltip: `${o.soc_title ?? o.soc6}${mine ? " (this major)" : ""}\nLSA affinity ${Math.round(
             s * 100,
           )}%${o.ai_beta != null ? ` · Eloundou β ${Math.round(o.ai_beta * 100)}%` : ""}${
             o.aioe != null ? ` · AIOE ${o.aioe.toFixed(2)}` : ""
@@ -518,7 +518,7 @@ export function DegreeRoiClient() {
           Where Your Degree Takes You
         </h2>
         <p className="mt-3 max-w-2xl text-base text-neutral-400">
-          Pick a major and a school. Follow it all the way through — the jobs graduates
+          Pick a major and a school. Follow it all the way through: the jobs graduates
           enter, what they earn against the debt they carry, how exposed those jobs are to
           AI, and whether the paycheck covers the rent.
         </p>
@@ -592,7 +592,7 @@ export function DegreeRoiClient() {
             </div>
             {major && (
               <p className="mt-4 text-sm text-neutral-400">
-                <span className="text-neutral-200">{major.cip_title}</span> — showing{" "}
+                <span className="text-neutral-200">{major.cip_title}</span>: showing{" "}
                 {stats.n} schools with reported earnings
                 {stats.suppressed > 0 && (
                   <span className="text-neutral-400">
@@ -658,7 +658,7 @@ export function DegreeRoiClient() {
           <h2 className="mb-1 text-xl font-semibold text-neutral-100">Does a higher degree pay off?</h2>
           <p className="mb-4 max-w-3xl text-sm text-neutral-400">
             Median 5-year earnings by credential level for this field. More school usually means
-            more pay — but how much more varies enormously by field (and this ignores the extra debt
+            more pay, but how much more varies enormously by field (and this ignores the extra debt
             and years).
           </p>
           <div className="space-y-2">
@@ -701,7 +701,7 @@ export function DegreeRoiClient() {
         <section className="mb-12">
           <h2 className="mb-1 text-xl font-semibold text-neutral-100">The fine print on outcomes</h2>
           <p className="mb-4 max-w-3xl text-sm text-neutral-400">
-            Three things the headline number hides — the pay gap between men and women in this field,
+            Three things the headline number hides: the pay gap between men and women in this field,
             whether the debt is sustainable, and the real net cost.
           </p>
           <div className="grid gap-4 sm:grid-cols-3">
@@ -755,10 +755,10 @@ export function DegreeRoiClient() {
             ? "occupational employment size"
             : "an even split"}{" "}
           (the crosswalk gives no native weights, so the method is disclosed per row). AI
-          exposure is the published Eloundou “GPTs are GPTs” β measure —{" "}
+          exposure is the published Eloundou “GPTs are GPTs” β measure:{" "}
           <span className="text-neutral-400">
             the share of an occupation’s tasks generative AI plus tools could do substantially
-            faster. GPT-4-era (2023) task overlap — not a forecast of job loss.
+            faster. GPT-4-era (2023) task overlap, not a forecast of job loss.
           </span>
         </p>
         <div className="space-y-2">
@@ -830,7 +830,7 @@ export function DegreeRoiClient() {
               </span>
             </div>
             <p className="mt-1 mb-3 text-xs text-neutral-400">
-              The crosswalk above is <span className="text-neutral-300">modeled</span> — it weights
+              The crosswalk above is <span className="text-neutral-300">modeled</span>. It weights
               occupations by how large they are. This is the{" "}
               <span className="text-neutral-300">independent, empirical</span> picture from Census
               microdata: the occupations employed graduates of this field actually report, by share.
@@ -863,7 +863,7 @@ export function DegreeRoiClient() {
       {taskAi && taskScatter.length > 0 && (
         <section className="mb-12">
           <h2 className="mb-1 text-xl font-semibold text-neutral-100">
-            Three ways to measure AI exposure — do they agree?
+            Three ways to measure AI exposure: do they agree?
           </h2>
           <p className="mb-4 max-w-3xl text-sm text-neutral-400">
             Two published exposure measures (Eloundou β, AIOE) plus a third I derived
@@ -1100,7 +1100,7 @@ export function DegreeRoiClient() {
           {majorPremium && premium && (
             <div className="rounded-xl border border-neutral-800 bg-neutral-900/40 p-5">
               <h2 className="text-lg font-semibold text-neutral-100">
-                Is it the major — or who gets in?
+                Is it the major, or who gets in?
               </h2>
               <p className="mt-1 mb-4 text-sm text-neutral-400">
                 The raw earnings edge vs. the edge that <em>survives</em> adjusting for
@@ -1154,10 +1154,10 @@ export function DegreeRoiClient() {
         <h2 className="mb-3 text-lg font-semibold text-amber-200/90">What this can and can&apos;t tell you</h2>
         <ul className="grid gap-2.5 text-sm text-neutral-400 sm:grid-cols-2">
           {[
-            ["Earnings are Title-IV only.", "They cover federally-aided graduates (those who took loans/grants) — wealthier non-borrowers are excluded, which can bias a program's figures."],
-            ["The numbers describe past graduates.", "5-year earnings are 2014–16 cohorts measured in 2020–21 — a defensible comparison, not a forecast of what you'll earn."],
+            ["Earnings are Title-IV only.", "They cover federally-aided graduates (those who took loans/grants). Wealthier non-borrowers are excluded, which can bias a program's figures."],
+            ["The numbers describe past graduates.", "5-year earnings are 2014 to 2016 cohorts measured in 2020 to 2021, a defensible comparison, not a forecast of what you'll earn."],
             ["A major isn't one job.", "Degree→occupation flows are weighted by employment (disclosed per row), not observed individual outcomes. Geography drops generic catch-all occupations to stay meaningful."],
-            ["AI exposure ≠ job loss.", "It's GPT-4-era (2023) task overlap from published measures — how much could be assisted, not a prediction that the job disappears."],
+            ["AI exposure ≠ job loss.", "It's GPT-4-era (2023) task overlap from published measures: how much could be assisted, not a prediction that the job disappears."],
             ["The premium is observational.", "The selection-adjusted edge controls for who enrolls, but it is correlational, not causal proof that the major caused the earnings."],
             ["Rent and pay are medians.", "Affordability uses metro-median rent vs. graduate-weighted pay; OEWS covers fewer metros than Zillow, so unmatched metros are omitted, never estimated."],
           ].map(([head, body]) => (
@@ -1177,7 +1177,7 @@ export function DegreeRoiClient() {
         <p className="mb-5 text-sm text-neutral-400">
           Only real, source-traceable numbers are shown. Privacy-suppressed cells are left
           out, never estimated. Earnings reflect federally-aided completers and a multi-year
-          cohort lag; “years to pay off” assumes 10% of earnings goes to debt — a disclosed
+          cohort lag; “years to pay off” assumes 10% of earnings goes to debt, a disclosed
           formula, not a prediction. Everything below is reproducible end to end.
         </p>
 
@@ -1241,8 +1241,9 @@ export function DegreeRoiClient() {
             <li key={s.source_key} className="text-neutral-400">
               <a href={s.url} className="text-purple-400 underline hover:text-purple-300" target="_blank" rel="noreferrer">
                 {s.name}
-              </a>{" "}
-              — {s.publisher}. <span className="text-neutral-400">{s.vintage}. {s.license}. {s.attribution}.</span>
+              </a>
+              {", "}
+              {s.publisher}. <span className="text-neutral-400">{s.vintage}. {s.license}. {s.attribution}.</span>
             </li>
           ))}
         </ul>

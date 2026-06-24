@@ -13,6 +13,8 @@ export interface MajorPage {
   ai_beta: number | null;
   adjusted_premium: number | null;
   top_occupation: string | null;
+  top_occupation_empirical: boolean;
+  top_occupation_share: number | null;
   n_programs: number;
   n_schools: number;
   gender_gap_pct: number | null;
@@ -42,15 +44,21 @@ async function readJson(name: string): Promise<any> {
 
 export async function getMajors(): Promise<MajorPage[]> {
   if (cache) return cache;
-  const [land, out, outlook] = await Promise.all([
+  const [land, out, outlook, acs] = await Promise.all([
     readJson("major_landscape.json"),
     readJson("major_outcomes.json").catch(() => ({ majors: [] })),
     readJson("job_outlook.json").catch(() => ({ by_cip: {}, vintage: null })),
+    readJson("acs_flows.json").catch(() => ({ by_cip: {} })),
   ]);
   const outByCip: Record<string, any> = Object.fromEntries(
     (out.majors ?? []).map((m: any) => [m.cip4, m]),
   );
   const olByCip: Record<string, any> = outlook.by_cip ?? {};
+  // Where graduates actually work: prefer the empirical Census ACS destination
+  // (acs_top[0]) over the size-weighted CIP->SOC model, which the pipeline's own
+  // validation agrees with only ~13% of the time. Majors without an ACS sample get
+  // no occupation claim rather than a modeled (often catch-all) guess.
+  const acsByCip: Record<string, any> = acs.by_cip ?? {};
   const seen = new Set<string>();
   cache = (land.majors as any[]).map((m) => {
     // prefer the pipeline-generated slug (single source of truth); fall back if absent
@@ -61,6 +69,7 @@ export async function getMajors(): Promise<MajorPage[]> {
     }
     seen.add(slug);
     const o = outByCip[m.cip4] ?? {};
+    const acsTop = acsByCip[m.cip4]?.acs_top?.[0];
     return {
       slug,
       cip4: m.cip4,
@@ -71,7 +80,9 @@ export async function getMajors(): Promise<MajorPage[]> {
       payoff_yrs: m.payoff_yrs ?? null,
       ai_beta: m.ai_beta ?? null,
       adjusted_premium: m.adjusted_premium ?? null,
-      top_occupation: m.top_occupation ?? null,
+      top_occupation: acsTop?.soc_title ?? null,
+      top_occupation_empirical: !!acsTop,
+      top_occupation_share: acsTop?.share ?? null,
       n_programs: m.n_programs ?? 0,
       n_schools: m.n_schools ?? 0,
       gender_gap_pct: o.gender_gap_pct ?? null,

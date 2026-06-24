@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Where Your Degree Takes You",
     description:
-      "The job, the payoff, the AI risk, and the rent — for 63,000 real college programs.",
+      "The job, the payoff, the AI risk, and the rent, for 62,000+ real college programs.",
     type: "article",
     url: "https://portfolio.palavir.co/degree-roi",
   },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Where Your Degree Takes You",
     description:
-      "63,000 college programs: earnings vs. debt, where the degree leads, AI exposure, and affordability — every number traceable to its source.",
+      "62,000+ college programs: earnings vs. debt, where the degree leads, AI exposure, and affordability. Every number traceable to its source.",
   },
 };
 
@@ -42,7 +42,7 @@ export default function DegreeRoiPage() {
     "@type": "Dataset",
     name: "Degree ROI → Job → AI → Affordability",
     description:
-      "63,000 College Scorecard programs joined to BLS OEWS occupations, O*NET tasks, published AI-exposure measures, and Zillow rents.",
+      "62,000+ College Scorecard programs joined to BLS OEWS occupations, O*NET tasks, published AI-exposure measures, and Zillow rents.",
     creator: { "@type": "Organization", name: "Palavir LLC" },
     license: "https://creativecommons.org/licenses/by/4.0/",
   };

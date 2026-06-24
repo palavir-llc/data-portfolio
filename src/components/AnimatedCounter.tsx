@@ -10,7 +10,7 @@ interface AnimatedCounterProps {
 }
 
 /**
- * Counts up to `value` once it scrolls into view (ease-out). Pure React —
+ * Counts up to `value` once it scrolls into view (ease-out). Pure React:
  * IntersectionObserver + requestAnimationFrame, no animation library.
  */
 export function AnimatedCounter({
