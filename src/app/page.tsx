@@ -42,94 +42,6 @@ const projects = [
     color: "from-purple-500 to-fuchsia-500",
     status: "live" as const,
   },
-  {
-    slug: "fraud-in-america",
-    title: "The State of Fraud in America",
-    subtitle: "968K loans. 6,088 companies. 1.38M providers.",
-    description:
-      "Multi-domain fraud analysis using Isolation Forest on PPP loans, Beneish M-Score on SEC EDGAR filings, Random Forest on Medicare billing data, and CFPB complaint velocity as an early warning system. Real public data, real ML, real findings.",
-    techniques: [
-      "Isolation Forest",
-      "Beneish M-Score",
-      "Random Forest Classifier",
-      "Complaint Velocity Detection",
-    ],
-    vizTypes: [
-      "Anomaly Scatter",
-      "M-Score Histogram",
-      "State Risk Table",
-      "Timeline Charts",
-    ],
-    dataSources: ["SBA PPP FOIA", "SEC EDGAR XBRL", "CMS Medicare", "CFPB", "OIG LEIE"],
-    color: "from-red-500 to-amber-500",
-    status: "live" as const,
-  },
-  {
-    slug: "hospital-quality",
-    title: "Hospital Quality Survival Landscape",
-    subtitle: "Is your ZIP code your destiny?",
-    description:
-      "Clustering 4,700+ hospitals by 150 quality measures, overlaid with socioeconomic data. UMAP dimensionality reduction, random forest with SHAP interpretation, and scrollytelling narrative reveal which communities are served by underperforming hospitals.",
-    techniques: [
-      "K-Means Clustering",
-      "Random Forest + SHAP",
-      "PCA / UMAP",
-      "Kaplan-Meier Curves",
-    ],
-    vizTypes: [
-      "Ridge Plots",
-      "Beeswarm",
-      "Choropleth",
-      "Scrollytelling",
-    ],
-    dataSources: ["CMS Hospital Compare", "Census ACS", "HRSA AHRF"],
-    color: "from-rose-500 to-orange-500",
-    status: "coming-soon" as const,
-  },
-  {
-    slug: "wage-topology",
-    title: "The Wage Topology",
-    subtitle: "800 occupations. 30 skill dimensions. One landscape.",
-    description:
-      "UMAP dimensionality reduction transforms O*NET skill profiles into an interactive 3D terrain where elevation is median wage. Discover occupation families, skill-to-wage relationships, and how the landscape shifts across states.",
-    techniques: [
-      "UMAP Embedding",
-      "K-Means Clustering",
-      "Linear Regression",
-      "Dimensionality Reduction",
-    ],
-    vizTypes: [
-      "3D Terrain Surface",
-      "UMAP Scatter",
-      "Ridge Plots",
-      "Radar Charts",
-    ],
-    dataSources: ["BLS OEWS", "O*NET", "BLS Employment Projections"],
-    color: "from-violet-500 to-blue-500",
-    status: "coming-soon" as const,
-  },
-  {
-    slug: "federal-spending",
-    title: "The Anatomy of $700 Billion",
-    subtitle: "Who actually gets the money?",
-    description:
-      "Network analysis of federal contract and grant spending reveals hidden ecosystems of contractors, geographic dependencies, and structural patterns invisible in aggregate statistics. Four ML techniques expose what bar charts never could.",
-    techniques: [
-      "Network Community Detection",
-      "UMAP Contractor Profiles",
-      "Isolation Forest Anomaly Detection",
-      "Changepoint Detection",
-    ],
-    vizTypes: [
-      "Force-Directed Graph",
-      "Sankey Diagram",
-      "Hex-Bin Map",
-      "Small Multiples",
-    ],
-    dataSources: ["USASpending.gov", "Census Bureau"],
-    color: "from-emerald-500 to-cyan-500",
-    status: "coming-soon" as const,
-  },
 ];
 
 export default function Home() {
@@ -184,22 +96,13 @@ export default function Home() {
                 <div className="flex-1">
                   <div className="flex items-center gap-3">
                     <h2 className="text-2xl font-semibold tracking-tight">
-                      {project.status === "coming-soon" ? (
-                        <span>{project.title}</span>
-                      ) : (
-                        <Link
-                          href={`/${project.slug}`}
-                          className="hover:underline"
-                        >
-                          {project.title}
-                        </Link>
-                      )}
+                      <Link
+                        href={`/${project.slug}`}
+                        className="hover:underline"
+                      >
+                        {project.title}
+                      </Link>
                     </h2>
-                    {project.status === "coming-soon" && (
-                      <span className="rounded-full bg-zinc-800 px-2.5 py-0.5 text-xs font-medium text-zinc-400">
-                        In Progress
-                      </span>
-                    )}
                   </div>
                   <p
                     className={`mt-1 text-lg font-medium bg-gradient-to-r ${project.color} bg-clip-text text-transparent`}
