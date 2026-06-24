@@ -74,12 +74,14 @@ export default async function MajorPage({ params }: { params: Promise<{ major: s
         Across {m.n_schools.toLocaleString()} schools, graduates of {m.title} earn a median{" "}
         <span className="text-neutral-200">{usd(m.earn_5yr)}</span> five years out on{" "}
         <span className="text-neutral-200">{usd(m.debt)}</span> of debt.
-        {m.top_occupation_empirical && m.top_occupation
-          ? ` Most go on to work as ${m.top_occupation}${
-              m.top_occupation_share != null
-                ? ` (${Math.round(m.top_occupation_share * 100)}% of them, per Census ACS)`
-                : ""
-            }.`
+        {m.top_occupation
+          ? m.top_occupation_empirical
+            ? ` Most go on to work as ${m.top_occupation}${
+                m.top_occupation_share != null
+                  ? ` (${Math.round(m.top_occupation_share * 100)}% of them, per Census ACS)`
+                  : ""
+              }.`
+            : ` Graduates most commonly work as ${m.top_occupation} (modeled from the federal CIP-to-SOC crosswalk).`
           : ""}{" "}
         These earnings and debt figures come from the U.S. Dept. of Education.
       </p>

@@ -12,11 +12,27 @@ edge so the frontend can disclose exactly how each flow was estimated:
                            occupations absorb more graduates: a defensible prior).
   2. "uniform_fallback" -> equal 1/N split when no employment figure is available.
 
+Before weighting we drop generic catch-all destinations the crosswalk attaches to
+almost every field -- Management (11-xxxx) and Postsecondary Teachers (25-1xxx).
+Because those SOCs are enormous, a pure employment prior lets them dominate a
+specific degree's flow (e.g. Petroleum Engineering -> "Architectural & Engineering
+Managers" at 82% weight, burying actual Petroleum Engineers). They are downstream
+career destinations, not what the degree trains for, so we exclude them and
+renormalize -- unless a field maps to nothing else, in which case they are kept.
+This mirrors the long-standing treatment in 05_geography.py.
+
 Unmapped CIPs are RETAINED and flagged (coverage_flag="unmapped"), never dropped.
 """
 
 import re
 import pandas as pd
+
+
+def is_generic_soc(soc: str) -> bool:
+    """Generic catch-all destinations (Management 11-xxxx, Postsecondary 25-1xxx)
+    the size prior over-weights. Excluded from graduate-flow weighting."""
+    s = str(soc)
+    return s.startswith("11-") or s.startswith("25-1")
 
 
 def _clean_code(x) -> str:
@@ -108,6 +124,11 @@ def build_weighted_flows(
 
     rows = []
     for cip4, grp in e.groupby("cip4"):
+        # Drop generic catch-all destinations so the size prior can't bury the
+        # occupations a degree actually trains for. Keep them only if the field maps
+        # to nothing else (so a flow is never emptied out).
+        non_generic = grp[~grp["soc6"].map(is_generic_soc)]
+        grp = non_generic if not non_generic.empty else grp
         if grp["has_emp"].any():
             sub = grp.copy()
             # Unknown-employment edges within an otherwise-known set get the group min

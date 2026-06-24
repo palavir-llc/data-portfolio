@@ -80,7 +80,7 @@ export async function getMajors(): Promise<MajorPage[]> {
       payoff_yrs: m.payoff_yrs ?? null,
       ai_beta: m.ai_beta ?? null,
       adjusted_premium: m.adjusted_premium ?? null,
-      top_occupation: acsTop?.soc_title ?? null,
+      top_occupation: acsTop?.soc_title ?? m.top_occupation ?? null,
       top_occupation_empirical: !!acsTop,
       top_occupation_share: acsTop?.share ?? null,
       n_programs: m.n_programs ?? 0,
