@@ -93,7 +93,33 @@ export function MajorTable() {
         placeholder="Search majors…"
         className="mb-3 w-full max-w-sm rounded-md border border-neutral-700 bg-neutral-950 px-3 py-2 text-sm outline-none focus:border-purple-500"
       />
-      <div className="max-h-[32rem] overflow-auto rounded-xl border border-neutral-800">
+      {/* mobile-only sort control (on desktop you sort by clicking column headers) */}
+      <div className="mb-3 flex items-center gap-2 md:hidden">
+        <span className="shrink-0 text-xs uppercase tracking-wide text-neutral-500">Sort</span>
+        <select
+          value={sortKey}
+          onChange={(e) => {
+            const k = e.target.value as SortKey;
+            setSortKey(k);
+            setAsc(k === "title" || k === "payoff_yrs" || k === "debt");
+          }}
+          aria-label="Sort majors by"
+          className="flex-1 rounded-md border border-neutral-700 bg-neutral-950 px-2 py-1.5 text-sm outline-none focus:border-purple-500"
+        >
+          {COLS.map((c) => (
+            <option key={c.key} value={c.key}>{c.label}</option>
+          ))}
+        </select>
+        <button
+          onClick={() => setAsc(!asc)}
+          aria-label="Toggle sort direction"
+          className="rounded-md border border-neutral-700 bg-neutral-950 px-3 py-1.5 text-sm text-neutral-300"
+        >
+          {asc ? "▲" : "▼"}
+        </button>
+      </div>
+      {/* desktop table */}
+      <div className="hidden max-h-[32rem] overflow-auto rounded-xl border border-neutral-800 md:block">
         <table className="w-full border-collapse text-sm">
           <thead className="sticky top-0 bg-neutral-900/95 backdrop-blur">
             <tr>
@@ -128,6 +154,24 @@ export function MajorTable() {
             ))}
           </tbody>
         </table>
+      </div>
+      {/* mobile cards — one card per major, no horizontal scroll */}
+      <div className="max-h-[34rem] space-y-2 overflow-auto md:hidden">
+        {rows.map((m) => (
+          <div key={m.cip4} className="rounded-xl border border-neutral-800 bg-neutral-900/30 p-3">
+            <div className="font-medium">{COLS[0].fmt(m)}</div>
+            <div className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1.5">
+              {COLS.slice(1).map((c) => (
+                <div key={c.key} className="flex items-baseline justify-between gap-2">
+                  <span className="text-[11px] uppercase tracking-wide text-neutral-500">{c.label}</span>
+                  <span className={`text-sm tabular-nums ${c.key === "earn_5yr" ? "font-semibold text-emerald-300" : "text-neutral-300"}`}>
+                    {c.fmt(m)}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
       {rows.length === 0 && <p className="mt-3 text-sm text-neutral-400">No majors match that search.</p>}
     </section>
