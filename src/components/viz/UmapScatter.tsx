@@ -46,8 +46,8 @@ export function UmapScatter({
     const h = height - margin.top - margin.bottom;
 
     const g = svg
-      .attr("width", width)
-      .attr("height", height)
+      .attr("viewBox", `0 0 ${width} ${height}`)
+      .attr("preserveAspectRatio", "xMidYMid meet")
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
 

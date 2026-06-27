@@ -107,7 +107,7 @@ export function Narrative() {
               ref={(el) => {
                 stepRefs.current[i] = el;
               }}
-              className="flex min-h-screen flex-col justify-center py-16"
+              className="flex flex-col justify-center py-10 md:min-h-screen md:py-16"
             >
               <h2 className="text-3xl font-bold text-neutral-100 sm:text-4xl">{s.q}</h2>
               <p className="mt-4 max-w-md text-lg leading-relaxed text-neutral-400">{s.body}</p>
