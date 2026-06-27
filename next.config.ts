@@ -4,6 +4,15 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        // Static data JSON (incl. per-major shards) — was max-age=0, so it
+        // re-downloaded on every visit and every major-page navigation. Cache
+        // it; updates ship on deploy, so a short fresh window + SWR is safe.
+        source: "/data/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=3600, stale-while-revalidate=86400" },
+        ],
+      },
+      {
         source: "/(.*)",
         headers: [
           { key: "X-Frame-Options", value: "DENY" },
