@@ -1,6 +1,39 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // portfolio.palavir.co is retired: every route permanently redirects into
+  // palavir.co/data. Order matters -- Next.js applies the first matching
+  // redirect, so most-specific sources come first and the '/:path*'
+  // catch-all stays last so it cannot shadow them.
+  async redirects() {
+    return [
+      {
+        source: "/degree-roi/findings",
+        destination: "https://palavir.co/data/where-your-degree-takes-you/findings",
+        permanent: true,
+      },
+      {
+        source: "/degree-roi/:major",
+        destination: "https://palavir.co/data/where-your-degree-takes-you/:major",
+        permanent: true,
+      },
+      {
+        source: "/degree-roi",
+        destination: "https://palavir.co/data/where-your-degree-takes-you",
+        permanent: true,
+      },
+      {
+        source: "/",
+        destination: "https://palavir.co/data",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        destination: "https://palavir.co/data",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
